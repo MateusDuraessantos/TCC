@@ -1,4 +1,4 @@
-<template>
+<template class="teste">
   <div>
     <NavPages />
     <header>
@@ -24,12 +24,12 @@ export default {
   name: 'DesignPage',
   components: { FooterPage, NavPages }
 }
-
-
 </script>
 
 
 <style scoped>
+
+
 .banner {
   position: absolute;
   width: 100%;

@@ -4,13 +4,13 @@
             <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
             <div class="nav__options">
                 <!-- trigger="click" -->
+
+
                 <el-dropdown>
-                    <span class="el-dropdown-link">
-                        Sobre o curso <img class="arrow" src="ArrowDown.svg">
-                        <el-icon class="el-icon--right">
-                            <arrow-down />
-                        </el-icon>
-                    </span>
+                    <router-link class="dropdown-link" to="/">
+                        <div>Sobre o curso</div>
+                        <img class="arrow" src="ArrowDown.svg">
+                    </router-link>
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item>Objetivos</el-dropdown-item>
@@ -23,16 +23,15 @@
                     </template>
                 </el-dropdown>
 
-                <a>Projetos desenvolvidos</a>
+                <router-link class="dropdown-link" to="ProjetosPage">Projetos desenvolvidos</router-link>
+
+
                 <el-dropdown>
-                    <router-link to="matricula">
-                        <span class="el-dropdown-link">
-                            Matrícula <img class="arrow" src="ArrowDown.svg">
-                            <el-icon class="el-icon--right">
-                                <arrow-down />
-                            </el-icon>
-                        </span>
-                    </router-link>
+                    <span>
+                        <router-link class="dropdown-link" to="MatriculaPage">
+                            Matrícula <img class="arrow" src="ArrowDown.svg" />
+                        </router-link>
+                    </span>
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item>Início das aulas</el-dropdown-item>
@@ -42,6 +41,7 @@
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
+
             </div>
         </div>
 
@@ -85,28 +85,9 @@ nav {
 
 .nav__options {
     display: flex;
-    font-size: 18px;
+    align-items: center;
     gap: 50px;
-    color: #828282;
-    font-weight: 300;
-
 }
-
-.el-dropdown-link,
-a {
-    cursor: pointer;
-    transition: .2s;
-    font-size: 18px;
-
-}
-
-.el-dropdown-link:hover,
-a:hover {
-    color: white;
-    transition: .2s;
-}
-
-
 
 .arrow {
     height: 5px;

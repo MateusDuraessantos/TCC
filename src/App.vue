@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="contato"><img src="fone.svg" alt="Contato"></div>
+    <router-link to="" class="contato">
+      <img class="contato__icon" src="fone.svg" alt="Contato">
+      <p class="contato__text">Contato</p>
+    </router-link>
     <router-view />
   </div>
 </template>
@@ -21,9 +24,6 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
-
-
 }
 
 body::-webkit-scrollbar {
@@ -36,7 +36,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #381818;
+  background-color: #2c2c2c;
   border-radius: 6px;
 }
 
@@ -49,13 +49,11 @@ body {
 
 :root {
   --page-width: 1000px;
-
   --blue-mack: #00547F;
   --red-mack: #CC141D;
 }
 
 header {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,15 +65,16 @@ header {
 }
 
 .contato {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 48px;
+  gap: 20px;
   height: 48px;
-  background: #A30000;
-  opacity: .4;
+  background: #5B1A1A;
   cursor: pointer;
-  border-radius: 100%;
+  border-radius: 100px;
   position: fixed;
   bottom: 40px;
   right: 60px;
@@ -83,20 +82,56 @@ header {
   z-index: 20;
 }
 
-.contato img {
-  width: 50%;
+.contato__icon {
+  height: 50%;
+  position: absolute;
+  left: 12px;
 }
 
-.contato:hover {
-  transform: scale(1.1);
+.contato__text {
+  text-decoration: none;
+  transition: .3s;
+  color: transparent;
+  opacity: 0;
+  margin-bottom: 2px;
+  margin-left: 32px;
+}
+
+.contato:hover p {
+  position: relative;
+  color: white;
+  opacity: 1;
   transition: .3s;
 }
 
-.el-dropdown-link,
-a {
+.contato:hover {
+  width: 130px;
+  background: #8b0000;
+  opacity: 1;
+  transition: .3s;
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
   border: none;
   text-decoration: none;
   color: #828282;
+  font-size: 18px;
+  height: 30px;
+  font-weight: 300;
+  mix-blend-mode: difference;
+  transition: .3s;
+}
+
+.dropdown-link:hover {
+  color: white;
+  transition: .3s;
+}
+
+.router-link-active {
+  color: white;
+
 }
 
 .blue_btn {
@@ -106,15 +141,33 @@ a {
   border-radius: 60px;
   color: white;
   font-size: 16px;
-  width: 100%;
   font-weight: 300;
   padding: 0 40px;
-  transition: .2s;
+  transition: .3s;
   cursor: pointer;
 }
 
 .blue_btn:hover {
   background: #00689c;
+  transition: .2s;
+}
+
+.black_btn {
+  background: #000;
+  height: 36px;
+  border: none;
+  border-radius: 60px;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0 40px;
+  transition: .3s;
+  cursor: pointer;
+
+}
+
+.black_btn:hover {
+  background: gray;
   transition: .2s;
 }
 

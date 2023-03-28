@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DesignPage from '../views/DesignPage.vue'
+import ProjetosPage from '../views/ProjetosPage.vue'
 import MatriculaPage from '../views/MatriculaPage.vue'
 
 const routes = [
@@ -9,7 +10,12 @@ const routes = [
     component: DesignPage
   },
   {
-    path: '/matricula',
+    path: '/ProjetosPage',
+    name: 'ProjetosPage',
+    component: ProjetosPage
+  },
+  {
+    path: '/MatriculaPage',
     name: 'MatriculaPage',
     component: MatriculaPage
   },
