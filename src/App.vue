@@ -26,16 +26,16 @@ export default {
   box-sizing: border-box;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 7px;
 
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   display: none;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: #2c2c2c;
   border-radius: 6px;
 }
@@ -43,12 +43,13 @@ body::-webkit-scrollbar-thumb {
 
 body {
   overflow: overlay;
+  color: white;
   position: relative;
   background: black;
 }
 
 :root {
-  --page-width: 1000px;
+  --page-width: 1200px;
   --blue-mack: #00547F;
   --red-mack: #CC141D;
 }
@@ -167,6 +168,25 @@ header {
 }
 
 .black_btn:hover {
+  background: gray;
+  transition: .2s;
+}
+
+.red_btn {
+  background: #CC141D;
+  height: 36px;
+  border: none;
+  border-radius: 60px;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0 40px;
+  transition: .3s;
+  cursor: pointer;
+
+}
+
+.red_btn:hover {
   background: gray;
   transition: .2s;
 }

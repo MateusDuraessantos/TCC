@@ -227,9 +227,9 @@ h3 {
 .container {
     padding-bottom: 100px;
     margin: auto;
-    width: 100%;
+    width: calc(100% - 400px);
     line-height: 24px;
-    max-width: var(--page-width);
+    max-width: 1920px;
     color: #B0B0B0;
 }
 

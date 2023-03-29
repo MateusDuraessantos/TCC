@@ -13,10 +13,19 @@
         </header>
         <el-carousel :interval="5000" arrow="always" height="100vh">
             <el-carousel-item>
-                <img src="projetos/1.jpg">
+                <img src="projetos/14.jpg">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="projetos/2.jpg">
+                <img src="projetos/4.jpg">
+            </el-carousel-item>
+            <el-carousel-item>
+                <img src="projetos/11.jpg">
+            </el-carousel-item>
+            <el-carousel-item>
+                <img src="projetos/14.jpg">
+            </el-carousel-item>
+            <el-carousel-item>
+                <img src="projetos/3.jpg">
             </el-carousel-item>
         </el-carousel>
 
@@ -50,8 +59,6 @@
                     <div class="projectName">
                         <p>Butlerfly</p>
                     </div>
-
-
                 </div>
 
                 <div class="projeto">
@@ -79,7 +86,6 @@
                     <div class="projectName">
                         <p>Gamer Table</p>
                     </div>
-
                 </div>
                 <div class="projeto">
                     <img class="projeto_thumb" src="projetos/3.jpg">
@@ -188,10 +194,6 @@
                         <!-- User -->
 
                         <div class="user">
-                            <img src="users/1.avif" class="user_img" />
-                            <p class="user_name">User Name 2</p>
-                        </div>
-                        <div class="user">
                             <img src="users/2.avif" class="user_img" />
                             <p class="user_name">User Name</p>
                         </div>
@@ -206,6 +208,8 @@
                         <p>Photoshop Collage</p>
                     </div>
                 </div>
+
+
                 <div class="projeto">
                     <img class="projeto_thumb" src="projetos/8.png">
                     <div class="container_user">
@@ -229,7 +233,122 @@
                             <p class="user_name">User Name 2</p>
                         </div>
                     </div>
-                    
+
+                    <!-- Projetc name -->
+
+                    <div class="projectName">
+                        <p>Athelstan</p>
+                    </div>
+                </div>
+
+                <div class="projeto">
+                    <img class="projeto_thumb" src="projetos/13.png">
+                    <div class="container_user">
+
+                        <!-- User -->
+
+                        <div class="user">
+                            <img src="users/4.avif" class="user_img" />
+                            <p class="user_name">User Name 0</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/mateus.jpg" class="user_img" />
+                            <p class="user_name">Mateus Durães</p>
+                        </div>
+                    </div>
+
+                    <!-- Projetc name -->
+
+                    <div class="projectName">
+                        <p>Athelstan</p>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img class="projeto_thumb" src="projetos/11.jpg">
+                    <div class="container_user">
+
+                        <!-- User -->
+
+                        <div class="user">
+                            <img src="users/4.avif" class="user_img" />
+                            <p class="user_name">User Name 0</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/mateus.jpg" class="user_img" />
+                            <p class="user_name">Mateus Durães</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/3.avif" class="user_img" />
+                            <p class="user_name">User Name 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/2.avif" class="user_img" />
+                            <p class="user_name">User Name 2</p>
+                        </div>
+                    </div>
+
+                    <!-- Projetc name -->
+
+                    <div class="projectName">
+                        <p>Athelstan</p>
+                    </div>
+                </div>
+
+
+                <div class="projeto">
+                    <img class="projeto_thumb" src="projetos/12.jpg">
+                    <div class="container_user">
+
+                        <!-- User -->
+
+                        <div class="user">
+                            <img src="users/4.avif" class="user_img" />
+                            <p class="user_name">User Name 0</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/mateus.jpg" class="user_img" />
+                            <p class="user_name">Mateus Durães</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/3.avif" class="user_img" />
+                            <p class="user_name">User Name 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/2.avif" class="user_img" />
+                            <p class="user_name">User Name 2</p>
+                        </div>
+                    </div>
+
+                    <!-- Projetc name -->
+
+                    <div class="projectName">
+                        <p>Athelstan</p>
+                    </div>
+                </div>
+                <div class="projeto">
+                    <img class="projeto_thumb" src="projetos/14.jpg">
+                    <div class="container_user">
+
+                        <!-- User -->
+
+                        <div class="user">
+                            <img src="users/4.avif" class="user_img" />
+                            <p class="user_name">User Name 0</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/mateus.jpg" class="user_img" />
+                            <p class="user_name">Mateus Durães</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/3.avif" class="user_img" />
+                            <p class="user_name">User Name 1</p>
+                        </div>
+                        <div class="user">
+                            <img src="users/2.avif" class="user_img" />
+                            <p class="user_name">User Name 2</p>
+                        </div>
+                    </div>
+
                     <!-- Projetc name -->
 
                     <div class="projectName">
@@ -285,6 +404,7 @@ header {
 h1 {
     font-weight: 100;
     font-size: 80px;
+    margin-left: 100px;
     text-align: start;
     width: 100%;
 }
@@ -295,8 +415,6 @@ h1 {
     margin-bottom: 100px;
     width: var(--page-width);
 }
-
-
 
 /* USER ANIMATION */
 

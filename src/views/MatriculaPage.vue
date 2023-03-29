@@ -45,6 +45,7 @@ export default {
 
 header {
     background-image: url('../../public/matricula/banner.jpg');
+    cursor: default;
 }
 
 .header__banner {
@@ -60,6 +61,7 @@ header {
 .header__ano,
 .header__banner {
     font-weight: 100;
+
 }
 
 
