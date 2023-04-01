@@ -279,6 +279,13 @@ export default {
                     portfolios:
                         [
                             'tabuleiro/imagens/1.jpg',
+                            'tabuleiro/imagens/2.jpg',
+                            'tabuleiro/imagens/3.jpg',
+                            'tabuleiro/imagens/4.jpg',
+                            'tabuleiro/imagens/5.jpg',
+                            'tabuleiro/imagens/6.jpg',
+                            'tabuleiro/imagens/7.jpg',
+                            'tabuleiro/imagens/8.jpg',
                         ]
                 },
                 {
@@ -333,6 +340,7 @@ export default {
                             'butterfly/imagens/1.jpg',
                             'butterfly/imagens/2.jpg',
                             'butterfly/imagens/3.jpg',
+                            'butterfly/imagens/4.png',
                         ]
                 },
                 {

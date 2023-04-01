@@ -404,6 +404,7 @@ header {
 .objetivo__title {
   font-size: 30px;
   margin: 24px 0;
+  margin-top: 68px;
 }
 
 .objetivo__text {
