@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavPages />
+        <!-- <NavPages /> -->
         <header>
             <h1>Projetos</h1>
             <div class="header__footer">
@@ -9,26 +9,31 @@
                 <button class="blue_btn">Quero expor meu projeto</button>
             </div>
         </header>
-        <el-carousel :interval="2000" arrow="always" height="100vh">
-            <el-carousel-item>
-                <img src="projetos/banner1.jpg">
+        <el-carousel :interval="22000" arrow="always" height="100vh">
+            <el-carousel-item style="position: relative; width: 100%;">
+                <img class="carousel-img" src="projetos/banner3.jpg">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="projetos/banner2.jpg">
+                <img class="carousel-img" src="projetos/banner2.jpg">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="projetos/banner3.jpg">
+
+                <img class="carousel-img" src="projetos/banner1.jpg">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="projetos/banner4.jpg">
+                <img class="carousel-img" src="projetos/banner4.jpg">
             </el-carousel-item>
             <el-carousel-item>
-                <img src="projetos/banner5.jpg">
+                <img class="carousel-img" src="projetos/banner5.jpg">
             </el-carousel-item>
         </el-carousel>
 
+
+        
+
+
+
         <div class="container">
-            <!-- popupValue -->
             <div class="popup" v-if="popupValue">
                 <div class="popup__overflow" @click="upPopup">
                     <div class="popup__container">
@@ -44,18 +49,21 @@
 
                         <!-- portfolio -->
 
-                        <div class="portfolio">
+                        <div class="vitrine-grid" id="grid">
                             <img v-for="portfolio in projects[indexPopup].portfolios" :src="'projetos/' + portfolio">
                         </div>
 
                         <!-- Descrições -->
 
                         <div class="description">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been
                             the
-                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of
                             type
-                            and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                            and scrambled it to make a type specimen book. It has survived not only five centuries, but
+                            also
                             the
                             leap into electronic typesetting, rem Ipsum.
                         </div>
@@ -124,6 +132,7 @@
                 </div>
 
 
+
             </div>
 
             <div class="container-projetos">
@@ -150,7 +159,6 @@
 <script>
 import NavPages from '../components/NavPages.vue'
 import FooterPage from '../components/FooterPage.vue'
-
 
 export default {
     name: 'ProjetosPage',
@@ -184,7 +192,6 @@ export default {
                             'mun/imagens/1.jpg',
                             'mun/imagens/2.jpg',
                             'mun/imagens/3.jpg',
-
                         ]
                 },
                 {
@@ -422,9 +429,9 @@ export default {
             ],
             popupValue: false,
             indexPopup: null
-
         }
     },
+
     methods: {
         upPopup(event, index) {
             this.indexPopup = index
@@ -438,17 +445,76 @@ export default {
                     document.querySelector('body').removeAttribute('style')
                 }
             }
+
+            if (this.popupValue == true) {
+                setTimeout(() => {
+                    this.changeGrid()
+                }, 50);
+            }
         },
-    }
+
+        changeGrid() {
+            const grid = document.getElementById('grid')
+            if (grid.childElementCount >= 2) {
+                for (let x = 0; x <= grid.childElementCount; x++) {
+                    for (let i = 0; i <= 1; i++) {
+                        if (document.getElementById('column-1') == null) {
+                            for (let a = 0; a <= 1; a++) {
+                                grid.innerHTML += `<div class="vitrine-count" id="column-${a}"></div>`
+                            }
+                        }
+                        if (grid.children.length != 2) {
+                            document.getElementById(`column-${i}`).appendChild(grid.children[0])
+                        }
+                    }
+                }
+            }
+        },
+        nodeNode() {
+            const fs = require("fs")
+
+        }
+
+
+    },
 }
 
 </script>
 
+<style>
+:root {
+    --gap-img: 10px
+}
+
+.vitrine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
+    gap: var(--gap-img);
+}
+
+.vitrine-count {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gap-img);
+}
+
+.vitrine-count img {
+    object-fit: contain;
+    width: 100%;
+}
+</style>
+
 <style scoped>
-img {
+.carousel-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 1;
+    position: absolute;
 }
 
 header {
@@ -501,6 +567,10 @@ h1 {
     cursor: pointer;
 }
 
+.portfolio__img {
+    width: 100%;
+}
+
 .projeto_thumb {
     border-radius: 8px;
     cursor: pointer;
@@ -540,7 +610,6 @@ h1 {
     transition: .1s;
 }
 
-
 .user {
     display: flex;
     flex-direction: column;
@@ -549,7 +618,8 @@ h1 {
 }
 
 .user_img {
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6)
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+    object-fit: cover;
 }
 
 .user_name {
@@ -623,7 +693,6 @@ h6 {
     width: var(--page-width);
     padding: 40px;
     background: black;
-    background: rgb(45, 45, 45);
     margin-bottom: 60px;
 
 }
