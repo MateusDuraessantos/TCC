@@ -10,7 +10,7 @@
             </div>
         </header>
         <el-carousel :interval="22000" arrow="always" height="100vh">
-            <el-carousel-item style="position: relative; width: 100%;">
+            <el-carousel-item>
                 <img class="carousel-img" src="projetos/banner3.jpg">
             </el-carousel-item>
             <el-carousel-item>
@@ -56,6 +56,10 @@
                         </div>
 
                         <h6>Criadores</h6>
+                        <hr>
+                        <br>
+                        <br>
+                        <br>
                         <el-row>
                             <el-col :span="18">
                                 <div class="grid__criadores">
@@ -76,7 +80,7 @@
                                 <div>
                                     <hr>
                                     <h6>Professores orientadores</h6>
-                                    <p class="docentes">
+                                    <p class="popup__docentes">
                                     <p>Prof. Me. Carlos Marcelo Campos Teixeira</p>
                                     <p>Prof. Dr. Célio Martins da Matta </p>
                                     <p>Profª. Me. Grace Kishimoto</p>
@@ -539,6 +543,10 @@ export default {
                             userFoto: 'desenhos/andrea.jpg',
                             socialMedia: [
                                 {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=jI7zeFpI2dY&ab_channel=AndreaBocelliVEVO'
+                                },
+                                {
                                     plataform: 'Linkedin',
                                     link: 'https://www.linkedin.com/'
                                 }
@@ -708,7 +716,6 @@ export default {
                 }
             }
         },
-
     },
 }
 
@@ -740,6 +747,7 @@ export default {
     object-fit: contain;
     width: 100%;
 }
+
 </style>
 
 <style scoped>
@@ -768,7 +776,6 @@ header {
     font-weight: 100;
     font-size: 22px;
 }
-
 
 h1 {
     font-weight: 100;
@@ -801,10 +808,6 @@ h1 {
     cursor: pointer;
 }
 
-.portfolio__img {
-    width: 100%;
-}
-
 .projeto_thumb {
     border-radius: 8px;
     cursor: pointer;
@@ -814,7 +817,6 @@ h1 {
     max-height: 520px;
     transition: .5s;
 }
-
 
 .container_user {
     position: absolute;
@@ -928,10 +930,8 @@ h6 {
     width: calc(100% - 100px);
     max-width: 80vw;
     padding: 40px;
-    background: black;
-    background: rgb(43, 43, 43);
+    background: rgb(26, 26, 26);
     margin-bottom: 60px;
-
 }
 
 .popup__close {
@@ -985,10 +985,9 @@ header-popup {
 
 .font-light {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 17px;
     color: #A0A0A0;
 }
-
 
 hr {
     border-width: 1px 0 0 0;
@@ -1014,7 +1013,6 @@ hr {
     display: flex;
     align-items: center;
     gap: 12px;
-
 }
 
 .criadores__name {
@@ -1028,7 +1026,6 @@ hr {
     height: 50px;
     object-fit: cover;
     border-radius: 50%;
-
 }
 
 .redes__sociais {
@@ -1067,12 +1064,11 @@ hr {
 
 [type="black"] {
     border-radius: 8px;
-    background: #171717;
-    color: white;
-    font-size: 14px;
-    font-weight: 300;
+    background: black;
+    color: #7f7f7f;
+    font-size: 15px;
+    font-weight: 400;
     padding: 6px 11px;
-
 }
 
 .data_publi {
@@ -1083,7 +1079,7 @@ hr {
     margin-top: 100px;
 }
 
-.docentes {
+.popup__docentes {
     line-height: 26px;
     color: #A0A0A0;
     font-size: 16px;

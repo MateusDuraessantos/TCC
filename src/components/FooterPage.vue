@@ -199,7 +199,6 @@
                 <p>“E conhecereis a verdade, e a verdade vos libertará.” João 8:32</p>
             </div>
         </div>
-
     </footer>
 </template>
 
@@ -217,6 +216,8 @@ footer {
     color: white;
     font-size: 14px;
     background-image: url('../../public/footer.jpg');
+    position: relative;
+    z-index: 2;
 }
 
 h3 {

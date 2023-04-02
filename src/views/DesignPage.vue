@@ -10,7 +10,6 @@
       </p>
       <img class="banner" src="design/banner.jpg" alt="banner">
       <div class="shadow" />
-
     </header>
 
 
@@ -20,12 +19,13 @@
 
       <div class="objetivo">
         <span>
-          <h3 class="objetivo__title">O que temos como objetivo?</h3>
-          <div>
-            <hr-color />
-            <hr>
+          <div class="container_objetivo">
+            <h3 class="objetivo__title">O que temos como objetivo?</h3>
+            <div>
+              <hr-color />
+              <hr>
+            </div>
           </div>
-          <br>
 
           <p class="objetivo__text">
             O Curso de Bacharelado em Design da Faculdade de Arquitetura e Urbanismo da Universidade Presbiteriana
@@ -226,7 +226,7 @@
                   Esta Coordenadoria está comprometida com uma política de extensão que contemple os seguintes aspectos:
                   a) que se harmonize com o pensamento da Universidade Presbiteriana Mackenzie, em seus aspectos gerais;
                   b) que possa envolver alunos de graduação e de pós-graduação; c) que traga contribuições importantes
-                  para o contexto social; d) que possa contribuir para o desenvolvimento qualitativo do corpo docente,
+                  para o contexto social; d) que possa contribuir para o desenvolvimento qualitativo do corpo card,
                   como também dos próprios alunos envolvidos em projetos extensionistas específicos, possibilitando a
                   esses, tanto a vivência profissional quanto a articulação desta com os conhecimentos teóricos e práticos
                   apreendidos no Curso.
@@ -292,7 +292,7 @@
       <div class="horarios">
         <div class="horarios_absolute">
           <div class="horarios__cards">
-            <div class="docente horarios__card">
+            <div class="card horarios__card">
               <p><b>Tipo</b>: Graduação - Bacharelado</p>
               <p><b>Duração</b>: 8 semestres / 4 anos</p>
               <p><b>Modalidade</b>: Presencial</p>
@@ -304,14 +304,14 @@
               </p>
               <p><b>Local</b>: Campus Higienópolis <br></p>
             </div>
-            <div class="docente" v-for="coisas in 2">
-              <img class="docente__prof" src="design/docentes/1.png">
-              <img class="docente__header" src="design/docentes/card_header.jpg">
-              <div class="docente__infos">
-                <p class="docente__name">Prof. Me. Carlos Marcelo Campos teixeira</p>
+            <div class="card" v-for="coisas in 2">
+              <img class="card__prof" src="design/docentes/1.png">
+              <img class="card__header" src="design/docentes/card_header.jpg">
+              <div class="card__infos">
+                <p class="card__name">Prof. Me. Carlos Marcelo Campos teixeira</p>
                 <p>Professora</p>
-                <p class="docente__cargo">Professora</p>
-                <p class="docente__email">fau.design@mackenzie.br</p>
+                <p class="card__cargo">Professora</p>
+                <p class="card__email">fau.design@mackenzie.br</p>
               </div>
             </div>
           </div>
@@ -329,15 +329,25 @@
 
       <!-- Docentes -->
 
-      <div class="grid">
-        <div class="docente" v-for="coisas in 10">
-          <img class="docente__prof" src="design/docentes/1.png">
-          <img class="docente__header" src="design/docentes/card_header.jpg">
-          <div class="docente__infos">
-            <p class="docente__name">Prof. Me. Carlos Marcelo Campos teixeira</p>
-            <p>Professora</p>
-            <p class="docente__cargo">Professora</p>
-            <p class="docente__email">fau.design@mackenzie.br</p>
+      <div class="cards-container">
+        <div class="container_objetivo">
+          <h3 class="objetivo__title">Corpo docente</h3>
+          <div>
+            <hr-color />
+            <hr>
+          </div>
+        </div>
+        <img class="grid__background_M" src="design/blur.png">
+        <div class="grid">
+          <div class="card" v-for="cardInfo in cardsInfos">
+            <img class="card__prof" :src="'design/docentes/' + cardInfo.image">
+            <img class="card__header" src="design/docentes/card_header.jpg">
+            <div class="card__infos">
+              <p class="card__name">{{ cardInfo.name }}</p>
+              <p>Professor</p>
+              <p class="card__cargo">Contato</p>
+              <p class="card__email">{{ cardInfo.email }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -357,7 +367,86 @@ export default {
   data() {
     return {
       activeNameNav: 'first',
-      activeName: 'first'
+      activeName: 'first',
+
+      cardsInfos: [
+        {
+          name: 'Prof. Dr. Célio Martins da Matta',
+          email: 'celio.matta@mackenzie.br',
+          image: 'celio.jpg',
+        },
+        {
+          name: 'Profª. Drª. Nara Silvia Marcondes Martins',
+          email: 'narasilvia.martins@mackenzie.br',
+          image: 'nara.jpg',
+        },
+        {
+          name: 'Prof. Dr. Ivo Eduardo Roman Pons',
+          email: 'ivoeduardo.pons@mackenzie.br',
+          image: 'ivo.jpg',
+        },
+        {
+          name: 'Profª. Me. Grace Kishimoto',
+          email: 'grace.kishimoto@mackenzie.br',
+          image: 'grace.jpg',
+        },
+        {
+          name: 'Profª. Ms. Juliana Bertolini',
+          email: 'juliana.bertolini@mackenzie.br',
+          image: 'juliana.jpg',
+        },
+        {
+          name: 'Prof. Ms. Marcos A. Castanha Junior',
+          email: 'marcosaurelio.castanha@mackenzie.br',
+          image: 'kito.jpg',
+        },
+        {
+          name: 'Prof. Ms. Luis Alexandre F. Ogasawara',
+          email: 'luis.alexandre@mackenzie.br',
+          image: 'luis.jpg',
+        },
+        {
+          name: 'Prof. Ms. Olavo Egydio de Souza Aranha',
+          email: 'olavo.aranha@mackenzie.br',
+          image: 'olavo.jpg',
+        },
+        {
+          name: 'Prof. Dr. Renato Vizioli',
+          email: 'renato.vizioli@mackenzie.br',
+          image: 'renato.jpeg',
+        },
+        {
+          name: 'Profª. Drª. Teresa Maria Riccetti',
+          email: 'teresamaria.riccetti@mackenzie.br',
+          image: 'teresa.jpg',
+        },
+        {
+          name: 'Profª. Ms. Zuleica Schincariol',
+          email: 'zuleica.schincariol@mackenzie.br',
+          image: 'zuleica.jpg',
+        },
+        {
+          name: 'Prof. Dr. Charles de Castro Vincent',
+          email: 'charles.vincent@mackenzie.br',
+          image: 'charles.jpg',
+        },
+        {
+          name: 'Prof. Me. Carlos Marcelo Campos Teixeira',
+          email: 'carlos.teixeira@mackenzie.br',
+          image: 'marcelo.jpg',
+        },
+        {
+          name: 'Prof. Me. Ana Paula Calvo',
+          email: 'anapaula.calvo@mackenzie.br',
+          image: 'ana.jpg',
+        },
+        {
+          name: 'Prof. Dr. Mauro Claro',
+          email: 'mauro.claro@mackenzie.br',
+          image: 'mauro.jpeg',
+        },
+      ]
+
     }
   }
 }
@@ -392,7 +481,6 @@ header {
   z-index: 2;
   font-size: 18px;
   text-align: center;
-
 }
 
 /* objetivo */
@@ -401,10 +489,15 @@ header {
   grid-template-columns: 2.2fr 1fr;
 }
 
+.container_objetivo {
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
 .objetivo__title {
   font-size: 30px;
-  margin: 24px 0;
-  margin-top: 68px;
+  margin: 68px 0 10px 0;
 }
 
 .objetivo__text {
@@ -431,7 +524,6 @@ hr {
   border-width: 3px 0 0 0;
 }
 
-
 /* matriz */
 
 .matriz {
@@ -447,7 +539,6 @@ hr {
   font-size: 16px;
 }
 
-
 /* Horários */
 
 .horarios {
@@ -457,9 +548,6 @@ hr {
   position: relative;
   width: 100%;
 }
-
-
-
 
 .background {
   top: -200px;
@@ -473,13 +561,11 @@ hr {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
   width: 100%;
   height: 100%;
-
 }
 
 .background__jpg {
   width: 100%;
 }
-
 
 .horarios_absolute {
   z-index: 2;
@@ -511,8 +597,6 @@ hr {
   gap: 40px;
 }
 
-
-
 /* Premio */
 
 .premio {
@@ -541,7 +625,6 @@ hr {
   width: 170px;
 }
 
-
 .red_btn {
   display: flex;
   align-items: center;
@@ -552,37 +635,47 @@ hr {
   transform: translate(22px, -2px);
 }
 
-
 .body {
   width: var(--page-width);
   margin: auto;
+}
+
+.cards-container {
+  position: relative;
+  margin-bottom: 240px;
+}
+
+.grid__background_M {
+  position: absolute;
+  left: -50vw;
+  top: -300px;
+  width: 140vw;
+  max-width: 100vw;
+  z-index: 0;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 14px;
-
 }
 
-.docente {
+.card {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 320px;
   border-radius: 13px;
   padding: 16px;
   background: rgba(255, 255, 255, 0.06);
   color: white;
   font-weight: 300;
   cursor: default;
-
   backdrop-filter: blur(6px);
   box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.1);
 }
 
-.docente__infos {
+.card__infos {
   border-radius: 0 0 8px 8px;
   display: flex;
   flex-direction: column;
@@ -592,12 +685,13 @@ hr {
   padding-top: 66px;
 }
 
-.docente__name {
+.card__name {
   font-weight: 600;
+  min-height: 38px;
   color: #828282;
 }
 
-.docente__prof {
+.card__prof {
   width: 90px;
   top: 58px;
   left: 40px;
@@ -606,34 +700,38 @@ hr {
   border-radius: 100%;
 }
 
-.docente__cargo {
+.card__cargo {
   color: var(--red-mack);
   text-decoration: underline;
   font-weight: 600;
 }
 
-.docente__cargo:hover {
+.card__cargo:hover {
   color: red;
   cursor: pointer;
 }
 
-.docente__email {
+.card__email {
   color: #828282;
   cursor: pointer;
+  font-size: 16px;
+  width: 224px;
+  overflow: hidden;
+  transition: .1s;
 }
 
-.docente__email:hover {
+.card__email:hover {
   color: white;
+  transition: .1s;
 }
 
-.docente__header {
+.card__header {
   border-radius: 8px 8px 0 0;
   width: 100%;
   height: 90px;
   object-fit: cover;
 }
 </style>
-
 
 <style>
 /* Primary Nav */
@@ -649,7 +747,6 @@ hr {
   transition: .2s;
 }
 
-
 .el-tabs__item.is-active {
   color: #CC141D;
   font-weight: 600;
@@ -658,7 +755,6 @@ hr {
 .el-tabs__active-bar {
   background: #CC141D;
 }
-
 
 .el-tabs__nav-wrap::after {
   background: #333333;
@@ -689,11 +785,9 @@ hr {
   border: none;
 }
 
-
 .el-collapse-item {
   margin-bottom: 4px;
 }
-
 
 .el-collapse-item__wrap {
   background: #131313;

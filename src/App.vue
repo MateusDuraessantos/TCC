@@ -28,6 +28,8 @@ export default {
 
 *::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
+  background: transparent;
 
 }
 
@@ -36,7 +38,7 @@ export default {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #2c2c2c;
+  background-color: #474747;
   border-radius: 6px;
 }
 
@@ -73,7 +75,7 @@ header {
   width: 48px;
   gap: 20px;
   height: 48px;
-  background: #5B1A1A;
+  background: #790000;
   cursor: pointer;
   border-radius: 100px;
   position: fixed;
@@ -107,7 +109,7 @@ header {
 
 .contato:hover {
   width: 130px;
-  background: #8b0000;
+  background: #d80e19;
   opacity: 1;
   transition: .3s;
 }
@@ -183,7 +185,6 @@ header {
   padding: 0 40px;
   transition: .3s;
   cursor: pointer;
-
 }
 
 .red_btn:hover {

@@ -1,10 +1,10 @@
 <template>
     <nav>
+        <div id="nav">
+        </div>
         <div class="container">
             <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
             <div class="nav__options">
-                <!-- trigger="click" -->
-
 
                 <el-dropdown>
                     <router-link class="dropdown-link" to="/">
@@ -25,7 +25,6 @@
 
                 <router-link class="dropdown-link" to="ProjetosPage">Projetos desenvolvidos</router-link>
 
-
                 <el-dropdown>
                     <span>
                         <router-link class="dropdown-link" to="MatriculaPage">
@@ -41,10 +40,8 @@
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-
             </div>
         </div>
-
     </nav>
 </template>
   
@@ -52,15 +49,30 @@
 
 export default {
     name: 'NavPages',
+    mounted() {
+        this.scrollDown()
+    },
+    methods: {
+        scrollDown() {
 
+            let navbar = document.getElementById('nav');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    navbar.style.opacity = '1';
+                } else {
+                    navbar.style.opacity = '0';
+                }
+            });
+        }
+    }
 }
-
 
 </script>
   
-  
 <style scoped>
 nav {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,11 +84,20 @@ nav {
     height: 110px;
 }
 
+#nav {
+    position: absolute;
+    height: 110px;
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    transition: .3s;
+}
+
 .container {
+    position: relative;
+    z-index: 3;
     width: calc(100% - 200px);
     display: flex;
     justify-content: space-between;
-
 }
 
 .logo {
@@ -109,7 +130,6 @@ nav {
     border: none;
     color: #8A8A8A;
     font-weight: 300;
-
 }
 
 .el-dropdown-menu__item {
