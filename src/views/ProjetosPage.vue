@@ -29,7 +29,7 @@
         </el-carousel>
 
 
-        
+
 
 
 
@@ -470,12 +470,6 @@ export default {
                 }
             }
         },
-        nodeNode() {
-            const fs = require("fs")
-
-        }
-
-
     },
 }
 
