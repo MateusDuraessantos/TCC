@@ -28,11 +28,6 @@
             </el-carousel-item>
         </el-carousel>
 
-
-
-
-
-
         <div class="container">
             <div class="popup" v-if="popupValue">
                 <div class="popup__overflow" @click="upPopup">
@@ -239,8 +234,6 @@ export default {
                             'relogio/imagens/1.jpg',
                             'relogio/imagens/2.jpg',
                             'relogio/imagens/3.jpg',
-                            'relogio/imagens/4.jpg',
-                            'relogio/imagens/5.jpg',
                         ]
                 },
                 {
@@ -434,10 +427,12 @@ export default {
 
     methods: {
         upPopup(event, index) {
-            this.indexPopup = index
 
             const clicked = event.target.classList[0]
+
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
+                this.indexPopup = index
+
                 this.popupValue = !this.popupValue
                 if (this.popupValue == true) {
                     document.body.style.overflow = "hidden"
@@ -446,10 +441,11 @@ export default {
                 }
             }
 
+            //A função precisa ser realizada depois que o layout foi criado, para isso, o setTimeout
             if (this.popupValue == true) {
                 setTimeout(() => {
                     this.changeGrid()
-                }, 50);
+                }, 1);
             }
         },
 
@@ -684,9 +680,11 @@ h6 {
 
 .popup__container {
     position: relative;
-    width: var(--page-width);
+    width: calc(100% - 100px);
+    max-width: 80vw;
     padding: 40px;
     background: black;
+    background: rgb(43, 43, 43);
     margin-bottom: 60px;
 
 }
