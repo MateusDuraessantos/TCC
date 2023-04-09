@@ -61,6 +61,9 @@
           </p>
         </span>
         <span class="premio">
+          <br>
+          <br>
+          <h2>Premiações</h2>
           <img class="premio__1" src="design/premio1.png">
           <div class="premio__2">
             <img src="design/star.png">
@@ -69,9 +72,51 @@
         </span>
       </div>
 
+      <!-- Prédio 9 -->
+
+
+      <div class="predio">
+
+        <span>
+          <h1>Prédio 9</h1>
+          <br>
+          <p class="predio__description">
+            O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e tecnológico
+            localizado no coração de São Paulo, Brasil.
+            o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
+            universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
+            panorâmicas da
+            universidade.
+            <br>
+            O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e vídeo,
+            salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
+            fabricação digital.
+            <br>
+            Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
+            auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
+            O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência acadêmica
+            e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
+            habilidades e desenvolver seus projetos.
+          </p>
+          <br>
+          <h1>Corpo docente</h1>
+          <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
+            capacitados, conheça um pouco da nossa equipe.</div>
+
+          <a href="#docentes" class="blue_btn">Ver docentes</a>
+        </span>
+
+        <div class="carrossel">
+          <img class="carrossel__img" src="design/mackenzie.jpg">
+        </div>
+
+
+      </div>
+
+
       <!-- Matriz -->
 
-      <div class="matriz">
+      <div class=" matriz">
         <div class="matriz__title">Um pouquinho do que você vai aprender </div>
         <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
           <el-tab-pane label="Matriz Curricular" name="first">
@@ -285,7 +330,6 @@
 
       <!-- Horários/Períodos -->
 
-
       <h1>Horários/Períodos</h1>
       <br>
       <br>
@@ -304,16 +348,33 @@
               </p>
               <p><b>Local</b>: Campus Higienópolis <br></p>
             </div>
-            <div class="card" v-for="coisas in 2">
-              <img class="card__prof" src="design/docentes/1.png">
+
+            <!-- card 1 -->
+
+            <div class="card">
+              <img class="card__prof" src="design/docentes/nara.jpg">
               <img class="card__header" src="design/docentes/card_header.jpg">
               <div class="card__infos">
-                <p class="card__name">Prof. Me. Carlos Marcelo Campos teixeira</p>
-                <p>Professora</p>
-                <p class="card__cargo">Professora</p>
+                <p class="card__name">Profª. Drª. Nara Silvia Marcondes Martins</p>
+                <p>Coordenadora de Graduação</p>
+                <p class="card__cargo">contato</p>
                 <p class="card__email">fau.design@mackenzie.br</p>
               </div>
             </div>
+
+            <!-- card 2 -->
+
+            <div class="card">
+              <img class="card__prof" src="design/docentes/luciana.png">
+              <img class="card__header" src="design/docentes/card_header.jpg">
+              <div class="card__infos">
+                <p class="card__name">Profª. Drª. Luciana Tombi Brasil</p>
+                <p>Representante PROATO-FAU</p>
+                <p class="card__cargo">contato</p>
+                <p class="card__email">fau.proato@mackenzie.br</p>
+              </div>
+            </div>
+
           </div>
           <div class="horario__avise">
             <h3>Gostou do Curso? Faça parte da nossa História!</h3>
@@ -329,7 +390,7 @@
 
       <!-- Docentes -->
 
-      <div class="cards-container">
+      <div class="cards-container" id="docentes">
         <div class="container_objetivo">
           <h3 class="objetivo__title">Corpo docente</h3>
           <div>
@@ -523,6 +584,34 @@ hr {
   border-color: #333333;
   border-width: 3px 0 0 0;
 }
+
+/* Prédio */
+
+.predio {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  margin-top: 120px;
+}
+
+.predio__description {
+  font-weight: 300;
+  line-height: 28px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-height: 230px;
+  overflow-y: scroll;
+}
+
+.carrossel {
+  display: flex;
+  flex-direction: column;
+}
+
+.carrossel__img {
+  width: 100%;
+}
+
 
 /* matriz */
 
