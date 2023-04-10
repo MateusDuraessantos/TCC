@@ -1,4 +1,4 @@
-<template class="teste">
+<template>
   <div>
     <NavPages />
     <header>
@@ -75,44 +75,53 @@
       <!-- Prédio 9 -->
 
 
-      <div class="predio">
+      <div class="container-predio">
+        <div class="shadow-predio"></div>
+        <img class="background__carrossel" :src="'design/carrossel/' + carrossel[displayNumber]">
 
-        <span>
-          <h1>Prédio 9</h1>
-          <br>
-          <p class="predio__description">
-            O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e tecnológico
-            localizado no coração de São Paulo, Brasil.
-            o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
-            universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
-            panorâmicas da
-            universidade.
+        <div class="predio">
+          <span>
+            <h1>Prédio 9</h1>
             <br>
-            O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e vídeo,
-            salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
-            fabricação digital.
+            <p class="predio__description">
+              O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
+              tecnológico
+              localizado no coração de São Paulo, Brasil.
+              o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
+              universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
+              panorâmicas da
+              universidade.
+              <br>
+              O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e vídeo,
+              salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
+              fabricação digital.
+              <br>
+              Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
+              auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
+              O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência
+              acadêmica
+              e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
+              habilidades e desenvolver seus projetos.
+            </p>
             <br>
-            Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
-            auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
-            O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência acadêmica
-            e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
-            habilidades e desenvolver seus projetos.
-          </p>
-          <br>
-          <h1>Corpo docente</h1>
-          <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
-            capacitados, conheça um pouco da nossa equipe.</div>
-
-          <a href="#docentes" class="blue_btn">Ver docentes</a>
-        </span>
-
-        <div class="carrossel">
-          <img class="carrossel__img" src="design/mackenzie.jpg">
+            <h1>Corpo docente</h1>
+            <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
+              capacitados, conheça um pouco da nossa equipe.</div>
+            <a href="#docentes" class="blue_btn">Ver docentes</a>
+          </span>
+          <div class="carrossel">
+            <div class="carrossel__display">
+              <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber]">
+              <button class="arrow" id="left" @click="arrowCarrrossel('back')">‹</button>
+              <button class="arrow" id="right" @click="arrowCarrrossel('next')">›</button>
+            </div>
+            <div class="carrossel__options">
+              <img @click="changeCarrossel(index)" :id="'carrossel_' + index" v-for="(cardsInfo, index) in carrossel"
+                :key="index" class="carrossel__options-img" :src="'design/carrossel/' + cardsInfo">
+            </div>
+          </div>
         </div>
-
-
       </div>
-
 
       <!-- Matriz -->
 
@@ -123,19 +132,16 @@
 
             <el-row>
               <el-col :offset="3" :span="17">
+
                 <el-collapse accordion style="margin: 60px 0">
-                  <el-collapse-item v-for="coisas in 8" :key="index">
+                  <el-collapse-item v-for="(grade, index) in matriz" :key="index">
                     <template #title>
-                      <p class="matriz__etapa"><b>1° Etapa</b> - Projeto I</p>
+                      <p class="matriz__etapa"><b>{{ index + 1 }}° Etapa</b> - Disciplinas</p>
                     </template>
-                    <div>
-                      Consistent with real life: in line with the process and logic of real
-                      life, and comply with languages and habits that the users are used to;
-                    </div>
-                    <div>
-                      Consistent within interface: all elements should be consistent, such
-                      as: design style, icons and texts, position of elements, etc.
-                    </div>
+                    <span v-for="materia in grade">
+                      {{ materia }}
+                      <br>
+                    </span>
                   </el-collapse-item>
                 </el-collapse>
               </el-col>
@@ -327,7 +333,6 @@
 
       </div>
 
-
       <!-- Horários/Períodos -->
 
       <h1>Horários/Períodos</h1>
@@ -429,7 +434,6 @@ export default {
     return {
       activeNameNav: 'first',
       activeName: 'first',
-
       cardsInfos: [
         {
           name: 'Prof. Dr. Célio Martins da Matta',
@@ -506,11 +510,156 @@ export default {
           email: 'mauro.claro@mackenzie.br',
           image: 'mauro.jpeg',
         },
-      ]
+      ],
+      carrossel: [
+        'predio9.jpg',
+        'frente.jpg',
+        'chiqueirinho.jpg',
+        'bosque.jpg',
+        'ceramica.jpg',
+        'lazer.jpg',
+      ],
 
+      matriz: [
+
+        /* Etapa 1 */
+
+        [
+          'CIÊNCIA, TECNOLOGIA E SOCIEDADE NA ARQUITETURA E NO DESIGN',
+          'ÉTICA E CIDADANIA	',
+          'FERRAMENTAS, MATERIAIS E PROCESSOS DO DESIGN I	',
+          'FUNDAMENTOS SOCIAIS E POLÍTICOS DO DESIGN I	',
+          'FUNDMENTOS MATEMÁTICOS E FÍSICOS DO DESIGN I	',
+          'HISTÓRIAS E TEORIAS DO DESIGN I	',
+          'PROJETO I',
+        ],
+
+        /* Etapa 2 */
+
+        [
+          'FERRAMENTAS, MATERIAIS E PROCESSOS DO DESIGN II	',
+          'FUNDMENTOS MATEMÁTICOS E FÍSICOS DO DESIGN II	',
+          'HISTÓRIAS E TEORIAS DO DESIGN II	',
+          'INTRODUÇÃO À COSMOVISÃO REFORMADA	',
+          'METODOLOGIA CIENTÍFICA	',
+          'PROJETO II	',
+          'FUNDAMENTOS SOCIAIS E POLÍTICOS DO DESIGN II	',
+        ],
+
+        /* Etapa 3 */
+
+        [
+          'FERRAMENTAS, MATERIAIS E PROCESSOS DO DESIGN III	',
+          'FUNDAMENTOS SOCIAIS E POLÍTICOS DO DESIGN III	',
+          'FUNDMENTOS MATEMÁTICOS E FÍSICOS DO DESIGN III	',
+          'HISTÓRIAS E TEORIAS DO DESIGN III	',
+          'PRÁTICA DE PROGRAMAÇÃO I	',
+          'PROJETO III	',
+          'OFICINA OPTATIVA CERÂMICA	',
+          'OFICINA OPTATIVA SERIGRAFIA	',
+          'OFICINA OPTATIVA- SKETCH	',
+        ],
+
+        /* etapa 4 */
+
+        [
+          'PRÁTICA DE PROGRAMAÇÃO 2',
+          'FERRAMENTAS, MATERIAIS E PROCESSOS DO DESIGN IV	',
+          'FUNDAMENTOS MATEMÁTICOS E FÍSICOS DO DESIGN IV	',
+          'PROJETO IV	',
+          'Projeto Social Impact Design	',
+          'FUNDAMENTOS SOCIAIS E POLÍTICOS DO DESIGN IV	',
+          'HISTÓRIAS E TEORIAS DO DESIGN IV	',
+          'OFICINA OPTATIVA MARCA PESSOAL	',
+          'OFICINA OPTATIVA TABLEWARE	',
+        ],
+
+        /* etapa 5 */
+
+        [
+          'DESIGN Princípios de Empreendedorismo	',
+          'PROJETO V	',
+          'PROJETOS PROFISSIONALIZANTES EDITORIAL	',
+          'PROJETOS PROFISSIONALIZANTES EQ e COMP CONSTRUÇÃO	',
+          'PROJETOS PROFISSIONALIZANTES BRANDING	',
+          'OFICINA OPTATIVA TIPOGRAFIA	',
+          'OFICINA OPTATIVA MADEIRA	',
+        ],
+
+        /* etapa 6 */
+
+        [
+          'DESIGN PROJETOS EMPREENDEDORES	',
+          'PROJETO PROFISSIONALIZANTE AUDIOVISUAL	',
+          'PROJETO VI	',
+          'PROJETOS PROFISSIONALIZANTES_Joia	',
+        ],
+
+        /* etapa 7 */
+
+        [
+          'PROJETO VII	',
+          'TCC I	',
+          'ESTÁGIO',
+        ],
+
+        /* etapa 8 */
+
+        [
+          'OFICINA OPTATIVA - Marca Pessoal	',
+          'OFICINA OPTATIVA- Portfólio	',
+          'TCC II	',
+          'ESTÁGIO',
+        ],
+      ],
+
+      displayNumber: 0,
     }
+  },
+
+  mounted() {
+    this.ativarImg()
+  },
+  methods: {
+    changeCarrossel(index) {
+      this.displayNumber = index
+      this.ativarImg()
+
+    },
+    ativarImg() {
+
+      if (document.querySelector('[carrossel_ativo]') == null) {
+        document.getElementById(`carrossel_${this.displayNumber}`).setAttribute('carrossel_ativo', '')
+      } else {
+        document.querySelector('[carrossel_ativo]').removeAttribute('carrossel_ativo')
+        document.getElementById(`carrossel_${this.displayNumber}`).setAttribute('carrossel_ativo', '')
+      }
+    },
+
+    arrowCarrrossel(direction) {
+      if (direction == 'back') {
+        if (this.displayNumber > 0) {
+          this.displayNumber -= 1
+        }
+        else {
+          this.displayNumber = this.carrossel.length - 1
+        }
+      }
+
+      if (direction == 'next') {
+        if (this.displayNumber < this.carrossel.length - 1) {
+          this.displayNumber += 1
+        }
+        else {
+          this.displayNumber = 0
+          console.log(this.displayNumber)
+        }
+      }
+      this.ativarImg()
+    },
   }
 }
+
 </script>
 
 
@@ -589,9 +738,15 @@ hr {
 
 .predio {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: 1fr 620px;
+  gap: 30px;
+  width: 100%;
   margin-top: 120px;
+}
+
+.predio span {
+  z-index: 2;
+  position: relative;
 }
 
 .predio__description {
@@ -601,22 +756,127 @@ hr {
   margin-bottom: 20px;
   max-height: 230px;
   overflow-y: scroll;
+  padding-right: 20px;
 }
 
 .carrossel {
   display: flex;
   flex-direction: column;
+  z-index: 3;
+  position: relative;
 }
 
-.carrossel__img {
+
+.container-predio {
+  margin: 240px 0 320px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background__carrossel {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  opacity: 0.2;
+  object-fit: cover;
+}
+
+.shadow-predio {
+  position: absolute;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  width: 100vw;
+  height: 100%;
+  z-index: 2;
+}
+
+
+.carrossel__display {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  height: 320px;
+}
+
+.carrossel__display button {
+  border: none;
+}
+
+.carrossel__display-img {
   width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  object-fit: cover;
 }
 
+.arrow {
+  font-size: 50px;
+  font-weight: 300;
+  position: absolute;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  transition: .2s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transition: .2s;
+}
+
+[carrossel_ativo] {
+  opacity: 1 !important;
+}
+
+
+#right {
+  right: 20px;
+}
+
+#left {
+  left: 20px;
+}
+
+.carrossel__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 6px;
+  padding-bottom: 10px;
+  overflow: auto;
+}
+
+
+.carrossel__options-img {
+  border-radius: 6px;
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.carrossel__options-img:hover {
+  opacity: 1;
+}
 
 /* matriz */
 
 .matriz {
   margin: 100px 0;
+  min-height: 700px;
 }
 
 .matriz__title {
@@ -644,6 +904,8 @@ hr {
   margin: auto;
   position: absolute;
 }
+
+
 
 .background__shadow {
   position: absolute;
