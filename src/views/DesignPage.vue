@@ -125,7 +125,7 @@
 
       <!-- Matriz -->
 
-      <div class=" matriz">
+      <div class="matriz">
         <div class="matriz__title">Um pouquinho do que você vai aprender </div>
         <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
           <el-tab-pane label="Matriz Curricular" name="first">
@@ -766,9 +766,8 @@ hr {
   position: relative;
 }
 
-
 .container-predio {
-  margin: 240px 0 320px 0;
+  margin: 140px 0 180px 0;
   position: relative;
   display: flex;
   align-items: center;
@@ -865,7 +864,7 @@ hr {
   height: 60px;
   cursor: pointer;
   object-fit: cover;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .carrossel__options-img:hover {

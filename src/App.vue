@@ -114,7 +114,7 @@ header {
 
 .contato:hover {
   width: 130px;
-  background: #d80e19;
+  background: #ae0e16;
   opacity: 1;
   transition: .3s;
 }

@@ -132,6 +132,7 @@
 <script>
 import NavPages from '../components/NavPages.vue'
 import FooterPage from '../components/FooterPage.vue'
+import { datePickTypes } from 'element-plus'
 
 export default {
     name: 'ProjetosPage',
@@ -671,7 +672,8 @@ export default {
                 },
             ],
             popupValue: false,
-            indexPopup: null
+            indexPopup: null,
+            numberColumn: 2
         }
     },
 
@@ -684,6 +686,7 @@ export default {
                 this.indexPopup = index
 
                 this.popupValue = !this.popupValue
+
                 if (this.popupValue == true) {
                     document.body.style.overflow = "hidden"
                 } else {
@@ -701,15 +704,27 @@ export default {
 
         changeGrid() {
             const grid = document.getElementById('grid')
-            if (grid.childElementCount >= 2) {
+
+            if (grid.childElementCount >= this.numberColumn && this.numberColumn > 1) {
                 for (let x = 0; x <= grid.childElementCount; x++) {
-                    for (let i = 0; i <= 1; i++) {
+                    for (let i = 0; i <= this.numberColumn - 1; i++) {
                         if (document.getElementById('column-1') == null) {
-                            for (let a = 0; a <= 1; a++) {
+
+                            let fr = ''
+
+                            for (let y = 1; y <= this.numberColumn; y++) {
+                                fr += '1fr '
+                            }
+
+                            document.getElementById('grid').setAttribute('style', `grid-template-columns: ${fr}`)
+                            console.log(fr)
+
+                            for (let a = 0; a <= this.numberColumn - 1; a++) {
+
                                 grid.innerHTML += `<div class="vitrine-count" id="column-${a}"></div>`
                             }
                         }
-                        if (grid.children.length != 2) {
+                        if (grid.children.length != this.numberColumn) {
                             document.getElementById(`column-${i}`).appendChild(grid.children[0])
                         }
                     }
@@ -728,7 +743,6 @@ export default {
 
 .vitrine-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     width: 100%;
     min-height: 100px;
     margin: auto;
@@ -743,11 +757,10 @@ export default {
     gap: var(--gap-img);
 }
 
-.vitrine-count img {
+.vitrine-grid img {
     object-fit: contain;
     width: 100%;
 }
-
 </style>
 
 <style scoped>
