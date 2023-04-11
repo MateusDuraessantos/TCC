@@ -30,7 +30,18 @@
 
         <div class="container">
             <div class="popup" v-if="popupValue">
+                <div class="changeCol" @click="changeCol">
+                    <div class="changeCol__container">
+                        <div class="changeCol__square" v-for="coisas in 4" />
+                    </div>
+                    <p>Layout</p>
+                </div>
+
                 <div class="popup__overflow" @click="upPopup">
+
+
+
+
                     <div class="popup__container">
                         <button class="popup__close">✕</button>
                         <header-popup>
@@ -44,6 +55,9 @@
 
                         <!-- portfolio -->
 
+                        <div id="teste">
+                            teste
+                        </div>
                         <div class="vitrine-grid" id="grid">
                             <img v-for="portfolio in projects[indexPopup].portfolios" :src="'projetos/' + portfolio">
                         </div>
@@ -702,6 +716,17 @@ export default {
             }
         },
 
+        changeCol() {
+
+            const grid = document.getElementById('grid')
+            if (grid.style.gridTemplateColumns == '1fr 1fr') {
+
+                grid.setAttribute('style', `grid-template-columns: 1fr`)
+            } else {
+                grid.setAttribute('style', `grid-template-columns: 1fr 1fr`)
+            }
+        },
+
         changeGrid() {
 
             const grid = document.getElementById('grid')
@@ -718,7 +743,6 @@ export default {
                             }
 
                             document.getElementById('grid').setAttribute('style', `grid-template-columns: ${fr}`)
-                            console.log(fr)
 
                             for (let a = 0; a <= this.numberColumn - 1; a++) {
 
@@ -738,6 +762,10 @@ export default {
 </script>
 
 <style>
+#teste img {
+    width: 100%;
+}
+
 :root {
     --gap-img: 10px
 }
@@ -765,6 +793,52 @@ export default {
 </style>
 
 <style scoped>
+.changeCol {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 80px;
+    right: 40px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+    gap: 20px;
+    font-weight: 300;
+}
+
+.changeCol p {
+    margin-top: 46px;
+}
+
+.changeCol__container {
+    top: 0;
+    margin: auto;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 30px;
+    height: 30px;
+    transition: .2s;
+}
+
+.changeCol__square {
+    background: rgb(101, 101, 101);
+    padding: 8px;
+    border-radius: 2px;
+    transition: .2s;
+}
+
+.changeCol:hover .changeCol__square {
+    background: rgb(89, 89, 89);
+    transition: .2s;
+    transform: translatey(-5px);
+}
+
 .carousel-img {
     width: 100%;
     height: 100%;
