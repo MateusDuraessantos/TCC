@@ -9,7 +9,7 @@
                 <button class="blue_btn">Quero expor meu projeto</button>
             </div>
         </header>
-        <el-carousel :interval="22000" arrow="always" height="100vh">
+        <el-carousel :interval="5000" arrow="always" height="100vh">
             <el-carousel-item>
                 <img class="carousel-img" src="projetos/banner3.jpg">
             </el-carousel-item>
@@ -703,6 +703,7 @@ export default {
         },
 
         changeGrid() {
+
             const grid = document.getElementById('grid')
 
             if (grid.childElementCount >= this.numberColumn && this.numberColumn > 1) {
@@ -944,6 +945,7 @@ h6 {
     max-width: 80vw;
     padding: 40px;
     background: rgb(26, 26, 26);
+    background: black;
     margin-bottom: 60px;
 }
 

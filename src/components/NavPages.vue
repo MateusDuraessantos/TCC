@@ -5,20 +5,19 @@
         <div class="container">
             <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
             <div class="nav__options">
-
+                <!-- trigger="click" -->
                 <el-dropdown>
-                    <router-link class="dropdown-link" to="/">
+                    <a class="dropdown-link" href="/">
                         <div>Sobre o curso</div>
                         <img class="arrow" src="ArrowDown.svg">
-                    </router-link>
+                    </a>
                     <template #dropdown>
-                        <el-dropdown-menu>
-                            <el-dropdown-item>Objetivos</el-dropdown-item>
-                            <el-dropdown-item>Matriz curricular</el-dropdown-item>
-                            <el-dropdown-item>Prédio 9 | Design</el-dropdown-item>
-                            <el-dropdown-item>Laboratórios</el-dropdown-item>
-                            <el-dropdown-item>Horários/Períodos</el-dropdown-item>
-                            <el-dropdown-item>Docentes</el-dropdown-item>
+                        <el-dropdown-menu @click="hashSemHash">
+                            <a class="el-dropdown-menu__item" href="/#link_objetivo">Objetivos</a>
+                            <a class="el-dropdown-menu__item" href="/#link_matriz">Matriz curricular</a>
+                            <a class="el-dropdown-menu__item" href="/#link_predio">Prédio 9 | Design</a>
+                            <a class="el-dropdown-menu__item" href="/#link_horarios">Horários/Períodos</a>
+                            <a class="el-dropdown-menu__item" href="/#docentes">Docentes</a>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -32,11 +31,11 @@
                         </router-link>
                     </span>
                     <template #dropdown>
-                        <el-dropdown-menu>
-                            <el-dropdown-item>Início das aulas</el-dropdown-item>
-                            <el-dropdown-item>Matrículas</el-dropdown-item>
-                            <el-dropdown-item>Setor de bolsas</el-dropdown-item>
-                            <el-dropdown-item>Perguntas frequêntes</el-dropdown-item>
+                        <el-dropdown-menu @click="hashSemHash">
+                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_aulas">Início das aulas</a>
+                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_matriculas">Matrículas</a>
+                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_bolsa">Setor de bolsas</a>
+                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_faq">Perguntas frequêntes</a>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -64,7 +63,15 @@ export default {
                     navbar.style.opacity = '0';
                 }
             });
+        },
+
+        hashSemHash(e) {
+            setTimeout(() => {
+                history.pushState("", document.title, location.pathname)
+                e.preventDefault()
+            }, 1);
         }
+
     }
 }
 
@@ -81,7 +88,7 @@ nav {
     width: 100%;
     color: white;
     z-index: 100;
-    height: 110px;
+    height: 80px;
 }
 
 #nav {
@@ -115,6 +122,11 @@ nav {
     margin-bottom: 3px;
     margin-left: 4px;
 }
+
+* {
+
+    outline: none;
+}
 </style>
 
 <style>
@@ -122,7 +134,9 @@ nav {
     outline: none;
 }
 
+.el-popper.is-light .el-popper__arrow::before,
 .el-dropdown-menu {
+    border: none;
     background: #1E1E1E;
 }
 
@@ -133,6 +147,8 @@ nav {
 }
 
 .el-dropdown-menu__item {
+    text-decoration: none;
+    height: 40px;
     color: #8A8A8A;
     font-size: 16px !important;
 }
@@ -142,7 +158,12 @@ nav {
     color: white !important;
 }
 
-.el-dropdown__popper.el-popper {
-    border-radius: 6px;
+.el-popper.is-light {
+    background: none;
+}
+
+.el-scrollbar {
+    border-radius: 9px;
+
 }
 </style>

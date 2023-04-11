@@ -156,6 +156,7 @@ header {
   padding: 0 40px;
   transition: .3s;
   cursor: pointer;
+  box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.4);
 }
 
 .blue_btn:hover {
@@ -206,5 +207,42 @@ header {
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
   width: 100%;
   height: 100%;
+}
+
+/* Collapse */
+
+.el-collapse-item__header {
+  background: #212121;
+  border-radius: 20px;
+  padding: 5px 0;
+  padding-left: 20px;
+  padding-right: 10px;
+  height: max-content;
+  color: white;
+  font-weight: 300;
+  font-size: 16px;
+  border: none;
+  line-height: 30px;
+}
+
+.el-collapse,
+.el-collapse-item__wrap {
+  border: none;
+}
+
+.el-collapse-item {
+  margin-bottom: 4px;
+}
+
+.el-collapse-item__wrap {
+  background: #131313;
+  border-radius: 25px;
+}
+
+.el-collapse-item__content {
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 300;
 }
 </style>
