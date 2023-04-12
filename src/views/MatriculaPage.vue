@@ -10,7 +10,7 @@
                         2023
                     </p>
                 </span>
-                <button class="blue_btn">Inscreva-se</button>
+                <button class="blue_btn btn_header">Inscreva-se</button>
             </div>
             <p class="subtitle">Faculdade de Arquitetura e Urbanismo | Campus Higienópolis
                 <br>
@@ -55,8 +55,20 @@
                         publishing
                         software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div class="container__cards">
-                        <div class="card" v-for="coisas in 4">
-                            <h2>vestibular</h2>
+                        <div class="card">
+                            <h2>Vestibular</h2>
+                            <button class="blue_btn">inscreva-se</button>
+                        </div>
+                        <div class="card">
+                            <h2>ENEM</h2>
+                            <button class="blue_btn">inscreva-se</button>
+                        </div>
+                        <div class="card">
+                            <h2>ProUni</h2>
+                            <button class="blue_btn">inscreva-se</button>
+                        </div>
+                        <div class="card">
+                            <h2>Transferência</h2>
                             <button class="blue_btn">inscreva-se</button>
                         </div>
                     </div>
@@ -249,14 +261,9 @@ export default {
                         '- Evidenciar objetivamente por seus bens, recursos e meios, situação econômica financeira contrária à carência alegada, quando de sua habilitação, através de declaração que não correspondam à verdade.',
                     ]
                 },
-
-
-
             ]
-
         }
     }
-
 }
 </script>
 
@@ -270,10 +277,11 @@ export default {
     gap: 40px;
 }
 
-.body {
-    width: var(--page-width);
-    margin: auto;
-
+.btn_header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
 }
 
 header {

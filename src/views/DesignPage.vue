@@ -530,7 +530,7 @@ export default {
       labs: [
         {
           name: 'Cerâmica',
-          img: 'ceramica.jpg'
+          img: 'ceramica_4.jpeg'
         },
         {
           name: 'Informática',
@@ -1080,10 +1080,7 @@ hr {
   transform: translate(22px, -2px);
 }
 
-.body {
-  width: var(--page-width);
-  margin: auto;
-}
+
 
 .cards-container {
   position: relative;

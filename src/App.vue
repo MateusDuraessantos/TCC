@@ -55,8 +55,15 @@ body {
   background: black;
 }
 
+.body {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: var(--page-width);
+}
+
 :root {
-  --page-width: 1200px;
+  --page-width: 1420px;
   --blue-mack: #00547F;
   --red-mack: #CC141D;
 }

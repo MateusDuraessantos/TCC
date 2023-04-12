@@ -28,22 +28,40 @@
             </el-carousel-item>
         </el-carousel>
 
-        <div class="container">
+        <div class="body">
             <div class="popup" v-if="popupValue">
-                <div class="changeCol" @click="changeCol">
-                    <div class="changeCol__container">
-                        <div class="changeCol__square" v-for="coisas in 4" />
+                <button class="popup__close">✕</button>
+
+
+                <!-- Change Layout -->
+                <div class="container__changeCol">
+                    <div class="cont__changeCol">
+                        <div style="display: flex; flex-direction: column; gap: 6px; ">
+
+
+                            <div class="download">
+                                <img src="/projetos/download.svg">
+                                <p>Relatório final</p>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="layout" @click="changeCol">
+                                <div class="layout__container" id="layout">
+                                    <div class="changeCol__square" v-for="coisa in coisas" />
+                                </div>
+                                <p>Layout</p>
+                            </div>
+                        </div>
+
                     </div>
-                    <p>Layout</p>
                 </div>
 
+
                 <div class="popup__overflow" @click="upPopup">
-
-
-
-
                     <div class="popup__container">
-                        <button class="popup__close">✕</button>
+
+
                         <header-popup>
                             <p class="font-light">5° Semestre</p>
                             <div class="title-popup">
@@ -53,11 +71,8 @@
                             <p class="font-light">Um pouco sobre como foi o projeto</p>
                         </header-popup>
 
-                        <!-- portfolio -->
+                        <!-- Vitrine das imagens -->
 
-                        <div id="teste">
-                            teste
-                        </div>
                         <div class="vitrine-grid" id="grid">
                             <img v-for="portfolio in projects[indexPopup].portfolios" :src="'projetos/' + portfolio">
                         </div>
@@ -146,7 +161,6 @@
 <script>
 import NavPages from '../components/NavPages.vue'
 import FooterPage from '../components/FooterPage.vue'
-import { datePickTypes } from 'element-plus'
 
 export default {
     name: 'ProjetosPage',
@@ -268,6 +282,9 @@ export default {
                         [
                             'fotografia/imagens/1.jpg',
                             'fotografia/imagens/2.jpg',
+                            'fotografia/imagens/3.jpg',
+                            'fotografia/imagens/4.jpg',
+                            'fotografia/imagens/5.jpg',
                         ],
                     description: [
                         'Fotografia é uma arte visual que envolve capturar imagens através de um processo de registro ótico e eletrônico. A fotografia permite que momentos e memórias sejam preservados para sempre, bem como possibilita a criação de obras de arte únicas e inspiradoras.',
@@ -684,10 +701,106 @@ export default {
                     description: ['Cobogó é um elemento arquitetônico bastante utilizado na construção civil brasileira. É uma espécie de elemento vazado, geralmente fabricado em cerâmica ou concreto, que permite a passagem de ar e luz, sem comprometer a privacidade do ambiente.',
                         ' O nome "cobogó" tem origem na junção dos sobrenomes dos seus criadores, Amadeu Oliveira Coimbra, Ernest August Boeckmann e Antônio de Góis.O elemento se popularizou no Nordeste do Brasil a partir da década de 1920, sendo muito utilizado em construções residenciais e comerciais.']
                 },
+                {
+                    name: 'Banners',
+                    thumb: 'banners/imagens/3.png',
+                    owner: [
+                        {
+                            name: 'Caleb',
+                            userFoto: 'banners/imagens/1.png',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Lecrae',
+                            userFoto: 'cobogo/lecrae.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Sasha Alex Sloan ',
+                            userFoto: 'cobogo/sasha.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                    ],
+                    portfolios:
+                        [
+                            'banners/imagens/1.png',
+                            'banners/imagens/2.png',
+                            'banners/imagens/3.png',
+                            'banners/imagens/4.png',
+                            'banners/imagens/5.png',
+                            'banners/imagens/6.png',
+                        ],
+
+                },
+                {
+                    name: 'Editorial',
+                    thumb: 'editorial/imagens/1.png',
+                    owner: [
+                        {
+                            name: 'Caleb',
+                            userFoto: 'editorial/imagens/1.png',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Lecrae',
+                            userFoto: 'cobogo/lecrae.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Sasha Alex Sloan ',
+                            userFoto: 'cobogo/sasha.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                    ],
+
+                    portfolios:
+                        [
+                            'editorial/imagens/1.png',
+                            'editorial/imagens/2.jpg',
+                            'editorial/imagens/3.jpg',
+                            'editorial/imagens/4.png',
+                            'editorial/imagens/5.jpg',
+                            'editorial/imagens/6.png',
+                            'editorial/imagens/7.png',
+                        ],
+                    description: ['Cobogó é um elemento arquitetônico bastante utilizado na construção civil brasileira. É uma espécie de elemento vazado, geralmente fabricado em cerâmica ou concreto, que permite a passagem de ar e luz, sem comprometer a privacidade do ambiente.',
+                        ' O nome "cobogó" tem origem na junção dos sobrenomes dos seus criadores, Amadeu Oliveira Coimbra, Ernest August Boeckmann e Antônio de Góis.O elemento se popularizou no Nordeste do Brasil a partir da década de 1920, sendo muito utilizado em construções residenciais e comerciais.']
+                },
             ],
             popupValue: false,
             indexPopup: null,
-            numberColumn: 2
+            numberColumn: 2,
+            coisas: Number,
         }
     },
 
@@ -703,12 +816,14 @@ export default {
 
                 if (this.popupValue == true) {
                     document.body.style.overflow = "hidden"
+
                 } else {
                     document.querySelector('body').removeAttribute('style')
                 }
             }
 
             //A função precisa ser realizada depois que o layout foi criado, para isso, o setTimeout
+
             if (this.popupValue == true) {
                 setTimeout(() => {
                     this.changeGrid()
@@ -725,13 +840,16 @@ export default {
             } else {
                 grid.setAttribute('style', `grid-template-columns: 1fr 1fr`)
             }
+
+            this.changeGrid()
+
         },
 
         changeGrid() {
 
             const grid = document.getElementById('grid')
 
-            if (grid.childElementCount >= this.numberColumn && this.numberColumn > 1) {
+            if (grid.childElementCount >= this.numberColumn) {
                 for (let x = 0; x <= grid.childElementCount; x++) {
                     for (let i = 0; i <= this.numberColumn - 1; i++) {
                         if (document.getElementById('column-1') == null) {
@@ -755,6 +873,42 @@ export default {
                     }
                 }
             }
+
+            //Muda os quadradinhos do layout
+
+            if (this.numberColumn == 2) {
+                let layout = document.getElementById('layout')
+
+                if (layout.getAttribute('style') == 'grid-template-columns: 1fr 1fr') {
+                    layout.removeAttribute('style')
+                    layout.style.gridTemplateColumns = '1fr'
+                    this.coisas = 2
+                }
+                else {
+                    layout.removeAttribute('style')
+                    layout.setAttribute('style', 'grid-template-columns: 1fr 1fr')
+                    this.coisas = 4
+                }
+            }
+
+            else {
+
+                if (layout.getAttribute('style') == 'grid-template-columns: 1fr;') {
+                    layout.removeAttribute('style')
+                    layout.style.gridTemplateColumns = '1fr 1fr'
+                    this.coisas = 4
+
+                } else {
+                    layout.style.gridTemplateColumns = '1fr'
+                    this.coisas = 2
+
+                }
+
+
+            }
+
+
+
         },
     },
 }
@@ -793,60 +947,6 @@ export default {
 </style>
 
 <style scoped>
-.changeCol {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 80px;
-    right: 40px;
-    text-align: center;
-    cursor: pointer;
-    z-index: 2;
-    gap: 20px;
-    font-weight: 300;
-}
-
-.changeCol p {
-    margin-top: 46px;
-}
-
-.changeCol__container {
-    top: 0;
-    margin: auto;
-    position: absolute;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    width: 30px;
-    height: 30px;
-    transition: .2s;
-}
-
-.changeCol__square {
-    background: rgb(101, 101, 101);
-    padding: 8px;
-    border-radius: 2px;
-    transition: .2s;
-}
-
-.changeCol:hover .changeCol__square {
-    background: rgb(89, 89, 89);
-    transition: .2s;
-    transform: translatey(-5px);
-}
-
-.carousel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    position: absolute;
-}
-
 header {
     position: absolute;
     z-index: 1;
@@ -865,6 +965,99 @@ header {
     font-size: 22px;
 }
 
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    position: absolute;
+}
+
+.container__changeCol {
+    font-weight: 300;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+}
+
+.cont__changeCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 50px;
+    transform: translate(100px, 100px);
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+    gap: 20px;
+}
+
+.layout__container {
+    margin: auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    gap: 4px;
+    transition: .2s;
+}
+
+.changeCol__square {
+    background: rgb(101, 101, 101);
+    padding: 8px;
+    border-radius: 2px;
+    transition: .2s;
+}
+
+.layout:hover .changeCol__square {
+    background: rgb(89, 89, 89);
+    transition: .2s;
+    transform: translatey(-5px);
+}
+
+.download {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgb(89, 89, 89);
+    border-radius: 50%;
+}
+
+.download p {
+    position: absolute;
+    bottom: -32px;
+    white-space: nowrap;
+}
+
+.download img {
+    transition: .2s;
+    margin-bottom: 3px;
+    width: 28px;
+}
+
+.download:hover img {
+    transform: translatey(-4px);
+    transition: .2s;
+
+}
+
+
+
 h1 {
     font-weight: 100;
     font-size: 80px;
@@ -873,12 +1066,7 @@ h1 {
     width: 100%;
 }
 
-.container {
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: var(--page-width);
-}
+
 
 /* USER ANIMATION */
 
@@ -1013,13 +1201,17 @@ h6 {
     width: 100%;
 }
 
+.popup__container,
+.cont__changeCol {
+    width: calc(100% - 400px);
+    max-width: 2000px;
+}
+
 .popup__container {
     position: relative;
-    width: calc(100% - 100px);
-    max-width: 80vw;
+
     padding: 40px;
     background: rgb(26, 26, 26);
-    background: black;
     margin-bottom: 60px;
 }
 
@@ -1037,6 +1229,7 @@ h6 {
     height: 24px;
     font-size: 24px;
     cursor: pointer;
+    z-index: 3;
 }
 
 header-popup {
