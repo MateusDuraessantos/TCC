@@ -2,7 +2,7 @@
   <div id="link_design">
     <NavPages />
     <header>
-      <p class="design">Design</p>
+      <p class="global__banner_font design">Design</p>
       <p class="faculdade">
         Faculdade de Arquitetura e Urbanismo | Campus Higienópolis
         <br>
@@ -19,7 +19,7 @@
       <div class="objetivo" id="link_objetivo">
         <span>
           <div class="container_objetivo">
-            <h3 class="objetivo__title">O que temos como objetivo?</h3>
+            <h1>O que temos como objetivo?</h1>
             <div>
               <hr-color />
               <hr>
@@ -63,10 +63,12 @@
           <br>
           <br>
           <h2>Premiações</h2>
-          <img class="premio__1" src="design/premio1.png">
-          <div class="premio__2">
-            <img src="design/star.png">
-            Guia do estudante
+          <div class="premio__grid">
+            <img class="premio__1" src="design/premio1.png">
+            <div class="premio__2">
+              <img src="design/star.png">
+              Guia do estudante
+            </div>
           </div>
         </span>
       </div>
@@ -76,26 +78,24 @@
       <!-- Matriz -->
 
       <div class="matriz" id="link_matriz">
-        <div class="matriz__title">Um pouquinho do que você vai aprender </div>
+        <h1>Um pouquinho do que você vai aprender </h1>
         <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
           <el-tab-pane label="Matriz Curricular" name="first">
 
-            <el-row>
-              <el-col :offset="3" :span="17">
+            <div class="container__collapse">
 
-                <el-collapse accordion style="margin: 60px 0">
-                  <el-collapse-item v-for="(grade, index) in matriz" :key="index">
-                    <template #title>
-                      <p class="matriz__etapa" style="color: #BDBDBD"><b>{{ index + 1 }}° Etapa</b> - Disciplinas</p>
-                    </template>
-                    <span v-for="materia in grade">
-                      {{ materia }}
-                      <br>
-                    </span>
-                  </el-collapse-item>
-                </el-collapse>
-              </el-col>
-            </el-row>
+              <el-collapse accordion style="margin: 60px 0">
+                <el-collapse-item v-for="(grade, index) in matriz" :key="index">
+                  <template #title>
+                    <p class="matriz__etapa" style="color: #BDBDBD"><b>{{ index + 1 }}° Etapa</b> - Disciplinas</p>
+                  </template>
+                  <span v-for="materia in grade">
+                    {{ materia }}
+                    <br>
+                  </span>
+                </el-collapse-item>
+              </el-collapse>
+            </div>
           </el-tab-pane>
 
           <!-- Nav Secundária -->
@@ -286,35 +286,40 @@
         <img class="background__carrossel" :src="'design/carrossel/' + carrossel[displayNumber]">
 
         <div class="predio">
-          <span>
-            <h1>Prédio 9</h1>
-            <br>
-            <p class="predio__description">
-              O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
-              tecnológico
-              localizado no coração de São Paulo, Brasil.
-              o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
-              universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
-              panorâmicas da
-              universidade.
+          <div class="predio__grid">
+            <span>
+              <h1>Prédio 9</h1>
               <br>
-              O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e vídeo,
-              salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
-              fabricação digital.
+              <p class="predio__description">
+                O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
+                tecnológico
+                localizado no coração de São Paulo, Brasil.
+                o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
+                universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
+                panorâmicas da
+                universidade.
+                <br>
+                O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e
+                vídeo,
+                salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
+                fabricação digital.
+                <br>
+                Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
+                auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
+                O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência
+                acadêmica
+                e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
+                habilidades e desenvolver seus projetos.
+              </p>
+            </span>
+            <span>
               <br>
-              Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
-              auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
-              O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência
-              acadêmica
-              e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
-              habilidades e desenvolver seus projetos.
-            </p>
-            <br>
-            <h1>Corpo docente</h1>
-            <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
-              capacitados, conheça um pouco da nossa equipe.</div>
-            <a href="#docentes" class="blue_btn">Ver docentes</a>
-          </span>
+              <h1>Corpo docente</h1>
+              <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
+                capacitados, conheça um pouco da nossa equipe.</div>
+              <a href="#docentes" class="blue_btn">Ver docentes</a>
+            </span>
+          </div>
           <div class="carrossel">
             <div class="carrossel__display">
               <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber]">
@@ -720,7 +725,6 @@ header {
 .design {
   position: absolute;
   z-index: 2;
-  font-size: 144px;
   text-align: center;
   font-weight: 100;
 }
@@ -739,6 +743,7 @@ header {
 .objetivo {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
+
 }
 
 .container_objetivo {
@@ -880,7 +885,6 @@ hr {
   opacity: 1 !important;
 }
 
-
 #right {
   right: 20px;
 }
@@ -898,7 +902,6 @@ hr {
   padding-bottom: 10px;
   overflow: auto;
 }
-
 
 .carrossel__options-img {
   border-radius: 6px;
@@ -920,14 +923,13 @@ hr {
   min-height: 700px;
 }
 
-.matriz__title {
-  font-size: 30px;
-  font-weight: 400;
-  margin-bottom: 26px;
-}
-
 .matriz__etapa {
   font-size: 16px;
+}
+
+.container__collapse {
+  max-width: 900px;
+  margin: auto;
 }
 
 /* Laboratórios */
@@ -954,9 +956,8 @@ hr {
   border: 4px solid #cc141d69;
 }
 
-
 .laboratorios__card:hover .laboratorio__name {
-  right: 50%;
+  right: 150px;
   transition: .4s;
 }
 
@@ -1080,8 +1081,6 @@ hr {
   transform: translate(22px, -2px);
 }
 
-
-
 .cards-container {
   position: relative;
   margin-bottom: 240px;
@@ -1098,8 +1097,14 @@ hr {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 14px;
+}
+
+@media only screen and (min-width:1920px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .card {
@@ -1157,7 +1162,7 @@ hr {
   color: #828282;
   cursor: pointer;
   font-size: 16px;
-  width: 224px;
+  max-width: 224px;
   overflow: hidden;
   transition: .1s;
 }
@@ -1173,9 +1178,79 @@ hr {
   height: 90px;
   object-fit: cover;
 }
+
+@media only screen and (max-width: 1000px) {
+  .predio {
+    grid-template-columns: 1fr;
+  }
+
+  .laboratorios {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .container__collapse {
+    max-width: 100%;
+  }
+
+  .predio__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .grid {
+    overflow: auto;
+    height: 600px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .horarios__cards {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.premio__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+@media only screen and (max-width: 700px) {
+  .horario__avise {
+    flex-direction: column;
+  }
+
+  .laboratorios {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .objetivo {
+    grid-template-columns: 1fr;
+  }
+
+  .premio {
+    gap: 40px;
+  }
+
+  .premio__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .laboratorios__img {
+    width: 100%;
+    opacity: 0.4;
+  }
+
+}
 </style>
 
 <style>
+
 /* Primary Nav */
 
 .el-tabs__item {
@@ -1205,9 +1280,7 @@ hr {
 .el-tabs__item {
   color: #BDBDBD;
 }
-</style>
 
-<style>
 /* Second Nav */
 
 .el-tabs--card>.el-tabs__header .el-tabs__item.is-active,
@@ -1234,4 +1307,13 @@ hr {
 .el-tabs__content {
   padding: 30px 30px 0 30px;
 }
+
+@media only screen and (max-width: 1000px) {
+
+  .el-tabs__content {
+    padding: 0;
+  }
+
+}
+
 </style>

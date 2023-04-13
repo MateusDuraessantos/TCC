@@ -29,6 +29,16 @@
         </el-carousel>
 
         <div class="body">
+
+            <div class="inputs">
+                <select type="text" class="filtro" placeholder="Pesquisar:">
+                    <option value="">Filtrar por ano/semestre</option>
+                    <option value="" v-for="(coisas, index) in 8" :key="index">{{ index + 1 }} Semestre
+                    </option>
+                </select>
+                <input type="text" class="pesquisa" placeholder="Pesquisar:">
+            </div>
+
             <div class="popup" v-if="popupValue">
                 <button class="popup__close">✕</button>
 
@@ -58,9 +68,10 @@
                 </div>
 
 
+
+
                 <div class="popup__overflow" @click="upPopup">
                     <div class="popup__container">
-
 
                         <header-popup>
                             <p class="font-light">5° Semestre</p>
@@ -79,60 +90,61 @@
 
                         <!-- Descrições -->
 
-                        <div class="description">
-                            <p v-for="teste in projects[indexPopup].description" style="margin-bottom: 6px;">
-                                &nbsp;&nbsp;{{ teste }} </p>
-                        </div>
-
-                        <h6>Criadores</h6>
-                        <hr>
-                        <br>
-                        <br>
-                        <br>
-                        <el-row>
-                            <el-col :span="18">
-                                <div class="grid__criadores">
-
-                                    <div class="criadores" v-for="userInfos in projects[indexPopup].owner">
-
-                                        <div class="criadores__container">
-                                            <img class="grid__criadores__imgs" :src="'projetos/' + userInfos.userFoto" />
-                                            <p class="criadores__name">{{ userInfos.name }}</p>
-                                        </div>
-                                        <div class="redes__sociais">
-                                            <a v-for="medias in userInfos.socialMedia" :href="medias.link"
-                                                target="_blank">{{ medias.plataform }}</a>
+                        <div style="padding: 40px">
+                            <div class="description">
+                                <p v-for="teste in projects[indexPopup].description" style="margin-bottom: 6px;">
+                                    &nbsp;&nbsp;{{ teste }} </p>
+                            </div>
+                            <h6>Criadores</h6>
+                            <hr>
+                            <br>
+                            <br>
+                            <br>
+                            <el-row>
+                                <el-col :span="16" class="footer__popup">
+                                    <div class="grid__criadores">
+                                        <div class="criadores" v-for="userInfos in projects[indexPopup].owner">
+                                            <div class="criadores__container">
+                                                <img class="grid__criadores__imgs"
+                                                    :src="'projetos/' + userInfos.userFoto" />
+                                                <p class="criadores__name">{{ userInfos.name }}</p>
+                                            </div>
+                                            <div class="redes__sociais">
+                                                <a v-for="medias in userInfos.socialMedia" :href="medias.link"
+                                                    target="_blank">{{ medias.plataform }}</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <br>
-                                <div>
-                                    <hr>
-                                    <h6>Professores orientadores</h6>
-                                    <p class="popup__docentes">
-                                    <p>Prof. Me. Carlos Marcelo Campos Teixeira</p>
-                                    <p>Prof. Dr. Célio Martins da Matta </p>
-                                    <p>Profª. Me. Grace Kishimoto</p>
-                                    </p>
-                                </div>
-                            </el-col>
-                            <el-col :span="4" :offset="1">
-                                <h6>Laboratórios utilizados</h6>
-                                <li class="font-light">Impressão</li>
-                                <li class="font-light">Vidro</li>
-                                <li class="font-light">Marcenaria</li>
-                                <h6>Palavras chave</h6>
-                                <div class="grid__tags">
-                                    <tag type="black">gaming</tag>
-                                    <tag type="black">tabuleiro</tag>
-                                    <tag type="black">vermelho</tag>
-                                    <tag type="black">design</tag>
-                                    <tag type="black">produto</tag>
-                                    <tag type="black">board</tag>
-                                </div>
-                            </el-col>
-                        </el-row>
-                        <p class="data_publi">Publicação: 2 de março de 2022</p>
+                                    <div>
+                                        <hr>
+                                        <br>
+                                        <h6>Professores orientadores</h6>
+                                        <p class="popup__docentes">
+                                        <p>Prof. Me. Carlos Marcelo Campos Teixeira</p>
+                                        <p>Prof. Dr. Célio Martins da Matta </p>
+                                        <p>Profª. Me. Grace Kishimoto</p>
+                                        </p>
+                                    </div>
+                                </el-col>
+                                <el-col :span="6" :offset="1" class="footer__popup">
+                                    <h6>Laboratórios utilizados</h6>
+                                    <li class="font-light">Impressão</li>
+                                    <li class="font-light">Vidro</li>
+                                    <li class="font-light">Marcenaria</li>
+                                    <br>
+                                    <h6>Palavras chave</h6>
+                                    <div class="grid__tags">
+                                        <tag type="black">gaming</tag>
+                                        <tag type="black">tabuleiro</tag>
+                                        <tag type="black">vermelho</tag>
+                                        <tag type="black">design</tag>
+                                        <tag type="black">produto</tag>
+                                        <tag type="black">board</tag>
+                                    </div>
+                                </el-col>
+                            </el-row>
+                            <p class="data_publi">Publicação: 2 de março de 2022</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -660,16 +672,7 @@ export default {
                     name: 'Cobogó',
                     thumb: 'cobogo/imagens/3.jpg',
                     owner: [
-                        {
-                            name: 'Caleb',
-                            userFoto: 'cobogo/caleb.jpg',
-                            socialMedia: [
-                                {
-                                    plataform: 'Linkedin',
-                                    link: 'https://www.linkedin.com/'
-                                }
-                            ],
-                        },
+
                         {
                             name: 'Lecrae',
                             userFoto: 'cobogo/lecrae.jpg',
@@ -705,9 +708,20 @@ export default {
                     name: 'Banners',
                     thumb: 'banners/imagens/3.png',
                     owner: [
+
                         {
-                            name: 'Caleb',
-                            userFoto: 'banners/imagens/1.png',
+                            name: 'Zevnikov',
+                            userFoto: 'banners/zevnikov.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=q8AuPWZNxpY&list=PL5zWF3xO0ZERzh1x6iHoDmxLKoXh3Muqv&index=4&ab_channel=zevnikov'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Djavan',
+                            userFoto: 'banners/djavan.jpg',
                             socialMedia: [
                                 {
                                     plataform: 'Linkedin',
@@ -715,26 +729,7 @@ export default {
                                 }
                             ],
                         },
-                        {
-                            name: 'Lecrae',
-                            userFoto: 'cobogo/lecrae.jpg',
-                            socialMedia: [
-                                {
-                                    plataform: 'Linkedin',
-                                    link: 'https://www.linkedin.com/'
-                                }
-                            ],
-                        },
-                        {
-                            name: 'Sasha Alex Sloan ',
-                            userFoto: 'cobogo/sasha.jpg',
-                            socialMedia: [
-                                {
-                                    plataform: 'Linkedin',
-                                    link: 'https://www.linkedin.com/'
-                                }
-                            ],
-                        },
+
                     ],
                     portfolios:
                         [
@@ -751,16 +746,6 @@ export default {
                     name: 'Editorial',
                     thumb: 'editorial/imagens/1.png',
                     owner: [
-                        {
-                            name: 'Caleb',
-                            userFoto: 'editorial/imagens/1.png',
-                            socialMedia: [
-                                {
-                                    plataform: 'Linkedin',
-                                    link: 'https://www.linkedin.com/'
-                                }
-                            ],
-                        },
                         {
                             name: 'Lecrae',
                             userFoto: 'cobogo/lecrae.jpg',
@@ -786,15 +771,257 @@ export default {
                     portfolios:
                         [
                             'editorial/imagens/1.png',
-                            'editorial/imagens/2.jpg',
-                            'editorial/imagens/3.jpg',
+                            'editorial/imagens/2.png',
+                            'editorial/imagens/3.png',
                             'editorial/imagens/4.png',
-                            'editorial/imagens/5.jpg',
-                            'editorial/imagens/6.png',
-                            'editorial/imagens/7.png',
+
+                        ],
+                    description: [
+                        'Trabalhos editoriais são aqueles relacionados à criação de conteúdo editorial, como livros, revistas, jornais, manuais, entre outros. O processo editorial envolve desde a concepção do conteúdo até a sua finalização e publicação.',
+                        'Os trabalhos editoriais podem ser realizados por uma equipe composta por diversos profissionais, como editores, revisores, diagramadores, designers gráficos, ilustradores, entre outros. Cada um desses profissionais desempenha um papel específico para garantir que o conteúdo seja bem estruturado, tenha uma boa aparência e esteja de acordo com as normas de publicação.',
+                        'Os editores são responsáveis por selecionar o conteúdo, coordenar a produção editorial, revisar e corrigir os textos, definir o projeto gráfico, entre outras atividades. Os diagramadores são responsáveis por organizar o conteúdo em páginas e definir a sua aparência. Já os designers gráficos são responsáveis por criar as ilustrações, as capas e outros elementos visuais do material editorial.',
+                        'Em resumo, o trabalho editorial é fundamental para garantir a qualidade do conteúdo publicado e para que ele atenda às necessidades e expectativas do público-alvo.'
+
+                    ]
+                },
+                {
+                    name: 'Mechardising',
+                    thumb: 'merchandising/imagens/2.jpg',
+                    owner: [
+                        {
+                            name: 'Metallica',
+                            userFoto: 'merchandising/metallica.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Red Band',
+                            userFoto: 'merchandising/red.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Starset',
+                            userFoto: 'merchandising/starset.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                    ],
+
+                    portfolios:
+                        [
+                            'merchandising/imagens/1.jpg',
+                            'merchandising/imagens/2.jpg',
+                            'merchandising/imagens/3.png',
+                            'merchandising/imagens/4.jpg',
+                            'merchandising/imagens/5.jpg',
+                            'merchandising/imagens/6.jpg',
+                        ],
+                    description: ['Merchandising é uma estratégia de marketing que busca promover e valorizar determinado produto ou marca no ponto de venda, utilizando técnicas de exposição, decoração, sinalização, promoções, entre outras. É uma forma de estimular o interesse e a compra do consumidor, a partir de uma apresentação atrativa e persuasiva do produto ou serviço. O merchandising pode ser feito em lojas físicas, e-commerces, supermercados, entre outros ambientes de venda. Além disso, também pode ser utilizado em eventos, shows, programas de TV, filmes e outras produções audiovisuais como uma forma de publicidade.']
+                },
+                {
+                    name: 'Montagens',
+                    thumb: 'montagem/imagens/2.jpg',
+                    owner: [
+                        {
+                            name: 'Metallica',
+                            userFoto: 'merchandising/metallica.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Red Band',
+                            userFoto: 'merchandising/red.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Starset',
+                            userFoto: 'merchandising/starset.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                    ],
+
+                    portfolios:
+                        [
+                            'montagem/imagens/1.jpg',
+                            'montagem/imagens/2.jpg',
+                            'montagem/imagens/3.jpg',
+                        ],
+                    description: [
+                        'Montagens e colagens com Photoshop são técnicas de edição de imagem que permitem combinar várias imagens em uma única composição. O Photoshop é uma ferramenta poderosa para realizar esse tipo de trabalho, pois oferece diversas ferramentas de edição, como a seleção de objetos, recorte, ajustes de cor e brilho, entre outras.',
+                        'A montagem de imagens é amplamente utilizada em publicidade, propaganda, design gráfico e fotografia. Por exemplo, uma campanha publicitária pode usar a montagem de imagens para criar um anúncio que transmita uma ideia ou conceito de forma criativa e impactante.',
+                        'Já a colagem de imagens pode ser usada para criar composições artísticas, como cartazes, pôsteres, capas de livros e revistas, entre outros. A colagem permite que o artista ou designer crie uma composição única a partir de diversas imagens, recortes e texturas.']
+                },
+                {
+                    name: 'Fotografias preto e branco',
+                    thumb: 'fotografia_01/imagens/2.jpg',
+                    owner: [
+                        {
+                            name: 'System of Down',
+                            userFoto: 'fotografia_01/system.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=I7BaFAromz4&list=PL5zWF3xO0ZEQvH91JDtPYJHMx_16k3Fdy&index=48&ab_channel=Red-Topic'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Fire Flight Rock',
+                            userFoto: 'fotografia_01/fireflight.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=NVJFQMSZFyo&list=PL5zWF3xO0ZEQvH91JDtPYJHMx_16k3Fdy&index=50&ab_channel=Fireflight-Topic'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Five Finger Death Punch',
+                            userFoto: 'fotografia_01/five.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=Ci0jakuERic&list=PL5zWF3xO0ZEQvH91JDtPYJHMx_16k3Fdy&index=54&ab_channel=FiveFingerDeathPunch-Topic'
+                                }
+                            ],
+                        },
+
+                    ],
+
+                    portfolios:
+                        [
+                            'fotografia_01/imagens/1.jpg',
+                            'fotografia_01/imagens/2.jpg',
+                            'fotografia_01/imagens/3.jpg',
+                            'fotografia_01/imagens/4.jpg',
+                            'fotografia_01/imagens/5.jpg',
                         ],
                     description: ['Cobogó é um elemento arquitetônico bastante utilizado na construção civil brasileira. É uma espécie de elemento vazado, geralmente fabricado em cerâmica ou concreto, que permite a passagem de ar e luz, sem comprometer a privacidade do ambiente.',
                         ' O nome "cobogó" tem origem na junção dos sobrenomes dos seus criadores, Amadeu Oliveira Coimbra, Ernest August Boeckmann e Antônio de Góis.O elemento se popularizou no Nordeste do Brasil a partir da década de 1920, sendo muito utilizado em construções residenciais e comerciais.']
+                },
+                {
+                    name: 'blvckfinance',
+                    thumb: 'blvckfinance/imagens/2.jpg',
+                    owner: [
+                        {
+                            name: 'Stenio Marcius',
+                            userFoto: 'blvckfinance/stenio.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=utaXbF-ZZsE&list=PL5zWF3xO0ZETHKblr5w0WDhR8TjdCBOMj&index=4&ab_channel=St%C3%AAnioMarcius-Topic'
+                                }
+                            ],
+                        },
+
+
+
+                    ],
+
+                    portfolios:
+                        [
+                            'blvckfinance/imagens/1.jpg',
+                            'blvckfinance/imagens/2.jpg',
+                            'blvckfinance/imagens/3.jpg',
+                            'blvckfinance/imagens/4.jpg',
+                            'blvckfinance/imagens/5.jpg',
+                            'blvckfinance/imagens/6.jpg',
+                        ],
+                    description: [
+                        'Mockups são representações visuais estáticas ou interativas de um design de produto ou interface de usuário. Eles são usados para fornecer uma visão geral do design, layout e funcionalidades de um produto, antes mesmo de ser construído ou desenvolvido. Geralmente, os mockups são criados como modelos de design em papel ou digitalmente, utilizando softwares de design gráfico, como o Adobe Photoshop, Sketch ou Figma.',
+                        'Os mockups são utilizados por equipes de design, desenvolvedores e stakeholders para validar conceitos de design, testar a funcionalidade do produto e avaliar a aparência e usabilidade do produto. Eles podem ser criados para diferentes tipos de projetos, incluindo aplicativos móveis, websites, produtos físicos, e-commerce e muito mais.',
+                        'Os mockups são uma parte importante do processo de design e podem ajudar a economizar tempo e dinheiro, permitindo que a equipe antecipe problemas e solucione problemas de design antes mesmo de começar a codificar ou produzir um produto final.'
+                    ]
+                },
+                {
+                    name: 'Websites | Frontend',
+                    thumb: 'websites/imagens/4.jpg',
+                    owner: [
+                        {
+                            name: 'JVKE',
+                            userFoto: 'websites/jvke.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=91RmY7To89Y&ab_channel=Lierix'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Mato Seco',
+                            userFoto: 'websites/matoseco.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=ONVHecN-RAs&list=PL5zWF3xO0ZEQ4sZxkNXdKhRsKGzY7j26q&index=11&ab_channel=MatoSeco'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Paula Fernandes',
+                            userFoto: 'websites/paula.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=G-SeTaxtrJo&ab_channel=PaulaFernandes-Topic'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Benito di Paula',
+                            userFoto: 'websites/benito.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=-YeVxeyWDHo&ab_channel=BenitoDiPaulaVEVO'
+                                }
+                            ],
+                        },
+
+
+                    ],
+
+                    portfolios:
+                        [
+                            'websites/imagens/1.png',
+                            'websites/imagens/2.jpg',
+                            'websites/imagens/3.jpg',
+                            'websites/imagens/4.jpg',
+                            'websites/imagens/5.jpg',
+                        ],
+                    description: [
+                        'Os web designers que também fazem o front-end são responsáveis por criar a interface visual de um site ou aplicativo. Eles utilizam uma variedade de ferramentas e tecnologias, incluindo o Adobe Photoshop, Sketch, Adobe XD, entre outros, para criar um layout atraente e funcional que possa ser implementado no código.',
+                        'Além de criar o design, os web designers também podem estar envolvidos no processo de desenvolvimento do front-end. Eles trabalham com programadores front-end para garantir que o código HTML, CSS e JavaScript reflita corretamente o design e funcione corretamente em diferentes dispositivos e navegadores.',
+                        'O trabalho dos web designers que também fazem o front-end é muito importante para garantir que os sites e aplicativos tenham uma aparência atraente e sejam fáceis de usar. Eles precisam ter uma compreensão sólida de design, bem como conhecimento técnico em HTML, CSS e JavaScript.',
+
+                    ]
                 },
             ],
             popupValue: false,
@@ -809,6 +1036,8 @@ export default {
 
             const clicked = event.target.classList[0]
 
+            //É nessário que o popup apareça/desapareça, somenente se alguns determinados elementos forem clicados
+
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
                 this.indexPopup = index
 
@@ -822,7 +1051,7 @@ export default {
                 }
             }
 
-            //A função precisa ser realizada depois que o layout foi criado, para isso, o setTimeout
+            //A função precisa ser realizada depois que o layout for criado, para isso, o setTimeout
 
             if (this.popupValue == true) {
                 setTimeout(() => {
@@ -832,7 +1061,7 @@ export default {
         },
 
         changeCol() {
-
+            // Observa quantos grids o container id="grid" se iniciou ao subir o popup
             const grid = document.getElementById('grid')
             if (grid.style.gridTemplateColumns == '1fr 1fr') {
 
@@ -916,6 +1145,45 @@ export default {
 </script>
 
 <style>
+.inputs {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.filtro {
+    padding-right: 50px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.filtro option {
+    height: 30px;
+}
+
+.filtro,
+.pesquisa {
+    background: #2c2c2c;
+    height: 36px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.pesquisa {
+    width: 100%;
+}
+
+.pesquisa::placeholder {
+    color: white;
+}
+
+
 #teste img {
     width: 100%;
 }
@@ -930,7 +1198,6 @@ export default {
     min-height: 100px;
     margin: auto;
     gap: var(--gap-img);
-    margin-top: 40px;
 }
 
 .vitrine-count {
@@ -1175,9 +1442,9 @@ h1 {
 /* popup */
 
 h6 {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 400;
-    margin: 34px 0;
+    margin-bottom: 18px;
 }
 
 .popup {
@@ -1209,8 +1476,6 @@ h6 {
 
 .popup__container {
     position: relative;
-
-    padding: 40px;
     background: rgb(26, 26, 26);
     margin-bottom: 60px;
 }
@@ -1236,6 +1501,7 @@ header-popup {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 40px;
 }
 
 /* portfolio */
@@ -1249,7 +1515,7 @@ header-popup {
 
 .description {
     column-count: 2;
-    margin: 80px 0;
+    margin: 20px 0 60px 0;
     font-weight: 300;
     line-height: 26px;
 }
@@ -1277,18 +1543,30 @@ hr {
     border-style: solid;
 }
 
+.footer__popup {
+    background: #2c2c2c;
+    background: black;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+
 .grid__criadores {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     line-height: 26px;
     font-size: 16px;
-    gap: 20px;
+    gap: 14px;
 }
 
 .criadores {
     display: flex;
     flex-direction: column;
+    background: #1a1a1a;
     margin-bottom: 30px;
+    padding: 10px;
+    line-height: 20px;
+    border-radius: 8px;
 }
 
 .criadores__container {
@@ -1346,7 +1624,7 @@ hr {
 
 [type="black"] {
     border-radius: 8px;
-    background: black;
+    background: #1a1a1a;
     color: #7f7f7f;
     font-size: 15px;
     font-weight: 400;
@@ -1358,7 +1636,7 @@ hr {
     text-align: center;
     font-weight: 300;
     color: #A0A0A0;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 
 .popup__docentes {

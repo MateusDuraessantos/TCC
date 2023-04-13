@@ -23,7 +23,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 * {
   font-family: 'Roboto', sans-serif;
   padding: 0;
@@ -55,18 +54,28 @@ body {
   background: black;
 }
 
-.body {
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: var(--page-width);
-}
-
 :root {
-  --page-width: 1420px;
+  --page-width: 1280px;
   --blue-mack: #00547F;
   --red-mack: #CC141D;
 }
+
+@media only screen and (min-width: 1920px) {
+  :root {
+    --page-width: 1480px;
+    --red-mack: #CC141D;
+  }
+
+}
+
+.body {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 0 50px;
+  max-width: var(--page-width);
+}
+
 
 header {
   display: flex;
@@ -251,5 +260,44 @@ header {
   padding: 20px;
   font-size: 16px;
   font-weight: 300;
+}
+
+
+/* Classes globais */
+
+.global__banner_font {
+  font-size: 144px;
+}
+
+@media only screen and (max-width: 1000px) {
+
+  .global__banner_font {
+    font-size: 80px;
+  }
+
+  header {
+    height: 700px;
+  }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+  .global__banner_font {
+    font-size: 80px;
+  }
+
+  .body {
+    padding: 0 20px;
+  }
+
+  .contato {
+    display: none;
+  }
+
+  header {
+    height: 500px;
+  }
+
 }
 </style>

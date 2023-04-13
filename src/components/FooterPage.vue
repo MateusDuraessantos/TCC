@@ -59,8 +59,7 @@
                     <br> Hospital Universitário Evangélico Mackenzie
                     <br> Hospital Evangélico
                 </p>
-            </div>
-            <div class="colums">
+
                 <p>
 
                     Institucional
@@ -127,8 +126,7 @@
 
                 </p>
 
-            </div>
-            <div class="colums">
+
                 <p>
 
                     Institucional
@@ -226,11 +224,11 @@ h3 {
 }
 
 .container {
-    padding-bottom: 100px;
+    padding: 0 50px 100px 50px;
     margin: auto;
-    width: calc(100% - 400px);
     line-height: 24px;
-    max-width: 1920px;
+
+    max-width: var(--page-width);
     color: #B0B0B0;
 }
 
@@ -262,5 +260,27 @@ h3 {
     width: 100%;
     position: absolute;
     opacity: 0.2;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    .colums {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .colums {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .colums {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 </style>

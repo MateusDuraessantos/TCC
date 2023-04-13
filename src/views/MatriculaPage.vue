@@ -286,6 +286,8 @@ export default {
 
 header {
     background-image: url('../../public/matricula/banner.jpg');
+    background-size: contain;
+    background-position: center;
     cursor: default;
 }
 
