@@ -9,7 +9,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'app'
 }
@@ -34,7 +33,6 @@ html {
   width: 7px;
   height: 7px;
   background: transparent;
-
 }
 
 *::-webkit-scrollbar-track {
@@ -45,7 +43,6 @@ html {
   background-color: #474747;
   border-radius: 6px;
 }
-
 
 body {
   overflow: overlay;
@@ -65,7 +62,6 @@ body {
     --page-width: 1480px;
     --red-mack: #CC141D;
   }
-
 }
 
 .body {
@@ -75,7 +71,6 @@ body {
   padding: 0 50px;
   max-width: var(--page-width);
 }
-
 
 header {
   display: flex;
@@ -191,7 +186,6 @@ header {
   padding: 0 40px;
   transition: .3s;
   cursor: pointer;
-
 }
 
 .black_btn:hover {
@@ -262,7 +256,6 @@ header {
   font-weight: 300;
 }
 
-
 /* Classes globais */
 
 .global__banner_font {
@@ -298,6 +291,5 @@ header {
   header {
     height: 500px;
   }
-
 }
 </style>

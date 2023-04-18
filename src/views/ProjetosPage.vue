@@ -63,12 +63,8 @@
                                 <p>Layout</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-
-
 
                 <div class="popup__overflow" @click="upPopup">
                     <div class="popup__container">
@@ -84,7 +80,7 @@
 
                         <!-- Vitrine das imagens -->
 
-                        <div class="vitrine-grid" id="grid">
+                        <div class="vitrine-grid" id="grid" style="grid-template-columns: 1fr 1fr;">
                             <img v-for="portfolio in projects[indexPopup].portfolios" :src="'projetos/' + portfolio">
                         </div>
 
@@ -1053,7 +1049,7 @@ export default {
 
             //A função precisa ser realizada depois que o layout for criado, para isso, o setTimeout
 
-            if (this.popupValue == true) {
+            if (this.popupValue == true && clicked != undefined) {
                 setTimeout(() => {
                     this.changeGrid()
                 }, 1);
@@ -1061,8 +1057,11 @@ export default {
         },
 
         changeCol() {
+
             // Observa quantos grids o container id="grid" se iniciou ao subir o popup
+
             const grid = document.getElementById('grid')
+
             if (grid.style.gridTemplateColumns == '1fr 1fr') {
 
                 grid.setAttribute('style', `grid-template-columns: 1fr`)
@@ -1078,25 +1077,17 @@ export default {
 
             const grid = document.getElementById('grid')
 
-            if (grid.childElementCount >= this.numberColumn) {
-                for (let x = 0; x <= grid.childElementCount; x++) {
-                    for (let i = 0; i <= this.numberColumn - 1; i++) {
+            if (grid.childElementCount >= 2) {
+                for (let x = 0; x <= 2; x++) {
+                    for (let i = 0; i <= 1; i++) {
                         if (document.getElementById('column-1') == null) {
 
-                            let fr = ''
-
-                            for (let y = 1; y <= this.numberColumn; y++) {
-                                fr += '1fr '
-                            }
-
-                            document.getElementById('grid').setAttribute('style', `grid-template-columns: ${fr}`)
-
-                            for (let a = 0; a <= this.numberColumn - 1; a++) {
+                            for (let a = 0; a <= 1; a++) {
 
                                 grid.innerHTML += `<div class="vitrine-count" id="column-${a}"></div>`
                             }
                         }
-                        if (grid.children.length != this.numberColumn) {
+                        if (grid.children.length != 2) {
                             document.getElementById(`column-${i}`).appendChild(grid.children[0])
                         }
                     }
@@ -1119,25 +1110,6 @@ export default {
                     this.coisas = 4
                 }
             }
-
-            else {
-
-                if (layout.getAttribute('style') == 'grid-template-columns: 1fr;') {
-                    layout.removeAttribute('style')
-                    layout.style.gridTemplateColumns = '1fr 1fr'
-                    this.coisas = 4
-
-                } else {
-                    layout.style.gridTemplateColumns = '1fr'
-                    this.coisas = 2
-
-                }
-
-
-            }
-
-
-
         },
     },
 }
@@ -1194,6 +1166,7 @@ export default {
 
 .vitrine-grid {
     display: grid;
+
     width: 100%;
     min-height: 100px;
     margin: auto;
