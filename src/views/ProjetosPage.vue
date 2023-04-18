@@ -524,7 +524,7 @@ export default {
                             ],
                         },
                         {
-                            name: 'Selena Gomes',
+                            name: 'selena Gomes',
                             userFoto: 'butterfly/Selena.jpg',
                             socialMedia: [
                                 {
