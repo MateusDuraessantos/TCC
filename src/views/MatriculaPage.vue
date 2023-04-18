@@ -312,7 +312,7 @@ header {
     line-height: 50px;
     text-align: center;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     z-index: 1;
 
 }
@@ -357,17 +357,17 @@ header {
     display: flex;
     font-size: 16px;
     line-height: 26px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .font-light {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
 .light {
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     margin: 100px 0 40px 0;
 }
@@ -402,7 +402,7 @@ header {
 
 h2 {
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
@@ -441,13 +441,13 @@ h2 {
     display: flex;
     font-size: 16px;
     line-height: 26px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .frase__p {
     text-align: center;
     font-size: 26px;
-    font-weight: 300;
+    font-weight: 400;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
 }
 </style>

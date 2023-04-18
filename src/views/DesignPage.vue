@@ -732,7 +732,7 @@ header {
 .faculdade {
   position: absolute;
   bottom: 50px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 50px;
   z-index: 2;
   font-size: 18px;
@@ -761,7 +761,7 @@ header {
   height: 300px;
   overflow: overlay;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 30px;
   padding-right: 30px;
 }
@@ -797,7 +797,7 @@ hr {
 }
 
 .predio__description {
-  font-weight: 300;
+  font-weight: 400;
   line-height: 28px;
   font-size: 16px;
   margin-bottom: 20px;
@@ -860,7 +860,7 @@ hr {
 
 .arrow {
   font-size: 50px;
-  font-weight: 300;
+  font-weight: 400;
   position: absolute;
   padding-bottom: 8px;
   display: flex;
@@ -1116,7 +1116,7 @@ hr {
   padding: 16px;
   background: rgba(255, 255, 255, 0.06);
   color: white;
-  font-weight: 300;
+  font-weight: 400;
   cursor: default;
   backdrop-filter: blur(6px);
   box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.1);
@@ -1256,7 +1256,7 @@ hr {
 .el-tabs__item {
   font-size: 16px;
   transition: .2s;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .el-tabs__item:hover {
@@ -1301,7 +1301,7 @@ hr {
 
 .el-tab-pane {
   line-height: 30px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .el-tabs__content {

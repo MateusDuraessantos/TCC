@@ -143,7 +143,7 @@ nav {
 .el-dropdown__popper.el-popper {
     border: none;
     color: #8A8A8A;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .el-dropdown-menu__item {

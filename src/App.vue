@@ -138,7 +138,7 @@ header {
   color: #828282;
   font-size: 18px;
   height: 30px;
-  font-weight: 300;
+  font-weight: 400;
   mix-blend-mode: difference;
   transition: .3s;
 }
@@ -163,7 +163,7 @@ header {
   border-radius: 60px;
   color: white;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0 40px;
   transition: .3s;
   cursor: pointer;
@@ -182,7 +182,7 @@ header {
   border-radius: 60px;
   color: white;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0 40px;
   transition: .3s;
   cursor: pointer;
@@ -200,7 +200,7 @@ header {
   border-radius: 60px;
   color: white;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0 40px;
   transition: .3s;
   cursor: pointer;
@@ -229,7 +229,7 @@ header {
   padding-right: 10px;
   height: max-content;
   color: white;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   border: none;
   line-height: 30px;
@@ -253,7 +253,7 @@ header {
   color: white;
   padding: 20px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* Classes globais */

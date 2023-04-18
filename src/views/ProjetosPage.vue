@@ -80,7 +80,7 @@
 
                         <!-- Vitrine das imagens -->
 
-                        <div class="vitrine-grid" id="grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="vitrine-grid" id="grid">
                             <img v-for="portfolio in projects[indexPopup].portfolios" :src="'projetos/' + portfolio">
                         </div>
 
@@ -239,6 +239,8 @@ export default {
                             'mun/imagens/1.jpg',
                             'mun/imagens/2.jpg',
                             'mun/imagens/3.jpg',
+                            'mun/imagens/4.jpg',
+
                         ],
                     description: ['Uma luminária é um objeto que tem como função principal iluminar um ambiente.Ela pode ser usada para criar diferentes atmosferas e tornar um espaço mais acolhedor e confortável.As luminárias podem ser feitas de diferentes materiais, como metal, vidro, tecido, madeira e plástico, e podem ter diversos formatos e tamanhos.Existem luminárias de mesa, de chão, de parede e de teto, cada uma com sua própria função e estilo.',
                         'As luminárias também são uma peça importante na decoração de interiores, pois podem ser escolhidas de acordo com o estilo do ambiente, como moderno, clássico, rústico, entre outros.Além disso, a iluminação adequada é essencial para valorizar a decoração e destacar pontos específicos do ambiente.'],
@@ -1022,8 +1024,7 @@ export default {
             ],
             popupValue: false,
             indexPopup: null,
-            numberColumn: 2,
-            coisas: Number,
+            coisas: 4,
         }
     },
 
@@ -1074,20 +1075,17 @@ export default {
         },
 
         changeGrid() {
-
             const grid = document.getElementById('grid')
 
-            if (grid.childElementCount >= 2) {
-                for (let x = 0; x <= 2; x++) {
-                    for (let i = 0; i <= 1; i++) {
-                        if (document.getElementById('column-1') == null) {
+            if (grid.childElementCount > 2) {
+                for (let x = 0; x <= grid.childElementCount; x++) {
 
-                            for (let a = 0; a <= 1; a++) {
-
-                                grid.innerHTML += `<div class="vitrine-count" id="column-${a}"></div>`
-                            }
+                    for (let i = 0; i < 2; i++) {
+                        if (document.getElementById('column-0') == null) {
+                            grid.innerHTML += `<div class="vitrine-count" id="column-0"></div>`
+                            grid.innerHTML += `<div class="vitrine-count" id="column-1"></div>`
                         }
-                        if (grid.children.length != 2) {
+                        if (grid.children.length > 2) {
                             document.getElementById(`column-${i}`).appendChild(grid.children[0])
                         }
                     }
@@ -1096,19 +1094,32 @@ export default {
 
             //Muda os quadradinhos do layout
 
-            if (this.numberColumn == 2) {
-                let layout = document.getElementById('layout')
+            let layout = document.getElementById('layout')
 
-                if (layout.getAttribute('style') == 'grid-template-columns: 1fr 1fr') {
-                    layout.removeAttribute('style')
-                    layout.style.gridTemplateColumns = '1fr'
-                    this.coisas = 2
-                }
-                else {
-                    layout.removeAttribute('style')
-                    layout.setAttribute('style', 'grid-template-columns: 1fr 1fr')
-                    this.coisas = 4
-                }
+            if (grid.style.gridTemplateColumns == '' || grid.style.gridTemplateColumns == '1fr 1fr') {
+
+                layout.style.gridTemplateColumns = '1fr 1fr'
+                grid.style.gridTemplateColumns = '1fr 1fr'
+                this.coisas = 4
+
+                //faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
+
+                setTimeout(() => {
+                    let column0 = document.getElementById('column-0')
+                    let column1 = document.getElementById('column-1')
+
+                    if (column0.clientHeight - column0.children[column0.children.length - 1].clientHeight - 10 > column1.clientHeight) {
+                        column1.appendChild(column0.childNodes[column0.children.length - 1])
+                    }
+
+                }, 20);
+
+            }
+            else {
+
+                layout.removeAttribute('style')
+                layout.setAttribute('style', 'grid-template-columns: 1fr')
+                this.coisas = 2
             }
         },
     },
@@ -1144,7 +1155,7 @@ export default {
     color: white;
     padding: 0 20px;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .pesquisa {
@@ -1178,6 +1189,7 @@ export default {
     flex-direction: column;
     width: 100%;
     gap: var(--gap-img);
+    height: max-content;
 }
 
 .vitrine-grid img {
@@ -1214,7 +1226,7 @@ header {
 }
 
 .container__changeCol {
-    font-weight: 300;
+    font-weight: 400;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -1382,7 +1394,7 @@ h1 {
     text-align: center;
     opacity: 0;
     transition: .2s;
-    font-weight: 300;
+    font-weight: 400;
     text-shadow: 2px 3px 10px rgba(0, 0, 0, 1);
 }
 
@@ -1400,7 +1412,7 @@ h1 {
     width: 100%;
     height: 56px;
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    font-weight: 300;
+    font-weight: 400;
     transition: .2s;
     padding: 0 20px;
     font-size: 16px;
@@ -1489,7 +1501,7 @@ header-popup {
 .description {
     column-count: 2;
     margin: 20px 0 60px 0;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 26px;
 }
 
@@ -1505,7 +1517,7 @@ header-popup {
 }
 
 .font-light {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 17px;
     color: #A0A0A0;
 }
@@ -1571,7 +1583,7 @@ hr {
     cursor: pointer;
     text-decoration: none;
     color: #006DBC;
-    font-weight: 300;
+    font-weight: 400;
     transition: .1s;
 }
 
@@ -1607,7 +1619,7 @@ hr {
 .data_publi {
     width: 100%;
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
     color: #A0A0A0;
     margin-top: 40px;
 }
@@ -1616,7 +1628,7 @@ hr {
     line-height: 26px;
     color: #A0A0A0;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
 }
 </style>
 

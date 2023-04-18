@@ -208,7 +208,7 @@ export default {
 
 <style scoped>
 footer {
-    font-weight: 300;
+    font-weight: 400;
     border-top: 2px solid #CC141D;
     padding-top: 100px;
     color: white;
