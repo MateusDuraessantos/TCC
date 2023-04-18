@@ -7,10 +7,10 @@
             <div class="nav__options">
                 <!-- trigger="click" -->
                 <el-dropdown>
-                    <a class="dropdown-link" href="/">
-                        <div>Sobre o curso</div>
+                    <router-link to="/" class="dropdown-link">
+                        Sobre o curso
                         <img class="arrow" src="ArrowDown.svg">
-                    </a>
+                    </router-link>
                     <template #dropdown>
                         <el-dropdown-menu @click="hashSemHash">
                             <a class="el-dropdown-menu__item" href="/#link_objetivo">Objetivos</a>
@@ -22,20 +22,20 @@
                     </template>
                 </el-dropdown>
 
-                <router-link class="dropdown-link" to="ProjetosPage">Projetos desenvolvidos</router-link>
+                <router-link class="dropdown-link" to="projetos">Projetos desenvolvidos</router-link>
 
                 <el-dropdown>
                     <span>
-                        <router-link class="dropdown-link" to="MatriculaPage">
+                        <router-link class="dropdown-link" to="matricula">
                             Matrícula <img class="arrow" src="ArrowDown.svg" />
                         </router-link>
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu @click="hashSemHash">
-                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_aulas">Início das aulas</a>
-                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_matriculas">Matrículas</a>
-                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_bolsa">Setor de bolsas</a>
-                            <a class="el-dropdown-menu__item" href="/MatriculaPage#link_faq">Perguntas frequêntes</a>
+                            <a class="el-dropdown-menu__item" href="/matricula#link_aulas">Início das aulas</a>
+                            <a class="el-dropdown-menu__item" href="/matricula#link_matriculas">Matrículas</a>
+                            <a class="el-dropdown-menu__item" href="/matricula#link_bolsa">Setor de bolsas</a>
+                            <a class="el-dropdown-menu__item" href="/matricula#link_faq">Perguntas frequêntes</a>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -143,7 +143,7 @@ nav {
 .el-dropdown__popper.el-popper {
     border: none;
     color: #8A8A8A;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .el-dropdown-menu__item {
@@ -165,5 +165,9 @@ nav {
 .el-scrollbar {
     border-radius: 9px;
 
+}
+
+.router-link-active {
+    color: #fff;
 }
 </style>

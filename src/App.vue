@@ -148,10 +148,6 @@ header {
   transition: .3s;
 }
 
-.router-link-active {
-  color: white;
-}
-
 .blue_btn {
   display: flex;
   align-items: center;

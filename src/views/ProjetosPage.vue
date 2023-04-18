@@ -1053,6 +1053,7 @@ export default {
             if (this.popupValue == true && clicked != undefined) {
                 setTimeout(() => {
                     this.changeGrid()
+
                 }, 1);
             }
         },
@@ -1071,7 +1072,6 @@ export default {
             }
 
             this.changeGrid()
-
         },
 
         changeGrid() {
@@ -1111,12 +1111,10 @@ export default {
                     if (column0.clientHeight - column0.children[column0.children.length - 1].clientHeight - 10 > column1.clientHeight) {
                         column1.appendChild(column0.childNodes[column0.children.length - 1])
                     }
-
                 }, 20);
 
             }
             else {
-
                 layout.removeAttribute('style')
                 layout.setAttribute('style', 'grid-template-columns: 1fr')
                 this.coisas = 2
