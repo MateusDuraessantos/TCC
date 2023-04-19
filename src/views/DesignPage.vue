@@ -317,18 +317,22 @@
               <h1>Corpo docente</h1>
               <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
                 capacitados, conheça um pouco da nossa equipe.</div>
-              <a href="#docentes" class="blue_btn">Ver docentes</a>
+              <button class="blue_btn">Ver docentes</button>
             </span>
           </div>
           <div class="carrossel">
+            <p class="carrossel__description">{{ carrossel[displayNumber].split('.jpg')[0] }}</p>
             <div class="carrossel__display">
               <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber]">
               <button class="arrow" id="left" @click="arrowCarrrossel('back')">‹</button>
               <button class="arrow" id="right" @click="arrowCarrrossel('next')">›</button>
             </div>
             <div class="carrossel__options">
-              <img @click="changeCarrossel(index)" :id="'carrossel_' + index" v-for="(cardsInfo, index) in carrossel"
-                :key="index" class="carrossel__options-img" :src="'design/carrossel/' + cardsInfo">
+              <span v-for="(cardsInfo, index) in carrossel" :key="index">
+
+                <img @click="changeCarrossel(index)" :id="'carrossel_' + index" class="carrossel__options-img"
+                  :src="'design/carrossel/' + cardsInfo">
+              </span>
             </div>
           </div>
         </div>
@@ -739,6 +743,14 @@ header {
   text-align: center;
 }
 
+.shadow {
+  position: absolute;
+  z-index: 1;
+  background-image: linear-gradient(45deg, rgb(14, 14, 14), rgba(0, 0, 0, 0.2), rgb(14, 14, 14));
+  width: 100%;
+  height: 100%;
+}
+
 /* objetivo */
 .objetivo {
   display: grid;
@@ -813,6 +825,11 @@ hr {
   position: relative;
 }
 
+.carrossel__description {
+  margin-bottom: 22px;
+  text-shadow: 3px 2px 6px black;
+}
+
 .container-predio {
   margin-bottom: 180px;
   position: relative;
@@ -831,11 +848,12 @@ hr {
 
 .shadow-predio {
   position: absolute;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  background-image: linear-gradient(0deg, rgb(14, 14, 14), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgb(14, 14, 14));
   width: 100vw;
   height: 100%;
   z-index: 2;
 }
+
 
 
 .carrossel__display {
@@ -957,7 +975,7 @@ hr {
 }
 
 .laboratorios__card:hover .laboratorio__name {
-  right: 150px;
+  right: 130px;
   transition: .4s;
 }
 
@@ -1004,7 +1022,7 @@ hr {
 
 .background__shadow {
   position: absolute;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  background-image: linear-gradient(0deg, rgb(14, 14, 14), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgb(14, 14, 14));
   width: 100%;
   height: 100%;
 }
@@ -1250,7 +1268,6 @@ hr {
 </style>
 
 <style>
-
 /* Primary Nav */
 
 .el-tabs__item {
@@ -1315,5 +1332,4 @@ hr {
   }
 
 }
-
 </style>

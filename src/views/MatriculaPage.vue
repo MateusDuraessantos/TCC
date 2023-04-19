@@ -277,6 +277,14 @@ export default {
     gap: 40px;
 }
 
+.shadow {
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(45deg, rgb(1, 19, 29), rgba(0, 17, 35, 0.512), rgb(0, 19, 29));
+    width: 100%;
+    height: 100%;
+}
+
 .btn_header {
     display: flex;
     justify-content: center;
@@ -335,7 +343,7 @@ header {
 
 .matricula__shadow {
     position: absolute;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
+    background-image: linear-gradient(0deg, rgb(14, 14, 14), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgb(14, 14, 14));
     width: 100vw;
     height: 700px;
     z-index: 2;
@@ -346,7 +354,9 @@ header {
     object-fit: cover;
     z-index: 1;
     width: 100vw;
-    height: 700px;
+    height: 660px;
+    filter: blur(6px);
+
 }
 
 .matricula__container {
@@ -419,7 +429,7 @@ h2 {
 
 .frase__shadow {
     position: absolute;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1));
+    background-image: linear-gradient(0deg, rgb(14, 14, 14), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgb(14, 14, 14));
     width: 100vw;
     height: 500px;
     z-index: 2;

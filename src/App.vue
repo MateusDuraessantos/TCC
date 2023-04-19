@@ -48,7 +48,7 @@ body {
   overflow: overlay;
   color: white;
   position: relative;
-  background: black;
+  background: rgb(14, 14, 14);
 }
 
 :root {
@@ -210,7 +210,7 @@ header {
 .shadow {
   position: absolute;
   z-index: 1;
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1));
   width: 100%;
   height: 100%;
 }

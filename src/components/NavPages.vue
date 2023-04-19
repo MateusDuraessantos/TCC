@@ -93,9 +93,9 @@ nav {
 
 #nav {
     position: absolute;
-    height: 110px;
+    height: 140px;
     width: 100%;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
     transition: .3s;
 }
 
@@ -105,6 +105,7 @@ nav {
     width: calc(100% - 200px);
     display: flex;
     justify-content: space-between;
+
 }
 
 .logo {
@@ -124,8 +125,8 @@ nav {
 }
 
 * {
-
     outline: none;
+
 }
 </style>
 
@@ -150,12 +151,12 @@ nav {
     text-decoration: none;
     height: 40px;
     color: #8A8A8A;
-    font-size: 16px !important;
+    font-size: 16px;
 }
 
 .el-dropdown-menu__item:hover {
-    background: #4F4F4F !important;
-    color: white !important;
+    background: #4F4F4F;
+    color: white;
 }
 
 .el-popper.is-light {
@@ -164,10 +165,9 @@ nav {
 
 .el-scrollbar {
     border-radius: 9px;
-
 }
 
 .router-link-active {
-    color: #fff;
+    color: white;
 }
 </style>

@@ -9,6 +9,7 @@
                 <button class="blue_btn">Quero expor meu projeto</button>
             </div>
         </header>
+
         <el-carousel :interval="5000" arrow="always" height="100vh">
             <el-carousel-item>
                 <img class="carousel-img" src="projetos/banner3.jpg">
@@ -40,6 +41,7 @@
             </div>
 
             <div class="popup" v-if="popupValue">
+                
                 <button class="popup__close" @click="upPopup">✕</button>
 
                 <!-- Change Layout -->
@@ -1263,7 +1265,23 @@ header {
     transform: translate(100px, 100px);
 }
 
+@keyframes opacitySuave {
+    from {
+        opacity: 0;
+        transform: translatey(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatey(0);
+    }
+}
+
+
 .layout {
+    animation-name: opacitySuave;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1274,7 +1292,38 @@ header {
     gap: 20px;
 }
 
+@keyframes outraanimacao {
+    0% {
+        transform: translatey(0);
+    }
+
+    70% {
+        transform: translatey(0);
+    }
+
+    75% {
+        transform: translatey(-3px);
+    }
+
+    80% {
+        transform: translatey(0);
+
+    }
+
+    95% {
+        transform: translatey(-3px);
+    }
+
+    100% {
+        transform: translatey(0);
+    }
+}
+
 .layout__container {
+    animation-name: outraanimacao;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
     margin: auto;
     display: grid;
     align-items: center;
@@ -1298,6 +1347,9 @@ header {
 }
 
 .download {
+    animation-name: opacitySuave;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
     position: relative;
     cursor: pointer;
     display: flex;
@@ -1325,10 +1377,7 @@ header {
 .download:hover img {
     transform: translatey(-4px);
     transition: .2s;
-
 }
-
-
 
 h1 {
     font-weight: 100;
@@ -1337,8 +1386,6 @@ h1 {
     text-align: start;
     width: 100%;
 }
-
-
 
 /* USER ANIMATION */
 
@@ -1476,13 +1523,17 @@ h6 {
 .popup__container,
 .cont__alteraLayout {
     width: calc(100% - 400px);
-    max-width: 2000px;
+    max-width: 1400px;
 }
 
 .popup__container {
     position: relative;
     background: rgb(26, 26, 26);
     margin-bottom: 60px;
+    animation-name: opacitySuave;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    max-width: 1400px;
 }
 
 .popup__close {
@@ -1553,7 +1604,6 @@ hr {
     padding: 30px;
     border-radius: 8px;
 }
-
 
 .grid__criadores {
     display: grid;
