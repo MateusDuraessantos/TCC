@@ -40,14 +40,13 @@
             </div>
 
             <div class="popup" v-if="popupValue">
-                <button class="popup__close">✕</button>
-
+                <button class="popup__close" @click="upPopup">✕</button>
 
                 <!-- Change Layout -->
-                <div class="container__changeCol">
-                    <div class="cont__changeCol">
-                        <div style="display: flex; flex-direction: column; gap: 6px; ">
 
+                <div class="container__alteraLayout">
+                    <div class="cont__alteraLayout">
+                        <div style="display: flex; flex-direction: column; gap: 6px; ">
 
                             <div class="download">
                                 <img src="/projetos/download.svg">
@@ -56,9 +55,9 @@
                             <br>
                             <br>
                             <br>
-                            <div class="layout" @click="changeCol">
+                            <div class="layout" @click="alteraLayout">
                                 <div class="layout__container" id="layout">
-                                    <div class="changeCol__square" v-for="coisa in coisas" />
+                                    <div class="alteraLayout" v-for="coisa in coisas" />
                                 </div>
                                 <p>Layout</p>
                             </div>
@@ -81,7 +80,8 @@
                         <!-- Vitrine das imagens -->
 
                         <div class="vitrine-grid" id="grid">
-                            <img v-for="portfolio in projects[indexPopup].portfolios" :src="'projetos/' + portfolio">
+                            <img class="img_popup" v-for="portfolio in projects[indexPopup].portfolios" @load="loadImage"
+                                :src="'projetos/' + portfolio">
                         </div>
 
                         <!-- Descrições -->
@@ -175,6 +175,10 @@ export default {
     components: { FooterPage, NavPages },
     data() {
         return {
+
+            imagesNumber: 0,
+            numImgGrid: '',
+
             projects: [
                 {
                     name: 'Mun | Arandela',
@@ -938,8 +942,16 @@ export default {
                                 }
                             ],
                         },
-
-
+                        {
+                            name: 'O Rappa',
+                            userFoto: 'blvckfinance/rappa.webp',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=wspAURE8eYk&list=PL5zWF3xO0ZEQBywAyykLet88kStJETrXC&index=54&ab_channel=VictorX.'
+                                }
+                            ],
+                        },
 
                     ],
 
@@ -1032,7 +1044,7 @@ export default {
         upPopup(event, index) {
 
             const clicked = event.target.classList[0]
-
+            this.imagesNumber = 0
             //É nessário que o popup apareça/desapareça, somenente se alguns determinados elementos forem clicados
 
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
@@ -1052,30 +1064,20 @@ export default {
 
             if (this.popupValue == true && clicked != undefined) {
                 setTimeout(() => {
-                    this.changeGrid()
+                    this.criaColunas()
 
                 }, 1);
             }
+
         },
 
-        changeCol() {
 
-            // Observa quantos grids o container id="grid" se iniciou ao subir o popup
 
+        async criaColunas() {
             const grid = document.getElementById('grid')
 
-            if (grid.style.gridTemplateColumns == '1fr 1fr') {
+            this.numImgGrid = grid.children.length
 
-                grid.setAttribute('style', `grid-template-columns: 1fr`)
-            } else {
-                grid.setAttribute('style', `grid-template-columns: 1fr 1fr`)
-            }
-
-            this.changeGrid()
-        },
-
-        changeGrid() {
-            const grid = document.getElementById('grid')
 
             if (grid.childElementCount > 2) {
                 for (let x = 0; x <= grid.childElementCount; x++) {
@@ -1092,34 +1094,54 @@ export default {
                 }
             }
 
-            //Muda os quadradinhos do layout
 
+            if (grid.style.gridTemplateColumns == '') {
+                this.alteraLayout()
+            }
+        },
+
+        alteraLayout() {
+            // Observa quantos grids o container id="grid" se iniciou ao subir o popup
+
+            const grid = document.getElementById('grid')
             let layout = document.getElementById('layout')
 
-            if (grid.style.gridTemplateColumns == '' || grid.style.gridTemplateColumns == '1fr 1fr') {
+            layout.style.gridTemplateColumns = '1fr 1fr'
 
-                layout.style.gridTemplateColumns = '1fr 1fr'
+            if (grid.style.gridTemplateColumns == '1fr 1fr') {
+
+                grid.style.gridTemplateColumns = '1fr'
+                layout.style.gridTemplateColumns = '1fr'
+                this.coisas = 2
+
+
+            } else {
                 grid.style.gridTemplateColumns = '1fr 1fr'
+                layout.style.gridTemplateColumns = '1fr 1fr'
                 this.coisas = 4
+            }
 
-                //faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
 
-                setTimeout(() => {
+        },
+        loadImage() {
+
+            this.imagesNumber += 1
+
+            setTimeout(() => {
+
+                if (this.numImgGrid == this.imagesNumber) {
+                    //faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
                     let column0 = document.getElementById('column-0')
                     let column1 = document.getElementById('column-1')
 
                     if (column0.clientHeight - column0.children[column0.children.length - 1].clientHeight - 10 > column1.clientHeight) {
                         column1.appendChild(column0.childNodes[column0.children.length - 1])
                     }
-                }, 20);
 
-            }
-            else {
-                layout.removeAttribute('style')
-                layout.setAttribute('style', 'grid-template-columns: 1fr')
-                this.coisas = 2
-            }
+                }
+            }, 1);
         },
+
     },
 }
 
@@ -1223,7 +1245,7 @@ header {
     position: absolute;
 }
 
-.container__changeCol {
+.container__alteraLayout {
     font-weight: 400;
     position: fixed;
     display: flex;
@@ -1233,7 +1255,7 @@ header {
     z-index: 1;
 }
 
-.cont__changeCol {
+.cont__alteraLayout {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1262,14 +1284,14 @@ header {
     transition: .2s;
 }
 
-.changeCol__square {
+.alteraLayout {
     background: rgb(101, 101, 101);
     padding: 8px;
     border-radius: 2px;
     transition: .2s;
 }
 
-.layout:hover .changeCol__square {
+.layout:hover .alteraLayout {
     background: rgb(89, 89, 89);
     transition: .2s;
     transform: translatey(-5px);
@@ -1452,7 +1474,7 @@ h6 {
 }
 
 .popup__container,
-.cont__changeCol {
+.cont__alteraLayout {
     width: calc(100% - 400px);
     max-width: 2000px;
 }
@@ -1491,7 +1513,6 @@ header-popup {
 
 .portfolio {
     margin-top: 30px;
-
 }
 
 /* Descriçoes' */
