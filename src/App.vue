@@ -44,6 +44,10 @@ html {
   border-radius: 6px;
 }
 
+.light {
+  font-weight: 300;
+}
+
 body {
   overflow: overlay;
   color: white;

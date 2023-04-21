@@ -6,9 +6,204 @@
             <div class="header__footer">
                 <button class="black_btn">Ver projeto</button>
                 <p>Projetos destaque 2023</p>
-                <button class="blue_btn">Quero expor meu projeto</button>
+                <button class="cadastro_btn blue_btn" @click="exporProjeto">Quero expor meu projeto</button>
             </div>
         </header>
+
+        <!-- Cadastro -->
+
+        <div v-if="cadastro" class="cadastro" @click="exporProjeto">
+
+            <button class="cadastro__close" @click="exporProjeto">✕</button>
+            <div class="cadastro__campos">
+
+                <p class="cadastro__title">Preencha os campos a seguir!</p>
+
+
+                <p class="cadastro__subtitle">Sobre os alunos</p>
+
+                <div class="cont_inputs__cadastro" v-for="(coisa, index) in 2" :key="index">
+                    <p>{{ index + 1 }}° Aluno</p>
+                    <br>
+                    <hr>
+                    <br>
+                    <div class="inputs__cadastro">
+                        <div>
+                            <label for="nome">Nome*</label>
+                            <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                        </div>
+                        <div>
+                            <label for="nome">TIA*</label>
+                            <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                        </div>
+                        <div>
+                            <label for="nome">Número para contato*</label>
+                            <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                        </div>
+                        <div>
+                            <label for="nome">Email*</label>
+                            <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                        </div>
+                        <div>
+                            <p>Imagem do aluno*</p>
+                            <label for="upload" class="upload">
+                                <button class="blue_btn ">Campo de upload <img src="upload.svg"></button>
+
+                            </label>
+                            <input type="file" id="upload">
+
+                        </div>
+                    </div>
+                    <button class="delete">Deletar ✕</button>
+                </div>
+                <div style="width: 100%; justify-content: center; display: flex;"><button
+                        class="blue_btn adicionar">Adicionar aluno <span style="font-size: 24px;">🞢</span></button>
+                </div>
+                <hr>
+                <p class="cadastro__subtitle">Sobre os projeto</p>
+
+                <div class="inputs__cadastro">
+                    <div>
+                        <label for="nome">Semestre do projeto*</label>
+                        <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                    </div>
+                    <div>
+                        <label for="nome">Laboratórios utilizados*</label>
+                        <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                    </div>
+                    <div>
+                        <label for="nome">Categoria*</label>
+                        <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                    </div>
+                    <div>
+                        <label for="nome">Nome dos docentes*</label>
+                        <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
+                    </div>
+                </div>
+
+                <hr>
+
+                <p>Descreva o seu projeto para que outras pessoas possam entende-lo melhor:* </p>
+                <div class="textarea">
+                    <p>Digite aqui</p>
+                </div>
+
+                <hr>
+                <span>
+                    <p>Anexo de imagens</p>
+                    <br>
+                    <span>Escolha de 4 à 6 imagens para mostrar seu projeto, as melhores, para divulgação*</span>
+                    <br>
+                    <br>
+                    <div>
+                        <label for="upload" class="upload" style="gap: 20px; max-width: max-content; padding-right: 36px;">
+                            <button class="blue_btn ">Campo de upload <img src="upload.svg"></button>
+                            <p>Arraste um arquivo aqui ou <br>
+                                <span style="color: #E1001E">
+                                    clique para fazer upload
+                                </span>
+                            </p>
+                        </label>
+                        <p class="light">Arquivos .jpg .png inferiores à 5MB</p>
+                        <input type="file" id="upload">
+                    </div>
+                    <br>
+                    <p>Arquivos selecionados:</p>
+                    <br>
+                    <div class="cadastro__imagens">
+                        <div class="image__cont_cadastro">
+                            <div class="delete_image">✕</div>
+                            <img src=" projetos/mesa/imagens/1.jpg">
+                            <p>mesa imagem.jpg</p>
+                        </div>
+                        <div class="image__cont_cadastro">
+                            <div class="delete_image">✕</div>
+                            <img src="projetos/mesa/imagens/2.jpg">
+                            <p>imagem.jpg</p>
+                        </div>
+                        <div class="image__cont_cadastro">
+                            <div class="delete_image">✕</div>
+                            <img src="projetos/mesa/imagens/3.jpg">
+                            <p>Solda.jpg</p>
+                        </div>
+                        <div class="image__cont_cadastro">
+                            <div class="delete_image">✕</div>
+                            <img src="projetos/mesa/imagens/4.jpg">
+                            <p>Extrutura.jpg</p>
+                        </div>
+                        <div class="image__cont_cadastro">
+                            <div class="delete_image">✕</div>
+                            <img src="projetos/mesa/imagens/5.jpg">
+                            <p>imagem.jpg</p>
+                        </div>
+                        <div class="image__cont_cadastro">
+                            <div class="delete_image">✕</div>
+                            <img src="projetos/mesa/imagens/6.jpg">
+                            <p>black table.jpg</p>
+                        </div>
+                    </div>
+                </span>
+
+                <hr>
+
+                <span>
+                    <p>Tags<span style="color:#E1001E">*</span></p>
+                    <br>
+                    <div style="display: flex;gap: 10px;">
+                        <tag type="black" style="background: black">Design</tag>
+                        <tag type="black" style="background: black">UX/UI</tag>
+                        <tag type="black" style="background: black">WebSite</tag>
+                        <tag type="black" style="background: black">OnePage</tag>
+                        <tag type="black" style="background: black">Frontend</tag>
+                        <tag type="black" style="background: black">CSS</tag>
+                        <tag type="black" style="background: black">HTML</tag>
+                    </div>
+                </span>
+                <hr>
+
+
+
+                <span>
+                    <p>Anexe o documento final do projeto</p>
+                    <br>
+                    <p>Para um conhecimento bem detalhado do projeto, anexe abaixo o documento final desenvolvido para a
+                        finalização do projeto.</p>
+                    <br>
+                    <div>
+                        <label for="upload" class="upload" style="gap: 20px; max-width: max-content; padding-right: 36px;">
+                            <button class="blue_btn ">Campo de upload <img src="upload.svg"></button>
+                            <p>Arraste um arquivo aqui ou <br>
+                                <span style="color: #E1001E">
+                                    clique para fazer upload
+                                </span>
+                            </p>
+                        </label>
+                        <p class="light">Arquivos .jpg .png inferiores à 5MB</p>
+                        <input type="file" id="upload">
+                        <br>
+                        <p>Arquivo selecionado:</p>
+
+                        <p style="color: #A6A6A6">TCC Final - Mateus Durães dos Santos.pdf</p>
+                    </div>
+                </span>
+
+
+
+
+                <div class="termos">
+                    <p>Li os termos de compromisso de imagem e aceito.</p>
+                    <br>
+                    <button class="blue_btn">Enviar</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!--  -->
 
         <el-carousel :interval="5000" arrow="always" height="100vh">
             <el-carousel-item>
@@ -32,16 +227,40 @@
         <div class="body">
 
             <div class="inputs">
-                <select type="text" class="filtro" placeholder="Pesquisar:">
-                    <option value="">Filtrar por ano/semestre</option>
-                    <option value="" v-for="(coisas, index) in 8" :key="index">{{ index + 1 }} Semestre
-                    </option>
-                </select>
                 <input type="text" class="pesquisa" placeholder="Pesquisar:">
             </div>
 
+            <div class="filtro_por_filtro">
+                Escolher categoria:
+                <div class="cont_filtro" @click="category">
+                    <select type="text" class="filtro" placeholder="Pesquisar:">
+                        <option value="">Todos os anos</option>
+                        <option value="" v-for="(coisas, index) in 14" :key="index">20{{ index + 10 }}
+                        </option>
+                    </select>
+                    <filter filter="ativo">
+                        Todos
+                    </filter>
+                    <filter>
+                        Editorial
+                    </filter>
+                    <filter>
+                        Mobiliario
+                    </filter>
+                    <filter>
+                        Renders 3D
+                    </filter>
+                    <filter>
+                        Desenho
+                    </filter>
+                    <filter>
+                        Fotografia
+                    </filter>
+                </div>
+            </div>
+
             <div class="popup" v-if="popupValue">
-                
+
                 <button class="popup__close" @click="upPopup">✕</button>
 
                 <!-- Change Layout -->
@@ -150,7 +369,7 @@
             <div class="container-projetos">
                 <div class="projeto" v-for="(project, index) in projects" :key="index" @click="upPopup($event, index)">
 
-                    <img class="projeto_thumb" :src="'projetos/' + project.thumb">
+                    <img class="projeto_thumb" :src="'projetos/' + project.thumb" loading="lazy">
                     <div class="container_user">
 
                         <div class="user" v-for="ownersv in project.owner">
@@ -177,10 +396,9 @@ export default {
     components: { FooterPage, NavPages },
     data() {
         return {
-
             imagesNumber: 0,
             numImgGrid: '',
-
+            cadastro: false,
             projects: [
                 {
                     name: 'Mun | Arandela',
@@ -251,6 +469,7 @@ export default {
                     description: ['Uma luminária é um objeto que tem como função principal iluminar um ambiente.Ela pode ser usada para criar diferentes atmosferas e tornar um espaço mais acolhedor e confortável.As luminárias podem ser feitas de diferentes materiais, como metal, vidro, tecido, madeira e plástico, e podem ter diversos formatos e tamanhos.Existem luminárias de mesa, de chão, de parede e de teto, cada uma com sua própria função e estilo.',
                         'As luminárias também são uma peça importante na decoração de interiores, pois podem ser escolhidas de acordo com o estilo do ambiente, como moderno, clássico, rústico, entre outros.Além disso, a iluminação adequada é essencial para valorizar a decoração e destacar pontos específicos do ambiente.'],
                 },
+
                 {
                     name: 'Fotografia',
                     thumb: 'fotografia/imagens/1.jpg',
@@ -573,8 +792,8 @@ export default {
                         'Independentemente do estilo ou material escolhido, um pingente de borboleta é uma adição elegante e significativa a qualquer coleção de joias.',]
                 },
                 {
-                    name: 'Desenhos',
-                    thumb: 'desenhos/imagens/1.jpg',
+                    name: 'Desenhos Coloridos',
+                    thumb: 'desenhos_2/imagens/1.jpg',
                     owner: [
                         {
                             name: 'Hope Tala',
@@ -613,11 +832,69 @@ export default {
                     ],
                     portfolios:
                         [
-                            'desenhos/imagens/1.jpg',
+                            'desenhos_2/imagens/1.jpg',
+                            'desenhos_2/imagens/2.png',
+                            'desenhos_2/imagens/3.png',
+                            'desenhos_2/imagens/4.jpg',
+                            'desenhos_2/imagens/5.png',
+                            'desenhos_2/imagens/6.png',
+                            'desenhos_2/imagens/7.jpg',
+                        ],
+                    description: [
+                        'Desenhos digitais e à lápis são duas formas de arte diferentes, mas que possuem suas próprias características e vantagens.',
+                        'O desenho à lápis é uma técnica tradicional, que tem sido utilizada por artistas há séculos. Ele envolve a criação de um desenho usando um lápis ou grafite em um papel. A técnica permite uma grande variedade de estilos e texturas, e é muitas vezes utilizada para retratos, paisagens e ilustrações.',
+                        'Já o desenho digital é uma técnica mais moderna, que utiliza programas de computador para criar imagens. O desenho é criado usando uma mesa digitalizadora e uma caneta stylus, que permitem ao artista criar desenhos com precisão e facilidade de edição. O desenho digital é frequentemente utilizado na criação de personagens de jogos, ilustrações digitais e designs gráficos.',
+                        'Ambas as técnicas têm suas próprias vantagens e podem ser utilizadas de formas complementares. Enquanto o desenho à lápis oferece uma sensação mais tátil e artesanal, o desenho digital oferece uma precisão e facilidade de edição que podem ser úteis em certos projetos. No final das contas, a escolha entre uma técnica ou outra dependerá das preferências e habilidades do artista, bem como das necessidades do projeto em questão.'
+                    ]
+                },
+                {
+                    name: 'Desenhos Realistas | Preto e branco',
+                    thumb: 'desenhos/imagens/1.png',
+                    owner: [
+                        {
+                            name: 'Hope Tala',
+                            userFoto: 'desenhos/hope.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Andrea Abocelli',
+                            userFoto: 'desenhos/andrea.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Youtube',
+                                    link: 'https://www.youtube.com/watch?v=jI7zeFpI2dY&ab_channel=AndreaBocelliVEVO'
+                                },
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                        {
+                            name: 'Ana Carolina',
+                            userFoto: 'desenhos/ana.jpg',
+                            socialMedia: [
+                                {
+                                    plataform: 'Linkedin',
+                                    link: 'https://www.linkedin.com/'
+                                }
+                            ],
+                        },
+                    ],
+                    portfolios:
+                        [
+                            'desenhos/imagens/1.png',
                             'desenhos/imagens/2.jpg',
                             'desenhos/imagens/3.jpg',
                             'desenhos/imagens/4.jpg',
                             'desenhos/imagens/5.jpg',
+                            'desenhos/imagens/6.jpg',
+                            'desenhos/imagens/7.jpg',
                         ],
                     description: [
                         'Desenhos digitais e à lápis são duas formas de arte diferentes, mas que possuem suas próprias características e vantagens.',
@@ -673,7 +950,7 @@ export default {
                         'As cômodas podem ser feitas de diversos materiais, como madeira, metal, vidro e plástico, e estão disponíveis em uma ampla variedade de estilos e designs, desde os mais tradicionais até os mais modernos e minimalistas. Além disso, muitas cômodas são utilizadas como objetos decorativos, contribuindo para a estética do ambiente em que estão inseridas. Seja qual for o estilo escolhido, as cômodas são sempre uma ótima opção para quem busca praticidade, organização e beleza em um único móvel.']
                 },
                 {
-                    name: 'Cobogó',
+                    name: 'Cobogó | Mackenzie',
                     thumb: 'cobogo/imagens/3.jpg',
                     owner: [
 
@@ -709,7 +986,7 @@ export default {
                         ' O nome "cobogó" tem origem na junção dos sobrenomes dos seus criadores, Amadeu Oliveira Coimbra, Ernest August Boeckmann e Antônio de Góis.O elemento se popularizou no Nordeste do Brasil a partir da década de 1920, sendo muito utilizado em construções residenciais e comerciais.']
                 },
                 {
-                    name: 'Banners',
+                    name: 'Banners Youtube',
                     thumb: 'banners/imagens/3.png',
                     owner: [
 
@@ -883,7 +1160,7 @@ export default {
                         'Já a colagem de imagens pode ser usada para criar composições artísticas, como cartazes, pôsteres, capas de livros e revistas, entre outros. A colagem permite que o artista ou designer crie uma composição única a partir de diversas imagens, recortes e texturas.']
                 },
                 {
-                    name: 'Fotografias preto e branco',
+                    name: 'Fotografias | Preto e branco',
                     thumb: 'fotografia_01/imagens/2.jpg',
                     owner: [
                         {
@@ -1073,13 +1350,10 @@ export default {
 
         },
 
-
-
         async criaColunas() {
             const grid = document.getElementById('grid')
 
             this.numImgGrid = grid.children.length
-
 
             if (grid.childElementCount > 2) {
                 for (let x = 0; x <= grid.childElementCount; x++) {
@@ -1095,7 +1369,6 @@ export default {
                     }
                 }
             }
-
 
             if (grid.style.gridTemplateColumns == '') {
                 this.alteraLayout()
@@ -1115,14 +1388,11 @@ export default {
                 grid.style.gridTemplateColumns = '1fr'
                 layout.style.gridTemplateColumns = '1fr'
                 this.coisas = 2
-
-
             } else {
                 grid.style.gridTemplateColumns = '1fr 1fr'
                 layout.style.gridTemplateColumns = '1fr 1fr'
                 this.coisas = 4
             }
-
 
         },
         loadImage() {
@@ -1143,18 +1413,224 @@ export default {
                 }
             }, 1);
         },
+        category(event) {
 
+            const filterSelected = event.target
+            const filter = document.querySelector('[filter]')
+
+            if (filterSelected.getAttribute('filter') == null && filterSelected.tagName == 'FILTER') {
+                filter.removeAttribute('filter')
+                filterSelected.setAttribute('filter', 'ativo')
+            }
+        },
+        exporProjeto(event) {
+            const e = event.target.classList[0]
+
+            if (e == 'cadastro_btn') {
+                this.cadastro = true
+                document.body.style.overflow = "hidden"
+            } else if (e == 'cadastro' || e == 'cadastro_close') {
+                this.cadastro = false
+                document.body.removeAttribute('style')
+            }
+        }
     },
 }
 
 </script>
 
-<style>
-.inputs {
+<style scoped>
+@keyframes opacitySuave {
+    from {
+        opacity: 0;
+        transform: translatey(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatey(0);
+    }
+}
+
+/* Quero Expor meu Projeto */
+
+.cadastro {
+    animation-name: opacitySuave;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.cadastro__close {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    background: none;
+    font-size: 24px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cadastro__campos {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+    background: #1f1f1f;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+
+.cadastro__title {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.cadastro__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    border-width: 0 0 0 3px;
+    border-style: solid;
+    border-color: #CC141D;
+    padding-left: 10px;
+    padding: 6px 0 6px 14px;
+}
+
+.cadastro__imagens {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 4px;
+}
+
+.cadastro__imagens img {
+    width: 100%;
+}
+
+.image__cont_cadastro {
+    position: relative;
+}
+
+.image__cont_cadastro:hover .delete_image {
+    opacity: 1;
+    transition: .2s;
+}
+
+.delete_image {
+    position: absolute;
+    opacity: 0.7;
+    font-size: 22px;
+    top: 5px;
+    right: 8px;
+    transition: .2s;
+    cursor: pointer;
+    color: rgb(182, 182, 182);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload {
+    display: flex;
+    border-radius: 50px;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 6px;
+}
+
+.upload button {
     gap: 20px;
-    margin-bottom: 100px;
+}
+
+.upload button img {
+    width: 24px;
+}
+
+.cont_inputs__cadastro {
+    position: relative;
+    background: black;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.adicionar {
+    gap: 12px;
+}
+
+.delete {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    border-color: rgb(187, 187, 187);
+    padding-bottom: 4px;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    color: rgb(187, 187, 187);
+    background: none;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.delete:hover {
+    opacity: 0.7;
+    transition: .2s;
+}
+
+.inputs__cadastro {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 40px;
+}
+
+.inputs__cadastro div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 16px;
+}
+
+.textarea {
+    background: #2c2c2c;
+    padding: 12px 12px 120px 12px;
+    resize: none;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    color: gray;
+}
+
+.termos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+}
+
+/*  */
+.inputs {
+    margin-bottom: 40px;
 }
 
 .filtro {
@@ -1163,13 +1639,12 @@ export default {
     cursor: pointer;
 }
 
-
 .filtro option {
     height: 30px;
 }
 
 .filtro,
-.pesquisa {
+input[type="text"] {
     background: #2c2c2c;
     height: 36px;
     border-radius: 20px;
@@ -1180,47 +1655,63 @@ export default {
     font-weight: 400;
 }
 
-.pesquisa {
+input[type="text"] {
     width: 100%;
 }
 
-.pesquisa::placeholder {
-    color: white;
+input[type="text"]::placeholder {
+    color: gray;
 }
 
+/* Filtro por tags */
+
+.filtro_por_filtro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+.cont_filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+    gap: 10px;
+}
+
+filter {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .2s;
+    color: #c9c9c9;
+    border-color: rgb(107, 4, 4);
+    border-width: 0 3px 2px 0;
+    border-style: solid;
+    box-shadow: 3px 3px 8px black;
+}
+
+filter:hover {
+    background: rgb(172, 0, 0);
+    transition: .2s;
+}
+
+[filter="ativo"] {
+    background: rgb(107, 4, 4);
+}
+
+/*  */
 
 #teste img {
     width: 100%;
 }
 
-:root {
-    --gap-img: 10px
-}
 
-.vitrine-grid {
-    display: grid;
-
-    width: 100%;
-    min-height: 100px;
-    margin: auto;
-    gap: var(--gap-img);
-}
-
-.vitrine-count {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: var(--gap-img);
-    height: max-content;
-}
-
-.vitrine-grid img {
-    object-fit: contain;
-    width: 100%;
-}
-</style>
-
-<style scoped>
 header {
     position: absolute;
     z-index: 1;
@@ -1235,8 +1726,8 @@ header {
     justify-items: center;
     bottom: 80px;
     width: 100%;
-    font-weight: 100;
     font-size: 22px;
+    font-weight: 100;
 }
 
 .carousel-img {
@@ -1264,19 +1755,6 @@ header {
     height: 50px;
     transform: translate(100px, 100px);
 }
-
-@keyframes opacitySuave {
-    from {
-        opacity: 0;
-        transform: translatey(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translatey(0);
-    }
-}
-
 
 .layout {
     animation-name: opacitySuave;
@@ -1307,7 +1785,6 @@ header {
 
     80% {
         transform: translatey(0);
-
     }
 
     95% {
@@ -1698,6 +2175,33 @@ hr {
     color: #A0A0A0;
     font-size: 16px;
     font-weight: 400;
+}
+</style>
+
+<style>
+:root {
+    --gap-img: 10px
+}
+
+.vitrine-grid {
+    display: grid;
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
+    gap: var(--gap-img);
+}
+
+.vitrine-count {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gap-img);
+    height: max-content;
+}
+
+.vitrine-grid img {
+    object-fit: contain;
+    width: 100%;
 }
 </style>
 
