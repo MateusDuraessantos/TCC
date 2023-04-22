@@ -9,17 +9,17 @@
                 <el-dropdown>
                     <router-link to="/" class="dropdown-link">
                         Sobre o curso
-                        <img class="arrow" src="ArrowDown.svg">
+                        <!-- <img class="arrow" src="ArrowDown.svg"> -->
                     </router-link>
-                    <template #dropdown>
-                        <el-dropdown-menu @click="hashSemHash">
+                    <!--   <template #dropdown>
+                       <el-dropdown-menu>
                             <a class="el-dropdown-menu__item" href="/#link_objetivo">Objetivos</a>
                             <a class="el-dropdown-menu__item" href="/#link_matriz">Matriz curricular</a>
                             <a class="el-dropdown-menu__item" href="/#link_predio">Prédio 9 | Design</a>
                             <a class="el-dropdown-menu__item" href="/#link_horarios">Horários/Períodos</a>
                             <a class="el-dropdown-menu__item" href="/#docentes">Docentes</a>
                         </el-dropdown-menu>
-                    </template>
+                    </template> -->
                 </el-dropdown>
 
                 <router-link class="dropdown-link" to="projetos">Projetos desenvolvidos</router-link>
@@ -27,17 +27,17 @@
                 <el-dropdown>
                     <span>
                         <router-link class="dropdown-link" to="matricula">
-                            Matrícula <img class="arrow" src="ArrowDown.svg" />
+                            Matrícula <!-- <img class="arrow" src="ArrowDown.svg" /> -->
                         </router-link>
                     </span>
-                    <template #dropdown>
-                        <el-dropdown-menu @click="hashSemHash">
-                            <a class="el-dropdown-menu__item" href="/matricula#link_aulas">Início das aulas</a>
+                    <!--  <template #dropdown>
+                        <el-dropdown-menu>
+                            <a class=" el-dropdown-menu__item" href="/matricula#link_aulas">Início das aulas</a>
                             <a class="el-dropdown-menu__item" href="/matricula#link_matriculas">Matrículas</a>
                             <a class="el-dropdown-menu__item" href="/matricula#link_bolsa">Setor de bolsas</a>
                             <a class="el-dropdown-menu__item" href="/matricula#link_faq">Perguntas frequêntes</a>
                         </el-dropdown-menu>
-                    </template>
+                    </template> -->
                 </el-dropdown>
             </div>
         </div>
@@ -48,9 +48,7 @@
 
 export default {
     name: 'NavPages',
-    mounted() {
-        this.scrollDown()
-    },
+
     methods: {
         scrollDown() {
 
@@ -65,12 +63,7 @@ export default {
             });
         },
 
-        hashSemHash(e) {
-            setTimeout(() => {
-                history.pushState("", document.title, location.pathname)
-                e.preventDefault()
-            }, 1);
-        }
+
 
     }
 }
