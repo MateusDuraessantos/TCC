@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavPages />
         <header>
             <div class="shadow" />
             <div class="container__title">
@@ -145,12 +144,11 @@
 </template>
 
 <script>
-import NavPages from '../components/NavPages.vue'
 import FooterPage from '../components/FooterPage.vue'
 
 export default {
     name: 'MatriculaPage',
-    components: { FooterPage, NavPages },
+    components: { FooterPage },
     data() {
         return {
             faqs: [

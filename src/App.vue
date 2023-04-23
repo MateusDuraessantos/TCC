@@ -1,15 +1,18 @@
 <template>
   <div>
-    <router-link to="" class="contato">
+    <NavPages />
+    <div class="contato">
       <img class="contato__icon" src="fone.svg" alt="Contato">
       <p class="contato__text">Contato</p>
-    </router-link>
+    </div>
     <router-view />
   </div>
 </template>
 
 <script>
+import NavPages from './components/NavPages.vue'
 export default {
+  components: { NavPages },
   name: 'app'
 }
 </script>
@@ -55,25 +58,28 @@ body {
   background: rgb(14, 14, 14);
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0;
+}
+
+section {
+  margin: 0 100px;
+  max-width: 1100px;
+}
+
 :root {
   --page-width: 1280px;
   --blue-mack: #00547F;
   --red-mack: #CC141D;
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1280px) {
   :root {
     --page-width: 1480px;
-    --red-mack: #CC141D;
   }
-}
-
-.body {
-  margin: auto;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  padding: 0 50px;
-  max-width: var(--page-width);
 }
 
 header {
@@ -278,10 +284,6 @@ header {
 
   .global__banner_font {
     font-size: 80px;
-  }
-
-  .body {
-    padding: 0 20px;
   }
 
   .contato {

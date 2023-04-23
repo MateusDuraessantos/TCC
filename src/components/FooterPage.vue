@@ -227,7 +227,6 @@ h3 {
     padding: 0 50px 100px 50px;
     margin: auto;
     line-height: 24px;
-
     max-width: var(--page-width);
     color: #B0B0B0;
 }

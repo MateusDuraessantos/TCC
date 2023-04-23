@@ -1,6 +1,5 @@
 <template>
   <div id="link_design">
-    <NavPages />
     <header>
       <p class="global__banner_font design">Design</p>
       <p class="faculdade">
@@ -13,112 +12,110 @@
     </header>
 
     <div class="body">
-
-      <!-- Objetivos -->
-
-      <div class="objetivo" id="link_objetivo">
-        <span>
-          <div class="container_objetivo">
-            <h1>O que temos como objetivo?</h1>
-            <div>
-              <hr-color />
-              <hr>
+      <section>
+        <!-- Objetivos -->
+        <div class="objetivo" id="link_objetivo">
+          <span>
+            <div class="container_objetivo">
+              <h1>O que temos como objetivo?</h1>
+              <br>
+              <div>
+                <hr-color />
+                <hr>
+              </div>
             </div>
-          </div>
-
-          <p class="objetivo__text">
-            O Curso de Bacharelado em Design da Faculdade de Arquitetura e Urbanismo da Universidade Presbiteriana
-            Mackenzie
-            tem como objetivo principal formar profissionais com competências e habilidades múltiplas que privilegiam a
-            atuação ampla generalista desta área de conhecimento, diante das complexas e rápidas transformações da
-            sociedade,
-            especialmente dos processos produtivos e culturais ligados à sociedade contemporânea.
+            <p class="objetivo__text">
+              O Curso de Bacharelado em Design da Faculdade de Arquitetura e Urbanismo da Universidade Presbiteriana
+              Mackenzie
+              tem como objetivo principal formar profissionais com competências e habilidades múltiplas que privilegiam a
+              atuação ampla generalista desta área de conhecimento, diante das complexas e rápidas transformações da
+              sociedade,
+              especialmente dos processos produtivos e culturais ligados à sociedade contemporânea.
+              <br>
+              <br>
+              Criado no início da década de 1970, o curso de bacharelado em Desenho Industrial, nomenclatura usual na
+              ocasião,
+              adquiriu maturidade ao longo do seu percurso, atendeu áreas e necessidades específicas nas décadas de 1970 e
+              1980
+              com as habilitações do projeto de produto e programação visual, duas importantes sub-áreas de
+              conhecimento. Em
+              2006, o Curso, já integrado à FAU-Mackenzie, passa a denominar-se "Design", privilegiando assim a abordagem
+              projetual, marca característica da Escola.
+              <br>
+              <br>
+              O atual Projeto Pedagógico, alinha-se às tendências contemporâneas nacionais e internacionais, que tem como
+              foco a
+              atuação do designer de forma ampla e flexível. Sendo o Design uma atividade criativa e voltada à busca de
+              melhorias na forma, na função e na simbologia de todo o ambiente construído, o curso de Design da
+              FAU-Mackenzie
+              prioriza saberes multidisciplinares e transdisciplinares, integrando teoria e prática. Busca-se a
+              capacitação
+              do
+              profissional para a flexibilidade de ações e para a autonomia na aquisição de conhecimentos, a fim de
+              que
+              este
+              protagonize contribuições nos diversos campos do design, seja no setor produtivo ou de serviços, na
+              esfera
+              pública ou privada, nas associações sem fins lucrativos, em atividades de pesquisa acadêmica e como
+              agente
+              empreendedor.
+            </p>
+          </span>
+          <span class="premio">
             <br>
             <br>
-            Criado no início da década de 1970, o curso de bacharelado em Desenho Industrial, nomenclatura usual na
-            ocasião,
-            adquiriu maturidade ao longo do seu percurso, atendeu áreas e necessidades específicas nas décadas de 1970 e
-            1980
-            com as habilitações do projeto de produto e programação visual, duas importantes sub-áreas de
-            conhecimento. Em
-            2006, o Curso, já integrado à FAU-Mackenzie, passa a denominar-se "Design", privilegiando assim a abordagem
-            projetual, marca característica da Escola.
-            <br>
-            <br>
-            O atual Projeto Pedagógico, alinha-se às tendências contemporâneas nacionais e internacionais, que tem como
-            foco a
-            atuação do designer de forma ampla e flexível. Sendo o Design uma atividade criativa e voltada à busca de
-            melhorias na forma, na função e na simbologia de todo o ambiente construído, o curso de Design da
-            FAU-Mackenzie
-            prioriza saberes multidisciplinares e transdisciplinares, integrando teoria e prática. Busca-se a capacitação
-            do
-            profissional para a flexibilidade de ações e para a autonomia na aquisição de conhecimentos, a fim de que
-            este
-            protagonize contribuições nos diversos campos do design, seja no setor produtivo ou de serviços, na esfera
-            pública ou privada, nas associações sem fins lucrativos, em atividades de pesquisa acadêmica e como agente
-            empreendedor.
-          </p>
-        </span>
-        <span class="premio">
-          <br>
-          <br>
-          <h2>Premiações</h2>
-          <div class="premio__grid">
-            <img class="premio__1" src="design/premio1.png">
-            <div class="premio__2">
-              <img src="design/star.png">
-              Guia do estudante
+            <h2>Premiações</h2>
+            <div class="premio__grid">
+              <img class="premio__1" src="design/premio1.png">
+              <div class="premio__2">
+                <img src="design/star.png">
+                Guia do estudante
+              </div>
             </div>
-          </div>
-        </span>
-      </div>
-
-
-
-      <!-- Matriz -->
-
-      <div class="matriz" id="link_matriz">
-        <h1>Um pouquinho do que você vai aprender </h1>
-        <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
-          <el-tab-pane label="Matriz Curricular" name="first">
-
-            <div class="container__collapse">
-
-              <el-collapse accordion style="margin: 60px 0">
-                <el-collapse-item v-for="(grade, index) in matriz" :key="index">
-                  <template #title>
-                    <p class="matriz__etapa" style="color: #BDBDBD"><b>{{ index + 1 }}° Etapa</b> - Disciplinas</p>
-                  </template>
-                  <span v-for="materia in grade">
-                    {{ materia }}
-                    <br>
-                  </span>
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-          </el-tab-pane>
-
-          <!-- Nav Secundária -->
-
-          <div>
-            <el-tab-pane label="Atividades Acadêmicas" class="navSecond" name="second">
-              <el-tabs v-model="activeName" type="card" class="demo-tabs" @tab-click="handleClick">
+          </span>
+        </div>
+        <!-- Matriz -->
+        <div class="matriz" id="link_matriz">
+          <h1>Um pouquinho do que você vai aprender </h1>
+          <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
+            <el-tab-pane label="Matriz Curricular" name="first">
+              <div class="container__collapse">
+                <el-collapse accordion style="margin: 60px 0">
+                  <el-collapse-item v-for="(grade, index) in matriz" :key="index">
+                    <template #title>
+                      <p class="matriz__etapa" style="color: #BDBDBD"><b>{{ index + 1 }}° Etapa</b> - Disciplinas</p>
+                    </template>
+                    <span v-for="materia in grade">
+                      {{ materia }}
+                      <br>
+                    </span>
+                  </el-collapse-item>
+                </el-collapse>
+              </div>
+            </el-tab-pane>
+            <!-- Nav Secundária -->
+            <el-tab-pane label="Atividades Acadêmicas" class="navSecond " name="second">
+              <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
                 <el-tab-pane label="TCC" name="first">
-                  <div>
-                    O Trabalho de Conclusão de Curso - TCC- consiste na realização de um trabalho acadêmico, no qual o
-                    aluno desenvolve uma ideia completa, de sua escolha, fundamenta-a teórica e projetualmente e expõe-na
-                    na forma de um objeto ou serviço (ou de um sistema objeto/serviço).
-                    <br>
-                    <br>
-                    O principal objetivo é permitir que o aluno consolide as capacidades profissionais desenvolvidas ao
-                    longo do curso e que podem ser resumidas na capacidade de analisar e propor soluções de projeto para
-                    realidades colocadas no âmbito da cultura material e suas extensões virtuais através da construção de
-                    sínteses dos conhecimentos pertinentes ao campo profissional.
-                  </div>
+
+                  O Trabalho de Conclusão de Curso - TCC- consiste na realização de um trabalho acadêmico, no qual o
+                  aluno desenvolve uma ideia completa, de sua escolha, fundamenta-a teórica e projetualmente e
+                  expõe-na
+                  na forma de um objeto ou serviço (ou de um sistema objeto/serviço).
+                  <br>
+                  <br>
+                  O principal objetivo é permitir que o aluno consolide as capacidades profissionais desenvolvidas ao
+                  longo do curso e que podem ser resumidas na capacidade de analisar e propor soluções de projeto para
+                  realidades colocadas no âmbito da cultura material e suas extensões virtuais através da construção
+                  de
+                  sínteses dos conhecimentos pertinentes ao campo profissional.
+
                 </el-tab-pane>
                 <el-tab-pane label="Estágios" name="second">
-                  O programa de estágio curricular supervisionado (que se submete ao Regulamento Geral de Estágios da UPM
-                  e à Lei Federal que rege a questão) é obrigatório aos alunos do Curso, que devem cumprir entre o início
+                  O programa de estágio curricular supervisionado (que se submete ao Regulamento Geral de Estágios da
+                  UPM
+                  e à Lei Federal que rege a questão) é obrigatório aos alunos do Curso, que devem cumprir entre o
+                  início
                   da 1å etapa e o término da 7å etapa, o mínimo de 183 horas de estágio.
                   <br>
                   <br>
@@ -130,25 +127,30 @@
                   <br>
                   O estágio é uma atividade muito importante para o estudante de graduação de Design, pois complementa o
                   seu aprendizado com uma visão do mundo real nos trabalhos prestados nas empresas ou órgãos públicos. A
-                  atividade visa o aprimoramento profissional na sua área de estudo, possibilitando o conhecimento prático
+                  atividade visa o aprimoramento profissional na sua área de estudo, possibilitando o conhecimento
+                  prático
                   das matérias teóricas passadas em sala de aula.
                   <br>
                   <br>
-                  O estágio de estudante é obrigatório, não configurando relação de emprego, mas com alguns direitos como
+                  O estágio de estudante é obrigatório, não configurando relação de emprego, mas com alguns direitos
+                  como
                   o recebimento de bolsa ou remuneração, se estipulado, cumprimento de carga horária prefixada e
                   realização de seguro obrigatório contra acidentes, e após 1 ano de estágio, 30 dias de férias
                   remuneradas. A faculdade conta com uma Coordenação de Estágio que oferece suporte aos alunos antes e
                   durante o estágio.
                   <br>
                   <br>
-                  O aluno poderá realizar estágio não obrigatório, com os mesmos procedimentos do estágio obrigatório, mas
+                  O aluno poderá realizar estágio não obrigatório, com os mesmos procedimentos do estágio obrigatório,
+                  mas
                   sem contar como realização para o cumprimento das 180 horas obrigatórias.
                   <br>
                   <br>
                   O programa conta também com o Relatório de Acompanhamento das Atividades do Estagiário (RAE), fonte
-                  privilegiada para verificação do grau de aderência dos conhecimentos transmitidos ao aluno e da relação
+                  privilegiada para verificação do grau de aderência dos conhecimentos transmitidos ao aluno e da
+                  relação
                   desses conhecimentos com a prática profissional, tanto do ponto de vista da concedente quanto do
-                  estagiário, retroalimentando a reflexão sobre a eficácia do ensino e da aprendizagem, a partir do olhar
+                  estagiário, retroalimentando a reflexão sobre a eficácia do ensino e da aprendizagem, a partir do
+                  olhar
                   do mercado de trabalho. Este relatório deve ser apresentado como documento obrigatório para o registro
                   das horas de estágio cumpridas pelo aluno no curso de Design.
                   <br>
@@ -161,7 +163,8 @@
                   Termo aditivo ao TCE (se houver alguma modificação ou prorrogação em seus termos.
                   Termo de Rescisão do TCE (se o termo for encerrado antes da data prevista) e
                   Termo de Realização do Estágio (contendo o período em que o Estágio foi realizado).
-                  Estes documentos serão apresentados ao Coordenador de Estágios e deverão permanecer na Coordenadoria de
+                  Estes documentos serão apresentados ao Coordenador de Estágios e deverão permanecer na Coordenadoria
+                  de
                   Estágio, cópias dos seguintes documentos:
                   <br>
                   <br>
@@ -176,7 +179,6 @@
                   data;
                   relação do total de horas dos estágios realizados.
                 </el-tab-pane>
-
                 <el-tab-pane label="Atividades Complementares" name="third">
                   A Coordenadoria de Atividades Complementares e Extensão da FAU atua para organizar e viabilizar as
                   atividades extensionistas da unidade universitária, dando cumprimento a Resolução 08/2016 - 26 de maio
@@ -184,8 +186,10 @@
                   <br>
                   <br>
                   As atividades complementares no Curso de Design orientam-se pelo princípio geral de que a formação do
-                  profissional designer não se restringe exclusivamente aos conteúdos acadêmicos desenvolvidos em sala de
-                  aula. Isto significa que a formação do designer ultrapassa os muros da academia promovendo a prática de
+                  profissional designer não se restringe exclusivamente aos conteúdos acadêmicos desenvolvidos em sala
+                  de
+                  aula. Isto significa que a formação do designer ultrapassa os muros da academia promovendo a prática
+                  de
                   uma aprendizagem contínua, constante e complementar à formação profissional. O programa de atividades
                   complementares promove a participação dos estudantes em atividades de ensino, pesquisa e extensão e,
                   para concluir sua formação, o aluno precisa completar um mínimo de 180 horas de atividades
@@ -217,7 +221,6 @@
                   Coordenadora de Extensão
                   Professora Ms.ª Ana Paula Calvo
                 </el-tab-pane>
-
                 <el-tab-pane label="Atividades de Extensão" name="fourth">
                   A Coordenadoria de Atividades Complementares e Extensão da FAU atua para organizar e viabilizar as
                   atividades extensionistas da unidade universitária, dando cumprimento a Resolução 05/2012 - 13 de
@@ -229,7 +232,8 @@
                   b) que possa envolver alunos de graduação e de pós-graduação; c) que traga contribuições importantes
                   para o contexto social; d) que possa contribuir para o desenvolvimento qualitativo do corpo card,
                   como também dos próprios alunos envolvidos em projetos extensionistas específicos, possibilitando a
-                  esses, tanto a vivência profissional quanto a articulação desta com os conhecimentos teóricos e práticos
+                  esses, tanto a vivência profissional quanto a articulação desta com os conhecimentos teóricos e
+                  práticos
                   apreendidos no Curso.
                   <br>
                   <br>
@@ -245,194 +249,185 @@
                 </el-tab-pane>
               </el-tabs>
             </el-tab-pane>
-          </div>
-          <el-tab-pane label="Projeto Pedagógico" name="third">
-            O aluno de graduação tem oportunidade de participar da Pesquisa no âmbito do Programa Institucional de
-            Iniciação Científica (PIBIC ) ou de forma voluntaria. A UPM oferece o PIBIC Mackenzie que se destina a
-            complementar o ensino de graduação, permitindo aos estudantes a oportunidade de desvendarem como se processa a
-            geração do saber e como o conhecimento científico é adquirido. Esses objetivos são alcançados pela
-            participação do aluno nas atividades práticas e teóricas no ambiente de pesquisa, sob a orientação de um
-            professor-pesquisador. A efetivação e consolidação da boa pesquisa em nossa Universidade é uma questão
-            prioritária de nossa Reitoria, e é apoiada pelo Instituto Presbiteriano Mackenzie que tem disponibilizado as
-            bolsas de Iniciação Científica para os nossos alunos-pesquisadores, alem de bolsas advindas do CNPq. O edital
-            do Programa PBIC Mackenzie ocorre uma vez por ano, entre os meses de fevereiro e março, com início das
-            atividades em agosto.
-            <br>
-            <br>
-            Outras oportunidades de participar da Iniciação Cientifica são oferecidas por meio de agências externas como a
-            FAPESP.
-            <br>
-            <br>
-            Para maiores informações procure a Coordenadoria de Pesquisa da FAU.
-            <br>
-            <br>
-            Contatos:
-            Prédio 10 (Chamberlain), 1° andar - sala 101
-            <br>
-            <br>
-            Coordenadora de Pesquisa
-            Prof.ª Dr.ª Eunice Abascal
-            Telefone: +55 11 2766-7068
-            E-mail: fau.pesquisa@mackenzie.br
-
-          </el-tab-pane>
-        </el-tabs>
-      </div>
-
-      <!-- Prédio 9 -->
-
-      <div class="container-predio" id="link_predio">
-        <div class="shadow-predio"></div>
-        <img class="background__carrossel" :src="'design/carrossel/' + carrossel[displayNumber]">
-
-        <div class="predio">
-          <div class="predio__grid">
-            <span>
-              <h1>Prédio 9</h1>
-              <br>
-              <p class="predio__description">
-                O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
-                tecnológico
-                localizado no coração de São Paulo, Brasil.
-                o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
-                universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
-                panorâmicas da
-                universidade.
+            <el-tab-pane label="Projeto Pedagógico" name="third">
+              <div class="container__collapse">
+                O aluno de graduação tem oportunidade de participar da Pesquisa no âmbito do Programa Institucional de
+                Iniciação Científica (PIBIC ) ou de forma voluntaria. A UPM oferece o PIBIC Mackenzie que se destina a
+                complementar o ensino de graduação, permitindo aos estudantes a oportunidade de desvendarem como se
+                processa
+                a
+                geração do saber e como o conhecimento científico é adquirido. Esses objetivos são alcançados pela
+                participação do aluno nas atividades práticas e teóricas no ambiente de pesquisa, sob a orientação de um
+                professor-pesquisador. A efetivação e consolidação da boa pesquisa em nossa Universidade é uma questão
+                prioritária de nossa Reitoria, e é apoiada pelo Instituto Presbiteriano Mackenzie que tem disponibilizado
+                as
+                bolsas de Iniciação Científica para os nossos alunos-pesquisadores, alem de bolsas advindas do CNPq. O
+                edital
+                do Programa PBIC Mackenzie ocorre uma vez por ano, entre os meses de fevereiro e março, com início das
+                atividades em agosto.
                 <br>
-                O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e
-                vídeo,
-                salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
-                fabricação digital.
                 <br>
-                Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
-                auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
-                O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência
-                acadêmica
-                e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
-                habilidades e desenvolver seus projetos.
-              </p>
-            </span>
-            <span>
-              <br>
-              <h1>Corpo docente</h1>
-              <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
-                capacitados, conheça um pouco da nossa equipe.</div>
-              <button class="blue_btn">Ver docentes</button>
-            </span>
-          </div>
-          <div class="carrossel">
-            <p class="carrossel__description">{{ carrossel[displayNumber].split('.jpg')[0] }}</p>
-            <div class="carrossel__display">
-              <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber]">
-              <button class="arrow" id="left" @click="arrowCarrrossel('back')">‹</button>
-              <button class="arrow" id="right" @click="arrowCarrrossel('next')">›</button>
-            </div>
-            <div class="carrossel__options">
-              <span v-for="(cardsInfo, index) in carrossel" :key="index">
-
-                <img @click="changeCarrossel(index)" :id="'carrossel_' + index" class="carrossel__options-img"
-                  :src="'design/carrossel/' + cardsInfo">
+                Outras oportunidades de participar da Iniciação Cientifica são oferecidas por meio de agências externas
+                como
+                a
+                FAPESP.
+                <br>
+                <br>
+                Para maiores informações procure a Coordenadoria de Pesquisa da FAU.
+                <br>
+                <br>
+                Contatos:
+                Prédio 10 (Chamberlain), 1° andar - sala 101
+                <br>
+                <br>
+                Coordenadora de Pesquisa
+                Prof.ª Dr.ª Eunice Abascal
+                Telefone: +55 11 2766-7068
+                E-mail: fau.pesquisa@mackenzie.br
+              </div>
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+        <!-- Prédio 9 -->
+        <div class="container-predio" id="link_predio">
+          <div class="shadow-predio"></div>
+          <img class="background__carrossel" :src="'design/carrossel/' + carrossel[displayNumber]">
+          <div class="predio">
+            <div class="predio__grid">
+              <span>
+                <h1>Prédio 9</h1>
+                <br>
+                <p class="predio__description">
+                  O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
+                  tecnológico
+                  localizado no coração de São Paulo, Brasil.
+                  o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
+                  universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
+                  panorâmicas da
+                  universidade.
+                  <br>
+                  O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia e
+                  vídeo,
+                  salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
+                  fabricação digital.
+                  <br>
+                  Além disso, o edifício tem um espaço destinado à exposição de trabalhos dos alunos e professores e um
+                  auditório com capacidade para 150 pessoas, que é utilizado para palestras, debates e eventos acadêmicos.
+                  O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um exemplo da excelência
+                  acadêmica
+                  e tecnológica da universidade e oferece aos alunos um ambiente inspirador e inovador para aprimorar suas
+                  habilidades e desenvolver seus projetos.
+                </p>
+              </span>
+              <span>
+                <br>
+                <h1>Corpo docente</h1>
+                <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
+                  capacitados, conheça um pouco da nossa equipe.</div>
+                <button class="blue_btn">Ver docentes</button>
               </span>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Laboratórios -->
-
-      <h1>Laboratórios</h1>
-      <div class="laboratorios">
-        <div class="laboratorios__card" v-for="lab in labs">
-          <img class="laboratorios__img" :src="'design/laboratorios/' + lab.img">
-          <p class="laboratorio__name">{{ lab.name }}</p>
-        </div>
-      </div>
-      <br v-for="coisas in 3">
-
-      <!-- Horários/Períodos -->
-
-      <h1 id="link_horarios">Horários/Períodos</h1>
-      <br>
-      <br>
-      <div class="horarios">
-        <div class="horarios_absolute">
-          <div class="horarios__cards">
-            <div class="card horarios__card">
-              <p><b>Tipo</b>: Graduação - Bacharelado</p>
-              <p><b>Duração</b>: 8 semestres / 4 anos</p>
-              <p><b>Modalidade</b>: Presencial</p>
-              <p>
-                <b>Períodos</b>: <br>
-                Vespertino: 1° ao 4° semestre <br>
-                Noturno: 5° ao 8° semestre <br>
-                Noturno: 1° ao 8° semestre <br>
-              </p>
-              <p><b>Local</b>: Campus Higienópolis <br></p>
-            </div>
-
-            <!-- card 1 -->
-
-            <div class="card">
-              <img class="card__prof" src="design/docentes/nara.jpg">
-              <img class="card__header" src="design/docentes/card_header.jpg">
-              <div class="card__infos">
-                <p class="card__name">Profª. Drª. Nara Silvia Marcondes Martins</p>
-                <p>Coordenadora de Graduação</p>
-                <p class="card__cargo">contato</p>
-                <p class="card__email">fau.design@mackenzie.br</p>
+            <div class="carrossel">
+              <p class="carrossel__description">{{ carrossel[displayNumber].split('.jpg')[0] }}</p>
+              <div class="carrossel__display">
+                <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber]">
+                <button class="arrow" id="left" @click="arrowCarrrossel('back')">‹</button>
+                <button class="arrow" id="right" @click="arrowCarrrossel('next')">›</button>
+              </div>
+              <div class="carrossel__options">
+                <span v-for="(cardsInfo, index) in carrossel" :key="index">
+                  <img @click="changeCarrossel(index)" :id="'carrossel_' + index" class="carrossel__options-img"
+                    :src="'design/carrossel/' + cardsInfo">
+                </span>
               </div>
             </div>
-
-            <!-- card 2 -->
-
-            <div class="card">
-              <img class="card__prof" src="design/docentes/luciana.png">
-              <img class="card__header" src="design/docentes/card_header.jpg">
-              <div class="card__infos">
-                <p class="card__name">Profª. Drª. Luciana Tombi Brasil</p>
-                <p>Representante PROATO-FAU</p>
-                <p class="card__cargo">contato</p>
-                <p class="card__email">fau.proato@mackenzie.br</p>
+          </div>
+        </div>
+        <!-- Laboratórios -->
+        <h1>Laboratórios</h1>
+        <div class="laboratorios">
+          <div class="laboratorios__card" v-for="lab in labs">
+            <img class="laboratorios__img" :src="'design/laboratorios/' + lab.img">
+            <p class="laboratorio__name">{{ lab.name }}</p>
+          </div>
+        </div>
+        <br v-for="coisas in 3">
+        <!-- Horários/Períodos -->
+        <h1 id="link_horarios">Horários/Períodos</h1>
+        <br>
+        <br>
+        <div class="horarios">
+          <div class="horarios_absolute">
+            <div class="horarios__cards">
+              <div class="card horarios__card">
+                <p><b>Tipo</b>: Graduação - Bacharelado</p>
+                <p><b>Duração</b>: 8 semestres / 4 anos</p>
+                <p><b>Modalidade</b>: Presencial</p>
+                <p>
+                  <b>Períodos</b>: <br>
+                  Vespertino: 1° ao 4° semestre <br>
+                  Noturno: 5° ao 8° semestre <br>
+                  Noturno: 1° ao 8° semestre <br>
+                </p>
+                <p><b>Local</b>: Campus Higienópolis <br></p>
+              </div>
+              <!-- card 1 -->
+              <div class="card">
+                <img class="card__prof" src="design/docentes/nara.jpg">
+                <img class="card__header" src="design/docentes/card_header.jpg">
+                <div class="card__infos">
+                  <p class="card__name">Profª. Drª. Nara Silvia Marcondes Martins</p>
+                  <p>Coordenadora de Graduação</p>
+                  <p class="card__cargo">contato</p>
+                  <p class="card__email">fau.design@mackenzie.br</p>
+                </div>
+              </div>
+              <!-- card 2 -->
+              <div class="card">
+                <img class="card__prof" src="design/docentes/luciana.png">
+                <img class="card__header" src="design/docentes/card_header.jpg">
+                <div class="card__infos">
+                  <p class="card__name">Profª. Drª. Luciana Tombi Brasil</p>
+                  <p>Representante PROATO-FAU</p>
+                  <p class="card__cargo">contato</p>
+                  <p class="card__email">fau.proato@mackenzie.br</p>
+                </div>
               </div>
             </div>
-
-          </div>
-          <div class="horario__avise">
-            <h3>Gostou do Curso? Faça parte da nossa História!</h3>
-            <button class="red_btn">Avise-me <span>&rarr;</span></button>
-          </div>
-        </div>
-
-        <div class="background">
-          <div class="background__shadow" />
-          <img class="background__jpg" src="design/background.jpg">
-        </div>
-      </div>
-
-      <!-- Docentes -->
-
-      <div class="cards-container" id="docentes">
-        <div class="container_objetivo">
-          <h3 class="objetivo__title">Corpo docente</h3>
-          <div>
-            <hr-color />
-            <hr>
-          </div>
-        </div>
-        <img class="grid__background_M" src="design/blur.png">
-        <div class="grid">
-          <div class="card" v-for="cardInfo in cardsInfos">
-            <img class="card__prof" :src="'design/docentes/' + cardInfo.image">
-            <img class="card__header" src="design/docentes/card_header.jpg">
-            <div class="card__infos">
-              <p class="card__name">{{ cardInfo.name }}</p>
-              <p>Professor</p>
-              <p class="card__cargo">Contato</p>
-              <p class="card__email">{{ cardInfo.email }}</p>
+            <div class="horario__avise">
+              <h3>Gostou do Curso? Faça parte da nossa História!</h3>
+              <button class="red_btn">Avise-me <span>&rarr;</span></button>
             </div>
           </div>
+          <div class="background">
+            <div class="background__shadow" />
+            <img class="background__jpg" src="design/background.jpg">
+          </div>
         </div>
-      </div>
+        <!-- Docentes -->
+        <div class="cards-container" id="docentes">
+          <div class="container_objetivo">
+            <h3 class="objetivo__title">Corpo docente</h3>
+            <div>
+              <hr-color />
+              <hr>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="card" v-for="cardInfo in cardsInfos">
+              <img class="card__prof" :src="'design/docentes/' + cardInfo.image">
+              <img class="card__header" src="design/docentes/card_header.jpg">
+              <div class="card__infos">
+                <p class="card__name">{{ cardInfo.name }}</p>
+                <p>Professor</p>
+                <p class="card__cargo">Contato</p>
+                <p class="card__email">{{ cardInfo.email }}<span>@mackenzie.br</span></p>
+              </div>
+            </div>
+          </div>
+          <img class="grid__background_M" src="design/blur.png">
+        </div>
+      </section>
     </div>
 
     <FooterPage />
@@ -440,12 +435,12 @@
 </template>
 
 <script>
-import NavPages from '../components/NavPages.vue'
+
 import FooterPage from '../components/FooterPage.vue'
 
 export default {
   name: 'DesignPage',
-  components: { FooterPage, NavPages },
+  components: { FooterPage },
   data() {
     return {
       activeNameNav: 'first',
@@ -453,77 +448,77 @@ export default {
       cardsInfos: [
         {
           name: 'Prof. Dr. Célio Martins da Matta',
-          email: 'celio.matta@mackenzie.br',
+          email: 'celio.matta',
           image: 'celio.jpg',
         },
         {
           name: 'Profª. Drª. Nara Silvia Marcondes Martins',
-          email: 'narasilvia.martins@mackenzie.br',
+          email: 'narasilvia.martins',
           image: 'nara.jpg',
         },
         {
           name: 'Prof. Dr. Ivo Eduardo Roman Pons',
-          email: 'ivoeduardo.pons@mackenzie.br',
+          email: 'ivoeduardo.pons',
           image: 'ivo.jpg',
         },
         {
           name: 'Profª. Me. Grace Kishimoto',
-          email: 'grace.kishimoto@mackenzie.br',
+          email: 'grace.kishimoto',
           image: 'grace.jpg',
         },
         {
           name: 'Profª. Ms. Juliana Bertolini',
-          email: 'juliana.bertolini@mackenzie.br',
+          email: 'juliana.bertolini',
           image: 'juliana.jpg',
         },
         {
           name: 'Prof. Ms. Marcos A. Castanha Junior',
-          email: 'marcosaurelio.castanha@mackenzie.br',
+          email: 'marcosaurelio.castanha',
           image: 'kito.jpg',
         },
         {
           name: 'Prof. Ms. Luis Alexandre F. Ogasawara',
-          email: 'luis.alexandre@mackenzie.br',
+          email: 'luis.alexandre',
           image: 'luis.jpg',
         },
         {
           name: 'Prof. Ms. Olavo Egydio de Souza Aranha',
-          email: 'olavo.aranha@mackenzie.br',
+          email: 'olavo.aranha',
           image: 'olavo.jpg',
         },
         {
           name: 'Prof. Dr. Renato Vizioli',
-          email: 'renato.vizioli@mackenzie.br',
+          email: 'renato.vizioli',
           image: 'renato.jpeg',
         },
         {
           name: 'Profª. Drª. Teresa Maria Riccetti',
-          email: 'teresamaria.riccetti@mackenzie.br',
+          email: 'teresamaria.riccetti',
           image: 'teresa.jpg',
         },
         {
           name: 'Profª. Ms. Zuleica Schincariol',
-          email: 'zuleica.schincariol@mackenzie.br',
+          email: 'zuleica.schincariol',
           image: 'zuleica.jpg',
         },
         {
           name: 'Prof. Dr. Charles de Castro Vincent',
-          email: 'charles.vincent@mackenzie.br',
+          email: 'charles.vincent',
           image: 'charles.jpg',
         },
         {
           name: 'Prof. Me. Carlos Marcelo Campos Teixeira',
-          email: 'carlos.teixeira@mackenzie.br',
+          email: 'carlos.teixeira',
           image: 'marcelo.jpg',
         },
         {
           name: 'Prof. Me. Ana Paula Calvo',
-          email: 'anapaula.calvo@mackenzie.br',
+          email: 'anapaula.calvo',
           image: 'ana.jpg',
         },
         {
           name: 'Prof. Dr. Mauro Claro',
-          email: 'mauro.claro@mackenzie.br',
+          email: 'mauro.claro',
           image: 'mauro.jpeg',
         },
       ],
@@ -715,6 +710,8 @@ export default {
 
 
 <style scoped>
+
+
 header {
   cursor: default;
 }
@@ -938,7 +935,6 @@ hr {
 
 .matriz {
   padding: 160px 0 60px 0;
-  min-height: 700px;
 }
 
 .matriz__etapa {
@@ -949,6 +945,9 @@ hr {
   max-width: 900px;
   margin: auto;
 }
+
+
+
 
 /* Laboratórios */
 
@@ -974,10 +973,6 @@ hr {
   border: 4px solid #cc141d69;
 }
 
-.laboratorios__card:hover .laboratorio__name {
-  right: 130px;
-  transition: .4s;
-}
 
 .laboratorios__img {
   position: absolute;
@@ -997,11 +992,16 @@ hr {
 
 .laboratorio__name {
   position: absolute;
-  right: 40px;
+  right: 33px;
   transition: .4s;
-  text-align: start;
+  text-align: center;
   width: 100px;
   text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.laboratorios__card:hover .laboratorio__name {
+  right: 100px;
+  transition: .4s;
 }
 
 /* Horários/Períodos */
@@ -1114,16 +1114,14 @@ hr {
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 14px;
+  width: 100%;
 }
 
-@media only screen and (min-width:1920px) {
-  .grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
 
 .card {
   position: relative;
@@ -1147,6 +1145,8 @@ hr {
   gap: 12px;
   background: black;
   padding: 16px;
+  width: 100%;
+  height: 100%;
   padding-top: 66px;
 }
 
@@ -1177,13 +1177,18 @@ hr {
 }
 
 .card__email {
+  display: flex;
+  flex-wrap: wrap;
   color: #828282;
   cursor: pointer;
   font-size: 16px;
-  max-width: 224px;
+  width: 100%;
   overflow: hidden;
   transition: .1s;
+  word-wrap: break-word;
 }
+
+
 
 .card__email:hover {
   color: white;
@@ -1208,6 +1213,7 @@ hr {
 
   .container__collapse {
     max-width: 100%;
+
   }
 
   .predio__grid {
@@ -1264,6 +1270,15 @@ hr {
     opacity: 0.4;
   }
 
+  .card {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
@@ -1323,13 +1338,5 @@ hr {
 
 .el-tabs__content {
   padding: 30px 30px 0 30px;
-}
-
-@media only screen and (max-width: 1000px) {
-
-  .el-tabs__content {
-    padding: 0;
-  }
-
 }
 </style>

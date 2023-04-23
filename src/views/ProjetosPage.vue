@@ -1,6 +1,5 @@
 <template>
     <div>
-        <NavPages />
         <header>
             <h1>Projetos</h1>
             <div class="header__footer">
@@ -388,12 +387,11 @@
 </template>
 
 <script>
-import NavPages from '../components/NavPages.vue'
 import FooterPage from '../components/FooterPage.vue'
 
 export default {
     name: 'ProjetosPage',
-    components: { FooterPage, NavPages },
+    components: { FooterPage },
     data() {
         return {
             imagesNumber: 0,
@@ -1870,6 +1868,7 @@ h1 {
     column-count: 3;
     column-gap: 20px;
     color: white;
+    margin: 0 100px;
 }
 
 .projeto {
@@ -2175,6 +2174,18 @@ hr {
     color: #A0A0A0;
     font-size: 16px;
     font-weight: 400;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .container-projetos {
+        margin: 0 20px;
+        gap: 3px;
+    }
+
+    .projeto {
+        margin: 0;
+    }
 }
 </style>
 
