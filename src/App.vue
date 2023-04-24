@@ -6,13 +6,15 @@
       <p class="contato__text">Contato</p>
     </div>
     <router-view />
+    <FooterPage />
   </div>
 </template>
 
 <script>
+import FooterPage from './components/FooterPage.vue'
 import NavPages from './components/NavPages.vue'
 export default {
-  components: { NavPages },
+  components: { NavPages, FooterPage },
   name: 'app'
 }
 </script>

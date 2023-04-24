@@ -430,17 +430,13 @@
       </section>
     </div>
 
-    <FooterPage />
+
   </div>
 </template>
 
 <script>
-
-import FooterPage from '../components/FooterPage.vue'
-
 export default {
   name: 'DesignPage',
-  components: { FooterPage },
   data() {
     return {
       activeNameNav: 'first',
@@ -710,8 +706,6 @@ export default {
 
 
 <style scoped>
-
-
 header {
   cursor: default;
 }

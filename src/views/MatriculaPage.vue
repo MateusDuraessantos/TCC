@@ -19,136 +19,113 @@
 
         <div class="body">
 
-            <!-- Preparado para as aulas -->
-
-            <div class="aulas" id="link_aulas">
-                <div class="matricula__title">
-                    <h2>Preparado para as aulas</h2>
-                </div>
-                <p class="font-light">O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre sua
-                    matrícula, acesse o
-                    <span style="color: #00547F">portal do aluno</span> utilizando o número de sua matrícula.
-                </p>
-            </div>
-
-            <!-- Matriculas -->
-
-            <div class="matricula" id="link_matriculas">
-                <img class="matricula__background" src="matricula/matricula.jpg">
-                <div class="matricula__shadow" />
-
-                <div class="matricula__container">
+            <section>
+                <!-- Preparado para as aulas -->
+                <div class="aulas" id="link_aulas">
                     <div class="matricula__title">
-                        <h4 class="font-light">Ainda não se matriculou?</h4>
-                        <h2>Matrícula Abertas</h2>
+                        <h2>Preparado para as aulas</h2>
                     </div>
-
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                        and
-                        scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                        leap
-                        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                        the
-                        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                        publishing
-                        software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <div class="container__cards">
-                        <div class="card">
-                            <h2>Vestibular</h2>
-                            <button class="blue_btn">inscreva-se</button>
+                    <p class="font-light">O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre sua
+                        matrícula, acesse o
+                        <span style="color: #00547F">portal do aluno</span> utilizando o número de sua matrícula.
+                    </p>
+                </div>
+                <!-- Matriculas -->
+                <div class="matricula" id="link_matriculas">
+                    <img class="matricula__background" src="matricula/matricula.jpg">
+                    <div class="matricula__shadow" />
+                    <div class="matricula__container">
+                        <div class="matricula__title">
+                            <h4 class="font-light">Ainda não se matriculou?</h4>
+                            <h2>Matrícula Abertas</h2>
                         </div>
-                        <div class="card">
-                            <h2>ENEM</h2>
-                            <button class="blue_btn">inscreva-se</button>
-                        </div>
-                        <div class="card">
-                            <h2>ProUni</h2>
-                            <button class="blue_btn">inscreva-se</button>
-                        </div>
-                        <div class="card">
-                            <h2>Transferência</h2>
-                            <button class="blue_btn">inscreva-se</button>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                            type
+                            and
+                            scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                            leap
+                            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                            with
+                            the
+                            release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                            publishing
+                            software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div class="container__cards">
+                            <div class="card">
+                                <h2>Vestibular</h2>
+                                <button class="blue_btn">inscreva-se</button>
+                            </div>
+                            <div class="card">
+                                <h2>ENEM</h2>
+                                <button class="blue_btn">inscreva-se</button>
+                            </div>
+                            <div class="card">
+                                <h2>ProUni</h2>
+                                <button class="blue_btn">inscreva-se</button>
+                            </div>
+                            <div class="card">
+                                <h2>Transferência</h2>
+                                <button class="blue_btn">inscreva-se</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Matriculas -->
-
-            <div class="matricula" id="link_bolsa">
-                <img class="matricula__background" src="matricula/bolsas.jpg">
-                <div class="matricula__shadow" />
-
-                <div class="matricula__container">
-                    <div class="matricula__title">
-                        <h2>Setor de bolsas</h2>
+                <!-- Matriculas -->
+                <div class="matricula" id="link_bolsa">
+                    <img class="matricula__background" src="matricula/bolsas.jpg">
+                    <div class="matricula__shadow" />
+                    <div class="matricula__container">
+                        <div class="matricula__title">
+                            <h2>Setor de bolsas</h2>
+                        </div>
+                        <p> O Instituto Presbiteriano Mackenzie, em cumprimento a sua missão e valores, bem como aos seus
+                            compromissos filantrópicos e beneficentes, concede bolsas de estudo aos estudantes elegíveis nas
+                            condições previstas na legislação, no Normativo de Bolsas de Estudo da Instituição e nos editais
+                            publicados.</p>
+                        <br>
+                        <button class="blue_btn">Ver no mapa</button>
                     </div>
-
-                    <p> O Instituto Presbiteriano Mackenzie, em cumprimento a sua missão e valores, bem como aos seus
-                        compromissos filantrópicos e beneficentes, concede bolsas de estudo aos estudantes elegíveis nas
-                        condições previstas na legislação, no Normativo de Bolsas de Estudo da Instituição e nos editais
-                        publicados.</p>
-                    <br>
-                    <button class="blue_btn">Ver no mapa</button>
-
                 </div>
-            </div>
-
-            <!-- Perguntas frequentes -->
-
-            <el-row id="link_faq">
-                <el-col :offset="4" :span="16">
-                    <div class="faq">
-                        <h2 class="light">Perguntas frequentes Coordenação de bolsas de estudo</h2>
-
-                        <el-collapse accordion style="margin: 60px 0">
-                            <el-collapse-item v-for="faq in faqs">
-                                <template #title>
-                                    <p style="color: #BDBDBD">{{ faq.question }}</p>
-                                </template>
-                                <span style="display: flex; gap:12px; flex-direction: column;">
-                                    <p v-for="text in faq.texts">{{ text }} </p>
-                                </span>
-                            </el-collapse-item>
-                        </el-collapse>
-
-                        <p>
-                            <b>Para maiores informações envie-nos um e-mail: </b>
-                            <span style="color: #00547F"> bolsas@mackenzie.br.com</span>
-                        </p>
+                <!-- Perguntas frequentes -->
+                <el-row id="link_faq">
+                    <el-col :offset="4" :span="16">
+                        <div class="faq">
+                            <h2 class="light">Perguntas frequentes Coordenação de bolsas de estudo</h2>
+                            <el-collapse accordion style="margin: 60px 0">
+                                <el-collapse-item v-for="faq in faqs">
+                                    <template #title>
+                                        <p style="color: #BDBDBD">{{ faq.question }}</p>
+                                    </template>
+                                    <span style="display: flex; gap:12px; flex-direction: column;">
+                                        <p v-for="text in faq.texts">{{ text }} </p>
+                                    </span>
+                                </el-collapse-item>
+                            </el-collapse>
+                            <p>
+                                <b>Para maiores informações envie-nos um e-mail: </b>
+                                <span style="color: #00547F"> bolsas@mackenzie.br.com</span>
+                            </p>
+                        </div>
+                    </el-col>
+                </el-row>
+                <!-- Matriculas -->
+                <div class="frase">
+                    <img class="frase__background" src="matricula/auditorio.jpg">
+                    <div class="frase__shadow" />
+                    <div class="frase__container">
+                        <p class="frase__p">Seja a mudança que você deseja ver no mundo!</p>
                     </div>
-                </el-col>
-            </el-row>
-
-
-            <!-- Matriculas -->
-
-            <div class="frase">
-                <img class="frase__background" src="matricula/auditorio.jpg">
-                <div class="frase__shadow" />
-
-                <div class="frase__container">
-                    <p class="frase__p">Seja a mudança que você deseja ver no mundo!</p>
-
                 </div>
-            </div>
-
-
+            </section>
         </div>
-
-
-
-        <FooterPage />
     </div>
 </template>
 
 <script>
-import FooterPage from '../components/FooterPage.vue'
-
 export default {
     name: 'MatriculaPage',
-    components: { FooterPage },
     data() {
         return {
             faqs: [
@@ -457,5 +434,4 @@ h2 {
     font-size: 26px;
     font-weight: 400;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
-}
-</style>
+}</style>

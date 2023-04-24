@@ -382,16 +382,12 @@
                 </div>
             </div>
         </div>
-        <FooterPage />
     </div>
 </template>
 
 <script>
-import FooterPage from '../components/FooterPage.vue'
-
 export default {
     name: 'ProjetosPage',
-    components: { FooterPage },
     data() {
         return {
             imagesNumber: 0,
