@@ -10,6 +10,8 @@
       <img class="banner" src="design/banner.jpg" alt="banner">
     </header>
 
+
+
     <div class="body">
       <section>
         <!-- Objetivos -->
@@ -94,7 +96,7 @@
             </el-tab-pane>
             <!-- Nav Secundária -->
             <el-tab-pane label="Atividades Acadêmicas" class="navSecond " name="second">
-              <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+              <el-tabs v-model="activeName" type="card" class="demo-tabs" @tab-click="handleClick">
                 <el-tab-pane label="TCC" name="first">
 
                   O Trabalho de Conclusão de Curso - TCC- consiste na realização de um trabalho acadêmico, no qual o
@@ -344,12 +346,21 @@
         </div>
         <!-- Laboratórios -->
         <h1>Laboratórios</h1>
+
         <div class="laboratorios">
           <div class="laboratorios__card" v-for="lab in labs">
             <img class="laboratorios__img" :src="'design/laboratorios/' + lab.img">
             <p class="laboratorio__name">{{ lab.name }}</p>
           </div>
         </div>
+
+
+        <div class="popup" @click="popup" v-if="popupValue">
+
+          <LaboratorioPopup />
+
+        </div>
+
         <br v-for="coisas in 3">
         <!-- Horários/Períodos -->
         <h1 id="link_horarios">Horários/Períodos</h1>
@@ -436,8 +447,11 @@
 </template>
 
 <script>
+import LaboratorioPopup from './LaboratorioPopup'
+
 export default {
   name: 'DesignPage',
+  components: { LaboratorioPopup },
   data() {
     return {
       activeNameNav: 'first',
@@ -657,6 +671,7 @@ export default {
       ],
 
       displayNumber: 0,
+      popupValue: true,
     }
   },
 
@@ -699,13 +714,35 @@ export default {
       }
       this.ativarImg()
     },
+  },
+
+  popup() {
+
   }
+
 }
 
 </script>
 
 
 <style scoped>
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 101;
+  padding: 100px 0;
+}
+
+
+
+
 header {
   cursor: default;
   outline-width: 0 0 6px 0;
@@ -841,8 +878,6 @@ hr {
   height: 100%;
   z-index: 2;
 }
-
-
 
 .carrossel__display {
   display: flex;
@@ -1095,6 +1130,7 @@ hr {
 .cards-container {
   position: relative;
   margin-bottom: 240px;
+
 }
 
 .grid__background_M {
@@ -1201,8 +1237,6 @@ hr {
   align-items: center;
   gap: 50px;
 }
-
-
 
 @media only screen and (max-width: 1000px) {
   .predio {
@@ -1335,6 +1369,12 @@ hr {
   border: none;
 }
 
+.el-tabs--card>.el-tabs__header,
+.navSecond .el-tabs__item.is-top.is-active {
+  border-bottom: 2px solid #333;
+
+}
+
 .navSecond .el-tabs__item.is-top.is-active {
   background: #1B1B1B;
 }
@@ -1342,6 +1382,7 @@ hr {
 .navSecond .el-tab-pane {
   height: 240px;
   overflow: overlay;
+  padding-right: 20px;
 }
 
 .el-tab-pane {

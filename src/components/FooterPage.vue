@@ -278,6 +278,7 @@ h3 {
         gap: 20px;
         margin: 0;
     }
+
 }
 
 @media only screen and (max-width: 700px) {

@@ -67,8 +67,6 @@ export default {
         }
     }
 }
-
-
 </script>
   
 <style scoped>
@@ -169,6 +167,24 @@ nav {
     margin: 5px 0;
     transition: all 0.2s ease-in-out;
 }
+
+
+
+@media only screen and (max-width: 880px) {
+    .blue-bar {
+        display: none;
+    }
+
+    nav {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        width: calc(100% - 50px);
+    }
+}
 </style>
 
 <style>
@@ -246,17 +262,10 @@ nav {
 }
 
 .router-link-active {
-    color: white !important;
-}
-
-@media only screen and (max-width: 700px) {
-    .container {
-        width: calc(100% - 50px);
-    }
+    color: white;
 }
 
 @media only screen and (max-width: 880px) {
-
     @keyframes opacitySuave {
         from {
             opacity: 0;

@@ -52,9 +52,6 @@ html {
   border-radius: 6px;
 }
 
-
-
-
 .light {
   font-weight: 300;
 }
@@ -282,5 +279,4 @@ header {
   .contato {
     display: none;
   }
-}
-</style>
+}</style>
