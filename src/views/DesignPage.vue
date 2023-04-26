@@ -8,7 +8,6 @@
         Mackenzie
       </p>
       <img class="banner" src="design/banner.jpg" alt="banner">
-      <div class="shadow" />
     </header>
 
     <div class="body">
@@ -359,17 +358,19 @@
         <div class="horarios">
           <div class="horarios_absolute">
             <div class="horarios__cards">
-              <div class="card horarios__card">
-                <p><b>Tipo</b>: Graduação - Bacharelado</p>
-                <p><b>Duração</b>: 8 semestres / 4 anos</p>
-                <p><b>Modalidade</b>: Presencial</p>
-                <p>
-                  <b>Períodos</b>: <br>
-                  Vespertino: 1° ao 4° semestre <br>
-                  Noturno: 5° ao 8° semestre <br>
-                  Noturno: 1° ao 8° semestre <br>
-                </p>
-                <p><b>Local</b>: Campus Higienópolis <br></p>
+              <div class="card">
+                <div class="horarios__card--text">
+                  <p><b>Tipo</b>: Graduação - Bacharelado</p>
+                  <p><b>Duração</b>: 8 semestres / 4 anos</p>
+                  <p><b>Modalidade</b>: Presencial</p>
+                  <p>
+                    <b>Períodos</b>: <br>
+                    Vespertino: 1° ao 4° semestre <br>
+                    Noturno: 5° ao 8° semestre <br>
+                    Noturno: 1° ao 8° semestre <br>
+                  </p>
+                  <p><b>Local</b>: Campus Higienópolis <br></p>
+                </div>
               </div>
               <!-- card 1 -->
               <div class="card">
@@ -694,7 +695,6 @@ export default {
         }
         else {
           this.displayNumber = 0
-          console.log(this.displayNumber)
         }
       }
       this.ativarImg()
@@ -708,7 +708,12 @@ export default {
 <style scoped>
 header {
   cursor: default;
+  outline-width: 0 0 6px 0;
+  outline-style: solid;
+  outline-color: #B61827;
 }
+
+
 
 .banner {
   position: absolute;
@@ -732,14 +737,6 @@ header {
   z-index: 2;
   font-size: 18px;
   text-align: center;
-}
-
-.shadow {
-  position: absolute;
-  z-index: 1;
-  background-image: linear-gradient(45deg, rgb(14, 14, 14), rgba(0, 0, 0, 0.2), rgb(14, 14, 14));
-  width: 100%;
-  height: 100%;
 }
 
 /* objetivo */
@@ -1035,11 +1032,13 @@ hr {
   gap: 20px;
 }
 
-.horarios__card {
+
+.horarios__card--text {
   display: flex;
   flex-direction: column;
   gap: 28px;
   line-height: 22px;
+  padding: 16px;
 }
 
 .horario__avise {
@@ -1196,6 +1195,15 @@ hr {
   object-fit: cover;
 }
 
+.premio__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+
+
 @media only screen and (max-width: 1000px) {
   .predio {
     grid-template-columns: 1fr;
@@ -1212,7 +1220,7 @@ hr {
 
   .predio__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
@@ -1226,13 +1234,23 @@ hr {
     grid-template-columns: 1fr;
   }
 
-}
+  .laboratorio__name {
+    position: unset;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+  }
 
-.premio__grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
+  .matriz {
+    padding: 160px 0 0 0;
+  }
+
+  .container-predio,
+  .cards-container {
+    margin-bottom: 75px;
+  }
+
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -1242,6 +1260,7 @@ hr {
 
   .laboratorios {
     grid-template-columns: 1fr 1fr;
+    padding: 75px 0;
   }
 
   .objetivo {
@@ -1332,5 +1351,11 @@ hr {
 
 .el-tabs__content {
   padding: 30px 30px 0 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .el-tabs__content {
+    padding: 0;
+  }
 }
 </style>

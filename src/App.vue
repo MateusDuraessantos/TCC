@@ -1,5 +1,8 @@
 <template>
   <div>
+
+
+
     <NavPages />
     <div class="contato">
       <img class="contato__icon" src="fone.svg" alt="Contato">
@@ -49,6 +52,9 @@ html {
   border-radius: 6px;
 }
 
+
+
+
 .light {
   font-weight: 300;
 }
@@ -70,6 +76,7 @@ body {
 section {
   margin: 0 100px;
   max-width: 1100px;
+  width: calc(100% - 25px);
 }
 
 :root {
@@ -142,23 +149,7 @@ header {
   transition: .3s;
 }
 
-.dropdown-link {
-  display: flex;
-  align-items: center;
-  border: none;
-  text-decoration: none;
-  color: #828282;
-  font-size: 18px;
-  height: 30px;
-  font-weight: 400;
-  mix-blend-mode: difference;
-  transition: .3s;
-}
 
-.dropdown-link:hover {
-  color: white;
-  transition: .3s;
-}
 
 .blue_btn {
   display: flex;
@@ -290,10 +281,6 @@ header {
 
   .contato {
     display: none;
-  }
-
-  header {
-    height: 500px;
   }
 }
 </style>

@@ -1,7 +1,33 @@
 <template>
     <nav>
-        <div id="nav">
+        <div class="blue-bar">
+
+            <div class="redes-sociais">
+                <img src="facebook.png">
+                <img src="twitter.jpg">
+                <img src="youtube.png">
+                <img src="linkedin.png">
+                <img src="instagram.png">
+            </div>
+
+            <div class="opções">
+                <p>Aluno e Antigo Aluno</p>
+                <p>Blog</p>
+                <p>Biblioteca</p>
+                <p>Eventos</p>
+                <p>Mídias / Notícias</p>
+                <p>Colaboradores</p>
+                <p>Atendimento</p>
+            </div>
+
+            <div class="linguagem">
+                <img src="brasil.png">
+                <img style="opacity: 0.5;" src="usa.png">
+                <img style="opacity: 0.5;" src="espanha.png">
+
+            </div>
         </div>
+
         <div class="container">
             <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
             <div class="nav__options" id="navMenu" @click="close">
@@ -32,7 +58,6 @@ export default {
             const nav = document.getElementById('navMenu')
 
             const elementClicked = event.target.classList[0]
-            console.log(elementClicked)
 
             if (nav.classList[1] == undefined) {
                 nav.classList.add('ativar')
@@ -56,10 +81,48 @@ nav {
     top: 0;
     width: 100%;
     color: white;
-    background: rgba(0, 0, 0, 0.322);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     z-index: 100;
     height: 80px;
+    margin-top: 34px;
+}
+
+.blue-bar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #05547f;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 100px;
+    height: 34px;
+    width: 100%;
+    transform: translatey(-34px);
+}
+
+.blue-bar div {
+    align-items: center;
+    display: flex;
+    gap: 14px;
+
+}
+
+.redes-sociais img {
+    height: 18px;
+}
+
+.linguagem img {
+    height: 25px;
+    border-radius: 50px;
+    border: 2px solid #fff
+}
+
+.opções {
+    display: flex;
+    gap: 20px;
 }
 
 .container {
@@ -67,11 +130,12 @@ nav {
     z-index: 3;
     width: calc(100% - 200px);
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    width: 144px;
+    height: 50px;
     object-fit: contain;
 }
 
@@ -92,9 +156,6 @@ nav {
 
 }
 
-
-
-
 .menu-icon--mobile {
     display: none;
 }
@@ -104,7 +165,7 @@ nav {
     position: relative;
     width: 100%;
     height: 2px;
-    background: #333;
+    background: #d4d4d4;
     margin: 5px 0;
     transition: all 0.2s ease-in-out;
 }
@@ -130,6 +191,69 @@ nav {
 }
 
 
+.dropdown-link {
+    display: flex;
+    align-items: center;
+    border: none;
+    text-decoration: none;
+    color: #aeaeae;
+    font-size: 18px;
+    height: 30px;
+    font-weight: 400;
+    mix-blend-mode: difference;
+    transition: .3s;
+}
+
+.dropdown-link:hover {
+    color: white;
+    transition: .3s;
+}
+
+.el-dropdown-link {
+    outline: none;
+}
+
+.el-popper.is-light .el-popper__arrow::before,
+.el-dropdown-menu {
+    border: none;
+    background: #1E1E1E;
+}
+
+.el-dropdown__popper.el-popper {
+    border: none;
+    color: #8A8A8A;
+    font-weight: 300;
+}
+
+.el-dropdown-menu__item {
+    text-decoration: none;
+    height: 40px;
+    color: #8A8A8A;
+    font-size: 16px;
+}
+
+.el-dropdown-menu__item:hover {
+    background: #4F4F4F;
+    color: white;
+}
+
+.el-popper.is-light {
+    background: none;
+}
+
+.el-scrollbar {
+    border-radius: 9px;
+}
+
+.router-link-active {
+    color: white !important;
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        width: calc(100% - 50px);
+    }
+}
 
 @media only screen and (max-width: 880px) {
 
@@ -225,49 +349,5 @@ nav {
     .ativar .background_nav {
         display: block;
     }
-
-}
-</style>
-
-
-<style>
-.el-dropdown-link {
-    outline: none;
-}
-
-.el-popper.is-light .el-popper__arrow::before,
-.el-dropdown-menu {
-    border: none;
-    background: #1E1E1E;
-}
-
-.el-dropdown__popper.el-popper {
-    border: none;
-    color: #8A8A8A;
-    font-weight: 300;
-}
-
-.el-dropdown-menu__item {
-    text-decoration: none;
-    height: 40px;
-    color: #8A8A8A;
-    font-size: 16px;
-}
-
-.el-dropdown-menu__item:hover {
-    background: #4F4F4F;
-    color: white;
-}
-
-.el-popper.is-light {
-    background: none;
-}
-
-.el-scrollbar {
-    border-radius: 9px;
-}
-
-.router-link-active {
-    color: white;
 }
 </style>

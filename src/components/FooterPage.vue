@@ -212,7 +212,7 @@ footer {
     border-top: 2px solid #CC141D;
     padding-top: 100px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     background-image: url('../../public/footer.jpg');
     position: relative;
     z-index: 2;
@@ -227,21 +227,23 @@ h3 {
     padding: 0 50px 100px 50px;
     margin: auto;
     line-height: 24px;
-    max-width: var(--page-width);
+    width: calc(100% - 200px);
     color: #B0B0B0;
 }
+
 
 .rodape {
     color: #CDCDCD;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 46px;
+    padding: 20px 0;
     background: black;
 }
 
 .rodape__content {
     width: 100%;
+    margin: 0 80px;
     max-width: var(--page-width);
     display: flex;
     align-items: center;
@@ -262,24 +264,46 @@ h3 {
 }
 
 
+
+
+
 @media only screen and (max-width: 1000px) {
 
     .colums {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
+    .rodape__content {
+        flex-direction: column;
+        gap: 20px;
+        margin: 0;
+    }
 }
 
 @media only screen and (max-width: 700px) {
     .colums {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 12px;
+    }
+
+    .container {
+        padding: 0 15px 100px 15px;
+        font-size: 12px;
+        line-height: 18px;
     }
 
 }
 
 @media only screen and (max-width: 500px) {
     .colums {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+
     }
+
+    .rodape__content {
+        font-size: 12px;
+    }
+
 
 }
 </style>
