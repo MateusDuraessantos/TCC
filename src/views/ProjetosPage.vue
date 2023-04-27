@@ -12,12 +12,11 @@
         <!-- Cadastro -->
 
         <div v-if="cadastro" class="cadastro" @click="exporProjeto">
+            <button class="cadastro__close">✕</button>
 
-            <button class="cadastro__close" @click="exporProjeto">✕</button>
             <div class="cadastro__campos">
 
                 <p class="cadastro__title">Preencha os campos a seguir!</p>
-
 
                 <p class="cadastro__subtitle">Sobre os alunos</p>
 
@@ -160,8 +159,6 @@
                 </span>
                 <hr>
 
-
-
                 <span>
                     <p>Anexe o documento final do projeto</p>
                     <br>
@@ -212,7 +209,6 @@
                 <img class="carousel-img" src="projetos/banner2.jpg">
             </el-carousel-item>
             <el-carousel-item>
-
                 <img class="carousel-img" src="projetos/banner1.jpg">
             </el-carousel-item>
             <el-carousel-item>
@@ -224,150 +220,156 @@
         </el-carousel>
 
         <div class="body">
-            <section-projects>
-                <div class="filtro_por_filtro">
-                    Escolher categoria:
-                    <div class="cont_filtro">
-                        <select type="text" class="filtro" placeholder="Pesquisar:">
-                            <option value="">Todos os anos</option>
-                            <option value="" v-for="(coisas, index) in 14" :key="index">20{{ index + 10 }}
-                            </option>
-                        </select>
-                        <input type="text" class="buscar" placeholder="Pesquisar:">
-                    </div>
+            <div class="filtro_por_filtro">
+                <div class="cont_filtro">
+                    <select type="text" class="filtro" placeholder="Pesquisar:">
+                        <option value="">Todos os anos</option>
+                        <option value="" v-for="(coisas, index) in 14" :key="index">20{{ index + 10 }}
+                        </option>
+                    </select>
+                    <input type="text" class="buscar" placeholder="Pesquisar:">
                 </div>
-                <div class="cont_tags" @click="category">
-                    <filter filter="ativo">
-                        Todos
-                    </filter>
-                    <filter>
-                        Editorial
-                    </filter>
-                    <filter>
-                        Mobiliario
-                    </filter>
-                    <filter>
-                        Renders 3D
-                    </filter>
-                    <filter>
-                        Desenho
-                    </filter>
-                    <filter>
-                        Fotografia
-                    </filter>
-                </div>
-                <div class="popup" v-if="popupValue">
-                    <button class="popup__close" @click="upPopup">✕</button>
-                    <!-- Change Layout -->
-                    <div class="container__alteraLayout">
-                        <div class="cont__alteraLayout">
-                            <div style="display: flex; flex-direction: column; gap: 6px; ">
-                                <div class="download">
-                                    <img src="/projetos/download.svg">
-                                    <p>Relatório final</p>
+            </div>
+            Escolher categoria:
+            <br>
+            <br>
+            <div class="cont_tags" @click="category">
+                <filter filter="ativo">
+                    Todos
+                </filter>
+                <filter>
+                    Editorial
+                </filter>
+                <filter>
+                    Mobiliario
+                </filter>
+                <filter>
+                    Renders 3D
+                </filter>
+                <filter>
+                    Desenho
+                </filter>
+                <filter>
+                    Fotografia
+                </filter>
+            </div>
+            <div class="popup" v-if="popupValue">
+                <button class="popup__close" @click="upPopup">✕</button>
+
+                <!-- Change Layout -->
+
+                <div class="container__alteraLayout">
+                    <div class="cont__alteraLayout">
+                        <div style="display: flex; flex-direction: column; gap: 6px; ">
+                            <div class="download">
+                                <img src="/projetos/download.svg">
+                                <p>Relatório final</p>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="layout" @click="alteraLayout">
+                                <div class="layout__container" id="layout">
+                                    <div class="alteraLayout" v-for="coisa in coisas" />
                                 </div>
-                                <br>
-                                <br>
-                                <br>
-                                <div class="layout" @click="alteraLayout">
-                                    <div class="layout__container" id="layout">
-                                        <div class="alteraLayout" v-for="coisa in coisas" />
-                                    </div>
-                                    <p>Layout</p>
-                                </div>
+                                <p>Layout</p>
                             </div>
                         </div>
                     </div>
-                    <div class="popup__overflow" @click="upPopup">
-                        <div class="popup__container">
-                            <header-popup>
-                                <p class="font-light">5° Semestre</p>
-                                <div class="title-popup">
-                                    <h5>Logomarca</h5>
-                                    <tag type="white">Editorial</tag>
-                                </div>
-                                <p class="font-light">Um pouco sobre como foi o projeto</p>
-                            </header-popup>
-                            <!-- Vitrine das imagens -->
-                            <div class="vitrine-grid" id="grid">
-                                <img class="img_popup" v-for="portfolio in projects[indexPopup].portfolios"
-                                    @load="loadImage" :src="'projetos/' + portfolio">
+                </div>
+                <div class="popup__overflow" @click="upPopup">
+                    <div class="popup__container">
+                        <header-popup>
+                            <p class="font-light">5° Semestre</p>
+                            <div class="title-popup">
+                                <h5>Logomarca</h5>
+                                <tag type="white">Editorial</tag>
                             </div>
-                            <!-- Descrições -->
-                            <div style="padding: 40px">
-                                <div class="description">
-                                    <p v-for="teste in projects[indexPopup].description" style="margin-bottom: 6px;">
-                                        &nbsp;&nbsp;{{ teste }} </p>
-                                </div>
-                                <h6>Criadores</h6>
-                                <hr>
-                                <br>
-                                <br>
-                                <br>
-                                <div class="container__footer">
-                                    <div class="footer__popup">
-                                        <div class="grid__criadores">
-                                            <div class="criadores" v-for="userInfos in projects[indexPopup].owner">
-                                                <div class="criadores__container">
-                                                    <img class="grid__criadores__imgs"
-                                                        :src="'projetos/' + userInfos.userFoto" />
-                                                    <p class="criadores__name">{{ userInfos.name }}</p>
-                                                </div>
-                                                <div class="redes__sociais">
-                                                    <a v-for="medias in userInfos.socialMedia" :href="medias.link"
-                                                        target="_blank">{{ medias.plataform }}</a>
-                                                </div>
+                            <p class="font-light">Um pouco sobre como foi o projeto</p>
+                        </header-popup>
+
+                        <!-- Vitrine das imagens -->
+
+                        <div class="vitrine-grid" id="grid">
+                            <img class="img_popup" v-for="portfolio in projects[indexPopup].portfolios" @load="loadImage"
+                                :src="'projetos/' + portfolio">
+                        </div>
+
+                        <!-- Descrições -->
+
+                        <div style="padding: 40px">
+                            <div class="description">
+                                <p v-for="teste in projects[indexPopup].description" style="margin-bottom: 6px;">
+                                    &nbsp;&nbsp;{{ teste }} </p>
+                            </div>
+                            <h6>Criadores</h6>
+                            <hr>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="container__footer">
+                                <div class="footer__popup">
+                                    <div class="grid__criadores">
+                                        <div class="criadores" v-for="userInfos in projects[indexPopup].owner">
+                                            <div class="criadores__container">
+                                                <img class="grid__criadores__imgs"
+                                                    :src="'projetos/' + userInfos.userFoto" />
+                                                <p class="criadores__name">{{ userInfos.name }}</p>
+                                            </div>
+                                            <div class="redes__sociais">
+                                                <a v-for="medias in userInfos.socialMedia" :href="medias.link"
+                                                    target="_blank">{{ medias.plataform }}</a>
                                             </div>
                                         </div>
-                                        <div>
-                                            <br>
-                                            <hr>
-                                            <br>
-                                            <h6>Professores orientadores</h6>
-                                            <p class="popup__docentes">
-                                            <p>Prof. Me. Carlos Marcelo Campos Teixeira</p>
-                                            <p>Prof. Dr. Célio Martins da Matta </p>
-                                            <p>Profª. Me. Grace Kishimoto</p>
-                                            </p>
-                                        </div>
                                     </div>
-                                    <div class="footer__popup">
-                                        <h6>Laboratórios utilizados</h6>
-                                        <li class="font-light">Impressão</li>
-                                        <li class="font-light">Vidro</li>
-                                        <li class="font-light">Marcenaria</li>
+                                    <div>
                                         <br>
-                                        <h6>Palavras chave</h6>
-                                        <div class="grid__tags">
-                                            <tag type="black">gaming</tag>
-                                            <tag type="black">tabuleiro</tag>
-                                            <tag type="black">vermelho</tag>
-                                            <tag type="black">design</tag>
-                                            <tag type="black">produto</tag>
-                                            <tag type="black">board</tag>
-                                        </div>
+                                        <hr>
+                                        <br>
+                                        <h6>Professores orientadores</h6>
+                                        <p class="popup__docentes">
+                                        <p>Prof. Me. Carlos Marcelo Campos Teixeira</p>
+                                        <p>Prof. Dr. Célio Martins da Matta </p>
+                                        <p>Profª. Me. Grace Kishimoto</p>
+                                        </p>
                                     </div>
                                 </div>
-                                <p class="data_publi">Publicação: 2 de março de 2022</p>
+                                <div class="footer__popup">
+                                    <h6>Laboratórios utilizados</h6>
+                                    <li class="font-light">Impressão</li>
+                                    <li class="font-light">Vidro</li>
+                                    <li class="font-light">Marcenaria</li>
+                                    <br>
+                                    <h6>Palavras chave</h6>
+                                    <div class="grid__tags">
+                                        <tag type="black">gaming</tag>
+                                        <tag type="black">tabuleiro</tag>
+                                        <tag type="black">vermelho</tag>
+                                        <tag type="black">design</tag>
+                                        <tag type="black">produto</tag>
+                                        <tag type="black">board</tag>
+                                    </div>
+                                </div>
                             </div>
+                            <p class="data_publi">Publicação: 2 de março de 2022</p>
                         </div>
                     </div>
                 </div>
-                <div class="container-projetos">
-                    <div class="projeto" v-for="(project, index) in projects" :key="index" @click="upPopup($event, index)">
-                        <img class="projeto_thumb" :src="'projetos/' + project.thumb" loading="lazy">
-                        <div class="container_user">
-                            <div class="user" v-for="ownersv in project.owner">
-                                <img class="user_img" :src="'projetos/' + ownersv.userFoto" />
-                                <p class="user_name">{{ ownersv.name }}</p>
-                            </div>
-                        </div>
-                        <div class="projectName">
-                            <p>{{ project.name }}</p>
+            </div>
+            <div class="container-projetos">
+                <div class="projeto" v-for="(project, index) in projects" :key="index" @click="upPopup($event, index)">
+                    <img class="projeto_thumb" :src="'projetos/' + project.thumb" loading="lazy">
+                    <div class="container_user">
+                        <div class="user" v-for="ownersv in project.owner">
+                            <img class="user_img" :src="'projetos/' + ownersv.userFoto" />
+                            <p class="user_name">{{ ownersv.name }}</p>
                         </div>
                     </div>
+                    <div class="projectName">
+                        <p>{{ project.name }}</p>
+                    </div>
                 </div>
-            </section-projects>
+            </div>
         </div>
     </div>
 </template>
@@ -2213,10 +2215,12 @@ export default {
     },
 
     methods: {
+
         upPopup(event, index) {
 
             const clicked = event.target.classList[0]
             this.imagesNumber = 0
+
             //É nessário que o popup apareça/desapareça, somenente se alguns determinados elementos forem clicados
 
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
@@ -2269,6 +2273,7 @@ export default {
         },
 
         alteraLayout() {
+
             // Observa quantos grids o container id="grid" se iniciou ao subir o popup
 
             const grid = document.getElementById('grid')
@@ -2295,7 +2300,9 @@ export default {
             setTimeout(() => {
 
                 if (this.numImgGrid == this.imagesNumber) {
+
                     //faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
+
                     let column0 = document.getElementById('column-0')
                     let column1 = document.getElementById('column-1')
 
@@ -2322,7 +2329,7 @@ export default {
             if (e == 'cadastro_btn') {
                 this.cadastro = true
                 document.body.style.overflow = "hidden"
-            } else if (e == 'cadastro' || e == 'cadastro_close') {
+            } else if (e == 'cadastro' || e == 'cadastro__close') {
                 this.cadastro = false
                 document.body.removeAttribute('style')
             }
@@ -2332,17 +2339,19 @@ export default {
 
 </script>
 
+
 <style scoped>
 .body {
     max-width: 1400px;
     margin: auto;
+    margin-top: 50px;
+    width: calc(100% - 100px);
 
 }
 
 section-projects {
-    margin: 100px;
-    max-width: 1400px;
-    width: calc(100% - 25px);
+    display: block;
+    width: calc(100% - 200px);
 }
 
 @keyframes opacitySuave {
@@ -2385,7 +2394,6 @@ section-projects {
     border: none;
     cursor: pointer;
 }
-
 
 .cadastro__campos {
     overflow: scroll;
@@ -2499,9 +2507,6 @@ input[type="file"] {
     transition: .2s;
 }
 
-
-
-
 .buscar {
     width: 100%;
 }
@@ -2541,7 +2546,6 @@ label {
     margin-top: 60px;
 }
 
-/*  */
 .inputs {
     margin-bottom: 40px;
 }
@@ -2626,12 +2630,9 @@ filter:hover {
     background: rgb(107, 4, 4);
 }
 
-/*  */
-
 #teste img {
     width: 100%;
 }
-
 
 header {
     position: absolute;
@@ -2785,13 +2786,13 @@ h1 {
     width: 100%;
 }
 
-/* USER ANIMATION */
-
 .container-projetos {
     column-count: 3;
     column-gap: 20px;
     color: white;
     width: 100%;
+    margin: auto;
+    padding-bottom: 100px;
 }
 
 @media only screen and (min-width: 1980px) {
@@ -2799,7 +2800,6 @@ h1 {
     .container-projetos {
         column-count: 4;
     }
-
 }
 
 .projeto {
@@ -2897,8 +2897,6 @@ h1 {
     transition: .2s;
     opacity: 1;
 }
-
-/* popup */
 
 h6 {
     font-size: 16px;
@@ -3119,8 +3117,13 @@ hr {
 
 @media only screen and (max-width: 1000px) {
 
+    .body {
+        width: calc(100% - 26px);
+    }
+
     .container-projetos {
         gap: 3px;
+
     }
 
     .projeto {
@@ -3158,9 +3161,16 @@ hr {
         justify-content: center;
     }
 
+    section-projects {
+        width: calc(100% - 120px);
+    }
 }
 
 @media only screen and (max-width: 700px) {
+
+    section-projects {
+        width: calc(100% - 50px);
+    }
 
     .projeto {
         margin: 0;
@@ -3205,6 +3215,26 @@ hr {
         width: calc(100% - 40px);
         margin: auto;
         margin-bottom: 20px;
+    }
+
+
+
+    .header__footer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 100px;
+    }
+
+    h1 {
+        margin: 0;
+        text-align: center;
+        font-size: 60px;
+    }
+
+    header {
+        height: 100vh;
+        width: 100%;
+        margin: 0;
     }
 
 }

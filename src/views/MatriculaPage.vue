@@ -248,6 +248,16 @@ export default {
                 },
             ]
         }
+    },
+    mounted() {
+        this.scrollTeste()
+    },
+    methods: {
+        scrollTeste() {
+            this.$nextTick(() => {
+                window.scrollTo(0, 0);
+            });
+        }
     }
 }
 </script>

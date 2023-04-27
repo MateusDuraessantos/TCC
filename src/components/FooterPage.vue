@@ -224,10 +224,10 @@ h3 {
 }
 
 .container {
-    padding: 0 50px 100px 50px;
     margin: auto;
     line-height: 24px;
-    width: calc(100% - 200px);
+    max-width: 1400px;
+    width: 100%;
     color: #B0B0B0;
 }
 
@@ -263,10 +263,6 @@ h3 {
     opacity: 0.2;
 }
 
-
-
-
-
 @media only screen and (max-width: 1000px) {
 
     .colums {
@@ -288,9 +284,9 @@ h3 {
     }
 
     .container {
-        padding: 0 15px 100px 15px;
         font-size: 12px;
         line-height: 18px;
+        width: calc(100% - 40px);
     }
 
 }
@@ -304,6 +300,7 @@ h3 {
     .rodape__content {
         font-size: 12px;
     }
+
 
 
 }

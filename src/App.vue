@@ -18,7 +18,9 @@ import FooterPage from './components/FooterPage.vue'
 import NavPages from './components/NavPages.vue'
 export default {
   components: { NavPages, FooterPage },
-  name: 'app'
+  name: 'app',
+
+
 }
 </script>
 
@@ -57,10 +59,11 @@ html {
 }
 
 body {
-  overflow: overlay;
   color: white;
   position: relative;
   background: rgb(14, 14, 14);
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
 .body {
@@ -279,4 +282,5 @@ header {
   .contato {
     display: none;
   }
-}</style>
+}
+</style>

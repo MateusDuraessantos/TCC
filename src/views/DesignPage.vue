@@ -348,16 +348,19 @@
         <h1>Laboratórios</h1>
 
         <div class="laboratorios">
-          <div class="laboratorios__card" v-for="lab in labs">
+          <div class="laboratorios__card" v-for="lab in labs" @click="popupLab">
             <img class="laboratorios__img" :src="'design/laboratorios/' + lab.img">
             <p class="laboratorio__name">{{ lab.name }}</p>
           </div>
         </div>
 
 
-        <div class="popup" @click="popup" v-if="popupValue">
+        <div class="popup" @click="popupLab" v-if="popupValue">
 
-          <LaboratorioPopup />
+          <div class="overlay__labs">
+            <button class="close">✕</button>
+            <LaboratorioPopup />
+          </div>
 
         </div>
 
@@ -450,6 +453,7 @@
 import LaboratorioPopup from './LaboratorioPopup'
 
 export default {
+
   name: 'DesignPage',
   components: { LaboratorioPopup },
   data() {
@@ -671,12 +675,13 @@ export default {
       ],
 
       displayNumber: 0,
-      popupValue: true,
+      popupValue: false,
     }
   },
 
   mounted() {
     this.ativarImg()
+
   },
   methods: {
     changeCarrossel(index) {
@@ -714,11 +719,17 @@ export default {
       }
       this.ativarImg()
     },
+    popupLab(event) {
+
+      const elementoClicado = event.target.classList[0]
+
+      if (event.currentTarget.classList[0] == 'laboratorios__card' || elementoClicado == 'close' || elementoClicado == 'overlay__labs') {
+
+        this.popupValue = !this.popupValue
+      }
+    }
   },
 
-  popup() {
-
-  }
 
 }
 
@@ -726,9 +737,22 @@ export default {
 
 
 <style scoped>
+@keyframes opacitySuave {
+  from {
+    opacity: 0;
+    transform: translatey(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
 .popup {
-  display: flex;
-  align-items: center;
+  animation-name: opacitySuave;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
   justify-content: center;
   position: fixed;
   left: 0;
@@ -737,11 +761,27 @@ export default {
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   z-index: 101;
-  padding: 100px 0;
+  opacity: 1;
+  transition: .2s;
+
 }
 
+.overlay__labs {
+  height: 100vh;
+  overflow-y: scroll;
+}
 
-
+.close {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  background: none;
+  font-size: 24px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
 
 header {
   cursor: default;
@@ -749,8 +789,6 @@ header {
   outline-style: solid;
   outline-color: #B61827;
 }
-
-
 
 .banner {
   position: absolute;
@@ -1283,6 +1321,7 @@ hr {
   .cards-container {
     margin-bottom: 75px;
   }
+
 
 
 }

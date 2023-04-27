@@ -1,11 +1,8 @@
 <template>
     <main>
-        <div class="pageName">
-            <div class="lab-title">
-                Laboratório de Marcenaria
-            </div>
+        <div class="lab-title">
+            Laboratório de Marcenaria
         </div>
-
         <div class="container-grid">
             <div>
                 <div class="container-labs">
@@ -37,10 +34,7 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
-
-
             <div>
                 <aside class="container-aside">
                     <div class="cont-container-aside">
@@ -51,15 +45,12 @@
                     </div>
                     <p class="light">13h às 16h</p>
                     <hr />
-
                     <p class="sobre">Localização</p>
                     <p class="light" style="color: #0054a8">
                         Campus Higienópolis - <b>Prédio 9 - Arquitetura e Design</b>
                     </p>
                     <p class="light">R. da Consolação, 930 - Consolação, São Paulo - SP, 01302-907</p>
-
                     <hr />
-
                     <div class="prof">
                         <img class="img-prof" src="espanha.png" alt="Ivo Pons" />
                         <div>
@@ -67,9 +58,7 @@
                             <p>Coordenador do laboratório</p>
                         </div>
                     </div>
-
                     <p>Técnicos responsáveis - Lab</p>
-
                     <div class="container-tecnico">
                         <div>
                             <div style="display: flex; align-items: center; gap: 10px">
@@ -90,31 +79,76 @@
         <div>
             <div class="equiDispo">
                 <h3>Equipamentos disponíveis</h3>
-
-                <div style="width: 50px; height: 8px; transform: translatey(1px); background-color: black;"></div>
+                <div style="width: 50px; height: 4px; transform: translatey(6px); background-color: #CC141D;"></div>
             </div>
 
-            <!-- Como agendar horário -->
+            <!-- Agendar horário -->
 
             <div class="container-labs">
                 <div class="sobre-equipamentos">
                     <button class="red_btn">
-                        Como agendar horário
+                        Agendar horário
                     </button>
-
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr">
-
-                    <div>
-                        <div class="equipamentos">
-                            <img class="img-equipamentos" src="brasil.png" />
-                            <div class="cont-ferramentas">
-                                <p class="ferramenta"> Serra de corte</p>
-                                <p class="ferramenta"> Unidades: 2</p>
-                                <button class="saiba-red_btn">
-                                    Saiba mais
-                                </button>
-                            </div>
+                <div class="grid__ferramentas">
+                    <div class="equipamentos">
+                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/furadeira.jpg" />
+                        <div class="cont-ferramentas">
+                            <p class="ferramenta"> Serra de corte</p>
+                            <p class="ferramenta"> Unidades: 2</p>
+                            <button class="saiba-red_btn">
+                                Saiba mais
+                            </button>
+                        </div>
+                    </div>
+                    <div class="equipamentos">
+                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/furadeira-de-bancada.jpg" />
+                        <div class="cont-ferramentas">
+                            <p class="ferramenta"> Furadeira de Bancada</p>
+                            <p class="ferramenta"> Unidades: 1</p>
+                            <button class="saiba-red_btn">
+                                Saiba mais
+                            </button>
+                        </div>
+                    </div>
+                    <div class="equipamentos">
+                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/lixadeira-angular.jpg" />
+                        <div class="cont-ferramentas">
+                            <p class="ferramenta">Lixadeira Angular</p>
+                            <p class="ferramenta"> Unidades: 2</p>
+                            <button class="saiba-red_btn">
+                                Saiba mais
+                            </button>
+                        </div>
+                    </div>
+                    <div class="equipamentos">
+                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/parafusadeira.jpg" />
+                        <div class="cont-ferramentas">
+                            <p class="ferramenta"> Parafusadeira</p>
+                            <p class="ferramenta"> Unidades: 2</p>
+                            <button class="saiba-red_btn">
+                                Saiba mais
+                            </button>
+                        </div>
+                    </div>
+                    <div class="equipamentos">
+                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/serra_de_corte.jpg" />
+                        <div class="cont-ferramentas">
+                            <p class="ferramenta"> Serra de Corte</p>
+                            <p class="ferramenta"> Unidades: 2</p>
+                            <button class="saiba-red_btn">
+                                Saiba mais
+                            </button>
+                        </div>
+                    </div>
+                    <div class="equipamentos">
+                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/serra-de-bancada.jpg" />
+                        <div class="cont-ferramentas">
+                            <p class="ferramenta"> Serra de Bancada</p>
+                            <p class="ferramenta"> Unidades: 2</p>
+                            <button class="saiba-red_btn">
+                                Saiba mais
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -137,36 +171,34 @@
             <img src="design/laboratorios/marcenaria/marcenaria_3.jpg" />
             <img src="design/laboratorios/marcenaria/marcenaria_4.jpg" />
         </div>
-
-
     </main>
 </template>
 <script>
 export default {
     name: "LaboratorioPopup",
-
 };
 </script>
   
 <style scoped>
 main {
+
+    position: relative;
     color: #A0A0A0;
     padding: 30px;
     margin: auto;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    padding-bottom: 200px;
     width: calc(100% - 200px);
     max-width: 1400px;
-
-    overflow-y: scroll;
+    margin-bottom: 100px;
     background: rgb(26, 26, 26);
 }
 
 .imgVideo {
     margin-top: 20px;
     max-height: 400px;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -180,6 +212,15 @@ main {
     max-width: 1150px;
 }
 
+.grid__ferramentas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr
+}
+
+hr {
+    border-color: black;
+}
+
 ul {
     margin-left: 30px;
 }
@@ -191,17 +232,13 @@ ul li {
 
 .lab-title {
     background: #00547f;
+    color: white;
     font-size: 17px;
     width: max-content;
     margin: 25px 0 25px 0;
     padding: 10px 20px;
 }
 
-.pageName {
-    margin: auto;
-    width: 100%;
-    max-width: 1150px;
-}
 
 /*  */
 
@@ -293,14 +330,22 @@ ul li {
 }
 
 .saiba-red_btn {
-    background: #cc141d;
     color: white;
     border: none;
-    height: 22px;
+    border: 2px solid #5f0005;
+    background: #410003;
+    height: 26px;
     padding: 0 12px;
     margin-top: 8px;
     border-radius: 50px;
     cursor: pointer;
+    width: max-content;
+    transition: .2s;
+}
+
+.saiba-red_btn:hover {
+    transition: .2s;
+    background: #5f0005;
 }
 
 .grid-imagens {
@@ -312,7 +357,7 @@ ul li {
 
 .grid-imagens img {
     width: 100%;
-    height: 225px;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -398,6 +443,7 @@ h1 {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    border-radius: 6px;
 }
 
 .cont-ferramentas {
@@ -436,5 +482,30 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+@media only screen and (max-width: 1000px) {
+    main {
+        width: calc(100% - 5%);
+    }
+
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid__ferramentas {
+        display: grid;
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    .grid__ferramentas,
+    .grid-imagens {
+        grid-template-columns: 1fr;
+    }
+
+
 }
 </style>

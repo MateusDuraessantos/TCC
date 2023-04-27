@@ -31,10 +31,11 @@
         <div class="container">
             <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
             <div class="nav__options" id="navMenu" @click="close">
-                <div class="options__nav">
+                <div class="options__nav" @click="scrollTeste">
                     <img class="logo mobile" src="mack_logo.png" alt="Logo Mackenzie">
                     <router-link to="/" class="dropdown-link">Sobre o curso</router-link>
-                    <router-link class="dropdown-link" to="projetos">Projetos desenvolvidos</router-link>
+                    <router-link class="dropdown-link" to="projetos">Projetos
+                        desenvolvidos</router-link>
                     <router-link class="dropdown-link" to="matricula">Matrícula</router-link>
                     <button class="button__close">✕</button>
 
@@ -53,7 +54,17 @@
 <script>
 export default {
     name: 'NavPages',
+
     methods: {
+        scrollTeste(event) {
+            if (event.target.classList[0] == 'router-link-active')
+                setTimeout(() => {
+                    this.$nextTick(() => {
+                        window.scrollTo(0, 0);
+                    });
+                }, 10);
+        },
+
         close(event) {
             const nav = document.getElementById('navMenu')
 
@@ -66,6 +77,7 @@ export default {
             }
         }
     }
+
 }
 </script>
   
