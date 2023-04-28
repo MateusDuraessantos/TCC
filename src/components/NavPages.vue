@@ -26,8 +26,8 @@
             </div>
         </div>
 
-        <div class="teste">
-            <div class="nav-width">
+        <div class="ground">
+            <div class="nav-width" style="height: 100%;">
                 <span class="logo-mack">
                     <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
 
@@ -49,36 +49,37 @@
             </div>
         </div>
 
-        <div class="container nav-width">
+        <div class="black-bar">
+            <div class="nav-width">
 
-            <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
+                <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
 
-            <div class="nav__options" id="navMenu" @click="close">
-                <div class="options__nav" @click="scrollUp">
-                    <img class="logo mobile" src="mack_logo.png" alt="Logo Mackenzie">
-                    <router-link to="/" class="dropdown-link">Sobre o curso</router-link>
-                    <router-link class="dropdown-link" to="projetos">Projetos
-                        desenvolvidos</router-link>
-                    <router-link class="dropdown-link" to="matricula">Matrícula</router-link>
+                <div class="nav__options" id="navMenu" @click="close">
+                    <div class="options__nav" @click="scrollUp">
+                        <img class="logo mobile" src="mack_logo.png" alt="Logo Mackenzie">
+                        <router-link to="/" class="dropdown-link">Sobre o curso</router-link>
+                        <router-link class="dropdown-link" to="projetos">Projetos
+                            desenvolvidos</router-link>
+                        <router-link class="dropdown-link" to="matricula">Matrícula</router-link>
 
-
-
-                    <div class="nav-mackenzie--mobile">
-                        <hr style="border-color: #1f1f1f">
-                        <div class="nav-mackenzie " v-for="(navOption, index) in navOptions" :id="'nav-' + index"
-                            :key="index">
-                            {{ navOption }}
+                        <div class="nav-mackenzie--mobile">
+                            <hr style="border-color: #1f1f1f">
+                            <br>
+                            <br>
+                            <div class="nav-mackenzie " v-for="(navOption, index) in navOptions" :id="'nav-' + index"
+                                :key="index">
+                                {{ navOption }}
+                            </div>
                         </div>
+
+                        <button class="button__close">✕</button>
                     </div>
-
-
-                    <button class="button__close">✕</button>
-                </div>
-                <div class="background_nav"></div>
-                <div class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <div class="background_nav"></div>
+                    <div class="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,19 +139,18 @@ export default {
   
 <style scoped>
 nav {
+    position: sticky;
+    top: -104px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: fixed;
     width: 100%;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 100;
+    z-index: 5;
 }
 
-.teste {
+.ground {
     background: #cc141d;
     height: 70px;
     width: 100%;
@@ -160,6 +160,9 @@ nav {
     background: #B41C2C;
     height: 44px;
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .cont-red {
@@ -171,7 +174,14 @@ nav {
 }
 
 #nav-4 {
-    background: #05547f
+    background: #05547f;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#nav-4:hover {
+    background: #0070ac;
+    transition: .2s;
 }
 
 .nav-mackenzie {
@@ -184,34 +194,11 @@ nav {
     flex-wrap: nowrap;
     cursor: pointer;
     font-size: 14px;
-    transition: .2s;
 }
 
 .nav-mackenzie:hover {
     background: #7e0612;
-    transition: .2s;
 }
-
-
-.nav-mackenzie--mobile {
-    margin-top: 30px;
-
-}
-
-.nav-mackenzie--mobile .nav-mackenzie {
-    text-align: start;
-    height: 50px;
-    justify-content: flex-start;
-    padding-left: 36px;
-    border: none;
-    background: #b41c2c36;
-    margin: 4px 0;
-}
-
-.nav-mackenzie--mobile .nav-mackenzie:hover {
-    background: #B41C2C;
-}
-
 
 .blue-bar {
     display: flex;
@@ -222,10 +209,23 @@ nav {
     font-size: 14px;
     height: 34px;
     width: 100%;
+
 }
 
-.container {
+.black-bar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
     height: 80px;
+    bottom: -80px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.black-bar .logo {
+    opacity: 0.6;
+    height: 34px;
 }
 
 .blue-bar div {
@@ -234,7 +234,6 @@ nav {
     gap: 14px;
 
 }
-
 
 .redes-sociais img {
     height: 18px;
@@ -251,11 +250,9 @@ nav {
     gap: 20px;
 }
 
-
 .nav-width {
     display: flex;
     align-items: center;
-    height: 100%;
     width: calc(100% - 200px);
     justify-content: space-between;
     position: relative;
@@ -343,8 +340,13 @@ nav {
 
     .blue-bar,
     .red-bar,
-    .teste {
+    .ground {
         display: none;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
     }
 }
 
@@ -360,7 +362,7 @@ nav {
 }
 
 @media only screen and (max-width: 700px) {
-    .container {
+    .nav-width {
         width: calc(100% - 50px);
     }
 }
@@ -444,7 +446,6 @@ nav {
     color: white;
 }
 
-
 .options__nav .nav-mackenzie--mobile {
     display: none;
 }
@@ -488,6 +489,30 @@ nav {
         display: block;
     }
 
+    .options__nav .nav-mackenzie--mobile {
+
+        display: block;
+    }
+
+    .nav-mackenzie--mobile {
+        margin-top: 30px;
+    }
+
+    .nav-mackenzie--mobile .nav-mackenzie {
+        text-align: start;
+        height: 50px;
+        justify-content: flex-start;
+        padding-left: 36px;
+        border: none;
+        background: #9c9c9c36;
+        font-size: 16px;
+        margin: 4px 0;
+    }
+
+    .nav-mackenzie--mobile .nav-mackenzie:hover {
+        background: #B41C2C;
+    }
+
     .options__nav {
         display: none;
         animation-name: opacitySuave;
@@ -508,7 +533,9 @@ nav {
         flex-direction: column;
         width: 300px;
         gap: 0;
+        overflow: auto;
         z-index: 3;
+        padding-bottom: 50px;
     }
 
     .ativar .mobile {
@@ -517,6 +544,12 @@ nav {
 
     .dropdown-link {
         padding: 26px;
+        margin-bottom: 4px;
+        background: #9c9c9c36;
+    }
+
+    .router-link-active {
+        background: #B41C2C;
     }
 
     .dropdown-link:hover {

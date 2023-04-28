@@ -183,9 +183,6 @@
                     </div>
                 </span>
 
-
-
-
                 <div class="termos">
                     <p>Li os termos de compromisso de imagem e aceito.</p>
                     <br>
@@ -201,7 +198,7 @@
 
         <!--  -->
 
-        <el-carousel :interval="5000" arrow="always" height="100vh">
+        <el-carousel :interval="5000" arrow="always" height="85vh">
             <el-carousel-item>
                 <img class="carousel-img" src="projetos/banner3.jpg">
             </el-carousel-item>
@@ -2381,7 +2378,7 @@ section-projects {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 5;
 }
 
 .cadastro__close {
@@ -2639,6 +2636,7 @@ header {
     z-index: 1;
     width: calc(100% - 200px);
     margin: 0 100px;
+    height: calc(100vh - 148px);
 }
 
 .header__footer {
@@ -2912,7 +2910,7 @@ h6 {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 5;
 }
 
 .popup__overflow {
@@ -3217,8 +3215,6 @@ hr {
         margin-bottom: 20px;
     }
 
-
-
     .header__footer {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -3232,7 +3228,6 @@ hr {
     }
 
     header {
-        height: 100vh;
         width: 100%;
         margin: 0;
     }
@@ -3265,5 +3260,4 @@ hr {
     object-fit: contain;
     width: 100%;
 }
-
 </style>

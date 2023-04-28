@@ -61,6 +61,12 @@
           </div>
         </div>
 
+        <div
+          style="background: red; position: absolute; opacity: 0.2; z-index: 0; padding: 200px; border-radius: 50%; filter: blur(100px); transform: translate(-300px, -200px);">
+
+        </div>
+
+
         <!-- Matriz -->
         <div class="matriz" id="link_matriz">
           <h1>Um pouquinho do que você vai aprender </h1>
@@ -774,6 +780,7 @@ header {
   outline-width: 0 0 6px 0;
   outline-style: solid;
   outline-color: #B61827;
+  height: calc(100vh - 148px);
 }
 
 .banner {
@@ -788,6 +795,7 @@ header {
   z-index: 2;
   text-align: center;
   font-weight: 100;
+  margin-bottom: 100px;
 }
 
 .faculdade {
@@ -1120,6 +1128,8 @@ hr {
   align-items: center;
   margin-top: 100px;
   gap: 20px;
+  z-index: 2;
+  position: initial;
   flex-direction: column;
 }
 
@@ -1142,8 +1152,8 @@ hr {
   align-items: center;
   gap: 6px;
   text-align: center;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .premio__2 img {

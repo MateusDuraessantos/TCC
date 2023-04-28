@@ -1,8 +1,5 @@
 <template>
   <div>
-
-
-
     <NavPages />
     <div class="contato">
       <img class="contato__icon" src="fone.svg" alt="Contato">
@@ -117,7 +114,7 @@ header {
   bottom: 40px;
   right: 60px;
   transition: .3s;
-  z-index: 20;
+  z-index: 3;
 }
 
 .contato__icon {
