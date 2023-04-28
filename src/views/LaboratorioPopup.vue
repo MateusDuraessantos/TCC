@@ -181,7 +181,6 @@ export default {
   
 <style scoped>
 main {
-
     position: relative;
     color: #A0A0A0;
     padding: 30px;
@@ -226,7 +225,6 @@ ul {
 }
 
 ul li {
-
     margin-bottom: 10px;
 }
 
@@ -237,18 +235,6 @@ ul li {
     width: max-content;
     margin: 25px 0 25px 0;
     padding: 10px 20px;
-}
-
-
-/*  */
-
-.sp-school {
-    font-size: 17px;
-    font-weight: 400;
-    color: #00547f;
-    width: calc(100% - 50px);
-    max-width: 1400px;
-    margin: 20px 25px;
 }
 
 /* aside */
@@ -262,12 +248,6 @@ ul li {
     width: 100%;
     margin: 0;
     max-width: 1400px;
-}
-
-.text-about-course {
-    font-weight: 400;
-    font-size: 16px;
-    margin-top: 15px;
 }
 
 .container-aside {
@@ -317,18 +297,6 @@ ul li {
 }
 
 /* contato */
-.contato {
-    margin: 10px 0;
-    color: #cc141d;
-}
-
-.info-contato {
-    margin-bottom: 17px;
-    display: flex;
-    font-size: 11px;
-    align-items: center;
-}
-
 .saiba-red_btn {
     color: white;
     border: none;
@@ -359,10 +327,6 @@ ul li {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.info-contato p {
-    margin: 0;
 }
 
 .img-prof {
@@ -465,11 +429,6 @@ h3 {
     font-weight: 400;
 }
 
-.horario-de-funcionamento {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
 /*  */
 
 .sobre-equipamentos {
@@ -505,7 +464,6 @@ h3 {
     .grid-imagens {
         grid-template-columns: 1fr;
     }
-
-
 }
+
 </style>

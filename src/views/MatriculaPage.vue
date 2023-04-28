@@ -292,6 +292,7 @@ header {
     background-size: contain;
     background-position: center;
     cursor: default;
+    border-bottom: 3px solid #00547F
 }
 
 .header__banner {
@@ -317,7 +318,6 @@ header {
     font-size: 18px;
     font-weight: 400;
     z-index: 1;
-
 }
 
 /* Aulas */
@@ -358,7 +358,6 @@ header {
     width: 100vw;
     height: 100%;
     filter: blur(6px);
-
 }
 
 .matricula__container {
@@ -380,7 +379,6 @@ header {
     font-size: 16px;
     font-weight: 400;
 }
-
 
 .light {
     font-weight: 400;
@@ -421,10 +419,8 @@ h2 {
     font-weight: 400;
 }
 
-
-
-
 /* Frase */
+
 .frase {
     display: flex;
     align-items: center;
@@ -490,9 +486,7 @@ h2 {
         font-size: 55px;
         letter-spacing: 53px;
     }
-
 }
-
 
 @media only screen and (max-width: 700px) {
     .link_faq {
@@ -501,7 +495,6 @@ h2 {
 }
 
 @media only screen and (max-width: 500px) {
-
     .link_faq {
         width: 100%;
     }

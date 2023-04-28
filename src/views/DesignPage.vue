@@ -14,67 +14,53 @@
 
     <div class="body">
       <section>
+
         <!-- Objetivos -->
+
+
+        <div class="container_objetivo">
+          <div>
+            <h1>O que temos como objetivo?</h1>
+            <br>
+            <hr-color />
+            <hr>
+          </div>
+        </div>
+
         <div class="objetivo" id="link_objetivo">
+          <iframe style="background: #1f1f1f; border-radius: 8px; width: 100%; min-height: 400px; height:100%"
+            src=" https://www.youtube.com/embed/zcuPcoQNT4w" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
           <span>
-            <div class="container_objetivo">
-              <h1>O que temos como objetivo?</h1>
-              <br>
-              <div>
-                <hr-color />
-                <hr>
-              </div>
-            </div>
             <p class="objetivo__text">
-              O Curso de Bacharelado em Design da Faculdade de Arquitetura e Urbanismo da Universidade Presbiteriana
-              Mackenzie
-              tem como objetivo principal formar profissionais com competências e habilidades múltiplas que privilegiam a
-              atuação ampla generalista desta área de conhecimento, diante das complexas e rápidas transformações da
-              sociedade,
-              especialmente dos processos produtivos e culturais ligados à sociedade contemporânea.
+              O Curso de Bacharelado em Design da FAU-Mackenzie tem como objetivo formar profissionais com competências
+              amplas e habilidades múltiplas para atuar de forma generalista diante das rápidas transformações da
+              sociedade. Com mais de 50 anos de existência, o curso evoluiu e passou a priorizar a abordagem projetual,
+              incorporando tendências contemporâneas e alinhando-se às necessidades do mercado de trabalho.
               <br>
               <br>
-              Criado no início da década de 1970, o curso de bacharelado em Desenho Industrial, nomenclatura usual na
-              ocasião,
-              adquiriu maturidade ao longo do seu percurso, atendeu áreas e necessidades específicas nas décadas de 1970 e
-              1980
-              com as habilitações do projeto de produto e programação visual, duas importantes sub-áreas de
-              conhecimento. Em
-              2006, o Curso, já integrado à FAU-Mackenzie, passa a denominar-se "Design", privilegiando assim a abordagem
-              projetual, marca característica da Escola.
-              <br>
-              <br>
-              O atual Projeto Pedagógico, alinha-se às tendências contemporâneas nacionais e internacionais, que tem como
-              foco a
-              atuação do designer de forma ampla e flexível. Sendo o Design uma atividade criativa e voltada à busca de
-              melhorias na forma, na função e na simbologia de todo o ambiente construído, o curso de Design da
-              FAU-Mackenzie
-              prioriza saberes multidisciplinares e transdisciplinares, integrando teoria e prática. Busca-se a
-              capacitação
-              do
-              profissional para a flexibilidade de ações e para a autonomia na aquisição de conhecimentos, a fim de
-              que
-              este
-              protagonize contribuições nos diversos campos do design, seja no setor produtivo ou de serviços, na
-              esfera
-              pública ou privada, nas associações sem fins lucrativos, em atividades de pesquisa acadêmica e como
-              agente
-              empreendedor.
+              O curso aborda também a metodologia do Design Thinking, que é uma abordagem centrada no usuário para solução
+              de problemas e desenvolvimento de produtos e serviços. O Design Thinking envolve diversas etapas, como a
+              imersão no problema, definição de pontos de vista, ideação, prototipagem e teste. A metodologia é focada em
+              entender as necessidades e desejos do usuário para desenvolver soluções inovadoras e eficientes.
             </p>
           </span>
-          <span class="premio">
-            <br>
-            <br>
-            <h2>Premiações</h2>
-            <div class="premio__grid">
-              <img class="premio__1" src="design/premio1.png">
-              <div class="premio__2">
-                <img src="design/star.png">
-                Guia do estudante
-              </div>
-            </div>
-          </span>
         </div>
+
+        <!-- Primiações -->
+
+        <div class="premio">
+          <h2>Premiações</h2>
+          <div class="premio__grid">
+            <img class="premio__1" src="design/premio1.png">
+            <div class="premio__2">
+              <img src="design/star.png">
+              Guia do estudante
+            </div>
+          </div>
+        </div>
+
         <!-- Matriz -->
         <div class="matriz" id="link_matriz">
           <h1>Um pouquinho do que você vai aprender </h1>
@@ -817,7 +803,8 @@ header {
 /* objetivo */
 .objetivo {
   display: grid;
-  grid-template-columns: 2.2fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 
 }
 
@@ -833,7 +820,6 @@ header {
 }
 
 .objetivo__text {
-  height: 300px;
   overflow: overlay;
   font-size: 16px;
   font-weight: 400;
@@ -1131,10 +1117,19 @@ hr {
 
 .premio {
   display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-direction: column;
   align-items: center;
+  margin-top: 100px;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.premio__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
 }
 
 .premio__1 {
@@ -1269,13 +1264,6 @@ hr {
   object-fit: cover;
 }
 
-.premio__grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-}
-
 @media only screen and (max-width: 1000px) {
   .predio {
     grid-template-columns: 1fr;
@@ -1322,7 +1310,9 @@ hr {
     margin-bottom: 75px;
   }
 
-
+  .objetivo {
+    grid-template-columns: 1fr;
+  }
 
 }
 
@@ -1334,10 +1324,6 @@ hr {
   .laboratorios {
     grid-template-columns: 1fr 1fr;
     padding: 75px 0;
-  }
-
-  .objetivo {
-    grid-template-columns: 1fr;
   }
 
   .premio {
@@ -1411,7 +1397,6 @@ hr {
 .el-tabs--card>.el-tabs__header,
 .navSecond .el-tabs__item.is-top.is-active {
   border-bottom: 2px solid #333;
-
 }
 
 .navSecond .el-tabs__item.is-top.is-active {
