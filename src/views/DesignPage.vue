@@ -10,15 +10,16 @@
       <img class="banner" src="design/banner.jpg" alt="banner">
     </header>
 
-
-
     <div class="body">
+
+
+
+
       <section>
 
         <!-- Objetivos -->
 
-
-        <div class="container_objetivo">
+        <div class="container_objetivo" id="link_objetivo">
           <div>
             <h1>O que temos como objetivo?</h1>
             <br>
@@ -27,7 +28,7 @@
           </div>
         </div>
 
-        <div class="objetivo" id="link_objetivo">
+        <div class="objetivo">
           <iframe style="background: #1f1f1f; border-radius: 8px; width: 100%; min-height: 400px; height:100%"
             src=" https://www.youtube.com/embed/zcuPcoQNT4w" title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -63,11 +64,10 @@
 
         <div
           style="background: red; position: absolute; opacity: 0.2; z-index: 0; padding: 200px; border-radius: 50%; filter: blur(100px); transform: translate(-300px, -200px);">
-
         </div>
 
-
         <!-- Matriz -->
+
         <div class="matriz" id="link_matriz">
           <h1>Um pouquinho do que você vai aprender </h1>
           <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
@@ -317,7 +317,6 @@
                 <h1>Corpo docente</h1>
                 <div class="predio__description">Para oferecer tudo isso, contamos com uma equipe de professor altamente
                   capacitados, conheça um pouco da nossa equipe.</div>
-                <button class="blue_btn">Ver docentes</button>
               </span>
             </div>
             <div class="carrossel">
@@ -336,8 +335,10 @@
             </div>
           </div>
         </div>
+
         <!-- Laboratórios -->
-        <h1>Laboratórios</h1>
+
+        <h1 id="link_laboratorios">Laboratórios</h1>
 
         <div class="laboratorios">
           <div class="laboratorios__card" v-for="lab in labs" @click="popupLab">
@@ -346,18 +347,17 @@
           </div>
         </div>
 
-
         <div class="popup" @click="popupLab" v-if="popupValue">
-
           <div class="overlay__labs">
             <button class="close">✕</button>
             <LaboratorioPopup />
           </div>
-
         </div>
 
         <br v-for="coisas in 3">
+
         <!-- Horários/Períodos -->
+
         <h1 id="link_horarios">Horários/Períodos</h1>
         <br>
         <br>
@@ -411,8 +411,10 @@
             <img class="background__jpg" src="design/background.jpg">
           </div>
         </div>
+
         <!-- Docentes -->
-        <div class="cards-container" id="docentes">
+
+        <div class="cards-container" id="link_docentes">
           <div class="container_objetivo">
             <h3 class="objetivo__title">Corpo docente</h3>
             <div>
@@ -717,9 +719,16 @@ export default {
 
       if (event.currentTarget.classList[0] == 'laboratorios__card' || elementoClicado == 'close' || elementoClicado == 'overlay__labs') {
 
+
+        if (this.popupValue == false) {
+          document.body.style.overflow = 'hidden'
+        } else {
+          document.body.removeAttribute('style')
+        }
+
         this.popupValue = !this.popupValue
       }
-    }
+    },
   },
 
 
@@ -729,6 +738,8 @@ export default {
 
 
 <style scoped>
+
+
 @keyframes opacitySuave {
   from {
     opacity: 0;
@@ -752,7 +763,7 @@ export default {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 101;
+  z-index: 13;
   opacity: 1;
   transition: .2s;
 
@@ -760,7 +771,7 @@ export default {
 
 .overlay__labs {
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: overlay;
 }
 
 .close {
@@ -817,7 +828,8 @@ header {
 }
 
 .container_objetivo {
-  margin-bottom: 30px;
+  padding-top: 140px;
+  padding-bottom: 30px;
   position: relative;
   z-index: 2;
 }
@@ -888,7 +900,6 @@ hr {
 }
 
 .container-predio {
-  margin-bottom: 180px;
   position: relative;
   display: flex;
   align-items: center;
@@ -992,7 +1003,7 @@ hr {
 /* matriz */
 
 .matriz {
-  padding: 160px 0 60px 0;
+  padding-top: 160px;
 }
 
 .matriz__etapa {
@@ -1004,17 +1015,19 @@ hr {
   margin: auto;
 }
 
-
-
-
 /* Laboratórios */
+
+#link_laboratorios {
+  padding-top: 200px;
+}
 
 .laboratorios {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 100px 0;
+  padding: 76px 0;
+  padding-bottom: 0;
   width: 100%;
 }
 
@@ -1028,7 +1041,7 @@ hr {
   cursor: pointer;
   position: relative;
   height: 100px;
-  border: 4px solid #cc141d69;
+  border: 4px solid #5c1014;
 }
 
 
@@ -1063,6 +1076,13 @@ hr {
 }
 
 /* Horários/Períodos */
+
+#link_horarios {
+  padding-top: 200px;
+  z-index: 2;
+  position: relative;
+}
+
 .horarios {
   display: flex;
   flex-direction: column;

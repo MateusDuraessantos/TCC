@@ -18,25 +18,34 @@
         </header>
 
         <div class="body">
-
             <section>
+
                 <!-- Preparado para as aulas -->
+
+                <img class="aulas__background" src="matricula/background_formandos.jpg">
+
                 <div class="aulas" id="link_aulas">
-                    <div class="matricula__title">
-                        <h2>Preparado para as aulas</h2>
+                    <div class="aulas__grid">
+                        <span>
+                            <div class="aulas__title">
+                                <h2>Preparado para as aulas</h2>
+                            </div>
+                            <p class="font-light">
+                                O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre
+                                sua
+                                matrícula, acesse o
+                                <span style="color: #00547F; font-weight: 500; font-size: 17px;">portal do aluno</span>
+                                utilizando o
+                                número de sua matrícula.
+                            </p>
+                        </span>
+                        <img class="aulas__img" src="matricula/formandos.png" alt="alunos formando">
                     </div>
-                    <p class="font-light">O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre sua
-                        matrícula, acesse o
-                        <span style="color: #00547F; font-weight: 500; font-size: 17px;">portal do aluno</span> utilizando o
-                        número de sua matrícula.
-                    </p>
                 </div>
 
                 <!-- Matriculas -->
 
                 <div class="matricula" id="link_matriculas">
-                    <img class="matricula__background" src="matricula/matricula.jpg">
-                    <div class="matricula__shadow" />
                     <div class="matricula__container">
 
                         <div class="z-index">
@@ -83,11 +92,9 @@
                     </div>
                 </div>
 
-                <!-- Matriculas -->
+                <!-- Setor de bolsas -->
 
-                <div class="matricula" id="link_bolsa">
-                    <img class="matricula__background" src="matricula/bolsas.jpg">
-                    <div class="matricula__shadow" />
+                <div id="link_bolsa">
                     <div class="matricula__container">
                         <div class="matricula__title">
                             <h2>Setor de bolsas</h2>
@@ -100,8 +107,10 @@
                         <button class="blue_btn">Ver no mapa</button>
                     </div>
                 </div>
+
                 <!-- Perguntas frequentes -->
-                <div class="link_faq">
+
+                <div class="link_faq" id="link_perguntas">
                     <div class="faq">
                         <h2 class="light">Perguntas frequentes Coordenação de bolsas de estudo</h2>
                         <el-collapse accordion style="margin: 60px 0">
@@ -123,7 +132,6 @@
                 <!-- Matriculas -->
                 <div class="frase">
                     <img class="frase__background" src="matricula/auditorio.jpg">
-                    <div class="frase__shadow" />
                     <div class="frase__container">
                         <p class="frase__p">Seja a mudança que você deseja ver no mundo!</p>
                     </div>
@@ -252,17 +260,19 @@ export default {
     mounted() {
         this.scrollTeste()
     },
-    methods: {
-        scrollTeste() {
-            this.$nextTick(() => {
-                window.scrollTo(0, 0);
-            });
-        }
-    }
+    /*  methods: {
+         scrollTeste() {
+             this.$nextTick(() => {
+                 window.scrollTo(0, 0);
+             });
+         }
+     } */
 }
 </script>
 
 <style scoped>
+/* Sub Menu */
+
 .container__title {
     z-index: 2;
     display: flex;
@@ -320,11 +330,73 @@ header {
     z-index: 1;
 }
 
-/* Aulas */
+
+/* Preparado para as aulas */
+
+#link_aulas {
+    padding-top: 200px;
+}
 
 .aulas {
-    padding: 100px 0;
+    position: relative;
 }
+
+.aulas__background {
+    position: absolute;
+    right: 0;
+    width: 70%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.aulas__grid {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    outline: 15px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    border-radius: 13px;
+    box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.4);
+    background: black;
+}
+
+.aulas span {
+    padding: 30px;
+
+}
+
+.aulas__img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.aulas__title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-width: 0 0 0 4px;
+    border-color: #00547F;
+    border-style: solid;
+    min-height: 40px;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+
+/* Setor de bolsas */
+
+#link_bolsa {
+    padding-top: 140px;
+}
+
+/* Perguntas Frequêntes */
+
+#link_perguntas {
+    padding-top: 200px;
+}
+
 
 .link_faq {
     width: 70%;
@@ -333,32 +405,18 @@ header {
 
 /* Matricula */
 
+#link_matriculas {
+    padding-top: 150px;
+}
+
 .matricula {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
-    padding: 100px 0;
+
 }
 
-.matricula__shadow {
-    position: absolute;
-    background-image: linear-gradient(0deg, rgb(14, 14, 14), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgb(14, 14, 14));
-    width: 100vw;
-    height: 105%;
-    z-index: 2;
-}
-
-.matricula__background {
-    opacity: 0.5;
-    position: absolute;
-    object-fit: cover;
-    z-index: 1;
-    width: 100vw;
-    height: 100%;
-    filter: blur(6px);
-}
 
 .matricula__container {
     position: relative;
@@ -383,7 +441,7 @@ header {
 .light {
     font-weight: 400;
     text-align: center;
-    margin: 100px 0 40px 0;
+    margin-bottom: 40px;
 }
 
 .matricula__title {
@@ -402,7 +460,7 @@ header {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin: 60px 0;
+    margin-top: 60px;
 }
 
 .container__cards button {
@@ -427,14 +485,6 @@ h2 {
     justify-content: center;
     height: 500px;
     margin: 100px 0;
-}
-
-.frase__shadow {
-    position: absolute;
-    background-image: linear-gradient(0deg, rgb(14, 14, 14), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgb(14, 14, 14));
-    width: 100vw;
-    height: 500px;
-    z-index: 2;
 }
 
 .frase__background {
@@ -470,8 +520,13 @@ h2 {
     }
 
     .container__cards {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+        max-width: 560px;
+        justify-items: center;
+        margin-top: 75px;
+
     }
 
     .link_faq {
@@ -491,6 +546,10 @@ h2 {
 @media only screen and (max-width: 700px) {
     .link_faq {
         width: calc(100% - 50px);
+    }
+
+    .container__cards {
+        grid-template-columns: 1fr;
     }
 }
 

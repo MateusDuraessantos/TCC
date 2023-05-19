@@ -57,10 +57,39 @@
                 <div class="nav__options" id="navMenu" @click="close">
                     <div class="options__nav" @click="scrollUp">
                         <img class="logo mobile" src="mack_logo.png" alt="Logo Mackenzie">
-                        <router-link to="/" class="dropdown-link">Sobre o curso</router-link>
-                        <router-link class="dropdown-link" to="projetos">Projetos
-                            desenvolvidos</router-link>
-                        <router-link class="dropdown-link" to="matricula">Matrícula</router-link>
+                        <router-link to="/" class="dropdown-link">
+
+                            <aconra>
+                                Sobre o curso
+                                <arrow>❯</arrow>
+                            </aconra>
+                            <div class="subMenu" id="subMenu">
+                                <a @click="scrollToSection('link_objetivo')">Objetivos</a>
+                                <a @click="scrollToSection('link_matriz')">Matriz Curricular</a>
+                                <a @click="scrollToSection('link_predio')">Prédio 9</a>
+                                <a @click="scrollToSection('link_laboratorios')">Laboratorios</a>
+                                <a @click="scrollToSection('link_horarios')">Horários 9</a>
+                                <a @click="scrollToSection('link_docentes')">Docentes</a>
+                            </div>
+
+                        </router-link>
+                        <router-link class="dropdown-link" to="projetos">Projetos desenvolvidos</router-link>
+
+                        <router-link class="dropdown-link" to="matricula">
+
+
+                            <aconra>
+                                Matrícula/Bolsas
+                                <arrow>❯</arrow>
+                            </aconra>
+
+                            <div class="subMenu" id="subMenu">
+                                <a @click="scrollToSection('link_aulas')">Início das Aulas</a>
+                                <a @click="scrollToSection('link_matriculas')">Matrículas</a>
+                                <a @click="scrollToSection('link_bolsa')">Setor de bolsas</a>
+                                <a @click="scrollToSection('link_perguntas')">Perguntas frequêntes</a>
+                            </div>
+                        </router-link>
 
                         <div class="nav-mackenzie--mobile">
                             <hr style="border-color: #1f1f1f">
@@ -115,7 +144,6 @@ export default {
                     });
                 }, 10);
         },
-
         close(event) {
             const nav = document.getElementById('navMenu')
 
@@ -131,13 +159,67 @@ export default {
                     nav.classList.remove('opacityTransition')
                 }, 400);
             }
-        }
+        },
+        scrollToSection(ancora) {
+            setTimeout(() => {
+                const section = document.getElementById(ancora);
+                window.scrollTo({
+                    top: section.offsetTop,
+                    behavior: 'smooth',
+                })
+            }, 50);
+        },
     }
 
 }
 </script>
   
 <style scoped>
+/*  */
+.subMenu {
+    position: absolute;
+    display: none;
+    top: 40px;
+    flex-direction: column;
+    white-space: nowrap;
+    font-size: 1rem;
+    line-height: 3.5rem;
+    background: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.subMenu a {
+    text-decoration: none;
+    color: white;
+    transition: .2s;
+    border-bottom: 1px solid #4b4b4b;
+    cursor: pointer;
+    padding: 2px 26px;
+    padding-right: 60px;
+
+}
+
+.subMenu a:hover {
+    background: #2c2c2c;
+    transition: .2s;
+}
+
+aconra {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 14px;
+}
+
+arrow {
+    transform: rotate(90deg);
+    width: max-content;
+    font-size: 0.9rem;
+}
+
+/*  */
 nav {
     position: sticky;
     top: -104px;
@@ -147,7 +229,7 @@ nav {
     justify-content: center;
     width: 100%;
     color: white;
-    z-index: 5;
+    z-index: 10;
 }
 
 .ground {
@@ -162,7 +244,7 @@ nav {
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 14;
 }
 
 .cont-red {
@@ -209,7 +291,6 @@ nav {
     font-size: 14px;
     height: 34px;
     width: 100%;
-
 }
 
 .black-bar {
@@ -219,7 +300,6 @@ nav {
     width: 100%;
     height: 80px;
     bottom: -80px;
-    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
 }
 
@@ -375,7 +455,7 @@ nav {
     flex-direction: row;
     justify-content: flex-end;
     height: max-content;
-    width: 500px;
+    min-width: 500px;
     background: none;
     padding: 18px 0;
     gap: 40px;
@@ -387,23 +467,29 @@ nav {
     display: none;
 }
 
-
 .dropdown-link {
-    display: flex;
-    align-items: center;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
     border: none;
+    gap: 20px;
     text-decoration: none;
     color: #aeaeae;
+    height: 50px;
     font-size: 18px;
-    height: 30px;
     font-weight: 400;
-    mix-blend-mode: difference;
     transition: .3s;
+    z-index: 3;
+    display: flex;
 }
 
 .dropdown-link:hover {
     color: white;
     transition: .3s;
+}
+
+.dropdown-link:hover .subMenu {
+    display: flex;
 }
 
 .el-dropdown-link {
@@ -518,7 +604,6 @@ nav {
         animation-name: opacitySuave;
         animation-duration: 0.4s;
         animation-fill-mode: forwards;
-
     }
 
     .ativar .options__nav {
@@ -536,6 +621,7 @@ nav {
         overflow: auto;
         z-index: 3;
         padding-bottom: 50px;
+        padding-right: 3px;
     }
 
     .ativar .mobile {

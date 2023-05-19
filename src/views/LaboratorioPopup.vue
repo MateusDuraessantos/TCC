@@ -363,6 +363,7 @@ h1 {
 .email {
     font-weight: 400;
     font-size: 16px;
+    word-break: break-word;
 }
 
 .perfil-tecnico {
@@ -445,7 +446,9 @@ h3 {
 
 @media only screen and (max-width: 1000px) {
     main {
-        width: calc(100% - 5%);
+        width: 100%;
+        padding: 10px;
+        margin: 0;
     }
 
     .container-grid {
@@ -465,5 +468,4 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
-
 </style>

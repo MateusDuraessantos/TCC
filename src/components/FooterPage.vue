@@ -229,6 +229,7 @@ h3 {
     max-width: 1400px;
     width: 100%;
     color: #B0B0B0;
+    width: calc(100% - 100px);
 }
 
 

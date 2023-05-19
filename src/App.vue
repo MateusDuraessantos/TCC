@@ -11,8 +11,11 @@
 </template>
 
 <script>
+
 import FooterPage from './components/FooterPage.vue'
+
 import NavPages from './components/NavPages.vue'
+
 export default {
   components: { NavPages, FooterPage },
   name: 'app',
@@ -59,6 +62,7 @@ body {
   color: white;
   position: relative;
   background: rgb(14, 14, 14);
+  background: black;
   overflow-x: hidden;
   overflow-y: overlay;
 }
@@ -67,7 +71,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 100px 0;
 }
 
 section {
