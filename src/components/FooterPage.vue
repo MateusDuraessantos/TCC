@@ -255,7 +255,7 @@ h3 {
     margin-bottom: 40px;
 }
 
-.colums p {
+.colums {
     font-size: 1rem;
 }
 
@@ -302,7 +302,14 @@ h3 {
         font-size: 0.75rem;
     }
 
+    .colums {
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+    }
 
+    h3 {
+        font-size: 1rem;
+    }
 
 }
 </style>

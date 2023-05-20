@@ -257,52 +257,59 @@
 
             <div class="popup" v-if="popupValue">
                 <button class="popup__close" @click="upPopup">✕</button>
-                <!-- Change Layout -->
-                <div class="container__alteraLayout">
-                    <div class="cont__alteraLayout">
-                        <div style="display: flex; flex-direction: column; gap: 6px; ">
-                            <div class="download">
-                                <img src="/projetos/download.svg" fill="#fff">
-                                <p>Relatório final</p>
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="layout" @click="alteraLayout">
-                                <div class="layout__container" id="layout">
-                                    <div class="alteraLayout" v-for="coisa in coisas" />
-                                </div>
-                                <p>Layout</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="popup__overflow" @click="upPopup">
                     <div class="popup__container">
                         <header-popup>
-                            <p class="font-light">5° Semestre</p>
-                            <div class="title-popup">
-                                <h5>Logomarca</h5>
-                                <tag type="white">Editorial</tag>
+                            <span>
+                                <p class="font-light">5° Semestre</p>
+                                <div class="title-popup">
+                                    <h5>Logomarca</h5>
+                                    <tag type="white">Editorial</tag>
+                                </div>
+                                <p class="font-light">Um pouco sobre como foi o projeto</p>
+                            </span>
+
+
+                            <div class="popup_buttons">
+
+                                <!-- Download -->
+
+                                <div class="download">
+                                    <div class="download__bubble">
+                                        <img class="download__img" src="/projetos/download.svg">
+                                    </div>
+                                    <p class="download__p">Relatório final</p>
+                                </div>
+
+                                <!-- Layout -->
+
+                                <div class="layout" @click="square">
+                                    <div class="layout__container" id="layout">
+                                        <div class="square" v-for="coisa in coisas" />
+                                    </div>
+                                    <p>Layout</p>
+                                </div>
                             </div>
-                            <p class="font-light">Um pouco sobre como foi o projeto</p>
+
                         </header-popup>
+
                         <!-- Vitrine das imagens -->
+
                         <div class="vitrine-grid" id="grid">
                             <img class="img_popup" v-for="portfolio in projects[indexPopup].portfolios" @load="loadImage"
                                 :src="'projetos/' + portfolio">
                         </div>
+
                         <!-- Descrições -->
+
                         <div class="cont_description">
                             <div class="description">
-                                <p v-for="teste in projects[indexPopup].description" style="margin-bottom: 6px;">
+                                <p v-for="teste in projects[indexPopup].description">
                                     &nbsp;&nbsp;{{ teste }} </p>
                             </div>
                             <h6>Criadores</h6>
                             <hr>
-                            <br>
-                            <br>
-                            <br>
                             <div class="container__footer">
                                 <div class="footer__popup">
                                     <div class="grid__criadores">
@@ -352,6 +359,9 @@
                     </div>
                 </div>
             </div>
+
+            <!--  -->
+
             <div class="container-projetos">
                 <div class="projeto" v-for="(project, index) in limitedItems" :key="index" @click="upPopup($event, index)">
                     <img class="projeto_thumb" :src="'projetos/' + project.thumb" loading="lazy">
@@ -366,11 +376,7 @@
                     </div>
                 </div>
             </div>
-            <button class="blue_btn" @click="changenumber">Carregar mais projetos</button>
-            <br>
-            <br>
-            <br>
-            <br>
+            <div class="carregar"><button class="blue_btn" @click="changenumber">Carregar mais projetos</button></div>
         </div>
     </div>
 </template>
@@ -456,11 +462,11 @@ export default {
             }
 
             if (grid.style.gridTemplateColumns == '') {
-                this.alteraLayout()
+                this.square()
             }
         },
 
-        alteraLayout() {
+        square() {
 
             // Observa quantos grids o container id="grid" se iniciou ao subir o popup
 
@@ -502,8 +508,6 @@ export default {
                 }
 
             }
-
-
         },
         category(event) {
 
@@ -527,7 +531,6 @@ export default {
             }
         }
     },
-
 }
 </script>
 
@@ -820,7 +823,6 @@ input[type="text"]::placeholder {
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
-
 }
 
 .filter-tags {
@@ -839,13 +841,13 @@ input[type="text"]::placeholder {
 
 filter {
     display: block;
-    padding: 6px 10px;
+    padding: 6px 18px;
     border-radius: 50px;
     cursor: pointer;
     transition: .2s;
     color: #c9c9c9;
     border-color: rgb(107, 4, 4);
-    border-width: 0 3px 2px 0;
+    border-width: 4px;
     border-style: solid;
     box-shadow: 3px 3px 8px black;
 }
@@ -890,37 +892,6 @@ header {
     position: absolute;
 }
 
-.container__alteraLayout {
-    font-weight: 400;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-    z-index: 1;
-}
-
-.cont__alteraLayout {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    height: 50px;
-    transform: translate(100px, 100px);
-}
-
-.layout {
-    animation-name: opacitySuave;
-    animation-duration: 0.8s;
-    animation-fill-mode: forwards;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    z-index: 2;
-    gap: 20px;
-}
 
 @keyframes outraanimacao {
     0% {
@@ -946,66 +917,6 @@ header {
     100% {
         transform: translatey(0);
     }
-}
-
-.layout__container {
-    animation-name: outraanimacao;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    margin: auto;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    gap: 4px;
-    transition: .2s;
-}
-
-.alteraLayout {
-    background: var(--red-mack);
-    padding: 8px;
-    border-radius: 2px;
-    transition: .2s;
-}
-
-.layout:hover .alteraLayout {
-    background: rgb(89, 89, 89);
-    transition: .2s;
-    transform: translatey(-5px);
-}
-
-.download {
-    animation-name: opacitySuave;
-    animation-duration: .6s;
-    animation-fill-mode: forwards;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: var(--red-mack);
-    border-radius: 50%;
-}
-
-.download p {
-    position: absolute;
-    bottom: -32px;
-    white-space: nowrap;
-}
-
-.download img {
-    transition: .2s;
-    margin-bottom: 3px;
-    width: 28px;
-}
-
-.download:hover img {
-    transform: translatey(-4px);
-    transition: .2s;
 }
 
 h1 {
@@ -1034,50 +945,12 @@ h1 {
     padding-bottom: 100px;
 }
 
-@media only screen and (min-width:2001px) {
-    .container-projetos {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media only screen and (max-width:2000px) {
-    .container-projetos {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media only screen and (max-width: 1800px) {
-    .container-projetos {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media only screen and (max-width: 1450px) {
-    .container-projetos {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .container-projetos {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .container-projetos {
-        grid-template-columns: 1fr;
-    }
-}
-
 .projeto_thumb {
     border-radius: 8px;
     cursor: pointer;
     object-fit: cover;
     width: 100%;
     height: 100%;
-
-    min-height: 120px;
     max-height: 520px;
     transition: .5s;
 }
@@ -1148,11 +1021,11 @@ h1 {
     width: 100%;
     height: 56px;
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    font-weight: 400;
     transition: .2s;
     padding: 0 20px;
-    font-size: 1rem;
     color: rgb(211, 211, 211);
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .projeto:hover .projectName {
@@ -1187,10 +1060,12 @@ h6 {
     width: 100%;
 }
 
+
+
 .popup__container,
-.cont__alteraLayout {
+.cont__square {
     width: calc(100% - 400px);
-    max-width: 1400px;
+    width: 80%;
 }
 
 .popup__container {
@@ -1200,7 +1075,7 @@ h6 {
     animation-name: opacitySuave;
     animation-duration: .6s;
     animation-fill-mode: forwards;
-    max-width: 1400px;
+    width: 80%;
 }
 
 .popup__close {
@@ -1222,7 +1097,7 @@ h6 {
 
 header-popup {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 8px;
     padding: 40px;
 }
@@ -1230,6 +1105,119 @@ header-popup {
 .cont_description {
     padding: 40px
 }
+
+
+.popup_buttons {
+    display: flex;
+    gap: 46px;
+    padding-right: 20px;
+    align-items: flex-end;
+}
+
+.layout {
+    animation-name: opacitySuave;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+    gap: 16px;
+    margin-bottom: 1px;
+}
+
+.download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.download__bubble {
+    animation-name: opacitySuave;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background: #414141;
+    border-radius: 50%;
+    height: 3.3vw;
+    width: 3.3vw;
+    max-height: 70px;
+    max-width: 70px;
+    min-height: 44px;
+    min-width: 44px;
+    transition: .2s;
+}
+
+.download__bubble:hover {
+    background: #b50009;
+    transition: .2s;
+}
+
+.download__p {
+    white-space: nowrap;
+}
+
+.download__img {
+    transition: .2s;
+    margin-bottom: 3px;
+    width: 86%;
+}
+
+.download:hover img {
+    transform: translatey(-4px);
+    transition: .2s;
+}
+
+.layout__container {
+    animation-name: outraanimacao;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    margin: auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 3vw;
+    height: 3vw;
+    min-height: 34px;
+    max-width: 58px;
+    max-height: 58px;
+    gap: 6px;
+    transition: .2s;
+}
+
+.square {
+    background: #414141;
+    padding: 8px;
+    height: 100%;
+    border-radius: 2px;
+    transition: .2s;
+}
+
+.layout__container:hover .square {
+    transition: .2s;
+    background: #b50009;
+}
+
+.layout:hover .square {
+
+    transition: .2s;
+    max-height: 70px;
+    transform: translatey(-5px);
+}
+
+
 
 /* portfolio */
 
@@ -1272,6 +1260,7 @@ hr {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
+    margin-top: 30px;
 }
 
 .footer__popup {
@@ -1354,7 +1343,7 @@ hr {
     border-radius: 8px;
     background: #1a1a1a;
     color: #7f7f7f;
-    font-size: 1.7rem;
+    font-size: 1rem;
     font-weight: 400;
     padding: 6px 11px;
 }
@@ -1377,6 +1366,57 @@ hr {
     width: 100vw;
 }
 
+.vitrine-grid {
+    display: grid;
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
+    gap: var(--gap-img);
+}
+
+.vitrine-count {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gap-img);
+    height: max-content;
+}
+
+.vitrine-grid img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.carregar .blue_btn {
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+
+@media only screen and (min-width:2001px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width:2000px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1450px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
 
     .body {
@@ -1390,6 +1430,7 @@ hr {
 
     .projeto {
         margin: 0;
+        height: 30vw;
     }
 
     /* Alteração do popup */
@@ -1402,12 +1443,12 @@ hr {
         text-shadow: 2px 2px 2px black;
     }
 
-    .container__alteraLayout {
+    .container__square {
         display: none;
     }
 
     #grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
     }
 
     .description {
@@ -1434,16 +1475,13 @@ hr {
 
 @media only screen and (max-width: 700px) {
 
-    .projeto {
-        margin: 0;
+
+    .popup_buttons {
+        display: none;
     }
 
     .popup__container {
         width: calc(100% - 20px);
-    }
-
-    .grid__criadores {
-        grid-template-columns: 1fr;
     }
 
     .criadores {
@@ -1458,8 +1496,6 @@ hr {
     .container_user {
         display: none;
     }
-
-
 
     .projectName {
         padding: 0 10px;
@@ -1508,30 +1544,79 @@ hr {
         padding: 10px
     }
 
+    .cont_tags {
+        justify-content: center;
+    }
 
+    .projeto {
+        margin: 0;
+    }
 
-
+    .vitrine-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
 
-.vitrine-grid {
-    display: grid;
-    width: 100%;
-    min-height: 100px;
-    margin: auto;
-    gap: var(--gap-img);
-}
+/* Mobile */
 
-.vitrine-count {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: var(--gap-img);
-    height: max-content;
-}
+@media only screen and (max-width: 400px) {
+    .title-popup h5 {
+        font-size: 1rem;
+    }
 
-.vitrine-grid img {
-    object-fit: contain;
-    width: 100%;
+    filter {
+        padding: 2px 15px;
+        font-size: 0.8rem;
+        border-width: 1px;
+    }
+
+    .projectName {
+        display: none;
+    }
+
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4px;
+    }
+
+    .filter-tag {
+        gap: 10px;
+    }
+
+    .body {
+        width: calc(100% - 12px);
+    }
+
+    [type="black"] {
+        font-size: 1rem;
+    }
+
+    [type="white"] {
+        padding: 2px 12px;
+    }
+
+    .criadores__name {
+        font-size: 0.8rem;
+    }
+
+    .criadores__container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .description {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+        margin: 0 0 20px 0;
+    }
+
+    header-popup {
+        gap: 0;
+    }
+
+    .popup__container {
+        max-width: 100%;
+    }
 }
 </style>
 

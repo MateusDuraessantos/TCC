@@ -223,14 +223,6 @@ arrow {
     font-size: 0.9rem;
 }
 
-@media only screen and (max-width: 1000px) {
-
-    .subMenu,
-    arrow {
-        display: none !important;
-    }
-
-}
 
 
 /*  */
@@ -243,7 +235,7 @@ nav {
     justify-content: center;
     width: 100%;
     color: white;
-    z-index: 10;
+    z-index: 11;
 }
 
 .ground {
@@ -445,6 +437,11 @@ nav {
 
 @media only screen and (max-width: 1000px) {
 
+    .subMenu,
+    arrow {
+        display: none;
+    }
+
     .blue-bar,
     .red-bar,
     .ground {
@@ -473,6 +470,17 @@ nav {
         width: calc(100% - 50px);
     }
 }
+
+@media only screen and (max-width: 400px) {
+
+    .dropdown-link {
+        padding-left: 36px;
+        height: 56px;
+        font-size: 1rem;
+    }
+
+
+}
 </style>
 
 <style>
@@ -482,7 +490,7 @@ nav {
     flex-direction: row;
     justify-content: flex-end;
     height: max-content;
-    min-width: 500px;
+    /* min-width: 500px; */
     background: none;
     gap: 40px;
 }
@@ -500,7 +508,7 @@ nav {
     border: none;
     gap: 20px;
     text-decoration: none;
-    color: #aeaeae;
+    color: white;
     height: 80px;
     font-size: 1.13rem;
     font-weight: 400;
@@ -607,7 +615,7 @@ nav {
     }
 
     .nav-button--mobile {
-        margin-top: 30px;
+        margin-top: 58px;
     }
 
     .nav-button--mobile .nav-button {
