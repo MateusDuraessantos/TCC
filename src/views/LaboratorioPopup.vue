@@ -3,12 +3,13 @@
         <div class="lab-title">
             Laboratório de Marcenaria
         </div>
+        <!--   Sobre o laboratório -->
+
         <div class="container-grid">
             <div>
-                <div class="container-labs">
-                    <h3>Sobre o laboratório</h3>
-                    <br>
-                    <img class="imgVideo" src="espanha.png" />
+                <div class="video">
+                    <h3 class="title">Sobre o laboratório</h3>
+                    <video class="video__content" src="design/laboratorios/video_marcenaria_1.mp4" controls></video>
                     <br />
                     <strong>Curiosidades</strong>
                     <br />
@@ -19,7 +20,7 @@
                         </li>
                         <li>
                             Não é necessário nenhum investimento para desfrutar dos
-                            equipamentos deste laboratório (Salvo materias como: Lixas,
+                            ferramentas deste laboratório (Salvo materias como: Lixas,
                             tintas e etc).
                         </li>
                         <li>
@@ -28,7 +29,7 @@
                             do técnico do laboratório.
                         </li>
                         <li>
-                            Qualquer dano físico causado aos equipamentos, é incubencia do
+                            Qualquer dano físico causado aos ferramentas, é incubencia do
                             <strong>responsável</strong> pelo ato de arcar com os custos
                             para o reparo.
                         </li>
@@ -36,25 +37,25 @@
                 </div>
             </div>
             <div>
-                <aside class="container-aside">
-                    <div class="cont-container-aside">
-                        <p class="sobre">Sobre o laboratório</p>
+                <aside class="sobre">
+                    <div class="sobre__container">
+                        <p class="sobre__title">Sobre o laboratório</p>
                     </div>
-                    <div class="cont-container-aside">
-                        <b class="bold-sobre">Horário de funcionamento:</b>
+                    <div class="sobre__container">
+                        <b>Horário de funcionamento:</b>
                     </div>
-                    <p class="light">13h às 16h</p>
+                    <p>13h às 16h</p>
                     <hr />
-                    <p class="sobre">Localização</p>
-                    <p class="light" style="color: #0054a8">
+                    <p class="sobre__title">Localização</p>
+                    <p style="color: #0054a8">
                         Campus Higienópolis - <b>Prédio 9 - Arquitetura e Design</b>
                     </p>
-                    <p class="light">R. da Consolação, 930 - Consolação, São Paulo - SP, 01302-907</p>
+                    <p>R. da Consolação, 930 - Consolação, São Paulo - SP, 01302-907</p>
                     <hr />
                     <div class="prof">
-                        <img class="img-prof" src="espanha.png" alt="Ivo Pons" />
+                        <img class="img-prof" src="design/laboratorios/nieri.jpg" />
                         <div>
-                            Nara
+                            Nieri
                             <p>Coordenador do laboratório</p>
                         </div>
                     </div>
@@ -62,10 +63,10 @@
                     <div class="container-tecnico">
                         <div>
                             <div style="display: flex; align-items: center; gap: 10px">
-                                <img class="perfil-tecnico" src="espanha.png" />
+                                <img class="perfil-tecnico" src="design/laboratorios/mateus.png" />
                                 <div class="container-tec">
-                                    <p class="nome">Jake Sully</p>
-                                    <p class="email">avatar2brabo@century.com</p>
+                                    <p class="nome">Mateus Durães</p>
+                                    <p class="email">mateus@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -74,98 +75,95 @@
             </div>
         </div>
 
-        <!-- Equipamentos disponibilizados -->
+        <!-- Equipamentos Disponibilizados -->
 
-        <div>
-            <div class="equiDispo">
-                <h3>Equipamentos disponíveis</h3>
-                <div style="width: 50px; height: 4px; transform: translatey(6px); background-color: #CC141D;"></div>
-            </div>
-
-            <!-- Agendar horário -->
-
-            <div class="container-labs">
-                <div class="sobre-equipamentos">
+        <br>
+        <div class="video">
+            <div style="display: flex;">
+                <div class="equipamentos">
+                    <h3 class="title">Ferramentas disponíveis</h3>
+                    <div style="width: 50px; height: 4px; transform: translatey(6px); background-color: #CC141D;"></div>
+                </div>
+                <div class="sobre-ferramentas">
                     <button class="red_btn">
                         Agendar horário
                     </button>
                 </div>
-                <div class="grid__ferramentas">
-                    <div class="equipamentos">
-                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/furadeira.jpg" />
-                        <div class="cont-ferramentas">
-                            <p class="ferramenta"> Serra de corte</p>
-                            <p class="ferramenta"> Unidades: 2</p>
-                            <button class="saiba-red_btn">
-                                Saiba mais
-                            </button>
-                        </div>
+            </div>
+            <div class="grid__ferramentas">
+                <div class="ferramentas">
+                    <img class="img-ferramentas" src="design/laboratorios/ferramentas/furadeira.jpg" />
+                    <div class="cont-ferramentas">
+                        <p class="ferramenta"> Serra de corte</p>
+                        <p class="ferramenta"> Unidades: 2</p>
+                        <button class="saiba-red_btn">
+                            Saiba mais
+                        </button>
                     </div>
-                    <div class="equipamentos">
-                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/furadeira-de-bancada.jpg" />
-                        <div class="cont-ferramentas">
-                            <p class="ferramenta"> Furadeira de Bancada</p>
-                            <p class="ferramenta"> Unidades: 1</p>
-                            <button class="saiba-red_btn">
-                                Saiba mais
-                            </button>
-                        </div>
+                </div>
+                <div class="ferramentas">
+                    <img class="img-ferramentas" src="design/laboratorios/ferramentas/furadeira-de-bancada.jpg" />
+                    <div class="cont-ferramentas">
+                        <p class="ferramenta"> Furadeira de Bancada</p>
+                        <p class="ferramenta"> Unidades: 1</p>
+                        <button class="saiba-red_btn">
+                            Saiba mais
+                        </button>
                     </div>
-                    <div class="equipamentos">
-                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/lixadeira-angular.jpg" />
-                        <div class="cont-ferramentas">
-                            <p class="ferramenta">Lixadeira Angular</p>
-                            <p class="ferramenta"> Unidades: 2</p>
-                            <button class="saiba-red_btn">
-                                Saiba mais
-                            </button>
-                        </div>
+                </div>
+                <div class="ferramentas">
+                    <img class="img-ferramentas" src="design/laboratorios/ferramentas/lixadeira-angular.jpg" />
+                    <div class="cont-ferramentas">
+                        <p class="ferramenta">Lixadeira Angular</p>
+                        <p class="ferramenta"> Unidades: 2</p>
+                        <button class="saiba-red_btn">
+                            Saiba mais
+                        </button>
                     </div>
-                    <div class="equipamentos">
-                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/parafusadeira.jpg" />
-                        <div class="cont-ferramentas">
-                            <p class="ferramenta"> Parafusadeira</p>
-                            <p class="ferramenta"> Unidades: 2</p>
-                            <button class="saiba-red_btn">
-                                Saiba mais
-                            </button>
-                        </div>
+                </div>
+                <div class="ferramentas">
+                    <img class="img-ferramentas" src="design/laboratorios/ferramentas/parafusadeira.jpg" />
+                    <div class="cont-ferramentas">
+                        <p class="ferramenta"> Parafusadeira</p>
+                        <p class="ferramenta"> Unidades: 2</p>
+                        <button class="saiba-red_btn">
+                            Saiba mais
+                        </button>
                     </div>
-                    <div class="equipamentos">
-                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/serra_de_corte.jpg" />
-                        <div class="cont-ferramentas">
-                            <p class="ferramenta"> Serra de Corte</p>
-                            <p class="ferramenta"> Unidades: 2</p>
-                            <button class="saiba-red_btn">
-                                Saiba mais
-                            </button>
-                        </div>
+                </div>
+                <div class="ferramentas">
+                    <img class="img-ferramentas" src="design/laboratorios/ferramentas/serra_de_corte.jpg" />
+                    <div class="cont-ferramentas">
+                        <p class="ferramenta"> Serra de Corte</p>
+                        <p class="ferramenta"> Unidades: 2</p>
+                        <button class="saiba-red_btn">
+                            Saiba mais
+                        </button>
                     </div>
-                    <div class="equipamentos">
-                        <img class="img-equipamentos" src="design/laboratorios/ferramentas/serra-de-bancada.jpg" />
-                        <div class="cont-ferramentas">
-                            <p class="ferramenta"> Serra de Bancada</p>
-                            <p class="ferramenta"> Unidades: 2</p>
-                            <button class="saiba-red_btn">
-                                Saiba mais
-                            </button>
-                        </div>
+                </div>
+                <div class="ferramentas">
+                    <img class="img-ferramentas" src="design/laboratorios/ferramentas/serra-de-bancada.jpg" />
+                    <div class="cont-ferramentas">
+                        <p class="ferramenta"> Serra de Bancada</p>
+                        <p class="ferramenta"> Unidades: 2</p>
+                        <button class="saiba-red_btn">
+                            Saiba mais
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Imagens do laboratório -->
+        <!-- Imagens do Laboratório -->
 
-        <div class="container-barra">
-            <div class="barra"></div>
-            <div class="cont-title-img-lab">
-                <div class="vert"></div>
-                <p class="title-img-lab">Imagens do laboratório</p>
+        <div class="laboratorio">
+            <div class="laboratorio__container">
+                <div class="laboratorio__barra"></div>
+                <p class="laboratorio__title">Imagens do laboratório</p>
             </div>
         </div>
 
-        <div class="grid-imagens">
+        <div class="laboratorio__grid">
             <img src="design/laboratorios/marcenaria/marcenaria_1.jpg" />
             <img src="design/laboratorios/marcenaria/marcenaria_2.jpg" />
             <img src="design/laboratorios/marcenaria/marcenaria_3.jpg" />
@@ -180,6 +178,15 @@ export default {
 </script>
   
 <style scoped>
+h1 {
+    margin-left: 15px;
+}
+
+h3 {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
 main {
     position: relative;
     color: #A0A0A0;
@@ -194,22 +201,13 @@ main {
     background: rgb(26, 26, 26);
 }
 
-.imgVideo {
+.video__content {
     margin-top: 20px;
     max-height: 400px;
     width: 100%;
     object-fit: cover;
 }
 
-.container-barra {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 100%;
-    max-width: 1150px;
-}
 
 .grid__ferramentas {
     display: grid;
@@ -229,15 +227,13 @@ ul li {
 }
 
 .lab-title {
-    background: #00547f;
     color: white;
-    font-size: 17px;
+    font-size: 1.8rem;
     width: max-content;
-    margin: 25px 0 25px 0;
-    padding: 10px 20px;
+    margin-bottom: 25px;
 }
 
-/* aside */
+/* Aside */
 
 .container-grid {
     margin: auto;
@@ -250,42 +246,28 @@ ul li {
     max-width: 1400px;
 }
 
-.container-aside {
+.sobre {
     background-color: black;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.582);
     padding: 30px;
     width: 100%;
-    height: max-content;
-    margin-bottom: 20px;
+    height: 100%;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-.sobre {
+.sobre__title {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 1.2rem;
     margin: 0 0 10px 0;
-}
-
-.bold-sobre,
-.light {
-    display: block;
-}
-
-.bold-sobre {
-    font-size: 18px;
-}
-
-.light {
-    font-weight: 400;
 }
 
 .prof {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     margin: 20px 0;
 }
@@ -293,17 +275,18 @@ ul li {
 .prof p {
 
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 /* contato */
 .saiba-red_btn {
     color: white;
     border: none;
+    font-size: 0.9rem;
     border: 2px solid #5f0005;
     background: #410003;
-    height: 26px;
-    padding: 0 12px;
+    min-height: 26px;
+    padding: 4px 14px;
     margin-top: 8px;
     border-radius: 50px;
     cursor: pointer;
@@ -316,19 +299,6 @@ ul li {
     background: #5f0005;
 }
 
-.grid-imagens {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    width: 100%;
-}
-
-.grid-imagens img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .img-prof {
     width: 100px;
     height: 100px;
@@ -337,16 +307,11 @@ ul li {
     margin-right: 20px;
 }
 
-h1 {
-    margin: 0 0 15px 0;
-}
-
 .container-tecnico {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    margin-bottom: 20px;
 }
 
 .container-tec {
@@ -357,12 +322,12 @@ h1 {
 .nome {
     white-space: nowrap;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.13rem;
 }
 
 .email {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     word-break: break-word;
 }
 
@@ -373,23 +338,8 @@ h1 {
     object-fit: cover;
 }
 
-/* Footer */
 
-
-.cont-title-img-lab {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 50px 0;
-}
-
-.vert {
-    background: #7a1f7f;
-    width: 5px;
-    height: 30px;
-}
-
-.container-labs {
+.video {
     display: flex;
     flex-direction: column;
     background: black;
@@ -399,12 +349,12 @@ h1 {
     height: max-content;
 }
 
-.equipamentos {
+.ferramentas {
     display: flex;
     margin-bottom: 20px;
 }
 
-.img-equipamentos {
+.img-ferramentas {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -420,28 +370,70 @@ h1 {
 }
 
 .ferramenta {
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
-h3 {
-    font-size: 17px;
 
-    font-weight: 400;
-}
-
-/*  */
-
-.sobre-equipamentos {
+.sobre-ferramentas {
+    white-space: nowrap;
     margin: 0 0 40px 0;
 }
 
-.equiDispo {
-    margin: 40px 0;
+/* Equipamentos Disponibilizados   */
+.equipamentos {
+    margin-bottom: 40px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.title {
+    font-size: 1.4rem;
+
+}
+
+/* Imagens do Laboratório */
+.laboratorio {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+
+.laboratorio__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 14px;
+    width: 100%;
+}
+
+.laboratorio__grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.laboratorio__container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 40px 0;
+    margin-left: 12px;
+}
+
+.laboratorio__title {
+    font-size: 1.4rem;
+}
+
+.laboratorio__barra {
+    background: #7a1f7f;
+    width: 5px;
+    height: 50px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -464,7 +456,7 @@ h3 {
 @media only screen and (max-width: 700px) {
 
     .grid__ferramentas,
-    .grid-imagens {
+    .laboratorio__grid {
         grid-template-columns: 1fr;
     }
 }

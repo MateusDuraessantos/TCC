@@ -19,8 +19,6 @@ import NavPages from './components/NavPages.vue'
 export default {
   components: { NavPages, FooterPage },
   name: 'app',
-
-
 }
 </script>
 
@@ -61,22 +59,14 @@ html {
 body {
   color: white;
   position: relative;
-  background: rgb(14, 14, 14);
   background: black;
-  overflow-x: hidden;
   overflow-y: overlay;
+  overflow-x: hidden;
 }
 
 .body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-section {
-  margin: 0 100px;
-  max-width: 1100px;
-  width: calc(100% - 25px);
+  justify-content: center;
 }
 
 :root {
@@ -84,6 +74,31 @@ section {
   --blue-mack: #00547F;
   --red-mack: #CC141D;
 }
+
+/* Tamanho das tipografias */
+
+@media only screen and (min-width: 1420px) {
+  html {
+    font-size: 22px;
+    line-height: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  html {
+    font-size: 20px;
+    line-height: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  html {
+    font-size: 16px;
+    line-height: 1.6rem;
+  }
+}
+
+/*  */
 
 @media only screen and (min-width: 1280px) {
   :root {
@@ -117,7 +132,7 @@ header {
   bottom: 40px;
   right: 60px;
   transition: .3s;
-  z-index: 3;
+  z-index: 4;
 }
 
 .contato__icon {
@@ -149,19 +164,16 @@ header {
   transition: .3s;
 }
 
-
-
-.blue_btn {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  width: max-content;
-  background: var(--blue-mack);
-  height: 36px;
+.blue_btn,
+.red_btn,
+.black_btn {
+  min-height: 36px;
+  max-height: 60px;
+  height: 2vw;
   border: none;
   border-radius: 60px;
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   padding: 0 40px;
   transition: .3s;
@@ -169,22 +181,27 @@ header {
   box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.4);
 }
 
-.blue_btn:hover {
-  background: #00689c;
-  transition: .2s;
+.blue_btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: max-content;
+  background: var(--blue-mack);
 }
 
 .black_btn {
   background: #000;
-  height: 36px;
-  border: none;
-  border-radius: 60px;
-  color: white;
-  font-size: 16px;
-  font-weight: 400;
-  padding: 0 40px;
+}
+
+.red_btn {
+  background: var(--red-mack);
   transition: .3s;
   cursor: pointer;
+}
+
+.blue_btn:hover {
+  background: #00689c;
+  transition: .2s;
 }
 
 .black_btn:hover {
@@ -192,23 +209,11 @@ header {
   transition: .2s;
 }
 
-.red_btn {
-  background: #CC141D;
-  height: 36px;
-  border: none;
-  border-radius: 60px;
-  color: white;
-  font-size: 16px;
-  font-weight: 400;
-  padding: 0 40px;
-  transition: .3s;
-  cursor: pointer;
-}
-
 .red_btn:hover {
-  background: gray;
+  background: rgb(123, 0, 0);
   transition: .2s;
 }
+
 
 .shadow {
   position: absolute;
@@ -222,16 +227,18 @@ header {
 
 .el-collapse-item__header {
   background: #212121;
-  border-radius: 20px;
+  border-radius: 1.6vw;
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
   padding: 5px 0;
   padding-left: 20px;
   padding-right: 10px;
-  height: max-content;
   color: white;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
-  line-height: 30px;
+  min-height: 2.4vw;
+  height: max-content;
+  line-height: 1.6rem;
 }
 
 .el-collapse,
@@ -251,7 +258,7 @@ header {
 .el-collapse-item__content {
   color: white;
   padding: 20px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
 }
 

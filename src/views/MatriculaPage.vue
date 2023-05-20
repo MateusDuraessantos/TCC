@@ -3,12 +3,8 @@
         <header>
             <div class="shadow" />
             <div class="container__title">
-                <span>
-                    <p class="header__banner">Matrícula</p>
-                    <p class="header__ano">
-                        2023
-                    </p>
-                </span>
+                <p class="header__banner">Matrícula</p>
+                <p class="header__ano">2023</p>
                 <button class="blue_btn btn_header">Inscreva-se</button>
             </div>
             <p class="subtitle">Faculdade de Arquitetura e Urbanismo | Campus Higienópolis
@@ -34,7 +30,7 @@
                                 O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre
                                 sua
                                 matrícula, acesse o
-                                <span style="color: #00547F; font-weight: 500; font-size: 17px;">portal do aluno</span>
+                                <span style="color: #00547F">portal do aluno</span>
                                 utilizando o
                                 número de sua matrícula.
                             </p>
@@ -46,73 +42,55 @@
                 <!-- Matriculas -->
 
                 <div class="matricula" id="link_matriculas">
-                    <div class="matricula__container">
+                    <div class="matricula__title">
+                        <h4 class="font-light">Ainda não se matriculou?</h4>
+                        <h2>Matrícula Abertas</h2>
+                    </div>
 
-                        <div class="z-index">
-                            <div class="matricula__title">
-                                <h4 class="font-light">Ainda não se matriculou?</h4>
-                                <h2>Matrícula Abertas</h2>
-                            </div>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                been
-                                the
-                                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                                of
-                                type
-                                and
-                                scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                                the
-                                leap
-                                into electronic typesetting, remaining essentially unchanged. It was popularised in the
-                                1960s
-                                with
-                                the
-                                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing
-                                software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <div class="container__cards">
-                                <div class="card">
-                                    <h2>Vestibular</h2>
-                                    <button class="blue_btn">inscreva-se</button>
-                                </div>
-                                <div class="card">
-                                    <h2>ENEM</h2>
-                                    <button class="blue_btn">inscreva-se</button>
-                                </div>
-                                <div class="card">
-                                    <h2>ProUni</h2>
-                                    <button class="blue_btn">inscreva-se</button>
-                                </div>
-                                <div class="card">
-                                    <h2>Transferência</h2>
-                                    <button class="blue_btn">inscreva-se</button>
-                                </div>
-                            </div>
+                    <div class="matriculas__grid">
+                        <div class="matriculas__card matriculas__card--1">
+                            <h2>Vestibular</h2>
+                            <button class="blue_btn">inscreva-se</button>
+                        </div>
+                        <div class="matriculas__card matriculas__card--2">
+                            <h2>ENEM</h2>
+                            <button class="blue_btn">inscreva-se</button>
+                        </div>
+                        <div class="matriculas__card matriculas__card--3">
+                            <h2>ProUni</h2>
+                            <button class="blue_btn">inscreva-se</button>
+                        </div>
+                        <div class="matriculas__card matriculas__card--4">
+                            <h2>Transferência</h2>
+                            <button class="blue_btn">inscreva-se</button>
                         </div>
                     </div>
+                    <b>Para maiores informações envie-nos um e-mail: bolsas@mackenzie.br.</b>
                 </div>
 
                 <!-- Setor de bolsas -->
 
                 <div id="link_bolsa">
-                    <div class="matricula__container">
-                        <div class="matricula__title">
+                    <div class="bolsas">
+                        <div class="bolsas__title">
                             <h2>Setor de bolsas</h2>
                         </div>
                         <p> O Instituto Presbiteriano Mackenzie, em cumprimento a sua missão e valores, bem como aos seus
                             compromissos filantrópicos e beneficentes, concede bolsas de estudo aos estudantes elegíveis nas
                             condições previstas na legislação, no Normativo de Bolsas de Estudo da Instituição e nos editais
-                            publicados.</p>
-                        <br>
+                            publicados.
+                        </p>
                         <button class="blue_btn">Ver no mapa</button>
                     </div>
                 </div>
 
-                <!-- Perguntas frequentes -->
 
-                <div class="link_faq" id="link_perguntas">
-                    <div class="faq">
-                        <h2 class="light">Perguntas frequentes Coordenação de bolsas de estudo</h2>
+                <!-- Perguntas frequêntes -->
+
+                <div id="link_perguntas">
+
+                    <div class="perguntas">
+                        <h2>Perguntas frequêntes</h2>
                         <el-collapse accordion style="margin: 60px 0">
                             <el-collapse-item v-for="faq in faqs">
                                 <template #title>
@@ -125,18 +103,30 @@
                         </el-collapse>
                         <p>
                             <b>Para maiores informações envie-nos um e-mail: </b>
-                            <span style="color: #00547F; font-weight: 500; font-size: 17px;"> bolsas@mackenzie.br.com</span>
+                            <span style="color: #00547F;">
+                                bolsas@mackenzie.br.com</span>
                         </p>
                     </div>
-                </div>
-                <!-- Matriculas -->
-                <div class="frase">
-                    <img class="frase__background" src="matricula/auditorio.jpg">
-                    <div class="frase__container">
-                        <p class="frase__p">Seja a mudança que você deseja ver no mundo!</p>
+
+                    <!-- Livros Background -->
+                    <div class="livros__background">
+                        <div class="livros__shadow"></div>
                     </div>
+
                 </div>
             </section>
+        </div>
+
+        <!-- Frase -->
+
+        <div id="link_frase"></div>
+        <div class="frase">
+            <img class="frase__background" src="matricula/auditorio.jpg">
+            <div class="frase__shadow"></div>
+            <div class="frase__shadow-1"></div>
+            <div class="frase__container">
+                <p class="frase__p">Seja a mudança que você deseja ver no mundo!</p>
+            </div>
         </div>
     </div>
 </template>
@@ -258,26 +248,57 @@ export default {
         }
     },
     mounted() {
-        this.scrollTeste()
+        this.scrolltoTop()
     },
-    /*  methods: {
-         scrollTeste() {
-             this.$nextTick(() => {
-                 window.scrollTo(0, 0);
-             });
-         }
-     } */
+    methods: {
+
+        //Ao entrar na página, faz ela rola para cima
+        scrolltoTop() {
+            this.$nextTick(() => {
+                window.scrollTo(0, 0);
+            });
+        }
+    }
 }
 </script>
 
 <style scoped>
+section {
+    margin: 0 100px;
+    width: calc(100% - 400px);
+}
+
+@media only screen and (min-width:1981px) {
+    section {
+        width: 50%;
+    }
+}
+
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.font-light {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.light {
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 /* Sub Menu */
 
 .container__title {
+    line-height: 80px;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     width: 500px;
     gap: 40px;
 }
@@ -312,6 +333,7 @@ header {
 
 .header__ano {
     font-size: 75px;
+
     letter-spacing: 108px;
 }
 
@@ -323,13 +345,11 @@ header {
 .subtitle {
     position: absolute;
     bottom: 50px;
-    line-height: 50px;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.13rem;
     font-weight: 400;
     z-index: 1;
 }
-
 
 /* Preparado para as aulas */
 
@@ -391,17 +411,6 @@ header {
     padding-top: 140px;
 }
 
-/* Perguntas Frequêntes */
-
-#link_perguntas {
-    padding-top: 200px;
-}
-
-
-.link_faq {
-    width: 70%;
-    margin: auto;
-}
 
 /* Matricula */
 
@@ -411,37 +420,59 @@ header {
 
 .matricula {
     position: relative;
+    z-index: 1;
     display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.matriculas__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 60px;
+    gap: 60px;
+}
+
+.matriculas__card {
+    padding: 30px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    outline: 15px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    align-items: center;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-radius: 13px;
+    box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.4);
+    background: black;
 }
 
 
-.matricula__container {
-    position: relative;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 400;
-    z-index: 3;
+.matriculas__card--1,
+.matriculas__card--2,
+.matriculas__card--3,
+.matriculas__card--4 {
+    background-size: cover;
 }
 
-.z-index {
-    z-index: 2;
+
+.matriculas__card--1 {
+    background-image: url('../../public/matricula/card-1.jpg');
 }
 
-.font-light {
-    font-size: 16px;
-    font-weight: 400;
+.matriculas__card--2 {
+    background-image: url('../../public/matricula/card-2.jpg');
 }
 
-.light {
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 40px;
+.matriculas__card--3 {
+    background-image: url('../../public/matricula/card-3.jpg');
+}
+
+.matriculas__card--4 {
+    background-image: url('../../public/matricula/card-4.jpg');
 }
 
 .matricula__title {
@@ -451,9 +482,25 @@ header {
     border-width: 0 0 0 4px;
     border-color: #00547F;
     border-style: solid;
-    min-height: 40px;
     padding-left: 20px;
-    margin-bottom: 40px;
+}
+
+/* Setor de bolsas  */
+
+.bolsas {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    gap: 30px;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+/*  */
+.z-index {
+    z-index: 2;
 }
 
 .container__cards {
@@ -472,27 +519,76 @@ header {
     margin: 30px 0;
 }
 
-h2 {
-    font-size: 30px;
-    font-weight: 400;
+/* Perguntas frequêntes */
+
+#link_perguntas {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.perguntas {
+    width: 100%;
+    max-width: 1880px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Livros background */
+
+.livros__background {
+    position: absolute;
+    top: -400px;
+    margin: auto;
+    z-index: 0;
+    width: 100vw;
+    height: 100vw;
+    max-height: 1600px;
+    background-image: url('../../public/matricula/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+
+.livros__shadow {
+    background-image: linear-gradient(black, transparent, transparent, transparent, black);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
 }
 
 /* Frase */
 
+#link_frase {
+    padding-top: 200px;
+}
+
 .frase {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    z-index: 2;
+    overflow: hidden;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
-    margin: 100px 0;
 }
 
 .frase__background {
     position: absolute;
     object-fit: cover;
-    z-index: 1;
+    top: 0;
+    left: 0;
     width: 100vw;
-    height: 500px;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 1;
 }
 
 .frase__container {
@@ -501,19 +597,47 @@ h2 {
     flex-direction: column;
     position: relative;
     display: flex;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1rem;
     font-weight: 400;
 }
 
 .frase__p {
     text-align: center;
-    font-size: 26px;
-    font-weight: 400;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.frase__shadow,
+.frase__shadow-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.frase__shadow-1 {
+    background-image: linear-gradient(90deg, black, transparent, transparent, black);
+}
+
+.frase__shadow {
+    background-image: linear-gradient(black, transparent, black);
+
+}
+
+@media only screen and (max-width:1660px) {
+
+    section {
+        width: calc(100% - 100px);
+    }
+
 }
 
 @media only screen and (max-width: 1000px) {
+    section {
+        width: calc(100% - 50px);
+    }
 
     .container__title {
         width: 280px;
@@ -529,7 +653,7 @@ h2 {
 
     }
 
-    .link_faq {
+    .perguntas {
         width: calc(100% - 50px);
     }
 
@@ -544,7 +668,7 @@ h2 {
 }
 
 @media only screen and (max-width: 700px) {
-    .link_faq {
+    .perguntas {
         width: calc(100% - 50px);
     }
 
@@ -554,7 +678,7 @@ h2 {
 }
 
 @media only screen and (max-width: 500px) {
-    .link_faq {
+    .perguntas {
         width: 100%;
     }
 }

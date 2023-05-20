@@ -36,14 +36,14 @@
                 <span style="display: flex; align-items: center; gap: 20px;">
                     <div class="mackStore">Mack Store</div>
 
-                    <b style="font-size: 12px;">INTERNATIONAL AFFAIR</b>
+                    <b class="internation">INTERNATIONAL AFFAIR</b>
                 </span>
             </div>
         </div>
 
         <div class="red-bar">
             <div class="cont-red">
-                <div class="nav-mackenzie" v-for="(navOption, index) in navOptions" :id="'nav-' + index" :key="index">
+                <div class="nav-button" v-for="(navOption, index) in navOptions" :id="'nav-' + index" :key="index">
                     {{ navOption }}
                 </div>
             </div>
@@ -77,7 +77,6 @@
 
                         <router-link class="dropdown-link" to="matricula">
 
-
                             <aconra>
                                 Matrícula/Bolsas
                                 <arrow>❯</arrow>
@@ -88,14 +87,15 @@
                                 <a @click="scrollToSection('link_matriculas')">Matrículas</a>
                                 <a @click="scrollToSection('link_bolsa')">Setor de bolsas</a>
                                 <a @click="scrollToSection('link_perguntas')">Perguntas frequêntes</a>
+                                <a @click="scrollToSection('link_frase')">Sonhe</a>
                             </div>
                         </router-link>
 
-                        <div class="nav-mackenzie--mobile">
-                            <hr style="border-color: #1f1f1f">
+                        <div class="nav-button--mobile">
+                            <hr class="hr" style="border-color: #1f1f1f">
                             <br>
                             <br>
-                            <div class="nav-mackenzie " v-for="(navOption, index) in navOptions" :id="'nav-' + index"
+                            <div class="nav-button " v-for="(navOption, index) in navOptions" :id="'nav-' + index"
                                 :key="index">
                                 {{ navOption }}
                             </div>
@@ -144,6 +144,7 @@ export default {
                     });
                 }, 10);
         },
+        //Ativa o menu lateral mobile
         close(event) {
             const nav = document.getElementById('navMenu')
 
@@ -151,7 +152,7 @@ export default {
 
             if (nav.classList[1] == undefined) {
                 nav.classList.add('ativar')
-            } else if (elementClicked == 'button__close' || elementClicked == 'background_nav' || elementClicked == 'router-link-active') {
+            } else if (elementClicked == 'button__close' || elementClicked == 'background_nav' || elementClicked == 'router-link-active' || elementClicked == undefined) {
 
                 nav.classList.add('opacityTransition')
                 setTimeout(() => {
@@ -160,6 +161,8 @@ export default {
                 }, 400);
             }
         },
+
+        //Leva o usuário até o link clicado
         scrollToSection(ancora) {
             setTimeout(() => {
                 const section = document.getElementById(ancora);
@@ -170,7 +173,6 @@ export default {
             }, 50);
         },
     }
-
 }
 </script>
   
@@ -179,11 +181,10 @@ export default {
 .subMenu {
     position: absolute;
     display: none;
-    top: 40px;
+    top: 66px;
     flex-direction: column;
     white-space: nowrap;
     font-size: 1rem;
-    line-height: 3.5rem;
     background: #1f1f1f;
     border-radius: 8px;
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
@@ -192,12 +193,15 @@ export default {
 }
 
 .subMenu a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: white;
     transition: .2s;
+    min-height: 64px;
     border-bottom: 1px solid #4b4b4b;
     cursor: pointer;
-    padding: 2px 26px;
+    padding: 0.6vw 1.4vw;
     padding-right: 60px;
 
 }
@@ -218,6 +222,16 @@ arrow {
     width: max-content;
     font-size: 0.9rem;
 }
+
+@media only screen and (max-width: 1000px) {
+
+    .subMenu,
+    arrow {
+        display: none !important;
+    }
+
+}
+
 
 /*  */
 nav {
@@ -252,7 +266,8 @@ nav {
     height: 100%;
     width: 100%;
     margin: auto;
-    border-right: 1px solid rgba(255, 255, 255, 0.3)
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    justify-content: space-between;
 }
 
 #nav-4 {
@@ -266,19 +281,20 @@ nav {
     transition: .2s;
 }
 
-.nav-mackenzie {
+.nav-button {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0 10px;
-    flex-wrap: nowrap;
+    width: 100%;
+    white-space: nowrap;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
-.nav-mackenzie:hover {
+.nav-button:hover {
     background: #7e0612;
 }
 
@@ -288,7 +304,7 @@ nav {
     justify-content: space-between;
     background: #05547f;
     color: #fff;
-    font-size: 14px;
+    font-size: 0.8rem;
     height: 34px;
     width: 100%;
 }
@@ -301,11 +317,15 @@ nav {
     height: 80px;
     bottom: -80px;
     backdrop-filter: blur(5px);
+
 }
 
 .black-bar .logo {
     opacity: 0.6;
-    height: 34px;
+    height: 3vw;
+    min-height: 34px;
+    max-height: 52px;
+
 }
 
 .blue-bar div {
@@ -349,7 +369,7 @@ nav {
 }
 
 .logo-mack i {
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .logo-mack .logo {
@@ -361,6 +381,10 @@ nav {
 .logo {
     height: 50px;
     object-fit: contain;
+}
+
+.internation {
+    font-size: 0.75rem;
 }
 
 .mackStore {
@@ -405,15 +429,18 @@ nav {
     transition: all 0.2s ease-in-out;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1600px) {
     .cont-red {
-        width: calc(100% - 200px)
+        width: calc(100% - 200px);
     }
 
-    .nav-mackenzie {
-        width: 100%;
-    }
+}
 
+@media only screen and (max-width: 1145px) {
+    .nav-button {
+        padding: 0 4px;
+
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -457,7 +484,6 @@ nav {
     height: max-content;
     min-width: 500px;
     background: none;
-    padding: 18px 0;
     gap: 40px;
 }
 
@@ -475,8 +501,8 @@ nav {
     gap: 20px;
     text-decoration: none;
     color: #aeaeae;
-    height: 50px;
-    font-size: 18px;
+    height: 80px;
+    font-size: 1.13rem;
     font-weight: 400;
     transition: .3s;
     z-index: 3;
@@ -512,7 +538,7 @@ nav {
     text-decoration: none;
     height: 40px;
     color: #8A8A8A;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .el-dropdown-menu__item:hover {
@@ -532,7 +558,7 @@ nav {
     color: white;
 }
 
-.options__nav .nav-mackenzie--mobile {
+.options__nav .nav-button--mobile {
     display: none;
 }
 
@@ -575,27 +601,27 @@ nav {
         display: block;
     }
 
-    .options__nav .nav-mackenzie--mobile {
+    .options__nav .nav-button--mobile {
 
         display: block;
     }
 
-    .nav-mackenzie--mobile {
+    .nav-button--mobile {
         margin-top: 30px;
     }
 
-    .nav-mackenzie--mobile .nav-mackenzie {
+    .nav-button--mobile .nav-button {
         text-align: start;
         height: 50px;
         justify-content: flex-start;
         padding-left: 36px;
         border: none;
         background: #9c9c9c36;
-        font-size: 16px;
+        font-size: 1rem;
         margin: 4px 0;
     }
 
-    .nav-mackenzie--mobile .nav-mackenzie:hover {
+    .nav-button--mobile .nav-button:hover {
         background: #B41C2C;
     }
 
@@ -654,7 +680,7 @@ nav {
         top: 12px;
         z-index: 3;
         color: gray;
-        font-size: 24px;
+        font-size: 1.8rem;
         background: none;
         border: none;
         transition: .2s;

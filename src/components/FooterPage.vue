@@ -212,21 +212,19 @@ footer {
     border-top: 2px solid #CC141D;
     padding-top: 100px;
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     background-image: url('../../public/footer.jpg');
     position: relative;
     z-index: 2;
 }
 
 h3 {
-    font-size: 26px;
+    font-size: 1.8rem;
     margin-bottom: 50px;
 }
 
 .container {
     margin: auto;
-    line-height: 24px;
-    max-width: 1400px;
     width: 100%;
     color: #B0B0B0;
     width: calc(100% - 100px);
@@ -244,8 +242,7 @@ h3 {
 
 .rodape__content {
     width: 100%;
-    margin: 0 80px;
-    max-width: var(--page-width);
+    margin: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -256,6 +253,10 @@ h3 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 20px;
     margin-bottom: 40px;
+}
+
+.colums p {
+    font-size: 1rem;
 }
 
 .footer__img {
@@ -285,8 +286,7 @@ h3 {
     }
 
     .container {
-        font-size: 12px;
-        line-height: 18px;
+        font-size: 0.75rem;
         width: calc(100% - 40px);
     }
 
@@ -299,7 +299,7 @@ h3 {
     }
 
     .rodape__content {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
 

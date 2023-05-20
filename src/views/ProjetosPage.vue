@@ -11,7 +11,7 @@
 
         <!-- Cadastro -->
 
-        <div v-if="cadastro" class="cadastro" @click="exporProjeto">
+        <div v-if="cadastro" class="b" @click="exporProjeto">
             <button class="cadastro__close">✕</button>
 
             <div class="cadastro__campos">
@@ -55,7 +55,7 @@
                     <button class="delete">Deletar ✕</button>
                 </div>
                 <div style="width: 100%; justify-content: center; display: flex;"><button
-                        class="blue_btn adicionar">Adicionar aluno <span style="font-size: 24px;">🞢</span></button>
+                        class="blue_btn adicionar">Adicionar aluno <span style=" font-size: 1.8rem;">🞢</span></button>
                 </div>
                 <hr>
                 <p class="cadastro__subtitle">Sobre os projeto</p>
@@ -214,48 +214,55 @@
         <div class="body">
             <div class="filtro_por_filtro">
                 <div class="cont_filtro">
-                    <select type="text" class="filtro" placeholder="Pesquisar:">
-                        <option value="">Todos os anos</option>
-                        <option value="" v-for="(coisas, index) in 14" :key="index">20{{ index + 10 }}
-                        </option>
-                    </select>
+
+                    <div class="box-select">
+                        <select class="filtro" placeholder="Pesquisar:">
+                            <option selected>Todos os anos</option>
+                            <option value="" v-for="(coisas, index) in 14" :key="index">20{{ index + 10 }}
+                            </option>
+                        </select>
+                    </div>
+
                     <input type="text" class="buscar" placeholder="Pesquisar:">
                 </div>
             </div>
 
-            Escolher categoria:      
-            <br>
-            <br>
-            <div class="cont_tags" @click="category">
-                <filter filter="ativo">
-                    Todos
-                </filter>
-                <filter>
-                    Editorial
-                </filter>
-                <filter>
-                    Mobiliario
-                </filter>
-                <filter>
-                    Renders 3D
-                </filter>
-                <filter>
-                    Desenho
-                </filter>
-                <filter>
-                    Fotografia
-                </filter>
+            <!-- Filtro por tags  -->
+
+            <div class="filter-tags">
+                <p class="filter-tag__p">Escolher categoria:</p>
+                <div class="cont_tags" @click="category">
+                    <filter filter="ativo">
+                        Todos
+                    </filter>
+                    <filter>
+                        Editorial
+                    </filter>
+                    <filter>
+                        Mobiliario
+                    </filter>
+                    <filter>
+                        Renders 3D
+                    </filter>
+                    <filter>
+                        Desenho
+                    </filter>
+                    <filter>
+                        Fotografia
+                    </filter>
+                </div>
             </div>
+
+            <!-- Popup -->
+
             <div class="popup" v-if="popupValue">
                 <button class="popup__close" @click="upPopup">✕</button>
-
                 <!-- Change Layout -->
-
                 <div class="container__alteraLayout">
                     <div class="cont__alteraLayout">
                         <div style="display: flex; flex-direction: column; gap: 6px; ">
                             <div class="download">
-                                <img src="/projetos/download.svg">
+                                <img src="/projetos/download.svg" fill="#fff">
                                 <p>Relatório final</p>
                             </div>
                             <br>
@@ -280,16 +287,12 @@
                             </div>
                             <p class="font-light">Um pouco sobre como foi o projeto</p>
                         </header-popup>
-
                         <!-- Vitrine das imagens -->
-
                         <div class="vitrine-grid" id="grid">
                             <img class="img_popup" v-for="portfolio in projects[indexPopup].portfolios" @load="loadImage"
                                 :src="'projetos/' + portfolio">
                         </div>
-
                         <!-- Descrições -->
-
                         <div class="cont_description">
                             <div class="description">
                                 <p v-for="teste in projects[indexPopup].description" style="margin-bottom: 6px;">
@@ -362,7 +365,6 @@
                         <p>{{ project.name }}</p>
                     </div>
                 </div>
-
             </div>
             <button class="blue_btn" @click="changenumber">Carregar mais projetos</button>
             <br>
@@ -374,9 +376,7 @@
 </template>
 
 <script>
-
 import { dados } from './projectsInfos'
-
 
 export default {
     name: 'ProjetosPage',
@@ -390,7 +390,7 @@ export default {
             indexPopup: null,
             coisas: 4,
             maxItems: 20,
-           }
+        }
     },
     computed: {
         limitedItems() {
@@ -529,21 +529,15 @@ export default {
     },
 
 }
-
 </script>
 
 <style scoped>
 .body {
-    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     margin-top: 50px;
-    width: calc(100% - 100px);
-
-}
-
-section-projects {
-    display: block;
-    width: calc(100% - 200px);
+    width: calc(100% - 40px);
 }
 
 @keyframes opacitySuave {
@@ -581,7 +575,7 @@ section-projects {
     right: 30px;
     top: 30px;
     background: none;
-    font-size: 24px;
+    font-size: 1.8rem;
     color: white;
     border: none;
     cursor: pointer;
@@ -602,12 +596,12 @@ section-projects {
 }
 
 .cadastro__title {
-    font-size: 22px;
+    font-size: 1.4rem;
     font-weight: 800;
 }
 
 .cadastro__subtitle {
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: 400;
     border-width: 0 0 0 3px;
     border-style: solid;
@@ -638,7 +632,7 @@ section-projects {
 .delete_image {
     position: absolute;
     opacity: 0.7;
-    font-size: 22px;
+    font-size: 1.4rem;
     top: 5px;
     right: 8px;
     transition: .2s;
@@ -690,7 +684,7 @@ input[type="file"] {
     border-width: 0 0 1px 0;
     color: rgb(187, 187, 187);
     background: none;
-    font-size: 16px;
+    font-size: 1rem;
     transition: .2s;
 }
 
@@ -701,6 +695,7 @@ input[type="file"] {
 
 .buscar {
     width: 100%;
+
 }
 
 .inputs__cadastro {
@@ -716,7 +711,7 @@ input[type="file"] {
 }
 
 label {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .textarea {
@@ -725,7 +720,7 @@ label {
     resize: none;
     border-radius: 8px;
     border: none;
-    font-size: 16px;
+    font-size: 1rem;
     color: gray;
 }
 
@@ -743,9 +738,36 @@ label {
 }
 
 .filtro {
-    padding-right: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
     outline: none;
     cursor: pointer;
+    width: 100%;
+}
+
+.box-select {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: max-content;
+    width: 100%
+}
+
+.box-select::after {
+    content: '❯';
+    position: absolute;
+    right: 28px;
+    color: white;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
+arrow {
+    position: absolute;
+    right: 28px;
+    transform: rotate(90deg);
 }
 
 .filtro option {
@@ -755,13 +777,15 @@ label {
 .filtro,
 input[type="text"] {
     background: #2c2c2c;
-    height: 36px;
-    border-radius: 20px;
+    border-radius: 50px;
     border: none;
     color: white;
-    padding: 0 20px;
-    font-size: 16px;
+    padding: 0 30px;
+    font-size: 1rem;
     font-weight: 400;
+    min-height: 36px;
+    height: 3vw;
+    max-height: 66px;
 }
 
 input[type="text"] {
@@ -788,16 +812,29 @@ input[type="text"]::placeholder {
     display: grid;
     grid-template-columns: 300px 1fr;
     width: 100%;
-    gap: 40px;
+    gap: 14px;
 }
 
 .cont_tags {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    margin-bottom: 65px;
+
+}
+
+.filter-tags {
+    display: flex;
+
+    align-items: center;
+    gap: 30px;
+    margin-top: 16px;
+    margin-bottom: 64px;
+}
+
+
+.filter-tag__p {
+    white-space: nowrap;
 }
 
 filter {
@@ -841,7 +878,7 @@ header {
     justify-items: center;
     bottom: 80px;
     width: 100%;
-    font-size: 22px;
+    font-size: 1.4rem;
     font-weight: 100;
 }
 
@@ -926,7 +963,7 @@ header {
 }
 
 .alteraLayout {
-    background: rgb(101, 101, 101);
+    background: var(--red-mack);
     padding: 8px;
     border-radius: 2px;
     transition: .2s;
@@ -950,7 +987,7 @@ header {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background: rgb(89, 89, 89);
+    background-color: var(--red-mack);
     border-radius: 50%;
 }
 
@@ -979,27 +1016,17 @@ h1 {
     width: 100%;
 }
 
-
-
-@media only screen and (min-width: 1980px) {
-
-    .container-projetos {
-        column-count: 4;
-    }
-}
-
 .projeto {
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
     width: 100%;
     cursor: pointer;
+    height: 300px;
 }
 
 .container-projetos {
-    /*     column-count: 3; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 20px;
     color: white;
     width: 100%;
@@ -1007,12 +1034,49 @@ h1 {
     padding-bottom: 100px;
 }
 
+@media only screen and (min-width:2001px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width:2000px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1450px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container-projetos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container-projetos {
+        grid-template-columns: 1fr;
+    }
+}
+
 .projeto_thumb {
     border-radius: 8px;
     cursor: pointer;
     object-fit: cover;
     width: 100%;
-    height: 300px;
+    height: 100%;
+
     min-height: 120px;
     max-height: 520px;
     transition: .5s;
@@ -1087,7 +1151,7 @@ h1 {
     font-weight: 400;
     transition: .2s;
     padding: 0 20px;
-    font-size: 16px;
+    font-size: 1rem;
     color: rgb(211, 211, 211);
 }
 
@@ -1097,7 +1161,7 @@ h1 {
 }
 
 h6 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 18px;
 }
@@ -1151,7 +1215,7 @@ h6 {
     border-radius: 50%;
     width: 24px;
     height: 24px;
-    font-size: 24px;
+    font-size: 1.8rem;
     cursor: pointer;
     z-index: 3;
 }
@@ -1179,7 +1243,6 @@ header-popup {
     column-count: 2;
     margin: 20px 0 60px 0;
     font-weight: 400;
-    line-height: 26px;
 }
 
 .title-popup {
@@ -1189,13 +1252,13 @@ header-popup {
 }
 
 .title-popup h5 {
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: 500;
 }
 
 .font-light {
     font-weight: 400;
-    font-size: 17px;
+    font-size: 0.9rem;
     color: #A0A0A0;
 }
 
@@ -1221,8 +1284,7 @@ hr {
 .grid__criadores {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    line-height: 26px;
-    font-size: 16px;
+    font-size: 1rem;
     gap: 14px;
 }
 
@@ -1232,7 +1294,6 @@ hr {
     background: #1a1a1a;
     margin-bottom: 30px;
     padding: 10px;
-    line-height: 20px;
     border-radius: 8px;
 }
 
@@ -1245,7 +1306,7 @@ hr {
 .criadores__name {
     font-weight: 400;
     color: white;
-    font-size: 18px;
+    font-size: 1.13rem;
 }
 
 .grid__criadores__imgs {
@@ -1286,14 +1347,14 @@ hr {
     border-radius: 50px;
     background: white;
     color: black;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 [type="black"] {
     border-radius: 8px;
     background: #1a1a1a;
     color: #7f7f7f;
-    font-size: 15px;
+    font-size: 1.7rem;
     font-weight: 400;
     padding: 6px 11px;
 }
@@ -1307,9 +1368,8 @@ hr {
 }
 
 .popup__docentes {
-    line-height: 26px;
     color: #A0A0A0;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
 }
 
@@ -1324,7 +1384,7 @@ hr {
     }
 
     .container-projetos {
-        gap: 3px;
+        gap: 12px;
 
     }
 
@@ -1363,16 +1423,16 @@ hr {
         justify-content: center;
     }
 
-    section-projects {
-        width: calc(100% - 120px);
+    .filter-tags {
+        flex-direction: column;
+    }
+
+    .projectName {
+        opacity: 1;
     }
 }
 
 @media only screen and (max-width: 700px) {
-
-    section-projects {
-        width: calc(100% - 50px);
-    }
 
     .projeto {
         margin: 0;
@@ -1399,10 +1459,7 @@ hr {
         display: none;
     }
 
-    .projectName {
-        font-size: 14px;
-        opacity: 1;
-    }
+
 
     .projectName {
         padding: 0 10px;
@@ -1451,12 +1508,9 @@ hr {
         padding: 10px
     }
 
-}
-</style>
 
-<style>
-:root {
-    --gap-img: 10px
+
+
 }
 
 .vitrine-grid {
@@ -1478,5 +1532,11 @@ hr {
 .vitrine-grid img {
     object-fit: contain;
     width: 100%;
+}
+</style>
+
+<style>
+:root {
+    --gap-img: 10px
 }
 </style>
