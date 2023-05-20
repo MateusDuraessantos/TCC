@@ -376,7 +376,7 @@
           <div class="horarios_absolute">
             <h1 class="title">Horários/Períodos</h1>
             <div class="horarios__cards">
-              <div class="card">
+              <div class="card card--bacharelado">
                 <div class="horarios__card--text">
                   <p><b>Tipo</b>: Graduação - Bacharelado</p>
                   <p><b>Duração</b>: 8 semestres / 4 anos</p>
@@ -391,25 +391,27 @@
                 </div>
               </div>
               <!-- card 1 -->
-              <div class="card">
-                <img class="card__prof" src="design/docentes/nara.jpg">
-                <img class="card__header" src="design/docentes/card_header.jpg">
-                <div class="card__infos">
-                  <p class="card__name">Profª. Drª. Nara Silvia Marcondes Martins</p>
-                  <p>Coordenadora de Graduação</p>
-                  <p class="card__cargo">contato</p>
-                  <p class="card__email">fau.design@mackenzie.br</p>
+              <div class="coordenadores">
+                <div class="card">
+                  <img class="card__prof" src="design/docentes/nara.jpg">
+                  <img class="card__header" src="design/docentes/card_header.jpg">
+                  <div class="card__infos">
+                    <p class="card__name">Profª. Drª. Nara Silvia Marcondes Martins</p>
+                    <p>Coordenadora de Graduação</p>
+                    <p class="card__cargo">contato</p>
+                    <p class="card__email">fau.design<span>@mackenzie.br</span></p>
+                  </div>
                 </div>
-              </div>
-              <!-- card 2 -->
-              <div class="card">
-                <img class="card__prof" src="design/docentes/luciana.png">
-                <img class="card__header" src="design/docentes/card_header.jpg">
-                <div class="card__infos">
-                  <p class="card__name">Profª. Drª. Luciana Tombi Brasil</p>
-                  <p>Representante PROATO-FAU</p>
-                  <p class="card__cargo">contato</p>
-                  <p class="card__email">fau.proato@mackenzie.br</p>
+                <!-- card 2 -->
+                <div class="card">
+                  <img class="card__prof" src="design/docentes/luciana.png">
+                  <img class="card__header" src="design/docentes/card_header.jpg">
+                  <div class="card__infos">
+                    <p class="card__name">Profª. Drª. Luciana Tombi Brasil</p>
+                    <p>Representante PROATO-FAU</p>
+                    <p class="card__cargo">contato</p>
+                    <p class="card__email">fau.proato<span>@mackenzie.br</span></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -461,10 +463,10 @@
 
           <!-- M do background -->
 
-          <img class="grid__background_M" src="design/blur.png">
 
         </div>
       </section>
+
     </div>
   </div>
 </template>
@@ -701,7 +703,7 @@ export default {
 
   mounted() {
     this.ativarImg()
-    this.scrolltoTop()
+    /*     this.scrolltoTop() */
   },
   methods: {
 
@@ -711,8 +713,6 @@ export default {
         window.scrollTo(0, 0);
       });
     },
-
-
 
     changeCarrossel(index) {
       this.displayNumber = index
@@ -1164,6 +1164,7 @@ hr {
 .background__jpg {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .horarios_absolute {
@@ -1174,9 +1175,15 @@ hr {
   width: 100%;
 }
 
+.coordenadores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 .horarios__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
 }
 
@@ -1323,15 +1330,7 @@ hr {
   transform: translate(22px, -2px);
 }
 
-/* M do background */
-.grid__background_M {
-  position: absolute;
-  left: -50vw;
-  top: -300px;
-  width: 140vw;
-  max-width: 100vw;
-  z-index: 0;
-}
+
 
 /* Docentes */
 .docentes {
@@ -1351,34 +1350,6 @@ hr {
   margin: auto;
 }
 
-@media only screen and (min-width: 1980px) {
-  .docentes__grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-}
-
-@media only screen and (max-width: 1980px) {
-  .docentes__grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-}
-
-@media only screen and (max-width: 1000px) {
-  .docentes__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  .docentes__grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-
 
 .card {
   position: relative;
@@ -1394,6 +1365,8 @@ hr {
   backdrop-filter: blur(6px);
   box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .card__infos {
   border-radius: 0 0 8px 8px;
@@ -1457,10 +1430,32 @@ hr {
   object-fit: cover;
 }
 
+@media only screen and (min-width: 1980px) {
+  .docentes__grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+}
+
+@media only screen and (max-width: 1980px) {
+  .docentes__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+
 
 
 
 @media only screen and (max-width: 1000px) {
+  .docentes__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .el-tabs__content {
+    padding: 0;
+  }
+
   .predio {
     grid-template-columns: 1fr;
   }
@@ -1512,8 +1507,9 @@ hr {
   }
 
   .laboratorio__container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
+
 
 
   #link_objetivo,
@@ -1531,7 +1527,54 @@ hr {
 
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
+
+  /* docentes */
+  .card {
+    align-items: center;
+  }
+
+  .card--bacharelado {
+    max-width: max-content;
+    margin: auto;
+  }
+
+  .card__prof {
+    width: 60px;
+    left: auto;
+    top: 16px;
+    outline: 4px solid black;
+  }
+
+  .card__infos {
+    gap: 0;
+    padding: 12px;
+    padding-top: 26px;
+    padding-bottom: 20px;
+  }
+
+  .card {
+    padding: 2px;
+  }
+
+  .card__name {
+    line-height: 1.2rem;
+  }
+
+  .card__email {
+    line-height: 1rem;
+  }
+
+  .card__header {
+    height: 100%;
+  }
+
+  .coordenadores,
+  .docentes__grid {
+    gap: 4px;
+  }
+
+  /*  */
   .premiacao__img {
     display: none;
   }
@@ -1559,17 +1602,84 @@ hr {
     width: 100%;
   }
 
-  .card {
-    padding: 0;
-  }
 }
 
 @media only screen and (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .carrossel__options {
+    gap: 3px;
+  }
+
+  .carrossel__display-img {
+    margin-bottom: 8px;
+  }
+
+  .laboratorios__img {
+    border-width: 10px;
+  }
+
+  .laboratorio__container {
+    gap: 3px;
+  }
+
+  .laboratorios__card {
+    min-height: 100px;
+  }
+
+  section {
+    width: calc(100% - 10px);
+  }
+
+  .title {
+    margin-left: 14px;
+  }
 }
+
+@media only screen and (max-width: 400px) {
+  .mensalidade__gostou {
+    font-size: 1.4rem;
+  }
+
+  .mensalidade span {
+    padding: 14px;
+  }
+
+  .mensalidade {
+    min-height: 220px;
+    padding: 2px;
+  }
+
+  .background {
+    height: 300vh;
+  }
+
+  .premiacao__grid span {
+    gap: 40px;
+    padding: 30px 10px;
+  }
+
+  .premiacao__grid {
+    padding: 2px;
+  }
+
+  .premiacao__2 img {
+    width: 100px;
+
+  }
+
+  .premiacao__1 {
+    width: 80px;
+  }
+
+}
+
+/* Mobile version */
 </style>
+
+
 
 <style>
 /* Primary Nav */
@@ -1632,11 +1742,5 @@ hr {
 
 .el-tabs__content {
   padding: 30px 30px 0 30px;
-}
-
-@media only screen and (max-width: 1000px) {
-  .el-tabs__content {
-    padding: 0;
-  }
 }
 </style>

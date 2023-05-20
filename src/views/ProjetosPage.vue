@@ -256,6 +256,27 @@
             <!-- Popup -->
 
             <div class="popup" v-if="popupValue">
+                <div class="popup_buttons">
+
+                    <!-- Download -->
+
+                    <div class="download">
+                        <div class="download__bubble">
+                            <img class="download__img" src="/projetos/download.svg">
+                        </div>
+                        <p>Relatório final</p>
+                    </div>
+
+                    <!-- Layout -->
+
+                    <div class="layout" @click="square">
+                        <div class="layout__container" id="layout">
+                            <div class="square" v-for="coisa in coisas" />
+                        </div>
+                        <p>Mudar Layout</p>
+                    </div>
+                </div>
+
                 <button class="popup__close" @click="upPopup">✕</button>
 
                 <div class="popup__overflow" @click="upPopup">
@@ -271,26 +292,6 @@
                             </span>
 
 
-                            <div class="popup_buttons">
-
-                                <!-- Download -->
-
-                                <div class="download">
-                                    <div class="download__bubble">
-                                        <img class="download__img" src="/projetos/download.svg">
-                                    </div>
-                                    <p class="download__p">Relatório final</p>
-                                </div>
-
-                                <!-- Layout -->
-
-                                <div class="layout" @click="square">
-                                    <div class="layout__container" id="layout">
-                                        <div class="square" v-for="coisa in coisas" />
-                                    </div>
-                                    <p>Layout</p>
-                                </div>
-                            </div>
 
                         </header-popup>
 
@@ -544,9 +545,13 @@ export default {
 }
 
 @keyframes opacitySuave {
-    from {
+    0% {
         opacity: 0;
-        transform: translatey(-30px);
+    }
+   
+    50% {
+        opacity: 0;
+        transform: translatey(-20px);
     }
 
     to {
@@ -892,7 +897,6 @@ header {
     position: absolute;
 }
 
-
 @keyframes outraanimacao {
     0% {
         transform: translatey(0);
@@ -1040,6 +1044,7 @@ h6 {
 }
 
 .popup {
+    display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
@@ -1059,8 +1064,6 @@ h6 {
     height: 100vh;
     width: 100%;
 }
-
-
 
 .popup__container,
 .cont__square {
@@ -1108,45 +1111,38 @@ header-popup {
 
 
 .popup_buttons {
+    position: fixed;
     display: flex;
-    gap: 46px;
-    padding-right: 20px;
     align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 40px;
+    top: 93px;
+    width: 80%;
+    gap: 46px;
+    margin: auto;
+    z-index: 3;
+    white-space: nowrap;
 }
 
-.layout {
-    animation-name: opacitySuave;
-    animation-duration: 0.8s;
-    animation-fill-mode: forwards;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    z-index: 2;
-    gap: 16px;
-    margin-bottom: 1px;
-}
 
 .download {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    animation-name: opacitySuave;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .download__bubble {
-    animation-name: opacitySuave;
-    animation-duration: .6s;
-    animation-fill-mode: forwards;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    cursor: pointer;
     padding: 10px;
     background: #414141;
     border-radius: 50%;
@@ -1159,13 +1155,9 @@ header-popup {
     transition: .2s;
 }
 
-.download__bubble:hover {
+.download:hover .download__bubble {
     background: #b50009;
     transition: .2s;
-}
-
-.download__p {
-    white-space: nowrap;
 }
 
 .download__img {
@@ -1177,6 +1169,21 @@ header-popup {
 .download:hover img {
     transform: translatey(-4px);
     transition: .2s;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+    gap: 16px;
+    animation-name: opacitySuave;
+    animation-duration: 1.1s;
+    animation-fill-mode: forwards;
 }
 
 .layout__container {
@@ -1197,6 +1204,18 @@ header-popup {
     transition: .2s;
 }
 
+
+.layout:hover .square {
+    transition: .2s;
+    background: #b50009;
+}
+
+.layout:hover .square {
+    transition: .2s;
+    max-height: 70px;
+    transform: translatey(-5px);
+}
+
 .square {
     background: #414141;
     padding: 8px;
@@ -1204,19 +1223,6 @@ header-popup {
     border-radius: 2px;
     transition: .2s;
 }
-
-.layout__container:hover .square {
-    transition: .2s;
-    background: #b50009;
-}
-
-.layout:hover .square {
-
-    transition: .2s;
-    max-height: 70px;
-    transform: translatey(-5px);
-}
-
 
 
 /* portfolio */

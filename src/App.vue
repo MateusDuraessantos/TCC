@@ -106,6 +106,14 @@ body {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 12px;
+  }
+
+
+}
+
 header {
   display: flex;
   align-items: center;
