@@ -17,12 +17,11 @@
 
         <div id="link_objetivo">
           <div class="container_objetivo">
-            <div>
+            <div class="aulas__title">
               <h1 class="title">O que temos como objetivo?</h1>
-              <hr-color />
-              <hr>
             </div>
           </div>
+
           <div class="objetivo">
             <p class="objetivo__text">
               &nbsp; O Curso de Bacharelado em Design da FAU-Mackenzie tem como objetivo formar profissionais com
@@ -38,7 +37,7 @@
               imersão no problema, definição de pontos de vista, ideação, prototipagem e teste. A metodologia é focada em
               entender as necessidades e desejos do usuário para desenvolver soluções inovadoras e eficientes.
             </p>
-            <iframe style="background: #1f1f1f; border-radius: 8px; width: 100%; height:100%"
+            <iframe style="background: #1f1f1f; border-radius: 8px; width: 100%; height:100%; min-height: 310px;"
               src=" https://www.youtube.com/embed/zcuPcoQNT4w" title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen></iframe>
@@ -51,7 +50,11 @@
 
           <div class="premiacoes__container">
 
-            <h2 class="title">Premiações</h2>
+            <div class="grafismo">
+              <h3 class="title">Premiações</h3>
+              <hr-color />
+              <hr>
+            </div>
 
             <div class="premiacao__grid">
               <div class="premiacao__background">
@@ -75,7 +78,13 @@
         <!-- Matriz -->
 
         <div class="matriz" id="link_matriz">
-          <h1 class="title">Um pouquinho do que você vai aprender </h1>
+
+          <div class="container_objetivo">
+            <div class="aulas__title">
+              <h1 class="title">Matriz Curricular <span class="some">- Um pouquinho do que você vai aprender</span> </h1>
+            </div>
+          </div>
+
           <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
             <el-tab-pane label="Matriz Curricular" name="first">
               <div class="container__collapse">
@@ -299,8 +308,9 @@
         <div class="container-predio" id="link_predio">
           <div class="predio">
             <div class="predio__grid">
-              <h1 class="title">Prédio 9</h1>
-              <br>
+              <div class="aulas__title">
+                <h1 class="title">Prédio 9</h1>
+              </div>
               <p class="predio__description">
                 &nbsp; O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
                 tecnológico
@@ -352,7 +362,9 @@
         <!-- Laboratórios -->
 
         <div class="laboratorios" id="link_laboratorios">
-          <h1 class="title">Laboratórios</h1>
+          <div class="aulas__title">
+            <h1 class="title">Laboratórios</h1>
+          </div>
           <div class="laboratorio__container">
 
             <div class="laboratorios__card" v-for="lab in labs" @click="popupLab">
@@ -374,7 +386,9 @@
 
         <div class="horarios" id="link_horarios">
           <div class="horarios_absolute">
-            <h1 class="title">Horários/Períodos</h1>
+            <div class="aulas__title">
+              <h1 class="title">Horários/Períodos</h1>
+            </div>
             <div class="horarios__cards">
               <div class="card card--bacharelado">
                 <div class="horarios__card--text">
@@ -387,7 +401,7 @@
                     Noturno: 5° ao 8° semestre <br>
                     Noturno: 1° ao 8° semestre <br>
                   </p>
-                  <p><b>Local</b>: Campus Higienópolis <br></p>
+                  <p><b>Local</b>: Campus Higienópolis </p>
                 </div>
               </div>
               <!-- card 1 -->
@@ -424,8 +438,10 @@
                   </p>
                   <div>
                     <p class="mensalidade__gostou">Gostou do Curso? Faça parte da nossa História!</p>
-                    <button class="red_btn" style="align-items: center; display: flex; ">Avise-me <arrow
-                        style="font-size: 22px; transform: translateY(-2px);">→</arrow></button>
+                    <button class="red_btn" style="align-items: center; display: flex; "><a
+                        @click="scrollToSection('link_aulas')">Avise-me</a>
+                      <arrow style="font-size: 22px; transform: translateY(-2px);">→</arrow>
+                    </button>
                   </div>
                 </span>
                 <img class="mensalidade__img" src="design/mao.jpg" alt="mão escrevendo">
@@ -441,12 +457,10 @@
         <!-- Docentes -->
 
         <div class="docentes" id="link_docentes">
-          <div class="container_objetivo">
+          <div class="grafismo">
             <h3 class="title">Corpo docente</h3>
-            <div>
-              <hr-color />
-              <hr>
-            </div>
+            <hr-color />
+            <hr>
           </div>
           <div class="docentes__grid">
             <div class="card" v-for="cardInfo in cardsInfos">
@@ -765,11 +779,31 @@ export default {
         this.popupValue = !this.popupValue
       }
     },
+
+    //Leva o usuário até o link clicado
+    scrollToSection(ancora) {
+      setTimeout(() => {
+        const section = document.getElementById(ancora);
+        window.scrollTo({
+          top: section.offsetTop,
+          behavior: 'smooth',
+        })
+      }, 50);
+    },
   },
 }
 </script>
 
 <style scoped>
+.aulas__title {
+  border-color: #CC141D;
+}
+
+.grafismo {
+  z-index: 2;
+  margin-bottom: 32px;
+}
+
 #link_objetivo,
 #link_matriz,
 #link_premiacoes,
@@ -788,23 +822,18 @@ export default {
 }
 
 section {
-  margin: 0 100px;
+
   width: calc(100% - 6vw);
 }
 
 @media only screen and (min-width:1981px) {
 
   section {
+
     width: 80%;
     min-width: 1860px;
   }
 
-}
-
-.title {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  z-index: 3;
 }
 
 
@@ -884,38 +913,18 @@ header {
   text-align: center;
 }
 
-/* objetivo */
+/* O que temos como bjetivo */
+
 .objetivo {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  height: 26vw;
   min-height: 400px;
-}
 
-.container_objetivo {
-  padding-bottom: 30px;
-  position: relative;
-  z-index: 2;
 }
 
 .objetivo__text {
   font-size: 1rem;
-}
-
-hr-color {
-  display: flex;
-  position: absolute;
-  width: 100px;
-  background: #CC141D;
-  height: 3px;
-}
-
-hr {
-  border: none;
-  border-style: solid;
-  border-color: #333333;
-  border-width: 3px 0 0 0;
 }
 
 /* Prédio */
@@ -1066,7 +1075,7 @@ hr {
 
 .matriz {
   padding-top: 160px;
-  width: 100%;
+  width: 70%;
   margin: auto;
 }
 
@@ -1081,7 +1090,7 @@ hr {
 /* Laboratórios */
 
 .laboratorios {
-  width: 100%;
+  width: 70%;
   margin: auto;
 
 }
@@ -1172,7 +1181,7 @@ hr {
   gap: 20px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
 }
 
 .coordenadores {
@@ -1258,8 +1267,7 @@ hr {
   flex-direction: column;
   gap: 20px;
   width: max-content;
-  width: 100%;
-  max-width: 900px;
+  width: 70%;
   margin: auto;
 }
 
@@ -1267,7 +1275,9 @@ hr {
   position: absolute;
   top: -30vw;
   width: 100vw;
+  min-height: 70vh;
   filter: blur(10px);
+  object-fit: cover;
 }
 
 .premiacao__grid {
@@ -1282,7 +1292,9 @@ hr {
 .premiacao__grid span {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 40px;
+  width: 54%;
   gap: 80px;
   margin: auto;
 }
@@ -1299,11 +1311,12 @@ hr {
 }
 
 .premiacao__img {
-  height: 220px;
+
+  height: 280px;
 }
 
 .premiacao__1 {
-  width: 160px;
+  width: clamp(200px, 11vw, 220px);
 }
 
 .premiacao__2 {
@@ -1317,7 +1330,9 @@ hr {
 }
 
 .premiacao__2 img {
-  width: 170px;
+  width: 14vw;
+  max-width: 270px;
+  min-width: 170px;
 }
 
 .red_btn {
@@ -1336,9 +1351,10 @@ hr {
 .docentes {
   position: relative;
   margin-bottom: 240px;
-  width: 100%;
+  width: 90%;
   margin: auto;
   margin-bottom: 200px;
+
 }
 
 .docentes__grid {
@@ -1383,12 +1399,13 @@ hr {
 .card__name {
   font-weight: 600;
   min-height: 38px;
+  line-height: 1.2rem;
   color: #828282;
 }
 
 .card__prof {
-  width: 90px;
-  top: 58px;
+  width: 100px;
+  top: 50px;
   left: 40px;
   position: absolute;
   outline: 6px solid black;
@@ -1439,13 +1456,39 @@ hr {
 
 @media only screen and (max-width: 1980px) {
   .docentes__grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .docentes {
+    width: 100%;
+  }
+
+  .mensalidade__gostou {
+    font-size: 1.4rem;
   }
 
 }
 
+@media only screen and (max-width: 1700px) {
+  .docentes__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
+  .laboratorios {
+    width: 100%;
+  }
+}
 
+@media only screen and (max-width: 1700px) {
+  .horarios_absolute {
+    width: 100%;
+  }
+
+  .matriz,
+  .premiacoes__container {
+    width: 100%;
+  }
+}
 
 @media only screen and (max-width: 1000px) {
   .docentes__grid {
@@ -1515,10 +1558,11 @@ hr {
   #link_objetivo,
   #link_matriz,
   #link_predio,
+  #link_premiacoes,
   #link_laboratorios,
   #link_horarios,
   #link_docentes {
-    padding-top: 50px;
+    padding-top: 80px;
   }
 
   .mensalidade__img {
@@ -1557,10 +1601,6 @@ hr {
     padding: 2px;
   }
 
-  .card__name {
-    line-height: 1.2rem;
-  }
-
   .card__email {
     line-height: 1rem;
   }
@@ -1572,6 +1612,10 @@ hr {
   .coordenadores,
   .docentes__grid {
     gap: 4px;
+  }
+
+  .mensalidade {
+    padding: 2px;
   }
 
   /*  */
@@ -1602,6 +1646,21 @@ hr {
     width: 100%;
   }
 
+  .carrossel__display {
+    min-height: 280px;
+  }
+
+  .carrossel__options-img {
+    min-height: 50px;
+  }
+
+  .premiacao__grid span {
+
+    width: 80%;
+    width: max-content;
+  }
+
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -1630,15 +1689,56 @@ hr {
   }
 
   section {
-    width: calc(100% - 10px);
+    width: calc(100% - 40px);
+
   }
 
-  .title {
-    margin-left: 14px;
+  .card--bacharelado,
+  .horarios__card--text {
+    max-width: 100%;
+    width: 100%;
   }
+
+  /* Predio 9 */
+  .predio__grid {
+    gap: 0px;
+  }
+
+
+
+  .some {
+    display: none;
+  }
+
+  .premiacao__grid span {
+    gap: 50px;
+    width: 80%;
+    width: max-content;
+    padding: 30px 10px;
+  }
+
+  .premiacao__grid {
+    padding: 2px;
+  }
+
 }
 
 @media only screen and (max-width: 400px) {
+
+  .container-predio {
+    margin-bottom: 0;
+  }
+
+  .laboratorios {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+  .objetivo,
+  .predio__description {
+    margin-top: 14px;
+  }
+
   .mensalidade__gostou {
     font-size: 1.4rem;
   }
@@ -1656,24 +1756,43 @@ hr {
     height: 300vh;
   }
 
-  .premiacao__grid span {
-    gap: 40px;
-    padding: 30px 10px;
+  .laboratorio__container {
+    gap: 16px;
   }
 
-  .premiacao__grid {
-    padding: 2px;
-  }
-
-  .premiacao__2 img {
-    width: 100px;
-
+  .laboratorios__img {
+    border: 0;
   }
 
   .premiacao__1 {
     width: 80px;
   }
 
+  .premiacao__2 img {
+    min-width: 112px;
+  }
+
+  .laboratorios__card {
+    min-height: 70px;
+  }
+
+  /* Predio 9 */
+
+  .predio__description {
+    overflow: visible;
+  }
+
+  .premiacao__estudante {
+    width: 100%;
+  }
+
+  .premiacoes__container {
+    gap: 0;
+  }
+
+  .grafismo {
+    margin-bottom: 22px;
+  }
 }
 
 /* Mobile version */
@@ -1742,5 +1861,13 @@ hr {
 
 .el-tabs__content {
   padding: 30px 30px 0 30px;
+}
+
+@media only screen and (max-width:400px) {
+  .el-tabs__content {
+    padding: 0px;
+  }
+
+
 }
 </style>

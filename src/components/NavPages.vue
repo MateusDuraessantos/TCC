@@ -31,7 +31,7 @@
                 <span class="logo-mack">
                     <img class="logo" src="mack_logo.png" alt="Logo Mackenzie">
 
-                    <i>Universidade - Campus <br /> Higienópolis</i>
+                    <i>Universidade - Campus Higienópolis</i>
                 </span>
                 <span style="display: flex; align-items: center; gap: 20px;">
                     <div class="mackStore">Mack Store</div>
@@ -87,7 +87,6 @@
                                 <a @click="scrollToSection('link_matriculas')">Matrículas</a>
                                 <a @click="scrollToSection('link_bolsa')">Setor de bolsas</a>
                                 <a @click="scrollToSection('link_perguntas')">Perguntas frequêntes</a>
-                                <a @click="scrollToSection('link_frase')">Sonhe</a>
                             </div>
                         </router-link>
 
@@ -240,12 +239,14 @@ nav {
 
 .ground {
     background: #cc141d;
+    background: #212121;
     height: 70px;
     width: 100%;
 }
 
 .red-bar {
     background: #B41C2C;
+    background: #2E2E2E;
     height: 44px;
     width: 100%;
     position: sticky;
@@ -313,7 +314,8 @@ nav {
 }
 
 .black-bar .logo {
-    opacity: 0.6;
+    visibility: hidden;
+    opacity: 0.8;
     height: 3vw;
     min-height: 34px;
     max-height: 52px;
@@ -364,6 +366,8 @@ nav {
     font-size: 0.8rem;
 }
 
+
+
 .logo-mack .logo {
     border-right: 1px solid rgba(255, 255, 255, 0.233);
     padding-right: 20px;
@@ -373,6 +377,7 @@ nav {
 .logo {
     height: 50px;
     object-fit: contain;
+
 }
 
 .internation {
@@ -385,6 +390,7 @@ nav {
     padding: 0 26px;
     height: 33px;
     color: #B41C2C;
+    font-size: 0.8;
     background: white;
     border-radius: 50px;
 }
@@ -439,7 +445,7 @@ nav {
 
     .subMenu,
     arrow {
-        display: none;
+        display: none !important;
     }
 
     .blue-bar,
@@ -451,6 +457,10 @@ nav {
     nav {
         position: fixed;
         top: 0;
+    }
+
+    .black-bar .logo {
+        visibility: visible;
     }
 }
 

@@ -230,24 +230,23 @@
             <!-- Filtro por tags  -->
 
             <div class="filter-tags">
-                <p class="filter-tag__p">Escolher categoria:</p>
                 <div class="cont_tags" @click="category">
-                    <filter filter="ativo">
+                    <filter tabindex="0" filter="ativo">
                         Todos
                     </filter>
-                    <filter>
+                    <filter tabindex="0">
                         Editorial
                     </filter>
-                    <filter>
+                    <filter tabindex="0">
                         Mobiliario
                     </filter>
-                    <filter>
+                    <filter tabindex="0">
                         Renders 3D
                     </filter>
-                    <filter>
+                    <filter tabindex="0">
                         Desenho
                     </filter>
-                    <filter>
+                    <filter tabindex="0">
                         Fotografia
                     </filter>
                 </div>
@@ -548,7 +547,7 @@ export default {
     0% {
         opacity: 0;
     }
-   
+
     50% {
         opacity: 0;
         transform: translatey(-20px);
@@ -561,22 +560,6 @@ export default {
 }
 
 /* Quero Expor meu Projeto */
-
-.cadastro {
-    animation-name: opacitySuave;
-    animation-duration: 0.8s;
-    animation-fill-mode: forwards;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-}
 
 .cadastro__close {
     position: fixed;
@@ -741,27 +724,55 @@ label {
     margin-top: 60px;
 }
 
-.inputs {
-    margin-bottom: 40px;
+
+
+.filtro,
+filter,
+input[type="text"] {
+    border-radius: 50px;
+    color: white;
+    padding: 0 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    min-height: 36px;
+    height: 3vw;
+    max-height: 66px;
+}
+
+
+
+.filtro,
+input[type="text"] {
+    background: #2c2c2c;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+input[type="text"]::placeholder {
+    color: gray;
 }
 
 .filtro {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
     outline: none;
     cursor: pointer;
+    min-width: 280px;
     width: 100%;
+   
+ 
 }
 
 .box-select {
     display: flex;
-    align-items: center;
     position: relative;
     height: max-content;
-    width: 100%
+    align-items: center;
 }
+
 
 .box-select::after {
     content: '❯';
@@ -782,28 +793,6 @@ arrow {
     height: 30px;
 }
 
-.filtro,
-input[type="text"] {
-    background: #2c2c2c;
-    border-radius: 50px;
-    border: none;
-    color: white;
-    padding: 0 30px;
-    font-size: 1rem;
-    font-weight: 400;
-    min-height: 36px;
-    height: 3vw;
-    max-height: 66px;
-}
-
-input[type="text"] {
-    width: 100%;
-}
-
-input[type="text"]::placeholder {
-    color: gray;
-}
-
 /* Filtro por tags */
 
 .filtro_por_filtro {
@@ -818,21 +807,20 @@ input[type="text"]::placeholder {
 
 .cont_filtro {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: max-content 1fr;
     width: 100%;
     gap: 14px;
 }
 
 .cont_tags {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .filter-tags {
     display: flex;
-
     align-items: center;
     gap: 30px;
     margin-top: 16px;
@@ -840,25 +828,26 @@ input[type="text"]::placeholder {
 }
 
 
-.filter-tag__p {
-    white-space: nowrap;
-}
-
 filter {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 6px 18px;
     border-radius: 50px;
     cursor: pointer;
+    width: 100%;
     transition: .2s;
     color: #c9c9c9;
     border-color: rgb(107, 4, 4);
     border-width: 4px;
     border-style: solid;
     box-shadow: 3px 3px 8px black;
+
 }
 
 filter:hover {
-    background: rgb(172, 0, 0);
+    background: rgb(140, 0, 0);
+    border-color: rgb(140, 0, 0);
     transition: .2s;
 }
 
@@ -887,6 +876,10 @@ header {
     width: 100%;
     font-size: 1.4rem;
     font-weight: 100;
+}
+
+.header__footer {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 
 .carousel-img {
@@ -929,6 +922,7 @@ h1 {
     margin-left: 100px;
     text-align: start;
     width: 100%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
 }
 
 .projeto {
@@ -1195,7 +1189,7 @@ header-popup {
     display: grid;
     align-items: center;
     justify-content: center;
-    width: 3vw;
+    width: 4.6vw;
     height: 3vw;
     min-height: 34px;
     max-width: 58px;
@@ -1477,6 +1471,18 @@ hr {
     .projectName {
         opacity: 1;
     }
+
+    .header__footer {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 100px;
+        bottom: 40px;
+    }
+
+    h1 {
+        position: absolute;
+        top: 124px;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1516,12 +1522,6 @@ hr {
         width: calc(100% - 40px);
         margin: auto;
         margin-bottom: 20px;
-    }
-
-    .header__footer {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        margin-top: 100px;
     }
 
     h1 {
@@ -1572,8 +1572,8 @@ hr {
 
     filter {
         padding: 2px 15px;
-        font-size: 0.8rem;
         border-width: 1px;
+        max-width: max-content;
     }
 
     .projectName {
@@ -1622,6 +1622,14 @@ hr {
 
     .popup__container {
         max-width: 100%;
+    }
+
+    .filtro {
+        width: 100%;
+    }
+
+    .cont_tags {
+        flex-wrap: wrap;
     }
 }
 </style>

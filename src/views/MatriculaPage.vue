@@ -18,19 +18,19 @@
 
                 <!-- Preparado para as aulas -->
 
-                <img class="aulas__background" src="matricula/background_formandos.jpg">
+                <img class="aulas__background" id="background-mobile" src="matricula/background_formandos.jpg">
 
                 <div class="aulas" id="link_aulas">
                     <div class="aulas__grid">
                         <span>
-                            <div class="aulas__title">
+                            <title-section class="aulas__title">
                                 <h2>Preparado para as aulas</h2>
-                            </div>
+                            </title-section>
                             <p class="font-light">
                                 O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre
                                 sua
                                 matrícula, acesse o
-                                <span style="color: #00547F">portal do aluno</span>
+                                <span style="color: #009EEF;">portal do aluno</span>
                                 utilizando o
                                 número de sua matrícula.
                             </p>
@@ -65,14 +65,15 @@
                             <button class="blue_btn">inscreva-se</button>
                         </div>
                     </div>
-                    <b>Para maiores informações envie-nos um e-mail: bolsas@mackenzie.br.</b>
+                    <p>Para maiores informações envie-nos um e-mail: <b style="color: #009EEF;">bolsas@mackenzie.br.com</b>
+                    </p>
                 </div>
 
                 <!-- Setor de bolsas -->
 
                 <div id="link_bolsa">
                     <div class="bolsas">
-                        <div class="bolsas__title">
+                        <div class="aulas__title">
                             <h2>Setor de bolsas</h2>
                         </div>
                         <p> O Instituto Presbiteriano Mackenzie, em cumprimento a sua missão e valores, bem como aos seus
@@ -80,7 +81,7 @@
                             condições previstas na legislação, no Normativo de Bolsas de Estudo da Instituição e nos editais
                             publicados.
                         </p>
-                        <button class="blue_btn">Ver no mapa</button>
+                        <button class="blue_btn">Ver no Maps</button>
                     </div>
                 </div>
 
@@ -90,8 +91,11 @@
                 <div id="link_perguntas">
 
                     <div class="perguntas">
-                        <h2>Perguntas frequêntes</h2>
-                        <el-collapse accordion style="margin: 60px 0">
+                        <title-section class="aulas__title">
+                            <h2>Perguntas frequêntes</h2>
+                        </title-section>
+
+                        <el-collapse accordion class="perguntas__collapse">
                             <el-collapse-item v-for="faq in faqs">
                                 <template #title>
                                     <p style="color: #BDBDBD">{{ faq.question }}</p>
@@ -101,10 +105,9 @@
                                 </span>
                             </el-collapse-item>
                         </el-collapse>
-                        <p>
-                            <b>Para maiores informações envie-nos um e-mail: </b>
-                            <span style="color: #00547F;">
-                                bolsas@mackenzie.br.com</span>
+                        <p>Para maiores informações envie-nos um e-mail:
+                            <b style="color: #009EEF;">
+                                bolsas@mackenzie.br.com</b>
                         </p>
                     </div>
 
@@ -112,22 +115,56 @@
                     <div class="livros__background">
                         <div class="livros__shadow"></div>
                     </div>
-
                 </div>
             </section>
         </div>
 
-        <!-- Frase -->
+        <!-- Entre em contato -->
 
-        <div id="link_frase"></div>
-        <div class="frase">
-            <img class="frase__background" src="matricula/auditorio.jpg">
-            <div class="frase__shadow"></div>
-            <div class="frase__shadow-1"></div>
-            <div class="frase__container">
-                <p class="frase__p">Seja a mudança que você deseja ver no mundo!</p>
+        <div id="link_contato"></div>
+
+        <div class="contato">
+
+            <img class="contato__background" id="contato-mobile" src="matricula/contato.jpg">
+            <div class="contato__shadow"></div>
+            <div class="contato__shadow-1"></div>
+
+
+            <div class="contato__container">
+                <div class="contato__content">
+                    <div class="aulas__title">
+                        <h2>Entre em contato</h2>
+                    </div>
+
+                    <!-- Inputs -->
+
+                    <div class="contato__grid">
+                        <span>
+                            <label>
+                                <p>Nome*</p>
+                                <input class="contato__inputs--input" type="text" placeholder="Digite:">
+                            </label>
+                            <label>
+                                <p>Email*</p>
+                                <input class="contato__inputs--input" type="text" placeholder="Digite:">
+                            </label>
+                        </span>
+                        <label>
+                            <p>Assunto*</p>
+                            <input class="contato__inputs--input" type="text" placeholder="Digite:">
+                        </label>
+                        <label>
+
+                            <p>Mensagem*</p>
+                            <textarea cols="30" rows="10" placeholder="Digite:"></textarea>
+                        </label>
+                        <p class="frase">Seja a mudança que você deseja ver no mundo!</p>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -248,21 +285,52 @@ export default {
         }
     },
     mounted() {
-        this.scrolltoTop()
+        // this.scrolltoTop()
+        this.updateImageSource()
+
     },
     methods: {
-
         //Ao entrar na página, faz ela rola para cima
         scrolltoTop() {
             this.$nextTick(() => {
                 window.scrollTo(0, 0);
             });
+        },
+
+        updateImageSource() {
+
+            const windowWidth = window.innerWidth;
+
+            if (windowWidth < 768) {
+                // Trocar o link da imagem para uma versão para telas pequenas
+                document.getElementById('background-mobile').src = "matricula/background_formandos-mobile.jpg";
+                document.getElementById('contato-mobile').src = "matricula/contato-mobile.jpg";
+            }
         }
+
     }
 }
 </script>
 
 <style scoped>
+.aulas__title {
+    border-color: #00547F;
+}
+
+#link_bolsa {
+    position: relative;
+    z-index: 1;
+}
+
+#link_bolsa,
+#link_aulas,
+#link_contato,
+#link_matriculas,
+#link_perguntas {
+    padding-top: 140px;
+}
+
+
 section {
     margin: 0 100px;
     width: calc(100% - 400px);
@@ -294,6 +362,7 @@ h2 {
 /* Sub Menu */
 
 .container__title {
+    overflow: hidden;
     line-height: 80px;
     z-index: 2;
     display: flex;
@@ -326,6 +395,13 @@ header {
     border-bottom: 3px solid #00547F
 }
 
+@media only screen and (max-width:700px) {
+    header {
+        background-image: url('../../public/matricula/banner-mobile.jpg');
+
+    }
+}
+
 .header__banner {
     font-size: 122px;
     font-weight: 100;
@@ -352,10 +428,6 @@ header {
 }
 
 /* Preparado para as aulas */
-
-#link_aulas {
-    padding-top: 200px;
-}
 
 .aulas {
     position: relative;
@@ -392,31 +464,7 @@ header {
     object-fit: cover;
 }
 
-.aulas__title {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-width: 0 0 0 4px;
-    border-color: #00547F;
-    border-style: solid;
-    min-height: 40px;
-    padding-left: 20px;
-    margin-bottom: 40px;
-}
-
-
-/* Setor de bolsas */
-
-#link_bolsa {
-    padding-top: 140px;
-}
-
-
 /* Matricula */
-
-#link_matriculas {
-    padding-top: 150px;
-}
 
 .matricula {
     position: relative;
@@ -503,22 +551,6 @@ header {
     z-index: 2;
 }
 
-.container__cards {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 60px;
-}
-
-.container__cards button {
-    padding: 0 70px;
-}
-
-.container__cards h2 {
-    text-align: center;
-    margin: 30px 0;
-}
-
 /* Perguntas frequêntes */
 
 #link_perguntas {
@@ -535,6 +567,10 @@ header {
     z-index: 2;
 }
 
+.perguntas__collapse {
+    margin: 60px 0
+}
+
 
 /* Livros background */
 
@@ -545,11 +581,18 @@ header {
     z-index: 0;
     width: 100vw;
     height: 100vw;
-    max-height: 1600px;
+    min-height: 100vh;
     background-image: url('../../public/matricula/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.5;
+}
+
+@media only screen and (max-width: 700px) {
+    .livros__background {
+        min-height: 220vh;
+        background-image: url('../../public/matricula/background-mobile.jpg');
+    }
 }
 
 .livros__shadow {
@@ -562,36 +605,31 @@ header {
     height: 100%;
 }
 
-/* Frase */
+/* contato */
 
-#link_frase {
-    padding-top: 200px;
-}
-
-.frase {
+.contato {
     position: relative;
     width: 100%;
-    height: 700px;
     z-index: 2;
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 140px 0;
 }
 
-.frase__background {
+.contato__background {
     position: absolute;
     object-fit: cover;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100%;
-    opacity: 0.5;
     z-index: 1;
 }
 
-.frase__container {
+.contato__container {
     z-index: 2;
     justify-content: center;
     flex-direction: column;
@@ -599,16 +637,22 @@ header {
     display: flex;
     font-size: 1rem;
     font-weight: 400;
+    height: 70%;
+    width: 100%;
+    background: #00557f17;
+    backdrop-filter: blur(10px);
 }
 
-.frase__p {
+.frase {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 300;
+    padding-top: 10vw;
+    padding-bottom: 10vw;
 }
 
-.frase__shadow,
-.frase__shadow-1 {
+.contato__shadow,
+.contato__shadow-1 {
     position: absolute;
     left: 0;
     top: 0;
@@ -617,13 +661,65 @@ header {
     height: 100%;
 }
 
-.frase__shadow-1 {
+.contato__shadow-1 {
     background-image: linear-gradient(90deg, black, transparent, transparent, black);
+    z-index: 2;
+
 }
 
-.frase__shadow {
-    background-image: linear-gradient(black, transparent, black);
+.contato__shadow {
+    background-image: linear-gradient(black, transparent, transparent, black);
+    z-index: 2;
+}
 
+.contato__content {
+    width: 40vw;
+    min-width: 700px;
+    height: 100%;
+    padding: 60px 0;
+    margin: auto;
+}
+
+.contato__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    font-size: 1rem;
+}
+
+.contato__grid label {
+    margin-bottom: 10px;
+}
+
+.contato__grid span {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9vw;
+}
+
+.contato__grid label p {
+    padding: 0 0 4px 10px;
+}
+
+.contato__inputs--input,
+textarea {
+    background: #212121;
+    width: 100%;
+    border-radius: clamp(22px, 1.8vw, 46px);
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+    padding-left: clamp(14px, 3vw, 30px);
+    padding-right: 10px;
+    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+    border: none;
+    height: clamp(36px, 2.8vw, 66px);
+    line-height: 1.6rem;
+}
+
+textarea {
+    height: 280px;
+    padding-top: 16px;
 }
 
 @media only screen and (max-width:1660px) {
@@ -637,24 +733,16 @@ header {
 @media only screen and (max-width: 1000px) {
     section {
         width: calc(100% - 50px);
+        margin: 0 10px;
     }
 
     .container__title {
         width: 280px;
     }
 
-    .container__cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin: auto;
-        max-width: 560px;
-        justify-items: center;
-        margin-top: 75px;
-
-    }
-
     .perguntas {
-        width: calc(100% - 50px);
+        width: 100%;
+
     }
 
     .header__banner {
@@ -665,6 +753,37 @@ header {
         font-size: 55px;
         letter-spacing: 53px;
     }
+
+    /* Matriculas */
+    .matricula {
+        gap: 20px;
+    }
+
+    .matriculas__grid {
+        gap: 40px;
+    }
+
+    /* Entre em contato */
+    .contato__content {
+        min-width: calc(100% - 80px);
+    }
+
+    .contato__grid span {
+        grid-template-columns: 1fr;
+    }
+
+    /* Perguntas frequêntes */
+
+
+    .contato__content {
+        padding: 20px 0;
+    }
+
+    .contato {
+        padding: 100px 0;
+    }
+
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -672,14 +791,91 @@ header {
         width: calc(100% - 50px);
     }
 
-    .container__cards {
+    .aulas__img {
+        display: none;
+    }
+
+    .aulas__grid {
         grid-template-columns: 1fr;
+    }
+
+    #link_bolsa,
+    #link_aulas,
+    #link_matriculas,
+    #link_perguntas {
+        padding-top: 80px;
+    }
+
+    .perguntas__collapse {
+        margin: 20px 0
+    }
+
+    .bolsas {
+        gap: 14px;
     }
 }
 
 @media only screen and (max-width: 500px) {
     .perguntas {
         width: 100%;
+    }
+
+    .aulas__grid .aulas__title {
+        margin-bottom: 16px;
+    }
+
+    .matriculas__grid {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    section {
+        width: calc(100% - 40px);
+    }
+
+    .aulas__background {
+        width: 100%;
+        min-height: 80vh;
+    }
+
+    .matriculas__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .frase {
+        font-size: 1rem;
+    }
+
+    .bolsas,
+    .aulas span {
+        padding: 18px
+    }
+
+    .contato__content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    textarea {
+        height: 140px;
+    }
+
+    .matriculas__card {
+        padding: 20px 10px;
+    }
+
+    .matriculas__grid {
+        gap: 14px;
+    }
+
+    .matriculas__card {
+        outline-width: 2px;
+    }
+
+    .aulas__grid {
+        outline-width: 2px;
     }
 }
 </style>

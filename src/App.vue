@@ -1,9 +1,9 @@
 <template>
   <div>
     <NavPages />
-    <div class="contato">
-      <img class="contato__icon" src="fone.svg" alt="Contato">
-      <p class="contato__text">Contato</p>
+    <div class="phone">
+      <img class="phone__icon" src="fone.svg" alt="phone">
+      <p class="phone__text">Contato</p>
     </div>
     <router-view />
     <FooterPage />
@@ -75,45 +75,6 @@ body {
   --red-mack: #CC141D;
 }
 
-/* Tamanho das tipografias */
-
-@media only screen and (min-width: 1420px) {
-  html {
-    font-size: 22px;
-    line-height: 1.6rem;
-  }
-}
-
-@media only screen and (max-width: 1420px) {
-  html {
-    font-size: 20px;
-    line-height: 1.6rem;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  html {
-    font-size: 16px;
-    line-height: 1.6rem;
-  }
-}
-
-/*  */
-
-@media only screen and (min-width: 1280px) {
-  :root {
-    --page-width: 1480px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  html {
-    font-size: 12px;
-  }
-
-
-}
-
 header {
   display: flex;
   align-items: center;
@@ -125,7 +86,10 @@ header {
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
 }
 
-.contato {
+
+/* Botão flutuante */
+
+.phone {
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -137,19 +101,19 @@ header {
   cursor: pointer;
   border-radius: 100px;
   position: fixed;
+  transition: .3s;
   bottom: 40px;
   right: 60px;
-  transition: .3s;
   z-index: 4;
 }
 
-.contato__icon {
+.phone__icon {
   height: 50%;
   position: absolute;
   left: 12px;
 }
 
-.contato__text {
+.phone__text {
   text-decoration: none;
   transition: .3s;
   color: transparent;
@@ -158,32 +122,34 @@ header {
   margin-left: 32px;
 }
 
-.contato:hover p {
+.phone:hover p {
   position: relative;
   color: white;
   opacity: 1;
   transition: .3s;
 }
 
-.contato:hover {
+.phone:hover {
   width: 130px;
   background: #ae0e16;
   opacity: 1;
   transition: .3s;
 }
 
+/* Botões */
+
 .blue_btn,
 .red_btn,
 .black_btn {
   min-height: 36px;
   max-height: 60px;
-  height: 2vw;
+  height: 2.6vw;
+  padding: 0 40px;
   border: none;
   border-radius: 60px;
   color: white;
   font-size: 1rem;
   font-weight: 400;
-  padding: 0 40px;
   transition: .3s;
   cursor: pointer;
   box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.4);
@@ -231,11 +197,65 @@ header {
   height: 100%;
 }
 
+/* Títulos das seções */
+
+.aulas__title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-width: 0 0 0 4px;
+  border-style: solid;
+  min-height: 40px;
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 1.4rem;
+}
+
+hr {
+  border: none;
+  border-style: solid;
+  border-color: #333333;
+  border-width: 3px 0 0 0;
+  margin-top: 10px;
+}
+
+hr-color {
+  margin-top: 10px;
+  display: flex;
+  position: absolute;
+  width: 100px;
+  background: #CC141D;
+  height: 3px;
+}
+
+/* Inputs, Textarea */
+
+input,
+textarea,
+select {
+  outline: none;
+  resize: none;
+  outline: 2px solid transparent;
+  transition: .2s;
+  border: 1px solid transparent;
+}
+
+input:focus,
+select:focus,
+filter:focus {
+  box-shadow: 0 0 15px rgb(183, 0, 0) !important;
+  border: 1px solid red !important;
+  transition: .2s;
+}
+
 /* Collapse */
 
 .el-collapse-item__header {
   background: #212121;
-  border-radius: 1.6vw;
+  border-radius: clamp(22px, 1.6vw, 30px);
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
   padding: 5px 0;
   padding-left: 20px;
@@ -244,9 +264,9 @@ header {
   font-weight: 400;
   font-size: 1rem;
   border: none;
-  min-height: 2.4vw;
-  height: max-content;
   line-height: 1.6rem;
+  height: fit-content;
+  min-height: 2.8vw;
 }
 
 .el-collapse,
@@ -276,6 +296,35 @@ header {
   font-size: 144px;
 }
 
+@media only screen and (min-width: 1420px) {
+  html {
+    font-size: 22px;
+    line-height: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  html {
+    font-size: 20px;
+    line-height: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  html {
+    font-size: 16px;
+    line-height: 1.6rem;
+  }
+}
+
+/*  */
+
+@media only screen and (min-width: 1280px) {
+  :root {
+    --page-width: 1480px;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
 
   .global__banner_font {
@@ -285,17 +334,55 @@ header {
   header {
     height: 700px;
   }
-
 }
 
 @media only screen and (max-width: 700px) {
+  .aulas__title {
+    margin-bottom: 27px;
+    padding-left: 10px;
+  }
 
   .global__banner_font {
     font-size: 80px;
   }
 
-  .contato {
-    display: none;
+  .phone {
+    bottom: 40px;
+    right: 24px;
+
   }
+
+}
+
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 12px;
+  }
+
+  .blue_btn,
+  .red_btn,
+  .black_btn {
+    max-height: 60px;
+    min-height: 26px;
+    height: 2vw;
+    padding: 0 18px;
+  }
+
+  #link_bolsa,
+  #link_aulas,
+  #link_matriculas,
+  #link_perguntas {
+    padding-top: 80px;
+  }
+
+  .title {
+    margin-left: 0;
+  }
+
+  .aulas__title {
+    margin: 0;
+  }
+
+
 }
 </style>

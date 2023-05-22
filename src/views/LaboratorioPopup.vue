@@ -208,7 +208,6 @@ main {
     object-fit: cover;
 }
 
-
 .grid__ferramentas {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr
@@ -230,7 +229,7 @@ ul li {
     color: white;
     font-size: 1.8rem;
     width: max-content;
-    margin-bottom: 25px;
+    margin: 25px 0;
 }
 
 /* Aside */
@@ -389,10 +388,7 @@ ul li {
     align-items: flex-start;
 }
 
-.title {
-    font-size: 1.4rem;
 
-}
 
 /* Imagens do Laboratório */
 .laboratorio {
