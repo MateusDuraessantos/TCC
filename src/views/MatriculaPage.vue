@@ -309,7 +309,7 @@ export default {
         }
     },
     mounted() {
-        // this.scrolltoTop()
+        this.scrolltoTop()
         this.updateImageSource()
 
     },

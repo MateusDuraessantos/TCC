@@ -88,6 +88,7 @@
                                 <a @click="scrollToSection('link_bolsa')">Setor de bolsas</a>
                                 <a @click="scrollToSection('link_mensalidade-matricula')">Mensalidade</a>
                                 <a @click="scrollToSection('link_perguntas')">Perguntas frequêntes</a>
+                                <a @click="scrollToSection('link_contato')">Entre em contato</a>
                             </div>
                         </router-link>
 

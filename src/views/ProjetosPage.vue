@@ -193,7 +193,7 @@
 
         <!--  -->
 
-        <el-carousel :interval="5000" arrow="always" height="85vh">
+        <el-carousel :interval="5000" arrow="always" height="90vh">
             <el-carousel-item>
                 <img class="carousel-img" src="projetos/banner3.jpg">
             </el-carousel-item>
@@ -253,15 +253,17 @@
             </div>
 
 
-            <div class="container-loading" v-if="loading">
-                <span>loading...</span>
-                <div class="loading"></div>
-            </div>
+
 
 
             <!-- Popup -->
 
             <div class="popup" v-if="popupValue">
+
+                <div class="container-loading">
+                    <span>loading...</span>
+                    <div class="loading"></div>
+                </div>
 
                 <div class="popup_buttons">
                     <!-- Layout -->
@@ -296,7 +298,7 @@
 
                     <!--  -->
 
-                    <div class="popup__container">
+                    <div class="popup__container" id="popup__container">
                         <header-popup>
                             <span>
                                 <p class="font-light">5° Semestre</p>
@@ -426,8 +428,6 @@ export default {
             next: true,
             back: true,
 
-            /* Loading */
-            loading: true,
         }
     },
     computed: {
@@ -444,21 +444,26 @@ export default {
             }
         },
         upPopup(event, index) {
+            
             const clicked = event.target.classList[0]
-            this.imagesNumber = 0
 
+            this.imagesNumber = 0
             
-            
+            setTimeout(() => {
+                document.getElementById('popup__container').classList.add('popup--animation')
+            }, 100);
+
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
                 //É nessário que o popup apareça/desapareça, somenente se alguns determinados elementos forem clicados
-                
+
                 this.indexPopup = index
-                
+
                 this.popupValue = !this.popupValue
-                
+
                 if (this.popupValue == true) {
                     document.body.style.overflow = "hidden"
-                    
+
+
                 } else {
                     document.querySelector('body').removeAttribute('style')
                     this.next = true
@@ -467,11 +472,11 @@ export default {
             }
 
             //A função precisa ser realizada depois que o layout for criado, para isso, o setTimeout
-            
+
             if (this.popupValue == true && clicked != undefined) {
                 setTimeout(() => {
                     this.criaColunas()
-                    
+
                 }, 1);
             }
 
@@ -522,7 +527,7 @@ export default {
                     if (this.popupValue == true) {
                         setTimeout(() => {
                             this.criaColunas()
-
+                            document.getElementById('popup__container').classList.remove('popup--animatio')
                         }, 1);
                     }
 
@@ -582,7 +587,6 @@ export default {
 
             this.imagesNumber += 1
 
-
             // this.imagesNumber começa com 0, conforme as imagens carregam, a função é executada e é acrescentado +1, quando esse valor for igual a this.numImgGrid (array das imagens), ele executa a função
 
 
@@ -611,6 +615,7 @@ export default {
                 filterSelected.setAttribute('filter', 'ativo')
             }
         },
+
         exporProjeto(event) {
             const e = event.target.classList[0]
 
@@ -648,7 +653,8 @@ export default {
     height: 100vh;
     top: 0;
     left: 0;
- 
+    pointer-events: none;
+
 }
 
 .container-loading span {
@@ -685,16 +691,13 @@ export default {
         transform: rotate(360deg);
     }
 }
-</style>
 
-<style scoped>
-.body {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 50px;
-    width: calc(100% - 40px);
+.popup--animation {
+    animation-name: opacitySuave;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
 }
+
 
 @keyframes opacitySuave {
     0% {
@@ -711,6 +714,17 @@ export default {
         transform: translatey(0);
     }
 }
+</style>
+
+<style scoped>
+.body {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 50px;
+    width: calc(100% - 40px);
+}
+
 
 /* Quero Expor meu Projeto */
 
@@ -1297,10 +1311,9 @@ h6 {
     position: relative;
     background: rgb(26, 26, 26);
     margin-bottom: 60px;
-    animation-name: opacitySuave;
-    animation-duration: .6s;
-    animation-fill-mode: forwards;
+    opacity: 0;
     width: 80%;
+    border-radius: 25px;
 }
 
 .popup__close {

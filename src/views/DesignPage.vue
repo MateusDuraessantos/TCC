@@ -741,7 +741,7 @@ export default {
 
   mounted() {
     this.ativarImg()
-    /*     this.scrolltoTop() */
+    this.scrolltoTop()
   },
   methods: {
 
