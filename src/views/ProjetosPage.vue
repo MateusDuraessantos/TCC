@@ -252,13 +252,18 @@
                 </div>
             </div>
 
+
+            <div class="container-loading" v-if="loading">
+                <span>loading...</span>
+                <div class="loading"></div>
+            </div>
+
+
             <!-- Popup -->
 
             <div class="popup" v-if="popupValue">
+
                 <div class="popup_buttons">
-
-
-
                     <!-- Layout -->
 
                     <div class="layout" @click="square">
@@ -272,6 +277,25 @@
                 <button class="popup__close" @click="upPopup">✕</button>
 
                 <div class="popup__overflow" @click="upPopup">
+
+                    <!-- Passar e voltar -->
+
+                    <div class="pass">
+
+                        <div class="teste pass__container" v-if="next" id="next">
+                            <button class="reload next"></button>
+                            <p>→</p>
+
+                        </div>
+
+                        <div class="teste pass__container" v-if="back" id="back">
+                            <button class="reload back"></button>
+                            <p>←</p>
+                        </div>
+                    </div>
+
+                    <!--  -->
+
                     <div class="popup__container">
                         <header-popup>
                             <span>
@@ -282,11 +306,7 @@
                                 </div>
                                 <p class="font-light">Um pouco sobre como foi o projeto</p>
                             </span>
-
-
-
                         </header-popup>
-
 
                         <!-- Vitrine das imagens -->
 
@@ -380,7 +400,8 @@
                     </div>
                 </div>
             </div>
-            <div class="carregar"><button class="blue_btn" @click="changenumber">Carregar mais projetos</button></div>
+            <div class="carregar"><button class="blue_btn" @click="changenumber">Carregar mais projetos</button>
+            </div>
         </div>
     </div>
 </template>
@@ -400,6 +421,13 @@ export default {
             indexPopup: null,
             coisas: 4,
             maxItems: 20,
+
+            /* Passar projetos com seta */
+            next: true,
+            back: true,
+
+            /* Loading */
+            loading: true,
         }
     },
     computed: {
@@ -419,29 +447,88 @@ export default {
             const clicked = event.target.classList[0]
             this.imagesNumber = 0
 
-            //É nessário que o popup apareça/desapareça, somenente se alguns determinados elementos forem clicados
-
+            
+            
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
+                //É nessário que o popup apareça/desapareça, somenente se alguns determinados elementos forem clicados
+                
                 this.indexPopup = index
-
+                
                 this.popupValue = !this.popupValue
-
+                
                 if (this.popupValue == true) {
                     document.body.style.overflow = "hidden"
-
+                    
                 } else {
                     document.querySelector('body').removeAttribute('style')
+                    this.next = true
+                    this.back = true
                 }
             }
 
             //A função precisa ser realizada depois que o layout for criado, para isso, o setTimeout
-
+            
             if (this.popupValue == true && clicked != undefined) {
                 setTimeout(() => {
                     this.criaColunas()
+                    
+                }, 1);
+            }
+
+            /* Alterar projeto de acordo com a setas clicada */
+
+            setTimeout(() => {
+
+                if (this.indexPopup == this.maxItems - 1) {
+                    this.next = false
+                }
+                if (this.indexPopup == 0) {
+
+                    this.back = false
+                }
+
+            }, 1);
+
+            if (clicked == 'reload') {
+
+                if (event.target.classList[1] == 'next') {
+
+
+                    if (this.indexPopup == this.maxItems - 1) {
+                        this.next = false
+
+                    } else {
+                        this.indexPopup++
+                        this.back = true
+                    }
+
+                }
+                if (event.target.classList[1] == 'back') {
+                    if (this.indexPopup == 0) {
+                        this.back = false
+
+                    }
+                    else {
+                        this.indexPopup--
+                        this.next = true
+                    }
+                }
+
+                this.popupValue = false
+                setTimeout(() => {
+                    this.popupValue = true
+
+
+                    if (this.popupValue == true) {
+                        setTimeout(() => {
+                            this.criaColunas()
+
+                        }, 1);
+                    }
 
                 }, 1);
             }
+
         },
 
         async criaColunas() {
@@ -513,10 +600,7 @@ export default {
 
             }
         },
-        pass() {
-            this.indexPopup++
 
-        },
         category(event) {
 
             const filterSelected = event.target
@@ -543,12 +627,63 @@ export default {
 </script>
 
 <style>
+/* Grid do popup */
+
 .vitrine-count {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: var(--gap-img);
     height: max-content;
+}
+
+/* Loading */
+
+.container-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+ 
+}
+
+.container-loading span {
+    font-size: 15px;
+    font-weight: 300;
+    color: #b5b5b5;
+}
+
+.loading {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 9px dotted rgb(183 183 183);
+    z-index: 1;
+    animation-name: loading;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    border-spacing: 17px;
+}
+
+@keyframes loading {
+
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+
+        transform: rotate(360deg);
+    }
 }
 </style>
 
@@ -1042,6 +1177,7 @@ h1 {
     color: rgb(211, 211, 211);
     font-weight: 400;
     font-size: 1rem;
+    line-height: 1rem;
 }
 
 .projeto:hover .projectName {
@@ -1054,6 +1190,80 @@ h6 {
     font-weight: 400;
     margin-bottom: 18px;
 }
+
+/* Pass Projetc */
+
+
+.pass {
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 12;
+}
+
+.pass button {
+    cursor: pointer;
+}
+
+.pass p {
+    pointer-events: none;
+}
+
+.pass__container {
+    visibility: visible;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#next,
+#back {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+#next {
+    right: 2vw;
+}
+
+#back {
+    left: 2vw;
+}
+
+#next button,
+#back button {
+    backdrop-filter: blur(12px);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: .2s;
+}
+
+#next p,
+#back p {
+    position: absolute;
+    font-size: 1rem;
+}
+
+#next:hover button {
+    transform: rotate(90deg);
+    transition: .3s;
+}
+
+#back:hover button {
+    transform: rotate(-90deg);
+    transition: .3s;
+}
+
+
+/* popup */
 
 .popup {
     display: flex;
