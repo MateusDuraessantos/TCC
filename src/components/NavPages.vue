@@ -66,9 +66,9 @@
                             <div class="subMenu" id="subMenu">
                                 <a @click="scrollToSection('link_objetivo')">Objetivos</a>
                                 <a @click="scrollToSection('link_matriz')">Matriz Curricular</a>
-                                <a @click="scrollToSection('link_predio')">Prédio 9</a>
+                                <a @click="scrollToSection('link_predio')">Prédio 9 | Arquitetura e Design</a>
                                 <a @click="scrollToSection('link_laboratorios')">Laboratorios</a>
-                                <a @click="scrollToSection('link_horarios')">Horários 9</a>
+                                <a @click="scrollToSection('link_horarios')">Sobre o curso</a>
                                 <a @click="scrollToSection('link_docentes')">Docentes</a>
                             </div>
 
@@ -86,6 +86,7 @@
                                 <a @click="scrollToSection('link_aulas')">Início das Aulas</a>
                                 <a @click="scrollToSection('link_matriculas')">Matrículas</a>
                                 <a @click="scrollToSection('link_bolsa')">Setor de bolsas</a>
+                                <a @click="scrollToSection('link_mensalidade-matricula')">Mensalidade</a>
                                 <a @click="scrollToSection('link_perguntas')">Perguntas frequêntes</a>
                             </div>
                         </router-link>

@@ -85,6 +85,30 @@
                     </div>
                 </div>
 
+                <!-- Mensalidade -->
+                <div id="link_mensalidade-matricula"></div>
+                <div class="mensalidade">
+                    <div class="mensalidade__background">
+                        <span>
+                            <div class="aulas__title">
+                                <h1 class="title">Mensalidade</h1>
+                            </div>
+                            <p class="mensalidade__valor">Para calouros ingressantes no primeiro semestre de 2023:
+                                <br>
+                                <b class="mensalidade__preco">R$ 3.601,00.</b>
+                            </p>
+                            <br>
+                            <div>
+                                <p class="mensalidade__gostou">Gostou do Curso? Faça parte da nossa História!</p>
+                                <button class="blue_btn" style="align-items: center; display: flex; "><a
+                                        @click="scrollToSection('link_aulas')">Avise-me</a>
+                                    <arrow style="font-size: 22px; transform: translateY(-2px);">→</arrow>
+                                </button>
+                            </div>
+                        </span>
+                        <img class="mensalidade__img" src="design/mao.jpg" alt="mão escrevendo">
+                    </div>
+                </div>
 
                 <!-- Perguntas frequêntes -->
 
@@ -322,6 +346,13 @@ export default {
     z-index: 1;
 }
 
+.mensalidade {
+    width: 120%;
+    margin-left: -10%;
+
+}
+
+#link_mensalidade-matricula,
 #link_bolsa,
 #link_aulas,
 #link_contato,
@@ -392,7 +423,8 @@ header {
     background-size: contain;
     background-position: center;
     cursor: default;
-    border-bottom: 3px solid #00547F
+    border-bottom: 3px solid #00547F;
+    height: calc(100vh - 148px);
 }
 
 @media only screen and (max-width:700px) {
@@ -720,6 +752,16 @@ textarea {
 textarea {
     height: 280px;
     padding-top: 16px;
+}
+
+@media only screen and (max-width:1980px) {
+
+    .mensalidade {
+        width: 100%;
+        margin: auto;
+
+    }
+
 }
 
 @media only screen and (max-width:1660px) {

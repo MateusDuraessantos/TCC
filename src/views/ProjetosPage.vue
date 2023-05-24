@@ -257,14 +257,7 @@
             <div class="popup" v-if="popupValue">
                 <div class="popup_buttons">
 
-                    <!-- Download -->
 
-                    <div class="download">
-                        <div class="download__bubble">
-                            <img class="download__img" src="/projetos/download.svg">
-                        </div>
-                        <p>Relatório final</p>
-                    </div>
 
                     <!-- Layout -->
 
@@ -294,6 +287,7 @@
 
                         </header-popup>
 
+
                         <!-- Vitrine das imagens -->
 
                         <div class="vitrine-grid" id="grid">
@@ -305,11 +299,21 @@
 
                         <div class="cont_description">
                             <div class="description">
-                                <p v-for="teste in projects[indexPopup].description">
-                                    &nbsp;&nbsp;{{ teste }} </p>
+                                <span>
+                                    <p v-for="teste in projects[indexPopup].description">
+                                        &nbsp;&nbsp;{{ teste }} </p>
+                                </span>
+
+                                <!-- Download -->
+
+                                <div class="download">
+                                    <div class="download__bubble">
+                                        <img class="download__img" src="/projetos/download.svg">
+                                    </div>
+                                    <p>Relatório final</p>
+                                </div>
                             </div>
-                            <h6>Criadores</h6>
-                            <hr>
+                            <h6>Alunos designers projetistas</h6>
                             <div class="container__footer">
                                 <div class="footer__popup">
                                     <div class="grid__criadores">
@@ -352,9 +356,9 @@
                                         <tag type="black">produto</tag>
                                         <tag type="black">board</tag>
                                     </div>
+                                    <p class="data_publi">Publicação: 2 de março de 2022</p>
                                 </div>
                             </div>
-                            <p class="data_publi">Publicação: 2 de março de 2022</p>
                         </div>
                     </div>
                 </div>
@@ -451,8 +455,8 @@ export default {
 
                     for (let i = 0; i < 2; i++) {
                         if (document.getElementById('column-0') == null) {
-                            grid.innerHTML += `<div class="vitrine-count" id="column-0"></div>`
-                            grid.innerHTML += `<div class="vitrine-count" id="column-1"></div>`
+                            grid.innerHTML += `<div class="vitrine-count"  id="column-0"></div>`
+                            grid.innerHTML += `<div class="vitrine-count"  id="column-1"></div>`
                         }
                         if (grid.children.length > 2) {
                             document.getElementById(`column-${i}`).appendChild(grid.children[0])
@@ -496,7 +500,7 @@ export default {
 
 
             if (this.numImgGrid == this.imagesNumber) {
-                console.log('mateus')
+
 
                 //Faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
 
@@ -508,6 +512,10 @@ export default {
                 }
 
             }
+        },
+        pass() {
+            this.indexPopup++
+
         },
         category(event) {
 
@@ -533,6 +541,16 @@ export default {
     },
 }
 </script>
+
+<style>
+.vitrine-count {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gap-img);
+    height: max-content;
+}
+</style>
 
 <style scoped>
 .body {
@@ -762,8 +780,8 @@ input[type="text"]::placeholder {
     cursor: pointer;
     min-width: 280px;
     width: 100%;
-   
- 
+
+
 }
 
 .box-select {
@@ -1032,7 +1050,7 @@ h1 {
 }
 
 h6 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 18px;
 }
@@ -1114,8 +1132,9 @@ header-popup {
     width: 80%;
     gap: 46px;
     margin: auto;
-    z-index: 3;
+    transform: translateX(200px);
     white-space: nowrap;
+    z-index: 3;
 }
 
 
@@ -1125,9 +1144,8 @@ header-popup {
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    animation-name: opacitySuave;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+    white-space: nowrap;
+    padding: 0 100px;
 }
 
 .download__bubble {
@@ -1211,7 +1229,7 @@ header-popup {
 }
 
 .square {
-    background: #414141;
+    background: #ab0000;
     padding: 8px;
     height: 100%;
     border-radius: 2px;
@@ -1228,7 +1246,8 @@ header-popup {
 /* Descriçoes' */
 
 .description {
-    column-count: 2;
+    display: flex;
+    align-items: center;
     margin: 20px 0 60px 0;
     font-weight: 400;
 }
@@ -1374,13 +1393,6 @@ hr {
     gap: var(--gap-img);
 }
 
-.vitrine-count {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: var(--gap-img);
-    height: max-content;
-}
 
 .vitrine-grid img {
     object-fit: contain;

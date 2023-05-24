@@ -309,22 +309,20 @@
           <div class="predio">
             <div class="predio__grid">
               <div class="aulas__title">
-                <h1 class="title">Prédio 9</h1>
+                <h1 class="title">Prédio 9 | Arquitetura e Urbanismo e Design</h1>
               </div>
               <p class="predio__description">
                 &nbsp; O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
-                tecnológico
-                localizado no coração de São Paulo, Brasil.
-                o Prédio 9 abriga os cursos de Arquitetura e Urbanismo, Design de Interiores e Design de Produto da
+                tecnológico localizado no coração de São Paulo, Brasil.
+                o Prédio 9 abriga os cursos de "Design" e "Arquitetura e Urbanismo" da
                 universidade com grandes espaços abertos e amplas janelas que proporcionam iluminação natural e vistas
-                panorâmicas da
-                universidade.
+                panorâmicas da universidade.
                 <br>
                 <br>
-                &nbsp; O Prédio 9 também conta projetores interativos, laboratórios de informática, estúdios de fotografia
-                e
-                vídeo,
-                salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras ferramentas de
+                &nbsp; O Prédio 9 também conta com projetores interativos, laboratórios de informática, estúdios de
+                fotografia
+                e vídeo, salas de prototipagem e um laboratório com impressoras 3D, cortadoras a laser e outras
+                ferramentas de
                 fabricação digital.
                 <br>
                 <br>
@@ -339,24 +337,26 @@
             </div>
 
             <!-- Carrossel -->
+
             <div class="carrossel">
-              <p class="carrossel__description">{{ carrossel[displayNumber].split('.jpg')[0] }}</p>
+              <p class="carrossel__description">{{ carrossel[displayNumber][1] }}</p>
               <div class="carrossel__display">
-                <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber]">
+                <img class="carrossel__display-img" :src="'design/carrossel/' + carrossel[displayNumber][0]">
                 <button class="arrow" id="left" @click="arrowCarrrossel('back')">‹</button>
                 <button class="arrow" id="right" @click="arrowCarrrossel('next')">›</button>
               </div>
               <div class="carrossel__options">
                 <span v-for="(cardsInfo, index) in carrossel" :key="index">
                   <img @click="changeCarrossel(index)" :id="'carrossel_' + index" class="carrossel__options-img"
-                    :src="'design/carrossel/' + cardsInfo">
+                    :src="'design/carrossel/' + cardsInfo[0]">
                 </span>
               </div>
             </div>
           </div>
 
           <div class="shadow-predio"></div>
-          <img class="background__carrossel" :src="'design/carrossel/' + carrossel[displayNumber]">
+
+          <img class="background__carrossel" :src="'design/carrossel/' + carrossel[displayNumber][0]">
         </div>
 
         <!-- Laboratórios -->
@@ -383,11 +383,11 @@
         </div>
 
         <!-- Horários/Períodos -->
-
-        <div class="horarios" id="link_horarios">
+        <div id="link_horarios"></div>
+        <div class="horarios">
           <div class="horarios_absolute">
             <div class="aulas__title">
-              <h1 class="title">Horários/Períodos</h1>
+              <h1 class="title">Sobre o curso/Horários</h1>
             </div>
             <div class="horarios__cards">
               <div class="card card--bacharelado">
@@ -429,13 +429,19 @@
                 </div>
               </div>
             </div>
+
+
             <div class="mensalidade">
               <div class="mensalidade__background">
                 <span>
-                  <p class="mensalidade__valor">Mensalidade para calouros ingressantes no primeiro semestre de 2023:
+                  <div class="aulas__title">
+                    <h1 class="title">Mensalidade</h1>
+                  </div>
+                  <p class="mensalidade__valor">Para calouros ingressantes no primeiro semestre de 2023:
                     <br>
                     <b class="mensalidade__preco">R$ 3.601,00.</b>
                   </p>
+                  <br>
                   <div>
                     <p class="mensalidade__gostou">Gostou do Curso? Faça parte da nossa História!</p>
                     <button class="red_btn" style="align-items: center; display: flex; "><a
@@ -574,12 +580,30 @@ export default {
         },
       ],
       carrossel: [
-        'predio9.jpg',
-        'frente.jpg',
-        'chiqueirinho.jpg',
-        'bosque.jpg',
-        'ceramica.jpg',
-        'lazer.jpg',
+        [
+          'predio9.jpg',
+          'Prédio 9'
+        ],
+        [
+          'frente.jpg',
+          'Frente do prédio'
+        ],
+        [
+          'chiqueirinho.jpg',
+          'Chiqueirinho | Área de recreação e aprentações'
+        ],
+        [
+          'bosque.jpg',
+          'Bosque'
+        ],
+        [
+          'ceramica.jpg',
+          'Laboratório de cerâmica'
+        ],
+        [
+          'lazer.jpg',
+          'Laboratório de impressão 3d/laser'
+        ],
       ],
 
       labs: [
@@ -901,7 +925,7 @@ header {
   z-index: 2;
   text-align: center;
   font-weight: 100;
-  margin-bottom: 100px;
+  margin-bottom: 18px;
 }
 
 .faculdade {
@@ -914,6 +938,11 @@ header {
 }
 
 /* O que temos como bjetivo */
+
+#link_objetivo {
+  width: 80%;
+  margin: auto;
+}
 
 .objetivo {
   display: grid;
@@ -958,11 +987,20 @@ header {
   flex-direction: column;
   z-index: 3;
   position: relative;
+  gap: 12px;
 }
 
 .carrossel__description {
-  margin-bottom: 22px;
-  text-shadow: 3px 2px 6px black;
+  position: absolute;
+  margin-left: 1vw;
+  margin-top: 1vw;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 55px;
+  padding: 4px 16px;
+  z-index: 3;
 }
 
 .carrossel__display {
@@ -979,7 +1017,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 90%;
+  margin: auto;
 }
+
 
 .background__carrossel {
   position: absolute;
@@ -1008,7 +1049,6 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  margin-bottom: 34px;
   object-fit: cover;
 }
 
@@ -1017,7 +1057,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
   width: 100%;
-  gap: 14px;
+  gap: 10px;
   padding-bottom: 10px;
   overflow: auto;
 }
@@ -1046,12 +1086,12 @@ header {
   justify-content: center;
   color: white;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 46px;
+  width: 46px;
   transition: .2s;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .arrow:hover {
@@ -1203,56 +1243,6 @@ header {
   padding: 16px;
 }
 
-.mensalidade {
-  width: 100%;
-  min-height: 300px;
-  font-size: 1.8rem;
-  color: white;
-  display: flex;
-  gap: 40px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 13px;
-  padding: 15px;
-}
-
-.mensalidade__background {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: black;
-  display: flex;
-  border-radius: 8px;
-  justify-content: space-between;
-  gap: 40px;
-
-  width: 100%;
-  overflow: hidden;
-}
-
-.mensalidade span {
-  padding: 34px 40px 34px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.mensalidade__img {
-  height: 100%;
-  object-fit: cover;
-}
-
-.mensalidade__valor {
-  font-size: 1.2rem;
-}
-
-.mensalidade__preco {
-  font-size: 1.6rem;
-}
-
-.mensalidade__gostou {
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
 
 /* Premiações. */
 
@@ -1273,7 +1263,7 @@ header {
 
 .premiacao__estudante {
   position: absolute;
-  top: -30vw;
+  top: -28vw;
   width: 100vw;
   min-height: 70vh;
   filter: blur(10px);
@@ -1462,14 +1452,21 @@ header {
   .docentes {
     width: 100%;
   }
-
-  .mensalidade__gostou {
-    font-size: 1.4rem;
-  }
-
 }
 
 @media only screen and (max-width: 1700px) {
+
+  /* Objetivos */
+  #link_objetivo {
+    width: 100%;
+  }
+
+  .container-predio {
+    width: 100%;
+  }
+
+  /*  */
+
   .docentes__grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -1565,9 +1562,6 @@ header {
     padding-top: 80px;
   }
 
-  .mensalidade__img {
-    display: none;
-  }
 
 }
 
@@ -1614,9 +1608,6 @@ header {
     gap: 4px;
   }
 
-  .mensalidade {
-    padding: 2px;
-  }
 
   /*  */
   .premiacao__img {
@@ -1737,19 +1728,6 @@ header {
   .objetivo,
   .predio__description {
     margin-top: 14px;
-  }
-
-  .mensalidade__gostou {
-    font-size: 1.4rem;
-  }
-
-  .mensalidade span {
-    padding: 14px;
-  }
-
-  .mensalidade {
-    min-height: 220px;
-    padding: 2px;
   }
 
   .background {

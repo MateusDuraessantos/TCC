@@ -122,6 +122,10 @@ header {
   margin-left: 32px;
 }
 
+a {
+  font-size: 1rem;
+}
+
 .phone:hover p {
   position: relative;
   color: white;
@@ -255,7 +259,7 @@ filter:focus {
 
 .el-collapse-item__header {
   background: #212121;
-  border-radius: clamp(22px, 1.6vw, 30px);
+  border-radius: clamp(22px, 1.6vw, 34px);
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
   padding: 5px 0;
   padding-left: 20px;
@@ -290,6 +294,63 @@ filter:focus {
   font-weight: 400;
 }
 
+
+/* Mensalidade */
+
+
+.mensalidade {
+  width: 100%;
+  min-height: 300px;
+  font-size: 1.8rem;
+  color: white;
+  display: flex;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 13px;
+  padding: 15px;
+  z-index: 2;
+  position: relative;
+}
+
+.mensalidade__background {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: black;
+  display: flex;
+  border-radius: 8px;
+  justify-content: space-between;
+  gap: 40px;
+
+  width: 100%;
+  overflow: hidden;
+}
+
+.mensalidade span {
+  padding: 34px 40px 34px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mensalidade__img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.mensalidade__valor {
+  font-size: 1rem;
+}
+
+.mensalidade__preco {
+  font-size: 1.4rem;
+}
+
+.mensalidade__gostou {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
 /* Classes globais */
 
 .global__banner_font {
@@ -301,6 +362,14 @@ filter:focus {
     font-size: 22px;
     line-height: 1.6rem;
   }
+}
+
+@media only screen and (max-width: 1980px) {
+
+  .mensalidade__gostou {
+    font-size: 1.4rem;
+  }
+
 }
 
 @media only screen and (max-width: 1420px) {
@@ -334,9 +403,14 @@ filter:focus {
   header {
     height: 700px;
   }
+
+  .mensalidade__img {
+    display: none;
+  }
+
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
   .aulas__title {
     margin-bottom: 27px;
     padding-left: 10px;
@@ -349,7 +423,10 @@ filter:focus {
   .phone {
     bottom: 40px;
     right: 24px;
+  }
 
+  .mensalidade {
+    padding: 2px;
   }
 
 }
@@ -383,6 +460,17 @@ filter:focus {
     margin: 0;
   }
 
+  .mensalidade__gostou {
+    font-size: 1.4rem;
+  }
 
+  .mensalidade span {
+    padding: 14px;
+  }
+
+  .mensalidade {
+    min-height: 220px;
+    padding: 2px;
+  }
 }
 </style>
