@@ -11,14 +11,16 @@
 
         <!-- Cadastro -->
 
-        <div v-if="cadastro" class="b" @click="exporProjeto">
+        <div v-if="cadastro" class="cadastro" @click="exporProjeto">
             <button class="cadastro__close">✕</button>
 
             <div class="cadastro__campos">
 
-                <p class="cadastro__title">Preencha os campos a seguir!</p>
+                <h2 class="cadastro__title">Preencha os campos a seguir!</h2>
 
-                <p class="cadastro__subtitle">Sobre os alunos</p>
+                <title-section class="aulas__title">
+                    <p>Sobre os alunos</p>
+                </title-section>
 
                 <div class="cont_inputs__cadastro" v-for="(coisa, index) in 2" :key="index">
                     <p>{{ index + 1 }}° Aluno</p>
@@ -42,11 +44,15 @@
                             <label for="nome">Email*</label>
                             <input type="text" id="nome" class="pesquisa" placeholder="Digite aquit">
                         </div>
-                        <div>
+                        <div class="grid-upload">
                             <p>Imagem do aluno*</p>
-                            <label for="upload" class="upload">
+                            <label for="upload" class="upload ">
                                 <button class="blue_btn ">Campo de upload <img src="upload.svg"></button>
-
+                                <p>Arraste um arquivo aqui ou <br>
+                                    <span style="color: #E1001E">
+                                        clique para fazer upload
+                                    </span>
+                                </p>
                             </label>
                             <input type="file" id="upload">
 
@@ -81,20 +87,26 @@
 
                 <hr>
 
-                <p>Descreva o seu projeto para que outras pessoas possam entende-lo melhor:* </p>
+                <title-section class="aulas__title">
+                    <p>Descreva o seu projeto para que outras pessoas possam entende-lo melhor:*</p>
+                </title-section>
+
                 <div class="textarea">
                     <p>Digite aqui</p>
                 </div>
 
                 <hr>
-                <span>
-                    <p>Anexo de imagens</p>
-                    <br>
+                <div class="imagens_camp">
+
+                    <title-section class="aulas__title">
+                        <p>Anexo de imagens</p>
+                    </title-section>
+
                     <span>Escolha de 4 à 6 imagens para mostrar seu projeto, as melhores, para divulgação*</span>
                     <br>
                     <br>
                     <div>
-                        <label for="upload" class="upload" style="gap: 20px; max-width: max-content; padding-right: 36px;">
+                        <label for="upload" class="upload">
                             <button class="blue_btn ">Campo de upload <img src="upload.svg"></button>
                             <p>Arraste um arquivo aqui ou <br>
                                 <span style="color: #E1001E">
@@ -111,7 +123,7 @@
                     <div class="cadastro__imagens">
                         <div class="image__cont_cadastro">
                             <div class="delete_image">✕</div>
-                            <img src=" projetos/mesa/imagens/1.jpg">
+                            <img src="projetos/mesa/imagens/1.jpg">
                             <p>mesa imagem.jpg</p>
                         </div>
                         <div class="image__cont_cadastro">
@@ -140,14 +152,14 @@
                             <p>black table.jpg</p>
                         </div>
                     </div>
-                </span>
+                </div>
 
                 <hr>
 
-                <span>
+                <div class="tags__expor">
                     <p>Tags<span style="color:#E1001E">*</span></p>
                     <br>
-                    <div style="display: flex;gap: 10px;">
+                    <div>
                         <tag type="black" style="background: black">Design</tag>
                         <tag type="black" style="background: black">UX/UI</tag>
                         <tag type="black" style="background: black">WebSite</tag>
@@ -156,7 +168,7 @@
                         <tag type="black" style="background: black">CSS</tag>
                         <tag type="black" style="background: black">HTML</tag>
                     </div>
-                </span>
+                </div>
                 <hr>
 
                 <span>
@@ -189,6 +201,7 @@
                     <button class="blue_btn">Enviar</button>
                 </div>
             </div>
+
         </div>
 
         <!--  -->
@@ -265,20 +278,20 @@
                     <div class="loading"></div>
                 </div>
 
-                <div class="popup_buttons">
-                    <!-- Layout -->
-
-                    <div class="layout" @click="square">
-                        <div class="layout__container" id="layout">
-                            <div class="square" v-for="coisa in coisas" />
-                        </div>
-                        <p>Mudar Layout</p>
-                    </div>
-                </div>
 
                 <button class="popup__close" @click="upPopup">✕</button>
 
                 <div class="popup__overflow" @click="upPopup">
+                    <div class="popup_buttons">
+                        <!-- Layout -->
+
+                        <div class="layout" @click="square">
+                            <div class="layout__container" id="layout">
+                                <div class="square" v-for="coisa in coisas" />
+                            </div>
+                            <p>Mudar Layout</p>
+                        </div>
+                    </div>
 
                     <!-- Passar e voltar -->
 
@@ -444,11 +457,11 @@ export default {
             }
         },
         upPopup(event, index) {
-            
+
             const clicked = event.target.classList[0]
 
             this.imagesNumber = 0
-            
+
             setTimeout(() => {
                 document.getElementById('popup__container').classList.add('popup--animation')
             }, 100);
@@ -659,7 +672,7 @@ export default {
 
 .container-loading span {
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     color: #b5b5b5;
 }
 
@@ -717,6 +730,13 @@ export default {
 </style>
 
 <style scoped>
+.aulas__title {
+    font-size: 1.2rem;
+    border-color: #CC141D;
+}
+
+/*  */
+
 .body {
     display: flex;
     flex-direction: column;
@@ -727,6 +747,19 @@ export default {
 
 
 /* Quero Expor meu Projeto */
+
+.cadastro {
+    overflow: overlay;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+}
 
 .cadastro__close {
     position: fixed;
@@ -740,17 +773,23 @@ export default {
 }
 
 .cadastro__campos {
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 1000px;
+    max-width: 80%;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: max-content;
     margin-top: 60px;
     background: #1f1f1f;
     padding: 20px;
     padding-bottom: 60px;
+    margin-bottom: 60px;
+    border-radius: 25px;
+}
+
+.upload .blue_btn {
+    max-height: initial;
+    height: 72px;
 }
 
 .cadastro__title {
@@ -782,6 +821,14 @@ export default {
     position: relative;
 }
 
+.image__cont_cadastro img {
+    border-radius: 6px;
+}
+
+.image__cont_cadastro img {
+    font-size: 0.9rem;
+}
+
 .image__cont_cadastro:hover .delete_image {
     opacity: 1;
     transition: .2s;
@@ -802,13 +849,36 @@ input[type="file"] {
     display: none;
 }
 
+/*  */
+
+.imagens_camp {
+    background: black;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+
+/* tags Expor */
+
+.tags__expor div {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/*  */
+
 .upload {
     display: flex;
+    align-items: center;
     border-radius: 50px;
     border: 1px solid white;
     cursor: pointer;
-    padding: 8px;
+    gap: 24px;
     margin-bottom: 6px;
+    padding: 8px;
+    padding-right: 28px;
+    width: max-content;
 }
 
 .upload button {
@@ -826,7 +896,8 @@ input[type="file"] {
     border-radius: 8px;
 }
 
-.adicionar {
+.blue_btn.adicionar {
+    padding: 0 20px;
     gap: 12px;
 }
 
@@ -835,15 +906,14 @@ input[type="file"] {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    border: none;
-    border-color: rgb(187, 187, 187);
     padding-bottom: 4px;
-    border-style: solid;
-    border-width: 0 0 1px 0;
-    color: rgb(187, 187, 187);
+    border: 1px solid rgb(187, 40, 40);
+    color: rgb(187, 40, 40);
     background: none;
+    padding: 4px 10px;
     font-size: 1rem;
     transition: .2s;
+    border-radius: 50px;
 }
 
 .delete:hover {
@@ -859,7 +929,14 @@ input[type="file"] {
 .inputs__cadastro {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        'empty empty empty'
+        'null uploadCampo uploadCampo';
     gap: 20px 40px;
+}
+
+.grid-upload {
+    grid-area: uploadCampo;
 }
 
 .inputs__cadastro div {
@@ -1292,6 +1369,7 @@ h6 {
 }
 
 .popup__overflow {
+
     padding-top: 50px;
     display: flex;
     flex-direction: column;
@@ -1312,7 +1390,7 @@ h6 {
     background: rgb(26, 26, 26);
     margin-bottom: 60px;
     opacity: 0;
-    width: 80%;
+    width: calc(100% - 400px);
     border-radius: 25px;
 }
 
@@ -1352,7 +1430,7 @@ header-popup {
     justify-content: flex-end;
     padding-right: 40px;
     top: 93px;
-    width: 80%;
+    width: calc(100% - 400px);
     gap: 46px;
     margin: auto;
     transform: translateX(200px);
@@ -1407,6 +1485,7 @@ header-popup {
 }
 
 .layout {
+    right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1431,7 +1510,7 @@ header-popup {
     align-items: center;
     justify-content: center;
     width: 4.6vw;
-    height: 3vw;
+    height: 4.6vw;
     min-height: 34px;
     max-width: 58px;
     max-height: 58px;
@@ -1509,7 +1588,7 @@ hr {
     background: #2c2c2c;
     background: black;
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 22px;
 }
 
 .grid__criadores {
@@ -1640,19 +1719,39 @@ hr {
     }
 }
 
+@media only screen and (max-width: 1980px) {
+
+    /*  */
+    .description {
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+    }
+
+}
+
 @media only screen and (max-width: 1800px) {
     .container-projetos {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
 }
+
+
+
 
 @media only screen and (max-width: 1450px) {
     .container-projetos {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+
 }
 
 @media only screen and (max-width: 1000px) {
+
+
+    /*  */
 
     .body {
         width: calc(100% - 26px);
@@ -1718,14 +1817,39 @@ hr {
         position: absolute;
         top: 124px;
     }
+
+    /*  Quero expor meu projeto */
+
+
+    .cadastro__campos {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .inputs__cadastro {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cadastro__imagens {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .popup_buttons {
+        width: calc(100% - 500px);
+    }
+
+
 }
 
 @media only screen and (max-width: 700px) {
 
-
     .popup_buttons {
         display: none;
+
     }
+
 
     .popup__container {
         width: calc(100% - 20px);
@@ -1800,7 +1924,7 @@ hr {
 
 /* Mobile */
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     .title-popup h5 {
         font-size: 1rem;
     }
@@ -1866,6 +1990,36 @@ hr {
     .cont_tags {
         flex-wrap: wrap;
     }
+
+    /* Quer expor meu projeto */
+
+    .upload {
+        flex-direction: column;
+        border-radius: 13px;
+        padding-right: 0;
+        padding: 10px;
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 80px;
+    }
+
+    .upload .blue_btn {
+        height: 40px;
+        width: 100%;
+        padding: 0 20px;
+        justify-content: space-between;
+    }
+
+    .blue_btn.adicionar {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cont_inputs__cadastro,
+    .imagens_camp {
+        padding: 22px;
+    }
+
 }
 </style>
 

@@ -30,7 +30,10 @@
                                 O curso de design vai se iniciar no dia, 16/04/23. Para se informar mais sobre
                                 sua
                                 matrícula, acesse o
-                                <span style="color: #009EEF;">portal do aluno</span>
+                                <span
+                                    style="display: inline; text-decoration: underline; cursor: pointer; color: #009EEF;">portal
+                                    do
+                                    aluno</span>
                                 utilizando o
                                 número de sua matrícula.
                             </p>
@@ -678,7 +681,7 @@ header {
 .frase {
     text-align: center;
     font-size: 2.2rem;
-    font-weight: 300;
+    font-weight: 400;
     padding-top: 10vw;
     padding-bottom: 10vw;
 }
@@ -855,6 +858,11 @@ textarea {
     .bolsas {
         gap: 14px;
     }
+
+    .matriculas__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -869,9 +877,12 @@ textarea {
     .matriculas__grid {
         margin-top: 0;
     }
-}
 
-@media only screen and (max-width: 400px) {
+    .aulas span {
+        padding: 12px;
+
+    }
+
     section {
         width: calc(100% - 40px);
     }
@@ -881,9 +892,6 @@ textarea {
         min-height: 80vh;
     }
 
-    .matriculas__grid {
-        grid-template-columns: 1fr 1fr;
-    }
 
 
     .frase {
@@ -919,5 +927,4 @@ textarea {
     .aulas__grid {
         outline-width: 2px;
     }
-}
-</style>
+}</style>
