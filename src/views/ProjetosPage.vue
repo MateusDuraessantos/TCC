@@ -274,7 +274,7 @@
             <div class="popup" v-if="popupValue">
 
                 <div class="container-loading">
-                    <span>loading...</span>
+                    <span>carregando</span>
                     <div class="loading"></div>
                 </div>
 
@@ -1331,8 +1331,9 @@ h6 {
 #back button {
     backdrop-filter: blur(12px);
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
+    width: 32px;
+    height: 32px;
+    border: none;
     background: rgba(255, 255, 255, 0.1);
     transition: .2s;
 }

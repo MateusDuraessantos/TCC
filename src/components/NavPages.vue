@@ -65,7 +65,7 @@
                             </aconra>
                             <div class="subMenu" id="subMenu">
                                 <a @click="scrollToSection('link_objetivo')">Objetivos</a>
-                                <a @click="scrollToSection('link_matriz')">Matriz Curricular</a>
+                                <a @click="scrollToSection('link_matriz')">Matérias | Matriz Curricular</a>
                                 <a @click="scrollToSection('link_predio')">Prédio 9 | Arquitetura e Design</a>
                                 <a @click="scrollToSection('link_laboratorios')">Laboratorios</a>
                                 <a @click="scrollToSection('link_horarios')">Sobre o curso</a>

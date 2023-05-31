@@ -81,7 +81,8 @@
 
           <div class="container_objetivo">
             <div class="aulas__title">
-              <h1 class="title">Matriz Curricular <span class="some">- Um pouquinho do que você vai aprender</span> </h1>
+              <h1 class="title">Matérias | Matriz Curricular <span class="some">- Um pouquinho do que você vai
+                  aprender</span> </h1>
             </div>
           </div>
 
@@ -94,7 +95,7 @@
                 <el-collapse accordion>
                   <el-collapse-item v-for="(grade, index) in matriz" :key="index">
                     <template #title>
-                      <p class="matriz__etapa" style="color: #BDBDBD"><b>{{ index + 1 }}° Etapa</b> - Disciplinas</p>
+                      <p class="matriz__etapa" style="color: #BDBDBD"><b>{{ index + 1 }}° Semestre</b> - Disciplinas</p>
                     </template>
                     <span v-for="materia in grade">
                       {{ materia }}
@@ -441,7 +442,6 @@
                     <br>
                     <b class="mensalidade__preco">R$ 3.601,00.</b>
                   </p>
-                  <br>
                   <div>
                     <p class="mensalidade__gostou">Gostou do Curso? Faça parte da nossa História!</p>
                     <button class="red_btn" style="align-items: center; display: flex; "><a

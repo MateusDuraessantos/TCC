@@ -100,7 +100,6 @@
                                 <br>
                                 <b class="mensalidade__preco">R$ 3.601,00.</b>
                             </p>
-                            <br>
                             <div>
                                 <p class="mensalidade__gostou">Gostou do Curso? Faça parte da nossa História!</p>
                                 <button class="blue_btn" style="align-items: center; display: flex; "><a
@@ -410,6 +409,8 @@ h2 {
     position: absolute;
     z-index: 1;
     background-image: linear-gradient(45deg, rgb(1, 19, 29), rgba(0, 17, 35, 0.512), rgb(0, 19, 29));
+    background-image: linear-gradient(45deg, #00131d80, rgba(0, 17, 35, .512), #00131d80);
+
     width: 100%;
     height: 100%;
 }
@@ -679,11 +680,15 @@ header {
 }
 
 .frase {
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-size: 2.2rem;
-    font-weight: 400;
+    font-weight: 300;
     padding-top: 10vw;
+    line-height: 2.2rem;
     padding-bottom: 10vw;
+    white-space: nowrap;
 }
 
 .contato__shadow,
@@ -927,4 +932,5 @@ textarea {
     .aulas__grid {
         outline-width: 2px;
     }
-}</style>
+}
+</style>

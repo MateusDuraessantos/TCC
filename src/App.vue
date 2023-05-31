@@ -211,7 +211,6 @@ a {
   border-style: solid;
   min-height: 40px;
   padding-left: 20px;
-  margin-bottom: 40px;
 }
 
 .title {
@@ -313,28 +312,34 @@ filter:focus {
 }
 
 .mensalidade__background {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   background: black;
-  display: flex;
   border-radius: 8px;
-  justify-content: space-between;
-  gap: 40px;
-
-  width: 100%;
   overflow: hidden;
-}
-
-.mensalidade span {
+  position: relative;
   padding: 34px 40px 34px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  z-index: 2;
+}
+
+
+.mensalidade__background span {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  z-index: 2;;
 }
 
 .mensalidade__img {
   height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
   object-fit: cover;
+  z-index: 1;
 }
 
 .mensalidade__valor {
