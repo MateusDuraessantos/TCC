@@ -87,7 +87,7 @@
                                 <a @click="scrollToSection('link_matriculas')">Matrículas</a>
                                 <a @click="scrollToSection('link_bolsa')">Setor de bolsas</a>
                                 <a @click="scrollToSection('link_mensalidade-matricula')">Mensalidade</a>
-                                <a @click="scrollToSection('link_perguntas')">Perguntas frequêntes</a>
+                                <a @click="scrollToSection('link_perguntas')">Perguntas frequentes</a>
                                 <a @click="scrollToSection('link_contato')">Entre em contato</a>
                             </div>
                         </router-link>
@@ -247,7 +247,7 @@ nav {
 }
 
 .red-bar {
-    background: #B41C2C;
+    background: var(--red-mack);
     background: #2E2E2E;
     height: 44px;
     width: 100%;
@@ -272,7 +272,7 @@ nav {
 }
 
 #nav-4:hover {
-    background: #0070ac;
+    background: #033B59;
     transition: .2s;
 }
 
@@ -289,8 +289,9 @@ nav {
     font-size: 0.8rem;
 }
 
+
 .nav-button:hover {
-    background: #7e0612;
+    background: #7A1110;
 }
 
 .blue-bar {
@@ -391,8 +392,8 @@ nav {
     align-items: center;
     padding: 0 26px;
     height: 33px;
-    color: #B41C2C;
-    font-size: 0.8;
+    color: var(--red-mack);
+    font-size: 0.8rem;
     background: white;
     border-radius: 50px;
 }
@@ -428,6 +429,19 @@ nav {
     margin: 5px 0;
     transition: all 0.2s ease-in-out;
 }
+
+@media screen and (min-width: 1280px) {
+
+    .mackStore,
+    .internation,
+    .blue-bar,
+    .nav-button,
+    .logo-mack i,
+    .opções {
+        font-size: 0.62rem;
+    }
+}
+
 
 @media only screen and (min-width: 1600px) {
     .cont-red {
@@ -642,7 +656,7 @@ nav {
     }
 
     .nav-button--mobile .nav-button:hover {
-        background: #B41C2C;
+        background: var(--red-mack);
     }
 
     .options__nav {
@@ -681,7 +695,7 @@ nav {
     }
 
     .router-link-active {
-        background: #B41C2C;
+        background: var(--red-mack);
     }
 
     .dropdown-link:hover {

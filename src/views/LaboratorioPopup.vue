@@ -47,7 +47,7 @@
                     <p>13h às 16h</p>
                     <hr />
                     <p class="sobre__title">Localização</p>
-                    <p style="color: #0054a8">
+                    <p style="color: #00547F">
                         Campus Higienópolis - <b>Prédio 9 - Arquitetura e Design</b>
                     </p>
                     <p>R. da Consolação, 930 - Consolação, São Paulo - SP, 01302-907</p>
@@ -189,7 +189,7 @@ h3 {
 
 main {
     position: relative;
-    color: #A0A0A0;
+    color: #CCCCCC;
     padding: 30px;
     margin: auto;
     margin-top: 50px;
@@ -279,11 +279,11 @@ ul li {
 
 /* contato */
 .saiba-red_btn {
-    color: white;
+    color: #CCCCCC;
     border: none;
     font-size: 0.9rem;
-    border: 2px solid #5f0005;
-    background: #410003;
+    border: 2px solid #850D13;
+    background: #7A1110;
     min-height: 26px;
     padding: 4px 14px;
     margin-top: 8px;
@@ -295,7 +295,7 @@ ul li {
 
 .saiba-red_btn:hover {
     transition: .2s;
-    background: #5f0005;
+    background: #850D13;
 }
 
 .img-prof {
@@ -370,7 +370,6 @@ ul li {
 
 .ferramenta {
     font-size: 0.9rem;
-    font-weight: 600;
 }
 
 
@@ -427,7 +426,7 @@ ul li {
 }
 
 .laboratorio__barra {
-    background: #7a1f7f;
+    background: #CC141D;
     width: 5px;
     height: 50px;
 }

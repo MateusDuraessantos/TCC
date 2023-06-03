@@ -909,7 +909,7 @@ section {
 
 header {
   cursor: default;
-  border-bottom: 2px solid #B61827;
+  border-bottom: 2px solid var(--red-mack);
   height: calc(100vh - 148px);
 }
 
@@ -1409,7 +1409,7 @@ header {
 }
 
 .card__cargo:hover {
-  color: red;
+  color: #EB0029;
   cursor: pointer;
 }
 

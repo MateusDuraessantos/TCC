@@ -206,7 +206,7 @@
 
         <!--  -->
 
-        <el-carousel :interval="5000" arrow="always" height="90vh">
+        <el-carousel :interval="5000" arrow="always" height="85vh">
             <el-carousel-item>
                 <img class="carousel-img" src="projetos/banner3.jpg">
             </el-carousel-item>
@@ -261,6 +261,12 @@
                     </filter>
                     <filter tabindex="0">
                         Fotografia
+                    </filter>
+                    <filter tabindex="0">
+                        Motion
+                    </filter>
+                    <filter tabindex="0">
+                        Gráfico
                     </filter>
                 </div>
             </div>
@@ -1059,6 +1065,7 @@ arrow {
 .cont_tags {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     width: 100%;
 }
@@ -1067,6 +1074,8 @@ arrow {
     display: flex;
     align-items: center;
     gap: 30px;
+    width: 100%;
+    margin: auto;
     margin-top: 16px;
     margin-bottom: 64px;
 }
@@ -1082,11 +1091,11 @@ filter {
     width: 100%;
     transition: .2s;
     color: #c9c9c9;
-    border-color: rgb(107, 4, 4);
+    border-color: #7A1110;
     border-width: 4px;
     border-style: solid;
     box-shadow: 3px 3px 8px black;
-
+    white-space: nowrap;
 }
 
 filter:hover {
@@ -1096,7 +1105,7 @@ filter:hover {
 }
 
 [filter="ativo"] {
-    background: rgb(107, 4, 4);
+    background: #7A1110;
 }
 
 #teste img {
@@ -1569,7 +1578,7 @@ header-popup {
 .font-light {
     font-weight: 400;
     font-size: 0.9rem;
-    color: #A0A0A0;
+    color: #CCCCCC;
 }
 
 hr {
@@ -1674,12 +1683,12 @@ hr {
     width: 100%;
     text-align: center;
     font-weight: 400;
-    color: #A0A0A0;
+    color: #CCCCCC;
     margin-top: 40px;
 }
 
 .popup__docentes {
-    color: #A0A0A0;
+    color: #CCCCCC;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -1841,6 +1850,25 @@ hr {
         width: calc(100% - 500px);
     }
 
+    filter {
+        padding: 2px 15px;
+
+        max-width: max-content;
+    }
+
+
+    .cont_tags {
+        flex-wrap: wrap;
+    }
+
+    .filter-tag {
+        gap: 10px;
+    }
+
+    .filtro {
+        width: 100%;
+    }
+
 
 }
 
@@ -1921,6 +1949,10 @@ hr {
     .vitrine-grid {
         grid-template-columns: 1fr !important;
     }
+
+
+
+
 }
 
 /* Mobile */
@@ -1930,11 +1962,6 @@ hr {
         font-size: 1rem;
     }
 
-    filter {
-        padding: 2px 15px;
-        border-width: 1px;
-        max-width: max-content;
-    }
 
     .projectName {
         display: none;
@@ -1945,9 +1972,7 @@ hr {
         gap: 4px;
     }
 
-    .filter-tag {
-        gap: 10px;
-    }
+
 
     .body {
         width: calc(100% - 12px);
@@ -1984,13 +2009,6 @@ hr {
         max-width: 100%;
     }
 
-    .filtro {
-        width: 100%;
-    }
-
-    .cont_tags {
-        flex-wrap: wrap;
-    }
 
     /* Quer expor meu projeto */
 
@@ -2019,6 +2037,10 @@ hr {
     .cont_inputs__cadastro,
     .imagens_camp {
         padding: 22px;
+    }
+
+    filter {
+        border-width: 2px;
     }
 
 }

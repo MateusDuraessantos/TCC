@@ -31,7 +31,8 @@
                                 sua
                                 matrícula, acesse o
                                 <span
-                                    style="display: inline; text-decoration: underline; cursor: pointer; color: #009EEF;">portal
+                                    style="display: inline; text-decoration: underline; cursor: pointer; color: #00547F; font-weight: 700; padding: 0;">
+                                    portal
                                     do
                                     aluno</span>
                                 utilizando o
@@ -68,7 +69,7 @@
                             <button class="blue_btn">inscreva-se</button>
                         </div>
                     </div>
-                    <p>Para maiores informações envie-nos um e-mail: <b style="color: #009EEF;">bolsas@mackenzie.br.com</b>
+                    <p>Para maiores informações envie-nos um e-mail: <b style="color: #00547F;">bolsas@mackenzie.br.com</b>
                     </p>
                 </div>
 
@@ -112,13 +113,13 @@
                     </div>
                 </div>
 
-                <!-- Perguntas frequêntes -->
+                <!-- Perguntas frequentes -->
 
                 <div id="link_perguntas">
 
                     <div class="perguntas">
                         <title-section class="aulas__title">
-                            <h2>Perguntas frequêntes</h2>
+                            <h2>Perguntas frequentes</h2>
                         </title-section>
 
                         <el-collapse accordion class="perguntas__collapse">
@@ -132,7 +133,7 @@
                             </el-collapse-item>
                         </el-collapse>
                         <p>Para maiores informações envie-nos um e-mail:
-                            <b style="color: #009EEF;">
+                            <b style="color: #00547F;">
                                 bolsas@mackenzie.br.com</b>
                         </p>
                     </div>
@@ -161,6 +162,7 @@
                     <div class="aulas__title">
                         <h2>Entre em contato</h2>
                     </div>
+                    <br>
 
                     <!-- Inputs -->
 
@@ -342,6 +344,7 @@ export default {
 .aulas__title {
     border-color: #00547F;
 }
+
 
 #link_bolsa {
     position: relative;
@@ -587,7 +590,7 @@ header {
     z-index: 2;
 }
 
-/* Perguntas frequêntes */
+/* Perguntas frequentes */
 
 #link_perguntas {
     position: relative;
@@ -822,7 +825,7 @@ textarea {
         grid-template-columns: 1fr;
     }
 
-    /* Perguntas frequêntes */
+    /* Perguntas frequentes */
 
 
     .contato__content {

@@ -96,7 +96,7 @@ header {
   width: 48px;
   gap: 20px;
   height: 48px;
-  background: #790000;
+  background: #7A1110;
   cursor: pointer;
   border-radius: 100px;
   position: fixed;
@@ -134,7 +134,7 @@ a {
 
 .phone:hover {
   width: 130px;
-  background: #ae0e16;
+  background: #AF1816;
   opacity: 1;
   transition: .3s;
 }
@@ -249,7 +249,7 @@ input:focus,
 select:focus,
 filter:focus {
   box-shadow: 0 0 15px rgb(183, 0, 0) !important;
-  border: 1px solid red !important;
+  border: 1px solid #EB0029 !important;
   transition: .2s;
 }
 
@@ -329,7 +329,8 @@ filter:focus {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  z-index: 2;;
+  z-index: 2;
+  ;
 }
 
 .mensalidade__img {
