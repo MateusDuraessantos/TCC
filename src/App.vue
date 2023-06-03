@@ -72,7 +72,7 @@ body {
 :root {
   --page-width: 1280px;
   --blue-mack: #00547F;
-  --red-mack: #CC141D;
+  --red-mack: #E1001E;
 }
 
 header {
@@ -85,7 +85,6 @@ header {
   color: white;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
 }
-
 
 /* Botão flutuante */
 
