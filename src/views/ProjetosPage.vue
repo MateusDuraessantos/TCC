@@ -312,7 +312,6 @@
                         <div class="teste pass__container" v-if="next" id="next">
                             <button class="reload next"></button>
                             <p>→</p>
-
                         </div>
 
                         <div class="teste pass__container" v-if="back" id="back">
@@ -652,30 +651,29 @@ export default {
             const clickedfilter = event.target
             const elementsFilterd = document.querySelectorAll(`.projeto`)
 
-
             /* Filtra os projetos que aparecerem */
 
+            if (clickedfilter.getAttribute(`categoryName`) != null) {
+                for (let i = 0; i < elementsFilterd.length; i++) {
 
-            for (let i = 0; i < elementsFilterd.length; i++) {
 
+                    //Faz os elementos ocultados aparecerem, para que o if abaixo possa fazer a tag selecionada, filtrar os projetos
+                    if (elementsFilterd[i].style.display == `none`) {
 
-                //Faz os elementos ocultados aparecerem, para que o if abaixo possa fazer a tag selecionada, filtrar os projetos
-                if (elementsFilterd[i].style.display == `none`) {
+                        elementsFilterd[i].style.display = `block`
 
-                    elementsFilterd[i].style.display = `block`
+                    }
 
-                }
-
-                //Faz os elementos que não são os selecionados, sumirem
-                if (elementsFilterd[i].classList[1] != `categoria__${clickedfilter.getAttribute(`categoryname`)}`) {
-                    elementsFilterd[i].style.display = `none`
-                    this.passImagens = false
-                }
-                //Faz todos os elementos aparecerem novamente
-                if (clickedfilter.getAttribute(`categoryname`) == `todos`) {
-                    elementsFilterd[i].removeAttribute(`style`)
-                    this.passImagens = true
-
+                    //Faz os elementos que não são os selecionados, sumirem
+                    if (elementsFilterd[i].classList[1] != `categoria__${clickedfilter.getAttribute(`categoryname`)}`) {
+                        elementsFilterd[i].style.display = `none`
+                        this.passImagens = false
+                    }
+                    //Faz todos os elementos aparecerem novamente
+                    if (clickedfilter.getAttribute(`categoryname`) == `todos`) {
+                        elementsFilterd[i].removeAttribute(`style`)
+                        this.passImagens = true
+                    }
                 }
             }
 
@@ -685,9 +683,6 @@ export default {
                 filter.removeAttribute('filter')
                 clickedfilter.setAttribute('filter', 'ativo')
             }
-
-
-
         },
 
         exporProjeto(event) {
@@ -702,7 +697,6 @@ export default {
             }
         }
     },
-
 }
 </script>
 
