@@ -82,9 +82,11 @@
           <div class="container_objetivo">
             <div class="aulas__title">
               <h1 class="title">Matérias | Matriz Curricular <span class="some">- Um pouquinho do que você vai
-                  aprender</span> </h1>
+                  aprender</span>
+              </h1>
             </div>
           </div>
+          <br>
 
           <el-tabs v-model="activeNameNav" class="demo-tabs" @tab-click="handleClick">
             <el-tab-pane label="Matriz Curricular" name="first">
@@ -312,6 +314,7 @@
               <div class="aulas__title">
                 <h1 class="title">Prédio 9 | Arquitetura e Urbanismo e Design</h1>
               </div>
+              <br>
               <p class="predio__description">
                 &nbsp; O Prédio 9 de Design da Universidade Presbiteriana Mackenzie Higienópolis é um edifício moderno e
                 tecnológico localizado no coração de São Paulo, Brasil.

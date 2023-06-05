@@ -242,14 +242,14 @@ select {
   resize: none;
   outline: 2px solid transparent;
   transition: .2s;
-  border: 1px solid transparent;
+  border: 4px solid transparent;
 }
 
 input:focus,
 select:focus,
 filter:focus {
-  box-shadow: 0 0 15px rgb(183, 0, 0) !important;
-  border: 1px solid #EB0029 !important;
+  box-shadow: 0 0 16px rgb(183, 0, 0) !important;
+  border: 4px solid #EB0029 !important;
   transition: .2s;
 }
 

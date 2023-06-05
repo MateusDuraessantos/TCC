@@ -244,28 +244,34 @@
 
             <div class="filter-tags">
                 <div class="cont_tags" @click="category">
-                    <filter tabindex="0" filter="ativo">
+                    <filter tabindex="0" categoryName="todos" filter="ativo" @click="mateusLindo">
                         Todos
                     </filter>
-                    <filter tabindex="0">
-                        Editorial
+                    <filter tabindex="0" categoryName="produto">
+                        Produto
                     </filter>
-                    <filter tabindex="0">
-                        Mobiliario
+                    <filter tabindex="0" categoryName="mobiliario">
+                        Mobiliário
                     </filter>
-                    <filter tabindex="0">
+                    <filter tabindex="0" categoryName="modelagem">
                         Renders 3D
                     </filter>
-                    <filter tabindex="0">
-                        Desenho
-                    </filter>
-                    <filter tabindex="0">
+                    <filter tabindex="0" categoryName="fotografia">
                         Fotografia
                     </filter>
-                    <filter tabindex="0">
-                        Motion
+                    <filter tabindex="0" categoryName="desenho">
+                        Desenho
                     </filter>
-                    <filter tabindex="0">
+                    <filter tabindex="0" categoryName="joia">
+                        Jóia
+                    </filter>
+                    <filter tabindex="0" categoryName="websites">
+                        UX/UI
+                    </filter>
+                    <filter tabindex="0" categoryName="editorial">
+                        Editorial
+                    </filter>
+                    <filter tabindex="0" categoryName="grafico">
                         Gráfico
                     </filter>
                 </div>
@@ -301,7 +307,7 @@
 
                     <!-- Passar e voltar -->
 
-                    <div class="pass">
+                    <div class="pass" v-if="passImagens">
 
                         <div class="teste pass__container" v-if="next" id="next">
                             <button class="reload next"></button>
@@ -322,8 +328,17 @@
                             <span>
                                 <p class="font-light">5° Semestre</p>
                                 <div class="title-popup">
-                                    <h5>Logomarca</h5>
-                                    <tag type="white">Editorial</tag>
+                                    <h5>
+                                        <span v-for="portfolio in projects[indexPopup].name">
+                                            {{ portfolio }}
+                                        </span>
+                                    </h5>
+                                    <tag type="white">
+                                        <span v-for="portfolio in projects[indexPopup].categoria">
+                                            {{ portfolio }}
+                                        </span>
+                                    </tag>
+
                                 </div>
                                 <p class="font-light">Um pouco sobre como foi o projeto</p>
                             </span>
@@ -342,7 +357,10 @@
                             <div class="description">
                                 <span>
                                     <p v-for="teste in projects[indexPopup].description">
-                                        &nbsp;&nbsp;{{ teste }} </p>
+                                        &nbsp;&nbsp;{{ teste }}
+                                        <br>
+                                        <br>
+                                    </p>
                                 </span>
 
                                 <!-- Download -->
@@ -390,12 +408,10 @@
                                     <br>
                                     <h6>Palavras chave</h6>
                                     <div class="grid__tags">
-                                        <tag type="black">gaming</tag>
-                                        <tag type="black">tabuleiro</tag>
-                                        <tag type="black">vermelho</tag>
-                                        <tag type="black">design</tag>
-                                        <tag type="black">produto</tag>
-                                        <tag type="black">board</tag>
+                                        <tag type="black" v-for="portfolio in projects[indexPopup].palavrasChave">
+                                            {{ portfolio }}
+                                        </tag>
+
                                     </div>
                                     <p class="data_publi">Publicação: 2 de março de 2022</p>
                                 </div>
@@ -407,8 +423,13 @@
 
             <!--  -->
 
+
             <div class="container-projetos">
-                <div class="projeto" v-for="(project, index) in limitedItems" :key="index" @click="upPopup($event, index)">
+                <div :class="`projeto categoria__${project.categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}`"
+                    v-for="(project, index) in limitedItems" :key="index"
+                    @click="upPopup($event, index, project.categoria)">
+
+
                     <img class="projeto_thumb" :src="'projetos/' + project.thumb" loading="lazy">
                     <div class="container_user">
                         <div class="user" v-for="ownersv in project.owner">
@@ -442,10 +463,11 @@ export default {
             indexPopup: null,
             coisas: 4,
             maxItems: 20,
-
             /* Passar projetos com seta */
             next: true,
             back: true,
+            /*  */
+            passImagens: true
 
         }
     },
@@ -469,7 +491,10 @@ export default {
             this.imagesNumber = 0
 
             setTimeout(() => {
-                document.getElementById('popup__container').classList.add('popup--animation')
+                if (this.popupValue) {
+                    //O if é para evitar erros ao fechar o popupo, para não adicionar a classe ao fechar o popup
+                    document.getElementById('popup__container').classList.add('popup--animation')
+                }
             }, 100);
 
             if (event.currentTarget.classList[0] == 'projeto' || clicked == 'popup__overflow' || clicked == 'popup__close') {
@@ -481,8 +506,6 @@ export default {
 
                 if (this.popupValue == true) {
                     document.body.style.overflow = "hidden"
-
-
                 } else {
                     document.querySelector('body').removeAttribute('style')
                     this.next = true
@@ -547,19 +570,18 @@ export default {
                         setTimeout(() => {
                             this.criaColunas()
                             document.getElementById('popup__container').classList.remove('popup--animatio')
-                        }, 1);
+                        }, 9);
                     }
 
-                }, 1);
+                }, 10);
             }
-
         },
 
         async criaColunas() {
             const grid = document.getElementById('grid')
 
-            this.numImgGrid = grid.children.length
 
+            this.numImgGrid = grid.children.length
             if (grid.childElementCount > 2) {
 
                 for (let x = 0; x <= grid.childElementCount; x++) {
@@ -621,18 +643,51 @@ export default {
                     column1.appendChild(column0.childNodes[column0.children.length - 1])
                 }
 
+
             }
         },
 
         category(event) {
 
-            const filterSelected = event.target
+            const clickedfilter = event.target
+            const elementsFilterd = document.querySelectorAll(`.projeto`)
+
+
+            /* Filtra os projetos que aparecerem */
+
+
+            for (let i = 0; i < elementsFilterd.length; i++) {
+
+
+                //Faz os elementos ocultados aparecerem, para que o if abaixo possa fazer a tag selecionada, filtrar os projetos
+                if (elementsFilterd[i].style.display == `none`) {
+
+                    elementsFilterd[i].style.display = `block`
+
+                }
+
+                //Faz os elementos que não são os selecionados, sumirem
+                if (elementsFilterd[i].classList[1] != `categoria__${clickedfilter.getAttribute(`categoryname`)}`) {
+                    elementsFilterd[i].style.display = `none`
+                    this.passImagens = false
+                }
+                //Faz todos os elementos aparecerem novamente
+                if (clickedfilter.getAttribute(`categoryname`) == `todos`) {
+                    elementsFilterd[i].removeAttribute(`style`)
+                    this.passImagens = true
+
+                }
+            }
+
             const filter = document.querySelector('[filter]')
 
-            if (filterSelected.getAttribute('filter') == null && filterSelected.tagName == 'FILTER') {
+            if (clickedfilter.getAttribute('filter') == null && clickedfilter.tagName == 'FILTER') {
                 filter.removeAttribute('filter')
-                filterSelected.setAttribute('filter', 'ativo')
+                clickedfilter.setAttribute('filter', 'ativo')
             }
+
+
+
         },
 
         exporProjeto(event) {
@@ -647,6 +702,7 @@ export default {
             }
         }
     },
+
 }
 </script>
 
@@ -1292,8 +1348,6 @@ h6 {
 }
 
 /* Pass Projetc */
-
-
 .pass {
     visibility: hidden;
     position: fixed;
@@ -1340,12 +1394,14 @@ h6 {
 #back button {
     backdrop-filter: blur(12px);
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    border: none;
+    width: 82px;
+    height: 82px;
     background: rgba(255, 255, 255, 0.1);
     transition: .2s;
 }
+
+
+
 
 #next p,
 #back p {
@@ -1716,7 +1772,6 @@ hr {
     margin-bottom: 100px;
 }
 
-
 @media only screen and (min-width:2001px) {
     .container-projetos {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -1730,21 +1785,17 @@ hr {
 }
 
 @media only screen and (max-width: 1980px) {
-
-    /*  */
     .description {
         display: flex;
         flex-direction: column;
         gap: 38px;
     }
-
 }
 
 @media only screen and (max-width: 1800px) {
     .container-projetos {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-
 }
 
 
@@ -1760,6 +1811,15 @@ hr {
 
 @media only screen and (max-width: 1000px) {
 
+
+    #next button,
+    #back button {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+
+    }
 
     /*  */
 
