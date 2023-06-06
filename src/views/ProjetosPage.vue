@@ -236,7 +236,21 @@
                         </select>
                     </div>
 
-                    <input type="text" class="buscar" placeholder="Pesquisar:">
+
+
+                    <div class="barra-de-pesquisa">
+
+                        <input type="text" autocomplete="off" class="barra-de-pesquisa__input" id="FieldCamp"
+                            @focus="testes" @blur="testes" @input="gridLength" v-model="valueInput"
+                            placeholder="Pesquisar:">
+
+                        <div class="barra-de-pesquisa__dropdown barra-de-pesquisa__button" v-if="fewfew">
+                            <button style="pointer-events: none;" v-if="semResultados">Sem resultados</button>
+                            <div id="resultadosDeBusca"></div>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
 
@@ -461,12 +475,18 @@ export default {
             popupValue: false,
             indexPopup: null,
             coisas: 4,
-            maxItems: 40,
+            maxItems: 10,
             /* Passar projetos com seta */
             next: true,
             back: true,
             /*  */
-            passImagens: true
+            passImagens: true,
+            // valueInput: null,
+            valueInput: null,
+
+            semResultados: true,
+
+            fewfew: false,
 
         }
     },
@@ -475,7 +495,59 @@ export default {
             return this.projects.slice(0, this.maxItems);
         }
     },
+    mounted() {
+        // this.scrolltoTop()
+    },
     methods: {
+        scrolltoTop() {
+            this.$nextTick(() => {
+                window.scrollTo(0, 0);
+            });
+        },
+
+        testes() {
+
+            this.fewfew = !this.fewfew
+
+
+            this.semResultados == !this.semResultados
+
+        },
+
+        gridLength() {
+
+
+            this.valueInput = document.getElementById(`FieldCamp`).value
+            let projetos = document.querySelectorAll(`.projeto`)
+
+            let resultadosDeBusca = document.getElementById('resultadosDeBusca')
+
+
+            for (let i = 0; projetos.length > i; i++) {
+
+                if (projetos[i].classList[1].split('categoria__')[1].includes(this.valueInput.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')) && !this.valueInput == ``) {
+
+
+
+                    resultadosDeBusca.innerHTML = ''
+                    setTimeout(() => {
+
+                        resultadosDeBusca.innerHTML += `<button>${projetos[i].classList[1].split('categoria__')[1]}</button> <br>`
+                        this.semResultados = false
+                    }, 1);
+
+                }
+                else {
+                    resultadosDeBusca.innerHTML = ''
+                    this.semResultados = true
+                }
+
+            }
+
+
+        },
+
+
         changenumber() {
             if (this.maxItems < this.projects.length) {
                 this.maxItems += 20
@@ -705,6 +777,52 @@ export default {
 </script>
 
 <style>
+/* Barra de pesquisa */
+
+.barra-de-pesquisa {
+    position: relative;
+}
+
+.barra-de-pesquisa__input {
+    width: 100%;
+}
+
+.barra-de-pesquisa__button button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 20px 30px;
+    width: 100%;
+    transition: .2s;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: start;
+}
+
+.barra-de-pesquisa__button button:hover {
+    background-color: #414141;
+    transition: .2s;
+}
+
+.barra-de-pesquisa__dropdown {
+    padding-top: 10px;
+    position: absolute;
+    background-color: #2c2c2c;
+    transform: translatey(2px);
+    border-radius: 22px;
+    z-index: 6;
+    overflow: hidden;
+}
+
+.inputs__cadastro {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        'empty empty empty'
+        'null uploadCampo uploadCampo';
+    gap: 20px 40px;
+}
+
 /* Grid do popup */
 
 .vitrine-count {
@@ -979,20 +1097,6 @@ input[type="file"] {
 .delete:hover {
     opacity: 0.7;
     transition: .2s;
-}
-
-.buscar {
-    width: 100%;
-
-}
-
-.inputs__cadastro {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-        'empty empty empty'
-        'null uploadCampo uploadCampo';
-    gap: 20px 40px;
 }
 
 .grid-upload {

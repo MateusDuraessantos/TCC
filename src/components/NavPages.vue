@@ -224,8 +224,6 @@ arrow {
     font-size: 0.9rem;
 }
 
-
-
 /*  */
 nav {
     position: sticky;

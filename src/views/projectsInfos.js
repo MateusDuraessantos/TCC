@@ -1187,7 +1187,7 @@ export const dados = {
                 'O trabalho dos web designers que também fazem o front-end é muito importante para garantir que os sites e aplicativos tenham uma aparência atraente e sejam fáceis de usar. Eles precisam ter uma compreensão sólida de design, bem como conhecimento técnico em HTML, CSS e JavaScript.',
             ]
         },
-        
+
         {
             name: 'Fotografia',
             categoria: 'Fotografia',
@@ -3716,7 +3716,7 @@ export const dados = {
                 ' O nome "cobogó" tem origem na junção dos sobrenomes dos seus criadores, Amadeu Oliveira Coimbra, Ernest August Boeckmann e Antônio de Góis.O elemento se popularizou no Nordeste do Brasil a partir da década de 1920, sendo muito utilizado em construções residenciais e comerciais.'
             ]
         },
-        
+
         {
             name: 'Fotografia',
             categoria: 'Fotografia',
@@ -4686,7 +4686,7 @@ export const dados = {
                 'Em resumo, o trabalho editorial é fundamental para garantir a qualidade do conteúdo publicado e para que ele atenda às necessidades e expectativas do público-alvo.'
             ]
         },
-        
+
         {
             name: 'Montagens',
             categoria: 'Gráfico',
@@ -5379,7 +5379,7 @@ export const dados = {
                 'Hoje em dia, a fotografia é uma das formas mais populares de expressão artística e é utilizada em diversas áreas, como moda, publicidade, jornalismo, cinema e documentação científica. Seja como um hobby ou profissão, a fotografia continua a fascinar e inspirar pessoas em todo o mundo.'
             ]
         },
-        
+
         {
             name: 'Mesa Gamer',
             categoria: 'Mobiliário',
@@ -5499,7 +5499,8 @@ export const dados = {
                     'tabuleiro/imagens/7.jpg',
                     'tabuleiro/imagens/8.jpg',
                 ],
-            description: ['Jogos de tabuleiro são uma forma de entretenimento que tem sido apreciada há séculos em diferentes culturas ao redor do mundo. Eles são geralmente jogados em um tabuleiro, que pode ser feito de vários materiais, e envolvem o movimento de peças em um determinado padrão, seguindo regras específicas. ',
+            description: [
+                'Jogos de tabuleiro são uma forma de entretenimento que tem sido apreciada há séculos em diferentes culturas ao redor do mundo. Eles são geralmente jogados em um tabuleiro, que pode ser feito de vários materiais, e envolvem o movimento de peças em um determinado padrão, seguindo regras específicas. ',
                 'Os jogos de tabuleiro podem ser jogados por qualquer pessoa, independentemente da idade ou habilidade. Eles podem ser jogados em grupo ou individualmente e são uma ótima maneira de passar o tempo e socializar com amigos e familiares. Além do entretenimento, os jogos de tabuleiro também oferecem benefícios cognitivos e sociais. Eles podem ajudar a desenvolver habilidades de pensamento crítico, resolução de problemas, planejamento estratégico e comunicação interpessoal.'
             ]
         },
@@ -5696,7 +5697,7 @@ export const dados = {
                 'Ambas as técnicas têm suas próprias vantagens e podem ser utilizadas de formas complementares. Enquanto o desenho à lápis oferece uma sensação mais tátil e artesanal, o desenho digital oferece uma precisão e facilidade de edição que podem ser úteis em certos projetos. No final das contas, a escolha entre uma técnica ou outra dependerá das preferências e habilidades do artista, bem como das necessidades do projeto em questão.'
             ]
         },
-        
+
         {
             name: 'Editorial',
             categoria: 'Editorial',
@@ -5744,7 +5745,7 @@ export const dados = {
                 'Em resumo, o trabalho editorial é fundamental para garantir a qualidade do conteúdo publicado e para que ele atenda às necessidades e expectativas do público-alvo.'
             ]
         },
-       
+
         {
             name: 'Montagens',
             categoria: 'Gráfico',
@@ -6034,7 +6035,7 @@ export const dados = {
                 'Ambas as técnicas têm suas próprias vantagens e podem ser utilizadas de formas complementares. Enquanto o desenho à lápis oferece uma sensação mais tátil e artesanal, o desenho digital oferece uma precisão e facilidade de edição que podem ser úteis em certos projetos. No final das contas, a escolha entre uma técnica ou outra dependerá das preferências e habilidades do artista, bem como das necessidades do projeto em questão.'
             ]
         },
-        
+
         {
             name: 'Fotografia',
             categoria: 'Fotografia',
@@ -6099,7 +6100,7 @@ export const dados = {
                 'Hoje em dia, a fotografia é uma das formas mais populares de expressão artística e é utilizada em diversas áreas, como moda, publicidade, jornalismo, cinema e documentação científica. Seja como um hobby ou profissão, a fotografia continua a fascinar e inspirar pessoas em todo o mundo.'
             ]
         },
-        
+
 
     ]
 }
