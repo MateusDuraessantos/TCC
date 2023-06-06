@@ -461,7 +461,7 @@ export default {
             popupValue: false,
             indexPopup: null,
             coisas: 4,
-            maxItems: 20,
+            maxItems: 40,
             /* Passar projetos com seta */
             next: true,
             back: true,
@@ -632,17 +632,17 @@ export default {
 
             if (this.numImgGrid == this.imagesNumber) {
 
+                setTimeout(() => {
 
-                //Faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
+                    //Faz comparações de tamanho de coluna para tentar manter as duas no mesmo tamanho
 
-                let column0 = document.getElementById('column-0')
-                let column1 = document.getElementById('column-1')
+                    let column0 = document.getElementById('column-0')
+                    let column1 = document.getElementById('column-1')
 
-                if (column0.clientHeight - column0.children[column0.children.length - 1].clientHeight - 10 > column1.clientHeight) {
-                    column1.appendChild(column0.childNodes[column0.children.length - 1])
-                }
-
-
+                    if (column0.clientHeight - column0.children[column0.children.length - 1].clientHeight - 10 > column1.clientHeight) {
+                        column1.appendChild(column0.childNodes[column0.children.length - 1])
+                    }
+                }, 10);
             }
         },
 
@@ -651,11 +651,11 @@ export default {
             const clickedfilter = event.target
             const elementsFilterd = document.querySelectorAll(`.projeto`)
 
+
             /* Filtra os projetos que aparecerem */
 
             if (clickedfilter.getAttribute(`categoryName`) != null) {
                 for (let i = 0; i < elementsFilterd.length; i++) {
-
 
                     //Faz os elementos ocultados aparecerem, para que o if abaixo possa fazer a tag selecionada, filtrar os projetos
                     if (elementsFilterd[i].style.display == `none`) {
@@ -666,13 +666,17 @@ export default {
 
                     //Faz os elementos que não são os selecionados, sumirem
                     if (elementsFilterd[i].classList[1] != `categoria__${clickedfilter.getAttribute(`categoryname`)}`) {
+
                         elementsFilterd[i].style.display = `none`
+
                         this.passImagens = false
                     }
                     //Faz todos os elementos aparecerem novamente
                     if (clickedfilter.getAttribute(`categoryname`) == `todos`) {
+
                         elementsFilterd[i].removeAttribute(`style`)
                         this.passImagens = true
+
                     }
                 }
             }
@@ -1484,6 +1488,7 @@ header-popup {
 
 
 .popup_buttons {
+    pointer-events: none;
     position: fixed;
     display: flex;
     align-items: flex-end;
@@ -1555,6 +1560,7 @@ header-popup {
     cursor: pointer;
     z-index: 2;
     gap: 16px;
+    pointer-events: initial;
     animation-name: opacitySuave;
     animation-duration: 1.1s;
     animation-fill-mode: forwards;
