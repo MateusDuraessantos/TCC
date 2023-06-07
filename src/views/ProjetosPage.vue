@@ -238,7 +238,7 @@
 
 
 
-                    <div class="barra-de-pesquisa" @click="testex">
+                    <div class="barra-de-pesquisa" @click="barSearch">
                         <input type="text" autocomplete="off" class="barra-de-pesquisa__input" id="FieldCamp"
                             @focus="showOffResults" @blur="showOffResults" @input="gridLength" v-model="valueInput"
                             placeholder="Pesquisar:">
@@ -650,10 +650,11 @@ export default {
         },
 
         async criaColunas() {
+            
             const grid = document.getElementById('grid')
 
-
             this.numImgGrid = grid.children.length
+
             if (grid.childElementCount > 2) {
 
                 for (let x = 0; x <= grid.childElementCount; x++) {
@@ -678,7 +679,6 @@ export default {
         square() {
 
             // Observa quantos grids o container id="grid" se iniciou ao subir o popup
-
             const grid = document.getElementById('grid')
             let layout = document.getElementById('layout')
 
@@ -701,8 +701,6 @@ export default {
             this.imagesNumber += 1
 
             // this.imagesNumber começa com 0, conforme as imagens carregam, a função é executada e é acrescentado +1, quando esse valor for igual a this.numImgGrid (array das imagens), ele executa a função
-
-
             if (this.numImgGrid == this.imagesNumber) {
 
                 setTimeout(() => {
@@ -719,9 +717,7 @@ export default {
             }
         },
 
-
-        testex(event) {
-
+        barSearch(event) {
 
             if (event.target.classList[0] == undefined) {
 
@@ -735,8 +731,6 @@ export default {
             const clickedfilter = event ? event.target.getAttribute(`categoryname`) : eventBarraDePesquisa
 
             const elementsFilterd = document.querySelectorAll(`.projeto`)
-
-            console.log(eventBarraDePesquisa)
 
             // Filtra os projetos que aparecerem
 
@@ -756,14 +750,13 @@ export default {
                         elementsFilterd[i].style.display = `none`
 
                         this.passImagens = false
-                        console.log(`mateus`)
+                     
                     }
                     //Faz todos os elementos aparecerem novamente
                     if (clickedfilter == `todos`) {
 
                         elementsFilterd[i].removeAttribute(`style`)
                         this.passImagens = true
-
                     }
                 }
             }
@@ -777,9 +770,7 @@ export default {
                 filter.removeAttribute('filter')
                 clickedfilterx.setAttribute('filter', 'ativo')
             }
-
         },
-
 
         exporProjeto(event) {
             const e = event.target.classList[0]
