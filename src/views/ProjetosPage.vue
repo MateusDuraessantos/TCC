@@ -238,10 +238,9 @@
 
 
 
-                    <div class="barra-de-pesquisa">
-
+                    <div class="barra-de-pesquisa" @click="testex">
                         <input type="text" autocomplete="off" class="barra-de-pesquisa__input" id="FieldCamp"
-                            @focus="testes" @blur="testes" @input="gridLength" v-model="valueInput"
+                            @focus="showOffResults" @blur="showOffResults" @input="gridLength" v-model="valueInput"
                             placeholder="Pesquisar:">
 
                         <div class="barra-de-pesquisa__dropdown barra-de-pesquisa__button" v-if="fewfew">
@@ -505,17 +504,19 @@ export default {
             });
         },
 
-        testes() {
+        showOffResults() {
 
-            this.fewfew = !this.fewfew
+            setTimeout(() => {
+                this.fewfew = !this.fewfew
 
+
+            }, 100);
 
             this.semResultados == !this.semResultados
 
         },
 
         gridLength() {
-
 
             this.valueInput = document.getElementById(`FieldCamp`).value
             let projetos = document.querySelectorAll(`.projeto`)
@@ -527,12 +528,14 @@ export default {
 
                 if (projetos[i].classList[1].split('categoria__')[1].includes(this.valueInput.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')) && !this.valueInput == ``) {
 
-
-
                     resultadosDeBusca.innerHTML = ''
                     setTimeout(() => {
 
-                        resultadosDeBusca.innerHTML += `<button>${projetos[i].classList[1].split('categoria__')[1]}</button> <br>`
+                        // resultadosDeBusca.innerHTML += `<button>${projetos[i].classList[1].split('categoria__')[1]}</button> <br>`
+                        resultadosDeBusca.innerHTML += `<button categoria="${projetos[i].classList[1]}">${projetos[i].querySelector(`.projectName`).innerText}</button> <br>`
+
+
+
                         this.semResultados = false
                     }, 1);
 
@@ -543,8 +546,6 @@ export default {
                 }
 
             }
-
-
         },
 
 
@@ -718,15 +719,28 @@ export default {
             }
         },
 
-        category(event) {
 
-            const clickedfilter = event.target
+        testex(event) {
+
+
+            if (event.target.classList[0] == undefined) {
+
+                this.category(null, event.target.getAttribute(`categoria`).split(`categoria__`)[1])
+            }
+        },
+
+        category(event, eventBarraDePesquisa) {
+
+
+            const clickedfilter = event ? event.target.getAttribute(`categoryname`) : eventBarraDePesquisa
+
             const elementsFilterd = document.querySelectorAll(`.projeto`)
 
+            console.log(eventBarraDePesquisa)
 
-            /* Filtra os projetos que aparecerem */
+            // Filtra os projetos que aparecerem
 
-            if (clickedfilter.getAttribute(`categoryName`) != null) {
+            if (clickedfilter !== null) {
                 for (let i = 0; i < elementsFilterd.length; i++) {
 
                     //Faz os elementos ocultados aparecerem, para que o if abaixo possa fazer a tag selecionada, filtrar os projetos
@@ -737,14 +751,15 @@ export default {
                     }
 
                     //Faz os elementos que não são os selecionados, sumirem
-                    if (elementsFilterd[i].classList[1] != `categoria__${clickedfilter.getAttribute(`categoryname`)}`) {
+                    if (elementsFilterd[i].classList[1] !== `categoria__${clickedfilter}`) {
 
                         elementsFilterd[i].style.display = `none`
 
                         this.passImagens = false
+                        console.log(`mateus`)
                     }
                     //Faz todos os elementos aparecerem novamente
-                    if (clickedfilter.getAttribute(`categoryname`) == `todos`) {
+                    if (clickedfilter == `todos`) {
 
                         elementsFilterd[i].removeAttribute(`style`)
                         this.passImagens = true
@@ -753,13 +768,18 @@ export default {
                 }
             }
 
-            const filter = document.querySelector('[filter]')
+            //Tira e ativa o background dos filtros clicados
 
-            if (clickedfilter.getAttribute('filter') == null && clickedfilter.tagName == 'FILTER') {
+            const filter = document.querySelector('[filter]')
+            const clickedfilterx = event.target
+
+            if (clickedfilterx.getAttribute('filter') == null && clickedfilterx.tagName == 'FILTER') {
                 filter.removeAttribute('filter')
-                clickedfilter.setAttribute('filter', 'ativo')
+                clickedfilterx.setAttribute('filter', 'ativo')
             }
+
         },
+
 
         exporProjeto(event) {
             const e = event.target.classList[0]
