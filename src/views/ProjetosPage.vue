@@ -248,7 +248,6 @@
                             <div id="resultadosDeBusca"></div>
                         </div>
 
-
                     </div>
                 </div>
             </div>
@@ -435,14 +434,13 @@
 
             <!--  -->
 
-
             <div class="container-projetos">
                 <div :class="`projeto categoria__${project.categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}`"
                     v-for="(project, index) in limitedItems" :key="index"
                     @click="upPopup($event, index, project.categoria)">
 
+                    <img class="projeto_thumb" :src="'projetos/' + project.thumb">
 
-                    <img class="projeto_thumb" :src="'projetos/' + project.thumb" loading="lazy">
                     <div class="container_user">
                         <div class="user" v-for="ownersv in project.owner">
                             <img class="user_img" :src="'projetos/' + ownersv.userFoto" />
@@ -474,7 +472,7 @@ export default {
             popupValue: false,
             indexPopup: null,
             coisas: 4,
-            maxItems: 10,
+            maxItems: 60,
             /* Passar projetos com seta */
             next: true,
             back: true,
@@ -482,9 +480,7 @@ export default {
             passImagens: true,
             // valueInput: null,
             valueInput: null,
-
             semResultados: true,
-
             fewfew: false,
 
         }
@@ -495,7 +491,7 @@ export default {
         }
     },
     mounted() {
-        // this.scrolltoTop()
+        this.scrolltoTop()
     },
     methods: {
         scrolltoTop() {
@@ -650,7 +646,7 @@ export default {
         },
 
         async criaColunas() {
-            
+
             const grid = document.getElementById('grid')
 
             this.numImgGrid = grid.children.length
@@ -750,7 +746,7 @@ export default {
                         elementsFilterd[i].style.display = `none`
 
                         this.passImagens = false
-                     
+
                     }
                     //Faz todos os elementos aparecerem novamente
                     if (clickedfilter == `todos`) {
