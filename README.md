@@ -1,19 +1,19 @@
-# tcc
+## TCC - Redesign website do curso de Design Mackenzie
+See my project working: https://mackenzie-tcc.web.app/#/
 
-## Project setup
-```
-npm install
-```
+* Designed and Programmed by: Me
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## ⚙️ Technologies I used
 
-### Compiles and minifies for production
-```
-npm run build
-```
+HTML/CSS
+VueJs
+Element Plus
+Javascript
+Firebase
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### You can find me at: 
+
+* My website: https://mateusduraessantos.com
+* My GitHub: https://github.com/MateusDuraessantos
+* Email me: mateusduraessantos@gmail.com
+* My LinkedIn: https://www.linkedin.com/in/mateus-durães-dos-santos/
