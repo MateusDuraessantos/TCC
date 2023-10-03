@@ -5,11 +5,11 @@ See my project working: https://mackenzie-tcc.web.app/#/
 
 ## ⚙️ Technologies I used
 
-HTML/CSS
-VueJs
-Element Plus
-Javascript
-Firebase
+* HTML/CSS
+* VueJs
+* Element Plus
+* Javascript
+* Firebase
 
 #### You can find me at: 
 
